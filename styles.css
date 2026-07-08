@@ -1,0 +1,285 @@
+* {
+    padding: 0;
+    box-sizing: 0;
+    margin: 0;
+    text-decoration: none;
+    list-style: none;
+    font-family: "Iceberg", sans-serif;
+
+}
+
+body {
+    background-color: #090912;
+}
+
+/*Menu de pesquisa*/
+
+.pesquisa{
+background-color: #151027;
+border: 0.2px solid #8A4DFF;
+display: flex;
+align-items: center;
+justify-content: space-around;
+gap: 500px;
+padding-top: 15px;
+padding-bottom: 15px;
+position: fixed;
+font-family: "Iceberg", sans-serif;
+width: 100%;
+}
+
+.btn-expandir .icon{
+    color: #fff;
+    background-color: transparent;
+    border: hidden;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 5px;
+    transition: 0.2s;
+    
+}
+
+.btn-expandir .icon:hover{
+    border-radius: 25%;
+    color: #8A4DFF;
+    background-color:rgba(255, 255, 255, 0.062);
+}
+
+.btn-expandir .txt-link> i{
+    font-size: 24px;
+    color: #8A4DFF;
+    margin-left: 15px;
+}
+
+.btn-expandir .txt-link{
+    color: #fff;
+    font-size: 24px;
+    
+}
+
+.btn-expandir .txt-particion{
+    color: #8A4DFF;
+}
+
+
+.search-container {
+    display: flex;
+    align-items: center;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+/* O formulário que une o input e o botão */
+.search-form {
+    display: flex;
+    border: 2px solid rgba(138, 77, 255, .25);
+    border-radius: 25px;
+    /* Deixa as bordas arredondadas */
+    overflow: hidden;
+    /* Garante que o botão respeite o arredondamento */
+    transition: all 0.3s ease;
+    background-color: #fff;
+}
+
+/* Efeito quando o usuário clica na barra de pesquisa */
+.search-form:focus-within {
+    border-color: rgba(138, 77, 255, .25);
+    /* Cor azul moderna */
+    box-shadow: 0 0 8px rgba(138, 77, 255, .25);
+}
+
+/* O formulário (a barra visível com a borda cinza) */
+.search-form {
+    display: flex;
+    align-items: center;
+    /* Alinha o input e o botão verticalmente no centro */
+    border: 2px solid rgba(138, 77, 255, .25);
+    border-radius: 30px;
+    /* Arredondamento da barra */
+    background-color: #130A24;
+
+    width: 100%;
+    max-width: 500px;
+
+    /* REMOVA o 'overflow: hidden' se ele estiver atrapalhando, ou mantenha */
+    overflow: hidden;
+}
+
+/* O campo de texto (Input) */
+.barra {
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 18px;
+    text-align: left;
+
+    /* FAZ O INPUT OCUPAR TODO O TAMANHO DA BARRA */
+    flex: 5;
+    /* Faz o input "esticar" e ocupar todo o espaço antes do botão */
+    height: 100%;
+    /* Ocupa toda a altura do formulário */
+    align-self: stretch;
+
+    /* AJUSTE O ESPAÇAMENTO INTERNO (PADDING) */
+    padding: 14px 0px 15px 25px;
+    /* 14px cima/baixo, 0px na direita, 25px na esquerda */
+
+    /* Garante que o clique nos cantos arredondados também ative o input */
+    border-radius: 30px 0 0 30px;
+}
+
+/* O botão da lupa */
+.btn-search {
+    background: none;
+    border: none;
+    height: 100%;
+    /* Ocupa a altura total para alinhar com o input */
+    padding: 0 20px;
+    /* Espaço nas laterais da lupa */
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    color: #B8B8C8;
+}
+
+/* Mudança de cor do ícone de busca ao passar o mouse */
+.btn-search:hover {
+    color: #B06EFF;
+}
+
+/* --- Estilo opcional para os outros botões do lado --- */
+.user-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 10px;
+
+    /* Ajuste dependendo do seu layout */
+    i {
+        color: #fff;
+    }
+}
+
+.user-link>i {
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 25px;
+}
+
+.btn-action>i {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.btn-action,
+.user-link {
+    background: none;
+    border: none;
+    font-size: 20px;
+    gap: 5px;
+    color: #333;
+    cursor: pointer;
+    text-decoration: none;
+    transition: transform 0.2s, color 0.2s;
+}
+
+.btn-action:hover,
+.user-link:hover {
+    color: #B06EFF;
+    transform: scale(1.1);
+    /* Dá um leve zoom ao passar o mouse */
+}
+
+/*Menu Lateral - css*/
+
+.menu-lateral{
+    background-color: #151027;
+    border: 0.2vh solid rgba(138,77,255,.25);
+    position: fixed;
+    height: 100%;
+    width: 300px;
+    overflow-y: auto;
+    margin-top: 85px;
+    transition: 0.5s;
+}
+
+.menu-lateral .abrir{
+    width: 65px;
+}
+
+.menu-lateral  ul li.item-menu a .icon {
+    color: #ffffff;
+    font-size: 25px;
+    padding-left: 25px;
+}
+
+.menu-lateral  ul li.item-menu a .txt-link {
+    color: #ffffff;
+    font-size: 20px;
+    padding: 20px 4%;
+    margin-left: 15px;
+}
+
+.menu-lateral .item-menu a{
+    display: flex;
+    margin-bottom: 15px;
+    align-items: center;
+
+}
+
+ul li.item-menu{
+    transition: 0.2s;
+}
+
+ul li.item-menu:hover{
+    background-color: #32205F;
+}
+
+.menu-lateral .ativo{
+    background-color: #32205F;
+}
+/*Start-nav*/
+
+.start-nav{
+    margin-top: 15px;
+    margin-bottom: 25px;
+    border-bottom: 0.2px solid #8A4DFF;
+}
+
+/*Intermediario*/
+
+.intermediaria{
+    border-bottom: 0.2px solid #8A4DFF;
+}
+
+.intermediaria .item-menu .txt-link-1{
+    color: #8A4DFF;
+    font-size: 15px;
+    padding: 2px 2%;
+    margin-left: 10px;
+}
+
+.intermediaria .Listy { /*Para esse elemento funcionar complete a class Listy no html*/
+    background-color: #3612bb;
+    margin-left: 20px;
+    padding: 120px;
+    visibility: hidden;
+}
+
+.intermediaria .item-menu .icon-1{
+    color: #ffffff;
+    font-size: 20px;
+    padding: 2px 2%;
+    margin-left: 180px;
+    transition: 0.2s;
+}
+
+.intermediaria .item-menu .icon-1:hover{
+    background-color: #130A24;
+    border-radius: 25%;
+}
+
+.end-nav{
+    margin-top: 15px;
+}
+
