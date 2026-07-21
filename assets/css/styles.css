@@ -15,7 +15,7 @@ header {
     padding-top: 10px;
     padding-bottom: 10px;
     padding-right: 100px;
-    border-bottom: 2px solid rgba(138,77,255,.25);
+    border-bottom: 2px solid rgba(138, 77, 255, .25);
 }
 
 .nav-conterner {
@@ -34,7 +34,7 @@ header {
     transition: 0.5s;
 }
 
-.nav-conterner button:hover{
+.nav-conterner button:hover {
     background-color: #8A4DFF;
 }
 
@@ -59,9 +59,10 @@ span {
     color: transparent;
     font-size: 25px;
 }
-nav{
+
+nav {
     display: flex;
-    gap: 525px;
+    gap: 518px;
 }
 
 .pesquisa {
@@ -69,24 +70,27 @@ nav{
     align-items: center;
 }
 
-input{
-    width: 350px; /* Aumenta a largura da caixinha */
-    height: 40px; /* Aumenta a altura da caixinha */
-    padding: 10px; /* Cria um espaço entre a borda e o texto digitado */
+input {
+    width: 350px;
+    /* Aumenta a largura da caixinha */
+    height: 40px;
+    /* Aumenta a altura da caixinha */
+    padding: 10px;
+    /* Cria um espaço entre a borda e o texto digitado */
     font-size: 18px;
     border-top-left-radius: 15px;
     border-bottom-left-radius: 15px;
     border-right: none;
     background-color: #130A24;
-    border-color: rgba(138,77,255,.25);
+    border-color: rgba(138, 77, 255, .25);
     color: #fff;
 }
 
-input:hover{
+input:hover {
     border-color: rgba(82, 15, 206, 0.25);
 }
 
-.buscar{
+.buscar {
     padding: 10px;
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;
@@ -96,18 +100,22 @@ input:hover{
     color: #8A4DFF;
 }
 
-.buscar:hover{
+.buscar:hover {
     cursor: pointer;
     color: #8A4DFF;
     background-color: #602f9c73;
 }
 
-.nav-perfil button{
+.btn-user{
+    color: #B8B8C8;
+}
+
+.nav-perfil button {
     gap: 10px;
     margin-top: 10px;
     margin-left: 15px;
-    height: 25px;
-    width: 25px;
+    height: 35px;
+    width: 35px;
     background: none;
     border: none;
     cursor: pointer;
@@ -120,16 +128,17 @@ input:hover{
     font-size: 20px;
 }
 
-.nav-perfil button:hover{
+.nav-perfil button:hover {
     background-color: #32205F;
     border-radius: 50px;
 }
 
 /*Menu lateral*/
 
-aside{
+aside {
     background-color: #130A24;
-    width: 250px; /* Aumenta a largura do fundo */
+    /* Aumenta a largura do fundo */
+    width: 250px;
     height: 100%;
     border-right: 2px solid #8A4DFF;
     overflow-y: auto;
@@ -138,78 +147,78 @@ aside{
     transition: 0.2s;
 }
 
-.lis{
+.lis {
     margin-top: 100px;
 }
 
-.label-inscritos{
+.label-inscritos {
     margin-left: 5px;
     margin-top: 5px;
 }
 
-.name{
+.name {
     background: linear-gradient(135deg, #B8B8C8 100%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
     color: transparent;
-    
 }
 
 hr {
-  border: none;
-  height: 2px; /* Espessura da linha */
-  background: linear-gradient(
-    to right, 
-    transparent 0%, 
-    #1D1136 20%, 
-    #1D1136 80%, 
-    transparent 100%
-  );
+    border: none;
+    height: 2px;
+    /* Espessura da linha */
+    background: linear-gradient(to right,
+            transparent 0%,
+            #1D1136 20%,
+            #1D1136 80%,
+            transparent 100%);
 }
 
-
-aside li{
-    text-align: start;
+aside a { /* apadding alinhamento*/
+    display: flex;
+    width: 200px; /* Todos terão a mesma largura */
+    padding: 12px 20px;
+    text-decoration: none;
     margin-left: 25px;
-    margin-right: 25px;
-    margin-top: 5px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    transition: 0.2s;
-    cursor: pointer;
+    border-radius: 15px;
 }
 
-aside li:hover{
-    background-color: #32205F;
-    border-left: 2px solid #B06EFF;
-}
-
-aside li .a{
-    text-align: start;
-    margin-left: 25px;
-    margin-right: 25px;
-    margin-top: 5px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-}
-
-aside i {
+aside i { /*icone e cor*/
     font-size: 25px;
     color: #fff;
-    margin-right: 5px;
-    margin-left: 2px;
 }
 
-.active{
-    background: #B06EFF;
-}
-
-aside span{
+aside span {
     font-size: 15px;
     text-align: inherit;
 }
 
-.label-list{
-    height: 580px;
+aside li{
+    margin-bottom: 5px;
+}
+
+aside li .linha{
+    padding-top: 10px;
+    padding-bottom: 2px;
+    padding-right: 40px;
+    padding-left: 10px;
+    transition: 0.2s;
+    align-items: center;
+    gap: 10px;
+}
+
+.linha:hover{
+    background-color: #32205F;
+    border-left: 2px solid #B06EFF;
+}
+
+.active{
+    background-color: #32205F;
+    border-left: 2px solid #B06EFF;
+    transition: 0.5s;
+}
+
+.label-list {
+    height: 560px;
 }
