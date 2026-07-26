@@ -8,7 +8,7 @@
 }
 
 body {
-    background-image: url('/assets/img/wikiimages.jpg');
+    background-image: url('../img/login.png');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;

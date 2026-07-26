@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/assets/css/login.css">
-    <link rel="stylesheet" href="./assets/responsivo/login-responsivo.css" media="screen and (max-width: 1919px)">
+    <link rel="stylesheet" href="./assets/css/login.css">
+    <link rel="stylesheet" href="./assets/responsivo/login-responsivo.css" media="screen and (max-width: 1780px)">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,6 +15,7 @@
 </head>
 
 <body>
+    
     <section>
         <div class="slogan">
             <img src="./assets/img/logo.ico" alt="">
@@ -27,7 +28,14 @@
             <input type="password" id="senha" placeholder="Digite sua senha">
             <a href="#">Esqueceu a senha?</a>
 
-            <button class="btn-primary" type="button" onclick="validarLogin()">Entrar no Universo</button>
+            <!-- Botão com todos os elementos visuais restaurados -->
+        <button class="btn-primary" type="button" onclick="validarLogin()">
+            <div class="portal-ring"></div>
+            <div class="space-stars"></div>
+            <span class="btn-text">Entrar no Universo</span>
+            <span class="btn-arrow">&rarr;</span>
+        </button>
+
         </form>
         <hr>
         <div class="alternatives">

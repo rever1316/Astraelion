@@ -5,7 +5,7 @@
 }
 
 body {
-    background-image: url('/assets/img/wikiimages.jpg');
+    background-image: url('../img/login.png');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -13,11 +13,13 @@ body {
 }
 
 section {
-    background-color: #090912a6;
+    /* Paleta de Cores Idêntica ao Fundo do Botão (Roxo e Azul Cósmico Profundo) */
+    background: #110324;
+    background-image: linear-gradient(135deg, #180533 0%, #0d021f 50%, #1c023a 100%);
+    
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* Alinha todos os elementos no centro horizontal */
     padding-right: 50px;
     padding-left: 50px;
     margin: 50px;
@@ -25,18 +27,48 @@ section {
     height: 800px;
     justify-self: center;
     border-radius: 50px;
-    border: 2px solid #B06EFF;
-    color: #ffff;
+    
+    /* Borda sutil idêntica à do botão */
+    border: 1.5px solid rgba(147, 51, 234, 0.45);
+    
+    /* Ativação da animação de pulsação suave combinada com as novas cores */
+    animation: pulsar-escudo 5s ease-in-out infinite alternate;
+    
+    overflow: visible; 
+    color: #ffffff;
 }
+
+/* ==========================================================
+   ANIMAÇÃO DE PULSAÇÃO DA SEÇÃO PRINCIPAL (CORES DO BOTÃO)
+============================================================ */
+@keyframes pulsar-escudo {
+    0% {
+        border-color: rgba(147, 51, 234, 0.45);
+        /* Brilho suave imitando o descanso do portal */
+        box-shadow: 
+            0 4px 24px rgba(0, 0, 0, 0.65),
+            inset 0 0 15px rgba(168, 85, 247, 0.15),
+            0 0 20px rgba(139, 92, 246, 0.15);
+    }
+    100% {
+        border-color: rgba(168, 85, 247, 0.75);
+        /* Brilho neon expandido com os subtons de Roxo e Azul Estelar do botão */
+        box-shadow: 
+            0 8px 32px rgba(0, 0, 0, 0.8),
+            inset 0 0 25px rgba(168, 85, 247, 0.35),
+            0 0 40px rgba(139, 92, 246, 0.4),
+            0 0 20px rgba(59, 130, 246, 0.2); /* Sutil reflexo azul estelar */
+    }
+}
+
 
 
 .slogan img {
-    width: 200px;
-    height: 200px;
-    margin-left: 90px;
-    margin-right: 50px;
+    width: 160px;
+    height: 160px;
+    display: block;
+    margin: 0 auto 15px auto;
 }
-
 
 form {
     display: flex;
@@ -51,49 +83,119 @@ form {
 
 input {
     width: 100%;
-    /* Faz o campo preencher todo o espaço do form */
-    padding: 8px;
-    /* Opcional: deixa o campo mais elegante para digitar */
+    padding: 12px 16px; /* Aumentado ligeiramente para melhor ergonomia */
     border-radius: 15px;
-    border: 2px solid #7645b3;
-    background: none;
+    border: 1.5px solid rgba(176, 110, 255, 0.3);
+    background: rgba(15, 6, 36, 0.6); /* Fundo escuro translúcido combinando com o botão */
+    color: #ffffff;
+    font-family: inherit;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
-form button{
+/* Efeito de brilho quando o usuário está digitando */
+input:focus {
+    outline: none;
+    border-color: rgba(176, 110, 255, 0.8);
+    background: rgba(15, 6, 36, 0.8);
+    box-shadow: 
+        0 0 15px rgba(176, 110, 255, 0.3),
+        inset 0 0 8px rgba(176, 110, 255, 0.1);
+}
+
+/* Garante que o preenchimento automático do navegador não quebre o fundo */
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus {
+    -webkit-text-fill-color: #ffffff;
+    -webkit-box-shadow: 0 0 0px 1000px #110324 inset;
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+form button {
     border-radius: 15px;
+    outline: none;
 }
 
-hr {
-    margin-top: 15px;
-    margin-bottom: 15px;
-    width: 100%;
-    /* Garante que ocupe o espaço correto */
-    max-width: 300px;
-}
-
+/* Container de Alternativas */
 .alternatives {
     display: flex;
-    gap: 8px;
+    gap: 10px;
     justify-content: center;
-    /* Centraliza os três botões horizontalmente */
-    margin-bottom: 15px;
-    /* Cria um espaço até o texto "Criar conta" */
+    width: 100%;
+    max-width: 300px;
+    margin-bottom: 20px;
 }
 
-section a {
-    color: #969696;
-    /* Um tom de lilás claro bem visível no escuro */
-    text-decoration: none;
-    /* Remove o sublinhado padrão se desejar */
+/* Botões Sociais */
+.alternatives button {
+    flex: 1;
+    height: 42px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(176, 110, 255, 0.2);
+    border-radius: 12px;
+    color: rgba(255, 255, 255, 0.85);
+    font-family: inherit;
+    font-size: 14px;
     font-weight: 500;
-    transition: color 0.2s;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    backdrop-filter: blur(4px); /* Efeito de vidro jateado */
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* Ícones dentro dos botões sociais */
+.alternatives button i {
+    font-size: 16px;
+    color: #c084fc;
+    transition: color 0.3s ease;
+}
+
+/* Comportamento de Hover nos Botões Sociais */
+.alternatives button:hover {
+    background: rgba(176, 110, 255, 0.1);
+    border-color: rgba(176, 110, 255, 0.6);
+    color: #ffffff;
+    box-shadow: 0 4px 15px rgba(138, 77, 255, 0.15);
+    transform: translateY(-1px);
+}
+
+.alternatives button:hover i {
+    color: #ffffff;
+}
+
+.alternatives button:active {
+    transform: scale(0.97);
+}
+
+/* Ajuste fino na linha divisória (HR) */
+hr {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 300px;
+    border: none;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(176, 110, 255, 0.4), transparent);
+}
+
+
+section a {
+    color: #c084fc; /* Lilás brilhante visível no fundo escuro */
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: 0.3px;
+    transition: all 0.3s ease;
     text-align: end;
 }
 
 section a:hover {
-    color: #e9d5ff;
-    /* Fica ainda mais claro quando passa o mouse */
-    text-decoration: underline;
+    color: #ffffff;
+    text-shadow: 0 0 8px rgba(176, 110, 255, 0.6);
+    text-decoration: none; /* Remove o sublinhado para manter o visual limpo */
 }
 
 h1 {
@@ -111,36 +213,189 @@ span {
     color: #B06EFF;
 }
 
-.btn-primary{
-    background: linear-gradient(135deg,#8A4DFF,#B06EFF);
-    color: #fff;
+h4 {
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 14px;
+    margin-top: 5px;
+}
 
-    border: none;
-    border-radius: 12px;
-
-    padding: 14px 30px;
-
-    font-size: 16px;
+h4 a {
+    margin-left: 5px;
     font-weight: 600;
+}
 
+/* ==========================================================
+   BOTÃO PORTAL DO UNIVERSO (CORREÇÃO DE RENDERIZAÇÃO)
+============================================================ */
+
+.btn-primary {
+    position: relative;
+    width: 100%; /* Ocupa os 300px do seu formulário */
+    height: 54px;
+    
+    /* Força o fundo escuro e profundo idêntico ao da foto */
+    background: #110324 !important; 
+    background-image: linear-gradient(135deg, #180533 0%, #0d021f 50%, #1c023a 100%) !important;
+    
+    /* Borda sutil */
+    border: 1.5px solid rgba(147, 51, 234, 0.45) !important;
+    border-radius: 15px;
     cursor: pointer;
-
-    transition: .3s ease;
+    
+    /* Alinhamento dos textos e espaçamento interno */
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    padding: 0 40px; /* Garante espaço para a seta na direita */
+    
+    box-shadow: 
+        inset 0 0 15px rgba(168, 85, 247, 0.2),
+        0 4px 20px rgba(0, 0, 0, 0.5);
+        
+    transition: all 0.4s ease;
 }
 
-.btn-primary:hover{
+/* O Anel de Luz Elíptico Interno (Garante o brilho horizontal da foto) */
+.portal-ring {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    right: 10px;
+    height: 200%;
+    transform: translateY(-50%) scaleY(0.08); /* Achata o brilho horizontalmente */
+    border-radius: 50%;
+    background: transparent;
+    box-shadow: 
+        0 0 20px rgba(168, 85, 247, 0.65),
+        inset 0 0 15px rgba(59, 130, 246, 0.5);
+    filter: blur(1px);
+    opacity: 0.85;
+    pointer-events: none;
+    z-index: 1;
+    transition: all 0.5s ease;
+}
 
+/* Ponto de Luz Azul Intenso (Lens Flare na Direita) */
+.btn-primary::before {
+    content: '';
+    position: absolute;
+    right: 45px; /* Alinhado logo antes da seta */
+    top: 50%;
+    transform: translateY(-50%);
+    width: 6px;
+    height: 6px;
+    background: #60a5fa;
+    border-radius: 50%;
+    box-shadow: 
+        0 0 15px #3b82f6, 
+        0 0 30px #3b82f6, 
+        0 0 8px #fff;
+    opacity: 0.95;
+    z-index: 2;
+}
+
+/* Aura Circular de Estrelas Externas (Aparece apenas no hover) */
+.space-stars {
+    position: absolute;
+    top: -80px;
+    left: -80px;
+    right: -80px;
+    bottom: -80px;
+    
+    background-image: 
+        radial-gradient(circle, #ffffff 2px, transparent 2px),
+        radial-gradient(circle, #c084fc 3.5px, transparent 3.5px),
+        radial-gradient(circle, #60a5fa 2.5px, transparent 2.5px) !important;
+    background-size: 60px 60px, 90px 90px, 75px 75px;
+    background-position: 0 0, 30px 40px, 45px 15px;
+    
+    /* Corta os cantos em formato esférico */
+    -webkit-mask-image: radial-gradient(circle, rgba(0,0,0,1) 25%, rgba(0,0,0,0) 65%);
+    mask-image: radial-gradient(circle, rgba(0,0,0,1) 25%, rgba(0,0,0,0) 65%);
+    
+    opacity: 0;
+    mix-blend-mode: screen;
+    transform: scale(0.7);
+    transition: opacity 0.5s ease, transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Estilização Central do Texto */
+.btn-text {
+    font-family: inherit;
+    color: #ffffff !important;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    z-index: 3;
+    margin: 0 auto; /* Centraliza o texto perfeitamente */
+    transition: transform 0.3s ease;
+}
+
+/* Posicionamento Isolado da Seta na Direita */
+.btn-arrow {
+    position: absolute;
+    right: 25px;
+    font-family: system-ui, sans-serif;
+    color: rgba(168, 85, 247, 0.9) !important;
+    font-size: 18px;
+    font-weight: 300;
+    z-index: 3;
+    transition: all 0.3s ease;
+}
+
+/* ==========================================
+   COMPORTAMENTO AO PASSAR O MOUSE (HOVER) 
+============================================ */
+
+.btn-primary:hover {
+    border-color: rgba(168, 85, 247, 0.9) !important;
     transform: translateY(-2px);
-
-    box-shadow:
-    0 0 10px #8A4DFF,
-    0 0 25px #8A4DFF,
-    0 0 40px rgba(138,77,255,.4);
-
+    box-shadow: 
+        inset 0 0 25px rgba(168, 85, 247, 0.5),
+        0 10px 35px rgba(0, 0, 0, 0.6),
+        0 0 30px rgba(147, 51, 234, 0.5),
+        0 0 15px rgba(59, 130, 246, 0.3);
 }
 
-.btn-primary:active{
+/* Ativa as estrelas flutuantes */
+.btn-primary:hover .space-stars {
+    opacity: 1;
+    transform: scale(1.15);
+    animation: orbitar-estrelas 16s linear infinite;
+}
 
-    transform: scale(.98);
+/* Expande a elipse de energia interna */
+.btn-primary:hover .portal-ring {
+    opacity: 1;
+    box-shadow: 
+        0 0 35px rgba(168, 85, 247, 1),
+        inset 0 0 25px rgba(59, 130, 246, 0.8);
+    transform: translateY(-50%) scaleY(0.12) scaleX(1.02);
+}
 
+.btn-primary:hover .btn-text {
+    transform: translateX(-2px);
+}
+
+.btn-primary:hover .btn-arrow {
+    color: #60a5fa !important;
+    text-shadow: 0 0 12px #3b82f6;
+    transform: translateX(3px);
+}
+
+.btn-primary:active {
+    transform: scale(0.98) translateY(0);
+}
+
+/* Movimento de órbita galáctica */
+@keyframes orbitar-estrelas {
+    0% {
+        background-position: 0 0, 30px 40px, 45px 15px;
+    }
+    100% {
+        background-position: 60px -60px, 120px -50px, 105px -75px;
+    }
 }
