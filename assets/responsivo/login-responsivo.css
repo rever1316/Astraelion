@@ -1,0 +1,210 @@
+/* ==========================================================================
+   1. ESTILOS GERAIS (Mobile-First / Base Adaptável)
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url('/assets/img/wikiimages.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    /* Garante que a section nunca cole nas bordas da tela */
+}
+
+section {
+    background-color: #090912a6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 30px;
+    /* Reduzido o padding lateral para telas menores */
+    width: 100%;
+    max-width: 500px;
+    /* No PC terá 500px, em telas menores se adapta até 100% */
+    min-height: 700px;
+    /* Usar min-height evita que o conteúdo transborde */
+    height: auto;
+    /* Permite que o container cresça se necessário */
+    border-radius: 40px;
+    border: 2px solid #B06EFF;
+    color: #ffff;
+}
+
+.slogan img {
+    width: 150px;
+    /* Reduzido levemente para equilibrar o layout */
+    height: 150px;
+    margin-top: 40px;
+    margin-right: 80px;
+    margin-bottom: 20px;
+    /* Removido o margin-left que desalinhava o centro */
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    max-width: 300px;
+    margin-top: 15px;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 15px;
+    border: 2px solid #7645b3;
+    background: none;
+    color: #fff;
+    /* Garante que o texto digitado seja visível */
+}
+
+form button {
+    border-radius: 15px;
+}
+
+hr {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 300px;
+    border: 0;
+    border-top: 1px solid #7645b3;
+    /* Linha sutil */
+}
+
+.alternatives {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 300px;
+}
+
+section a {
+    color: #969696;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s;
+    text-align: center;
+    /* Centralizado fica melhor em blocos menores */
+    width: 100%;
+    max-width: 300px;
+}
+
+section a:hover {
+    color: #e9d5ff;
+    text-decoration: underline;
+}
+
+h1 {
+    font-family: "DynaPuff", system-ui;
+    text-align: center;
+    font-size: 2rem;
+}
+
+h2 {
+    font-family: "Audiowide", sans-serif;
+    font-weight: 200;
+    font-style: normal;
+    text-align: center;
+}
+
+span {
+    color: #B06EFF;
+}
+
+/* Botão Primário */
+.btn-primary {
+    background: linear-gradient(135deg, #8A4DFF, #B06EFF);
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    padding: 14px 30px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: .3s ease;
+    width: 100%;
+    /* Ocupa a largura do formulário */
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow:
+        0 0 10px #8A4DFF,
+        0 0 25px #8A4DFF,
+        0 0 40px rgba(138, 77, 255, .4);
+}
+
+.btn-primary:active {
+    transform: scale(.98);
+}
+
+/* ==========================================================================
+   2. MEDIA QUERY: TABLETS E PCS MENORES (Abaixo de 1024px)
+   ========================================================================== */
+@media (max-width: 1024px) {
+    section {
+        max-width: 450px;
+        min-height: 650px;
+        padding: 30px 20px;
+    }
+
+    .slogan img {
+        width: 130px;
+        height: 130px;
+        margin-top: 20px;
+        margin-left: 120px;
+    }
+}
+
+/* ==========================================================================
+   3. MEDIA QUERY: CELULARES (Abaixo de 480px)
+   ========================================================================== */
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+        /* Menos espaço nas bordas externas */
+    }
+
+    section {
+        max-width: 100%;
+        min-height: auto;
+        /* Deixa o tamanho livre baseado no conteúdo */
+        border-radius: 25px;
+        /* Bordas ligeiramente menores para celular */
+        padding: 25px 15px;
+    }
+
+    .slogan img {
+        width: 100px;
+        height: 100px;
+        margin-top: 15px;
+        margin-left: 75px;
+    }
+
+    h1 {
+        font-size: 1.6rem;
+        /* Diminui o título para não quebrar linha bizarramente */
+    }
+
+    form,
+    hr,
+    .alternatives,
+    section a {
+        max-width: 100%;
+        /* Usa todo o espaço interno disponível na section */
+    }
+}

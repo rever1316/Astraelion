@@ -30,13 +30,11 @@ section {
 }
 
 
-img {
+.slogan img {
     width: 200px;
     height: 200px;
-    margin-left: 85px;
-    margin-top: 100px;
-
-    /* Removido o margin-left para não desalinhar */
+    margin-left: 90px;
+    margin-right: 50px;
 }
 
 
