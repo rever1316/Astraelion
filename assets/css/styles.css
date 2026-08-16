@@ -2,20 +2,24 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: "Aldrich", sans-serif;
 }
 
 body {
     background-color: #090912;
+    overflow-y: auto;
 }
 
 /*CSS NAVEGAÇÃO SUPERIOR*/
 header {
     background-color: #130A24;
     position: fixed;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-right: 100px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
     border-bottom: 2px solid rgba(138, 77, 255, .25);
+    padding-top: 5px;
 }
 
 .nav-conterner {
@@ -49,7 +53,6 @@ header {
 }
 
 span {
-    font-family: "Aldrich", sans-serif;
 
     /*gradient*/
     background: linear-gradient(135deg, #fcfcfc 0%, #B06EFF 100%);
@@ -87,7 +90,7 @@ input {
 }
 
 input:hover {
-    border-color: rgba(82, 15, 206, 0.25);
+    border-color: rgba(89, 17, 223, 0.25);
 }
 
 .buscar {
@@ -106,7 +109,7 @@ input:hover {
     background-color: #602f9c73;
 }
 
-.btn-user{
+.btn-user {
     color: #B8B8C8;
 }
 
@@ -139,19 +142,17 @@ aside {
     background-color: #130A24;
     /* Aumenta a largura do fundo */
     width: 250px;
-    height: 100%;
     border-right: 2px solid #8A4DFF;
-    overflow-y: auto;
     gap: 10px;
     list-style-type: none;
-    transition: 0.2s;
 }
 
 .lis {
-    margin-top: 100px;
+    margin-top: 50px;
+    padding-top: 15px;
 }
 
-.label-inscritos {
+*/ .label-inscritos {
     margin-left: 5px;
     margin-top: 5px;
 }
@@ -173,18 +174,23 @@ hr {
             #1D1136 20%,
             #1D1136 80%,
             transparent 100%);
+            margin-top: 10px;
+            margin-bottom: 10px;
 }
 
-aside a { /* apadding alinhamento*/
+aside a {
+    /* apadding alinhamento*/
     display: flex;
-    width: 200px; /* Todos terão a mesma largura */
+    width: 200px;
+    /* Todos terão a mesma largura */
     padding: 12px 20px;
     text-decoration: none;
     margin-left: 25px;
     border-radius: 15px;
 }
 
-aside i { /*icone e cor*/
+aside i {
+    /*icone e cor*/
     font-size: 25px;
     color: #fff;
 }
@@ -194,11 +200,11 @@ aside span {
     text-align: inherit;
 }
 
-aside li{
+aside li {
     margin-bottom: 5px;
 }
 
-aside li .linha{
+aside li .linha {
     padding-top: 10px;
     padding-bottom: 2px;
     padding-right: 40px;
@@ -208,12 +214,12 @@ aside li .linha{
     gap: 10px;
 }
 
-.linha:hover{
+.linha:hover {
     background-color: #32205F;
     border-left: 2px solid #B06EFF;
 }
 
-.active{
+.active {
     background-color: #32205F;
     border-left: 2px solid #B06EFF;
     transition: 0.5s;
@@ -221,4 +227,23 @@ aside li .linha{
 
 .label-list {
     height: 560px;
+}
+
+/*Linha de recomendação*/
+
+main{
+    margin-left: 260px;
+    width: 110rem;
+    height: 30px;
+    position: fixed;
+    top: 65px;
+}
+
+h5{
+    font-size: 30px;
+    color: #fcfcfd;
+}
+
+main div i{
+    color: #8A4DFF;
 }
