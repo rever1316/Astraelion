@@ -3,11 +3,12 @@
     padding: 0;
     box-sizing: border-box;
     font-family: "Aldrich", sans-serif;
+    scroll-behavior: smooth;
 }
 
 body {
     background-color: #090912;
-    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 /*CSS NAVEGAÇÃO SUPERIOR*/
@@ -135,26 +136,25 @@ input:hover {
     background-color: #32205F;
     border-radius: 50px;
 }
-
-/*Menu lateral*/
-
+/* ========================================== */
+/* MENU LATERAL (ASIDE) FIXO E COM SCROLL PRÓPRIO */
+/* ========================================== */
 aside {
     background-color: #130A24;
-    /* Aumenta a largura do fundo */
     width: 250px;
     border-right: 2px solid #8A4DFF;
-    gap: 10px;
-    list-style-type: none;
+    position: fixed;
+    top: 60px; /* Fica logo abaixo do header */
+    left: 0;
+    height: calc(100vh - 65px);
+    overflow-y: auto; /* Apenas o menu lateral terá scroll próprio se a lista for grande */
+    z-index: 900;
+    transition: all 0.3s ease-in-out;
 }
 
 .lis {
-    margin-top: 50px;
+    margin-top: 20px;
     padding-top: 15px;
-}
-
-*/ .label-inscritos {
-    margin-left: 5px;
-    margin-top: 5px;
 }
 
 .name {
@@ -168,21 +168,18 @@ aside {
 hr {
     border: none;
     height: 2px;
-    /* Espessura da linha */
     background: linear-gradient(to right,
             transparent 0%,
             #1D1136 20%,
             #1D1136 80%,
             transparent 100%);
-            margin-top: 10px;
-            margin-bottom: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 aside a {
-    /* apadding alinhamento*/
     display: flex;
     width: 200px;
-    /* Todos terão a mesma largura */
     padding: 12px 20px;
     text-decoration: none;
     margin-left: 25px;
@@ -190,7 +187,6 @@ aside a {
 }
 
 aside i {
-    /*icone e cor*/
     font-size: 25px;
     color: #fff;
 }
@@ -227,30 +223,27 @@ aside li .linha {
 
 .label-list {
     height: 560px;
+    overflow-y: auto;
 }
 
-/* Transição suave para o menu e para o conteúdo principal */
+/* Transição suave */
 aside, main {
     transition: all 0.3s ease-in-out;
 }
 
 /* ========================================== */
-/* ESTADO QUANDO O MENU ESTÁ RECOLHIDO        */
+/* ESTADO QUANDO O MENU ESTÁ RECOLHIDO       */
 /* ========================================== */
-
-/* O menu lateral diminui de largura */
 aside.recolhido {
     width: 85px;
 }
 
-/* Esconde os textos e linhas do menu quando recolhido */
 aside.recolhido span, 
 aside.recolhido .name, 
 aside.recolhido hr {
     display: none;
 }
 
-/* Centraliza os ícones quando o menu está menor */
 aside.recolhido a {
     width: auto;
     margin-left: 15px;
@@ -261,43 +254,250 @@ aside.recolhido a {
 aside.recolhido li .linha {
     padding: 10px;
     justify-content: center;
-    border-left: none !important; /* Remove a bordinha lateral se preferir */
+    border-left: none !important;
 }
 
 /* ========================================== */
-/* CONTEÚDO PRINCIPAL (MAIN) DINÂMICO         */
+/* CONTEÚDO PRINCIPAL (MAIN)                 */
 /* ========================================== */
-
-/* Quando o menu está normal, o main respeita o espaço de 270px */
 main {
-    margin-left: 270px;
-    max-width: calc(100% - 290px);
-    margin-top: 85px;
-    position: fixed;
-    top: 65px;
+    margin-left: 250px; /* Compensa exatamente a largura do aside */
+    margin-top: 65px;   /* Compensa a altura do header */
+    width: calc(100% - 250px);
+    min-height: calc(100vh - 65px);
+    position: relative;
 }
 
-/* Quando o menu recolhe, o main se expande para ocupar o espaço livre */
+/* Quando o menu lateral recolher, o main se expande */
 main.recolhido {
-    margin-left: 100px;
-    max-width: calc(100% - 120px);
+    margin-left: 85px;
+    width: calc(100% - 85px);
 }
 
-/*Linha de recomendação*/
-
-main{
-    margin-left: 260px;
-    width: 110rem;
-    height: 30px;
-    position: fixed;
-    top: 65px;
-}
-
-h5{
+h5 {
     font-size: 30px;
     color: #fcfcfd;
 }
 
-main div i{
+main div i {
     color: #8A4DFF;
+}
+
+/* Conteúdo interno e grade de cards */
+.conteudo {
+    padding: 40px;
+}
+
+.titulo-secao {
+    margin-bottom: 25px;
+}
+
+.titulo-secao h5 {
+    color: #ffffff;
+    font-size: 30px;
+    margin: 0;
+}
+
+.grade-videos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px 20px;
+}
+
+.thumbnail {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    border-radius: 12px;
+    background: #151027;
+}
+
+.thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform .3s ease;
+}
+
+.card-video:hover .thumbnail img {
+    transform: scale(1.03);
+}
+
+.duracao {
+    position: absolute;
+    right: 8px;
+    bottom: 8px;
+    padding: 4px 7px;
+    border-radius: 5px;
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    font-size: 12px;
+}
+
+.info-video {
+    display: flex;
+    gap: 12px;
+    margin-top: 12px;
+    position: relative;
+}
+
+.avatar-canal {
+    width: 42px;
+    height: 42px;
+    flex-shrink: 0;
+    display: block;
+}
+
+.avatar-canal img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.dados-video {
+    min-width: 0;
+    flex: 1;
+}
+
+.dados-video h2 {
+    margin: 0 0 6px;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.3;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.dados-video p {
+    margin: 0 0 4px;
+    color: #b9b2ca;
+    font-size: 14px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.dados-video span {
+    display: block;
+    color: #81798f;
+    font-size: 13px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.mais-opcoes {
+    flex-shrink: 0;
+    align-self: flex-start;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+    background: transparent;
+    color: #B8B8C8;
+    font-size: 18px;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.mais-opcoes:hover {
+    background-color: #32205F;
+    color: #B06EFF;
+}
+
+.menu-opcoes {
+    position: relative;
+    flex-shrink: 0;
+}
+
+.dropdown-opcoes {
+    position: absolute;
+    top: 38px;
+    right: 0;
+    width: 210px;
+    padding: 8px;
+    background: #151027;
+    border: 1px solid rgba(138, 77, 255, .25);
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .4);
+    display: none;
+    z-index: 50;
+}
+
+.dropdown-opcoes button {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    background: transparent;
+    color: #ffffff;
+    font-family: inherit;
+    font-size: 13px;
+    text-align: left;
+    cursor: pointer;
+}
+
+.dropdown-opcoes button:hover {
+    background: #32205F;
+}
+
+.dropdown-opcoes i {
+    color: #B06EFF;
+    font-size: 17px;
+}
+
+.thumbnail {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+.thumbnail::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(138, 77, 255, 0);
+    transition: 0.3s;
+}
+
+.card-video:hover .thumbnail::after {
+    background: rgba(138, 77, 255, 0.08);
+}
+
+.link-video {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+}
+
+.titulo-video {
+    text-decoration: none;
+    color: inherit;
+}
+
+#menu-flutuante {
+    position: fixed; /* Mude de absolute para fixed */
+    width: 210px;
+    padding: 8px;
+    background: #151027;
+    border: 1px solid rgba(138, 77, 255, .25);
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .4);
+    z-index: 9999;
+    display: none;
 }
