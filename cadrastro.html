@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./assets/css/login.css">
+    <link rel="stylesheet" href="./assets/css/cadastro.css">
     <link rel="stylesheet" href="./assets/responsivo/login-responsivo.css" media="screen and (max-width: 1780px)">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,20 +19,21 @@
         <div class="slogan">
             <img src="./assets/img/logo.ico" alt="">
             <h1>Astrae<span>lion</span></h1>
-            <h2>Insira sua Chave para abrir o portal</h2>
+            <h2>Forje sua Chave e acesse o portal</h2>
         </div>
 
-        <form id="loginForm">
-            <!-- Campos adaptados com linguagem temática -->
+        <form id="cadastroForm">
+            <!-- Campos adaptados para a temática -->
+            <input type="text" id="nome" placeholder="Nome do Viajante (Nome completo)">
             <input type="email" id="email" placeholder="Frequência de Contato (Seu e-mail)">
             <input type="password" id="senha" placeholder="Código de Segurança da Chave (Senha)">
-            <a href="#">Perdeu a sintonia da chave?</a>
+            <input type="password" id="confirmaSenha" placeholder="Confirme o Código da Chave">
 
             <!-- Botão com a temática de ativação -->
-            <button class="btn-primary" type="button" onclick="validarLogin()">
+            <button class="btn-primary" type="button" onclick="validarCadastro()">
                 <div class="portal-ring"></div>
                 <div class="space-stars"></div>
-                <span class="btn-text">Ativar Portal</span>
+                <span class="btn-text">Forjar Chave de Portal</span>
                 <span class="btn-arrow">&rarr;</span>
             </button>
         </form>
@@ -57,10 +58,10 @@
         </div>
 
         <div>
-            <!-- Link atualizado apontando para a sua página de cadastro/chave -->
-            <h4>Ainda não possui uma Chave? <a href="cadrastro.html">Forjar Chave</a></h4>
+            <!-- Alternativa temática para voltar ao login -->
+            <h4>Já possui uma Chave? <a href="login.html">Ativar Portal</a></h4>
         </div>
     </section>
 </body>
-<script src="./assets/scripsts/login-scripts.js"></script>
+<script src="./assets/scripsts/cadastro-scripts.js"></script>
 </html>

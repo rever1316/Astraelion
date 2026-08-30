@@ -10,7 +10,9 @@ body {
     overflow-y: auto;
 }
 
-/*CSS NAVEGAÇÃO SUPERIOR*/
+/* ========================================== */
+/* CSS NAVEGAÇÃO SUPERIOR (DESKTOP)           */
+/* ========================================== */
 header {
     background-color: #130A24;
     position: fixed;
@@ -20,6 +22,15 @@ header {
     z-index: 1000;
     border-bottom: 2px solid rgba(138, 77, 255, .25);
     padding-top: 5px;
+    height: 65px;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    width: 100%;
 }
 
 .nav-conterner {
@@ -33,7 +44,7 @@ header {
     margin-left: 15px;
     margin-right: 5px;
     cursor: pointer;
-    padding: 5px 5px 5px 5px;
+    padding: 5px;
     background-color: transparent;
     transition: 0.5s;
 }
@@ -48,24 +59,17 @@ header {
 }
 
 .nav-conterner img {
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
 }
 
 span {
-
-    /*gradient*/
     background: linear-gradient(135deg, #fcfcfc 0%, #B06EFF 100%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
     color: transparent;
-    font-size: 25px;
-}
-
-nav {
-    display: flex;
-    gap: 518px;
+    font-size: 22px;
 }
 
 .pesquisa {
@@ -75,17 +79,14 @@ nav {
 
 input {
     width: 350px;
-    /* Aumenta a largura da caixinha */
     height: 40px;
-    /* Aumenta a altura da caixinha */
     padding: 10px;
-    /* Cria um espaço entre a borda e o texto digitado */
-    font-size: 18px;
+    font-size: 16px;
     border-top-left-radius: 15px;
     border-bottom-left-radius: 15px;
+    border: 1px solid rgba(138, 77, 255, .25);
     border-right: none;
     background-color: #130A24;
-    border-color: rgba(138, 77, 255, .25);
     color: #fff;
 }
 
@@ -94,13 +95,14 @@ input:hover {
 }
 
 .buscar {
-    padding: 10px;
+    padding: 10px 15px;
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;
+    border: 1px solid rgba(134, 70, 253, 0.25);
     border-left: none;
     background-color: #130A24;
-    border-color: rgba(134, 70, 253, 0.25);
     color: #8A4DFF;
+    height: 40px;
 }
 
 .buscar:hover {
@@ -109,14 +111,13 @@ input:hover {
     background-color: #602f9c73;
 }
 
-.btn-user {
-    color: #B8B8C8;
+.nav-perfil {
+    display: flex;
+    align-items: center;
 }
 
 .nav-perfil button {
-    gap: 10px;
-    margin-top: 10px;
-    margin-left: 15px;
+    margin-left: 10px;
     height: 35px;
     width: 35px;
     background: none;
@@ -124,7 +125,9 @@ input:hover {
     cursor: pointer;
     color: #B8B8C8;
     transition: 0.2s;
-    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .nav-perfil button i {
@@ -136,25 +139,25 @@ input:hover {
     border-radius: 50px;
 }
 
-/*Menu lateral*/
-
+/* ========================================== */
+/* MENU LATERAL (ASIDE)                       */
+/* ========================================== */
 aside {
     background-color: #130A24;
-    /* Aumenta a largura do fundo */
     width: 250px;
+    height: calc(100vh - 65px);
+    position: fixed;
+    top: 65px;
+    left: 0;
     border-right: 2px solid #8A4DFF;
-    gap: 10px;
     list-style-type: none;
+    overflow-y: auto;
+    transition: 0.3s ease;
 }
 
 .lis {
-    margin-top: 50px;
+    margin-top: 20px;
     padding-top: 15px;
-}
-
-*/ .label-inscritos {
-    margin-left: 5px;
-    margin-top: 5px;
 }
 
 .name {
@@ -168,21 +171,13 @@ aside {
 hr {
     border: none;
     height: 2px;
-    /* Espessura da linha */
-    background: linear-gradient(to right,
-            transparent 0%,
-            #1D1136 20%,
-            #1D1136 80%,
-            transparent 100%);
-            margin-top: 10px;
-            margin-bottom: 10px;
+    background: linear-gradient(to right, transparent 0%, #1D1136 20%, #1D1136 80%, transparent 100%);
+    margin: 10px 0;
 }
 
 aside a {
-    /* apadding alinhamento*/
     display: flex;
     width: 200px;
-    /* Todos terão a mesma largura */
     padding: 12px 20px;
     text-decoration: none;
     margin-left: 25px;
@@ -190,14 +185,12 @@ aside a {
 }
 
 aside i {
-    /*icone e cor*/
     font-size: 25px;
     color: #fff;
 }
 
 aside span {
     font-size: 15px;
-    text-align: inherit;
 }
 
 aside li {
@@ -205,11 +198,9 @@ aside li {
 }
 
 aside li .linha {
-    padding-top: 10px;
-    padding-bottom: 2px;
-    padding-right: 40px;
-    padding-left: 10px;
+    padding: 10px 40px 10px 10px;
     transition: 0.2s;
+    display: flex;
     align-items: center;
     gap: 10px;
 }
@@ -222,82 +213,86 @@ aside li .linha {
 .active {
     background-color: #32205F;
     border-left: 2px solid #B06EFF;
-    transition: 0.5s;
-}
-
-.label-list {
-    height: 560px;
-}
-
-/* Transição suave para o menu e para o conteúdo principal */
-aside, main {
-    transition: all 0.3s ease-in-out;
 }
 
 /* ========================================== */
-/* ESTADO QUANDO O MENU ESTÁ RECOLHIDO        */
+/* CONTEÚDO PRINCIPAL (MAIN)                  */
 /* ========================================== */
-
-/* O menu lateral diminui de largura */
-aside.recolhido {
-    width: 85px;
-}
-
-/* Esconde os textos e linhas do menu quando recolhido */
-aside.recolhido span, 
-aside.recolhido .name, 
-aside.recolhido hr {
-    display: none;
-}
-
-/* Centraliza os ícones quando o menu está menor */
-aside.recolhido a {
-    width: auto;
-    margin-left: 15px;
-    padding: 12px;
-    justify-content: center;
-}
-
-aside.recolhido li .linha {
-    padding: 10px;
-    justify-content: center;
-    border-left: none !important; /* Remove a bordinha lateral se preferir */
-}
-
-/* ========================================== */
-/* CONTEÚDO PRINCIPAL (MAIN) DINÂMICO         */
-/* ========================================== */
-
-/* Quando o menu está normal, o main respeita o espaço de 270px */
 main {
     margin-left: 270px;
-    max-width: calc(100% - 290px);
     margin-top: 85px;
-    position: fixed;
-    top: 65px;
+    padding: 20px;
+    max-width: calc(100% - 270px);
 }
 
-/* Quando o menu recolhe, o main se expande para ocupar o espaço livre */
-main.recolhido {
-    margin-left: 100px;
-    max-width: calc(100% - 120px);
-}
-
-/*Linha de recomendação*/
-
-main{
-    margin-left: 260px;
-    width: 110rem;
-    height: 30px;
-    position: fixed;
-    top: 65px;
-}
-
-h5{
+h5 {
     font-size: 30px;
     color: #fcfcfd;
 }
 
-main div i{
+main div i {
     color: #8A4DFF;
+}
+
+
+/* ========================================== */
+/* RESPONSIVIDADE PARA CELULARES (Telas < 768px)*/
+/* ========================================== */
+@media screen and (max-width: 768px) {
+    
+    /* Ajusta o topo para o celular */
+    nav {
+        gap: 10px;
+        padding: 0 10px;
+    }
+
+    /* Esconde o texto do logotipo no mobile para economizar espaço, deixando só o ícone/nome compacto */
+    .nav-conterner span {
+        display: none; 
+    }
+
+    /* Reduz a barra de pesquisa no celular */
+    input {
+        width: 150px;
+        font-size: 14px;
+        height: 35px;
+    }
+
+    .buscar {
+        height: 35px;
+        padding: 5px 10px;
+    }
+
+    /* Transforma o menu lateral em uma gaveta oculta ou barra inferior empilhada */
+    aside {
+        width: 70px; /* Fica compacto, mostrando apenas os ícones */
+    }
+
+    /* Esconde os textos dos links do menu lateral no celular, mostrando só os ícones */
+    aside span, .name, hr {
+        display: none;
+    }
+
+    aside a {
+        width: auto;
+        margin-left: 10px;
+        padding: 10px;
+        justify-content: center;
+    }
+
+    aside li .linha {
+        padding: 10px;
+        justify-content: center;
+    }
+
+    /* Reposiciona o conteúdo principal para respeitar o menu menor do celular */
+    main {
+        margin-left: 85px;
+        max-width: calc(100% - 90px);
+        margin-top: 80px;
+    }
+
+    h5 {
+        font-size: 20px;
+    }
 }

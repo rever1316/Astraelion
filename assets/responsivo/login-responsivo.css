@@ -1,5 +1,5 @@
 /* ==========================================================================
-   1. ESTILOS GERAIS (Mobile-First / Base Adaptável)
+1. ESTILOS GERAIS (Mobile-First / Base Adaptável)
    ========================================================================== */
 * {
     margin: 0;
@@ -9,16 +9,12 @@
 
 body {
     background-image: url('../img/login.png');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
     min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 20px;
-    overflow-x: hidden;
+    overflow: hidden;
     /* Garante que a section nunca cole nas bordas da tela */
 }
 
