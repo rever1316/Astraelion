@@ -1,298 +1,258 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Aldrich", sans-serif;
-}
-
-body {
-    background-color: #090912;
-    overflow-y: auto;
-}
-
 /* ========================================== */
-/* CSS NAVEGAÇÃO SUPERIOR (DESKTOP)           */
+/* RESPONSIVIDADE PARA CELULARES (< 768px)    */
 /* ========================================== */
-header {
-    background-color: #130A24;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
-    border-bottom: 2px solid rgba(138, 77, 255, .25);
-    padding-top: 5px;
-    height: 65px;
-}
 
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 20px;
-    width: 100%;
-}
-
-.nav-conterner {
-    display: flex;
-    gap: 2px;
-    align-items: center;
-}
-
-.nav-conterner button {
-    border: none;
-    margin-left: 15px;
-    margin-right: 5px;
-    cursor: pointer;
-    padding: 5px;
-    background-color: transparent;
-    transition: 0.5s;
-}
-
-.nav-conterner button:hover {
-    background-color: #8A4DFF;
-}
-
-.nav-conterner button i {
-    font-size: 15px;
-    color: azure;
-}
-
-.nav-conterner img {
-    width: 40px;
-    height: 40px;
-}
-
-span {
-    background: linear-gradient(135deg, #fcfcfc 0%, #B06EFF 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    color: transparent;
-    font-size: 22px;
-}
-
-.pesquisa {
-    display: flex;
-    align-items: center;
-}
-
-input {
-    width: 350px;
-    height: 40px;
-    padding: 10px;
-    font-size: 16px;
-    border-top-left-radius: 15px;
-    border-bottom-left-radius: 15px;
-    border: 1px solid rgba(138, 77, 255, .25);
-    border-right: none;
-    background-color: #130A24;
-    color: #fff;
-}
-
-input:hover {
-    border-color: rgba(89, 17, 223, 0.25);
-}
-
-.buscar {
-    padding: 10px 15px;
-    border-top-right-radius: 15px;
-    border-bottom-right-radius: 15px;
-    border: 1px solid rgba(134, 70, 253, 0.25);
-    border-left: none;
-    background-color: #130A24;
-    color: #8A4DFF;
-    height: 40px;
-}
-
-.buscar:hover {
-    cursor: pointer;
-    color: #8A4DFF;
-    background-color: #602f9c73;
-}
-
-.nav-perfil {
-    display: flex;
-    align-items: center;
-}
-
-.nav-perfil button {
-    margin-left: 10px;
-    height: 35px;
-    width: 35px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    color: #B8B8C8;
-    transition: 0.2s;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.nav-perfil button i {
-    font-size: 20px;
-}
-
-.nav-perfil button:hover {
-    background-color: #32205F;
-    border-radius: 50px;
-}
-
-/* ========================================== */
-/* MENU LATERAL (ASIDE)                       */
-/* ========================================== */
-aside {
-    background-color: #130A24;
-    width: 250px;
-    height: calc(100vh - 65px);
-    position: fixed;
-    top: 65px;
-    left: 0;
-    border-right: 2px solid #8A4DFF;
-    list-style-type: none;
-    overflow-y: auto;
-    transition: 0.3s ease;
-}
-
-.lis {
-    margin-top: 20px;
-    padding-top: 15px;
-}
-
-.name {
-    background: linear-gradient(135deg, #B8B8C8 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    color: transparent;
-}
-
-hr {
-    border: none;
-    height: 2px;
-    background: linear-gradient(to right, transparent 0%, #1D1136 20%, #1D1136 80%, transparent 100%);
-    margin: 10px 0;
-}
-
-aside a {
-    display: flex;
-    width: 200px;
-    padding: 12px 20px;
-    text-decoration: none;
-    margin-left: 25px;
-    border-radius: 15px;
-}
-
-aside i {
-    font-size: 25px;
-    color: #fff;
-}
-
-aside span {
-    font-size: 15px;
-}
-
-aside li {
-    margin-bottom: 5px;
-}
-
-aside li .linha {
-    padding: 10px 40px 10px 10px;
-    transition: 0.2s;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.linha:hover {
-    background-color: #32205F;
-    border-left: 2px solid #B06EFF;
-}
-
-.active {
-    background-color: #32205F;
-    border-left: 2px solid #B06EFF;
-}
-
-/* ========================================== */
-/* CONTEÚDO PRINCIPAL (MAIN)                  */
-/* ========================================== */
-main {
-    margin-left: 270px;
-    margin-top: 85px;
-    padding: 20px;
-    max-width: calc(100% - 270px);
-}
-
-h5 {
-    font-size: 30px;
-    color: #fcfcfd;
-}
-
-main div i {
-    color: #8A4DFF;
-}
-
-
-/* ========================================== */
-/* RESPONSIVIDADE PARA CELULARES (Telas < 768px)*/
-/* ========================================== */
 @media screen and (max-width: 768px) {
-    
-    /* Ajusta o topo para o celular */
+
+    /* --- 1. HEADER E NAVEGAÇÃO SUPERIOR --- */
+    header {
+        height: 60px;
+    }
+
     nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 15px;
+        height: 100%;
         gap: 10px;
-        padding: 0 10px;
     }
 
-    /* Esconde o texto do logotipo no mobile para economizar espaço, deixando só o ícone/nome compacto */
+    /* Esconde o botão de recolher/expandir lateral */
+    .nav-conterner button:first-child {
+        display: none !important;
+    }
+
+    /* Esconde o texto/span da logo */
     .nav-conterner span {
-        display: none; 
+        display: none !important;
     }
 
-    /* Reduz a barra de pesquisa no celular */
-    input {
-        width: 150px;
-        font-size: 14px;
-        height: 35px;
+    /* Esconde a barra de pesquisa antiga no mobile */
+    .pesquisa {
+        display: none !important;
     }
 
-    .buscar {
-        height: 35px;
-        padding: 5px 10px;
+    /* Ajusta o container de perfil e adiciona ícone de pesquisa se houver */
+    .nav-perfil {
+        gap: 8px;
     }
 
-    /* Transforma o menu lateral em uma gaveta oculta ou barra inferior empilhada */
+
+    /* --- 2. OCULTAR O MENU LATERAL (ASIDE) --- */
     aside {
-        width: 70px; /* Fica compacto, mostrando apenas os ícones */
+        display: none !important;
     }
 
-    /* Esconde os textos dos links do menu lateral no celular, mostrando só os ícones */
-    aside span, .name, hr {
-        display: none;
-    }
 
-    aside a {
-        width: auto;
-        margin-left: 10px;
-        padding: 10px;
-        justify-content: center;
-    }
-
-    aside li .linha {
-        padding: 10px;
-        justify-content: center;
-    }
-
-    /* Reposiciona o conteúdo principal para respeitar o menu menor do celular */
+    /* --- 3. CONTEÚDO PRINCIPAL (MAIN) --- */
     main {
-        margin-left: 85px;
-        max-width: calc(100% - 90px);
-        margin-top: 80px;
+        margin-left: 0 !important;
+        width: 100% !important;
+        margin-top: 60px !important;
+        margin-bottom: 75px !important; /* Espaço para a barra inferior não tampar os vídeos */
+        max-width: 100% !important;
     }
 
-    h5 {
-        font-size: 20px;
+    .conteudo {
+        padding: 15px !important;
+    }
+
+    /* Grade de vídeos em coluna única */
+    .grade-videos {
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+    }
+
+    .titulo-secao h5 {
+        font-size: 20px !important;
+    }
+
+
+    /* --- 4. BARRA DE NAVEGAÇÃO INFERIOR CORRIGIDA --- */
+    .nav-inferior {
+        display: flex !important;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 60px;
+        background-color: #130A24;
+        border-top: 2px solid rgba(138, 77, 255, 0.25);
+        justify-content: space-around;
+        align-items: center;
+        z-index: 1000;
+        padding: 0 5px;
+    }
+
+    .nav-inferior a, 
+    .nav-inferior button {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background: transparent;
+        border: none;
+        color: #B8B8C8;
+        text-decoration: none;
+        font-size: 11px; /* Tamanho da fonte menor para caber perfeito */
+        gap: 3px;
+        flex: 1;
+        height: 100%;
+        cursor: pointer;
+        transition: 0.2s;
+    }
+
+    /* Corrige o tamanho do texto do span dentro da barra inferior */
+    .nav-inferior span {
+        font-size: 10px !important;
+        background: none !important;
+        -webkit-text-fill-color: #B8B8C8 !important;
+        color: #B8B8C8 !important;
+    }
+
+    .nav-inferior a i, 
+    .nav-inferior button i {
+        font-size: 18px; /* Ícone com tamanho ideal */
+        color: #fff;
+    }
+
+    /* Estado ativo ou hover na barra inferior */
+    .nav-inferior a:hover, 
+    .nav-inferior a.active,
+    .nav-inferior button:hover {
+        color: #B06EFF;
+    }
+
+    .nav-inferior a.active i,
+    .nav-inferior a.active span {
+        color: #B06EFF !important;
+        -webkit-text-fill-color: #B06EFF !important;
+    }
+}
+
+.nav-inferior a {
+        gap: 2px !important; /* Aproxima o texto do ícone */
+        padding-top: 5px !important;
+    }
+
+    .nav-inferior a span {
+        font-size: 10px !important;
+        line-height: 1 !important;
+    }
+
+/* ========================================== */
+/* RESPONSIVIDADE PARA CELULAR E TABLET (< 1024px) */
+/* ========================================== */
+
+@media screen and (max-width: 1024px) {
+
+    /* --- 1. HEADER E NAVEGAÇÃO SUPERIOR --- */
+    header {
+        height: 60px;
+    }
+
+    nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 15px;
+        height: 100%;
+        gap: 10px;
+    }
+
+    .nav-conterner button:first-child,
+    .nav-conterner span {
+        display: none !important;
+    }
+
+    .pesquisa {
+        display: none !important;
+    }
+
+    .nav-perfil {
+        gap: 8px;
+    }
+
+    /* --- 2. OCULTAR O MENU LATERAL (ASIDE) --- */
+    aside {
+        display: none !important;
+    }
+
+    /* --- 3. CONTEÚDO PRINCIPAL (MAIN) --- */
+    main {
+        margin-left: 0 !important;
+        width: 100% !important;
+        margin-top: 60px !important;
+        margin-bottom: 75px !important; /* Espaço para a barra inferior */
+        max-width: 100% !important;
+    }
+
+    .conteudo {
+        padding: 15px !important;
+    }
+
+    /* No tablet, como a tela é um pouco maior, podemos deixar 2 colunas de vídeos se preferir, ou 1 coluna igual celular */
+    .grade-videos {
+        grid-template-columns: repeat(2, 1fr) !important; /* 2 colunas no tablet */
+        gap: 20px !important;
+    }
+
+    .titulo-secao h5 {
+        font-size: 20px !important;
+    }
+
+    /* --- 4. BARRA DE NAVEGAÇÃO INFERIOR ATIVADA NO TABLET --- */
+    .nav-inferior {
+        display: flex !important;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 60px;
+        background-color: #130A24;
+        border-top: 2px solid rgba(138, 77, 255, 0.25);
+        justify-content: space-around;
+        align-items: center;
+        z-index: 1000;
+        padding: 0 5px;
+    }
+
+    .nav-inferior a, 
+    .nav-inferior button {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background: transparent;
+        border: none;
+        color: #B8B8C8;
+        text-decoration: none;
+        font-size: 11px;
+        gap: 2px !important;
+        flex: 1;
+        height: 100%;
+        cursor: pointer;
+        padding-top: 5px !important;
+    }
+
+    .nav-inferior span {
+        font-size: 10px !important;
+        line-height: 1 !important;
+        background: none !important;
+        -webkit-text-fill-color: #B8B8C8 !important;
+        color: #B8B8C8 !important;
+    }
+
+    .nav-inferior a i, 
+    .nav-inferior button i {
+        font-size: 18px;
+        color: #fff;
+    }
+
+    .nav-inferior a.active i,
+    .nav-inferior a.active span {
+        color: #B06EFF !important;
+        -webkit-text-fill-color: #B06EFF !important;
     }
 }
