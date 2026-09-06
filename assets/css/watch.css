@@ -1,0 +1,984 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Aldrich", sans-serif;
+}
+
+body {
+    background-color: #090912;
+    color: #ffffff;
+}
+
+
+/* ========================================== */
+/* HEADER / NAVEGAÇÃO SUPERIOR (Isolado)     */
+/* ========================================== */
+header {
+    background-color: #130A24;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    border-bottom: 2px solid rgba(138, 77, 255, .25);
+    padding: 8px 0;
+    font-family: 'Aldrich', sans-serif;
+}
+
+header .nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+
+/* Agrupamento da esquerda (Botão do menu + Logo + Imagem) */
+header .nav-esquerda {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Botão do menu lateral */
+header .btn-menu {
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    background-color: transparent;
+    transition: 0.3s;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+header .btn-menu:hover {
+    background-color: #32205F;
+}
+
+header .btn-menu i {
+    font-size: 20px;
+    color: azure;
+}
+
+/* Logo e Imagem */
+header .logo-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+}
+
+header .nav-container img {
+    width: 35px;
+    height: 35px;
+    object-fit: contain;
+}
+
+header .logo-link span {
+    background: linear-gradient(135deg, #fcfcfc 0%, #B06EFF 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    font-size: 22px;
+}
+
+/* Barra de Pesquisa */
+header .pesquisa {
+    display: flex;
+    align-items: center;
+}
+
+header .pesquisa input {
+    width: 350px;
+    height: 40px;
+    padding: 10px 15px;
+    font-size: 16px;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    border: 1px solid rgba(138, 77, 255, .25);
+    border-right: none;
+    background-color: #130A24;
+    color: #fff;
+    outline: none;
+}
+
+header .pesquisa input:hover,
+header .pesquisa input:focus {
+    border-color: rgba(138, 77, 255, 0.6);
+}
+
+header .buscar {
+    height: 40px;
+    padding: 0 16px;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border: 1px solid rgba(134, 70, 253, 0.25);
+    border-left: none;
+    background-color: #130A24;
+    color: #8A4DFF;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+header .buscar:hover {
+    color: #fff;
+    background-color: #602f9c73;
+}
+
+/* Container que agrupa os ícones do perfil na direita */
+.nav-perfil {
+    display: flex;
+    align-items: center;
+    flex-direction: row; /* Força a ficarem lado a lado na horizontal */
+    gap: 10px;           /* Espaço entre os botões */
+}
+
+/* ========================================== */
+/* ÁREA DE PERFIL (NAVA-PERFIL COM APENAS LINKS) */
+/* ========================================== */
+
+.nav-perfil {
+    display: flex;
+    align-items: center;
+    flex-direction: row; /* Mantém os itens lado a lado na horizontal */
+    gap: 10px;           /* Espaço elegante entre os ícones */
+}
+
+/* Estilização para todos os links dentro do perfil */
+.nav-perfil a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 38px;
+    width: 38px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #B8B8C8;
+    transition: 0.2s;
+    text-decoration: none;
+    padding: 0;
+    border-radius: 50%; /* Torna o link perfeitamente redondo */
+}
+
+/* Tamanho dos ícones de dentro dos links */
+.nav-perfil a i {
+    font-size: 20px;
+}
+
+/* Efeito ao passar o mouse */
+.nav-perfil a:hover {
+    background-color: #32205F;
+    color: #fff;
+}
+
+/* ========================================== */
+/* MENU LATERAL (ASIDE) FIXO E COM SCROLL PRÓPRIO */
+/* ========================================== */
+aside.menu-lateral {
+    background-color: #130A24;
+    width: 250px;
+    border-right: 2px solid #8A4DFF;
+    position: fixed;
+    top: 60px;
+    /* Fica logo abaixo do header */
+    left: 0;
+    height: calc(100vh - 65px);
+    overflow-y: auto;
+    /* Apenas o menu lateral terá scroll próprio */
+    z-index: 900;
+    transition: all 0.3s ease-in-out;
+}
+
+aside.menu-lateral .lis {
+    margin-top: 20px;
+    padding-top: 15px;
+    list-style: none;
+    padding-left: 0;
+}
+
+aside.menu-lateral .name {
+    background: linear-gradient(135deg, #B8B8C8 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+}
+
+aside.menu-lateral hr {
+    border: none;
+    height: 2px;
+    background: linear-gradient(to right,
+            transparent 0%,
+            #1D1136 20%,
+            #1D1136 80%,
+            transparent 100%);
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+aside.menu-lateral a {
+    display: flex;
+    width: 200px;
+    padding: 12px 20px;
+    text-decoration: none;
+    margin-left: 25px;
+    border-radius: 15px;
+}
+
+aside.menu-lateral i {
+    font-size: 25px;
+    color: #fff;
+}
+
+aside.menu-lateral span {
+    font-size: 15px;
+    text-align: inherit;
+}
+
+aside.menu-lateral li {
+    margin-bottom: 5px;
+    list-style: none;
+}
+
+aside.menu-lateral li .linha {
+    padding-top: 10px;
+    padding-bottom: 2px;
+    padding-right: 40px;
+    padding-left: 10px;
+    transition: 0.2s;
+    align-items: center;
+    gap: 10px;
+}
+
+aside.menu-lateral .linha:hover {
+    background-color: #32205F;
+    border-left: 2px solid #B06EFF;
+}
+
+aside.menu-lateral .active {
+    background-color: #32205F;
+    border-left: 2px solid #B06EFF;
+    transition: 0.5s;
+}
+
+aside.menu-lateral .label-list {
+    height: 560px;
+    overflow-y: auto;
+}
+
+/* Transição suave específica */
+aside.menu-lateral {
+    transition: all 0.3s ease-in-out;
+}
+
+/* ========================================== */
+/* ESTADO QUANDO O MENU ESTÁ RECOLHIDO      */
+/* ========================================== */
+aside.menu-lateral.recolhido {
+    width: 85px;
+}
+
+aside.menu-lateral.recolhido span,
+aside.menu-lateral.recolhido .name,
+aside.menu-lateral.recolhido hr {
+    display: none;
+}
+
+aside.menu-lateral.recolhido a {
+    width: auto;
+    margin-left: 15px;
+    padding: 12px;
+    justify-content: center;
+}
+
+aside.menu-lateral.recolhido li .linha {
+    padding: 10px;
+    justify-content: center;
+    border-left: none !important;
+}
+
+/* ========================================== */
+/* CONTEÚDO PRINCIPAL (MAIN DA PÁGINA)       */
+/* ========================================== */
+main.watch-container {
+    margin-left: 250px;
+    /* Compensa exatamente a largura do aside */
+    margin-top: 2px;
+    /* Compensa a altura do header */
+    width: calc(100% - 250px);
+    min-height: calc(100vh - 65px);
+    position: relative;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Quando o menu lateral recolher, o main da página de watch se expande */
+main.watch-container.recolhido {
+    margin-left: 85px;
+    width: calc(100% - 85px);
+}
+
+/* Esconde a barra de rolagem no Chrome, Safari e Opera quando recolhido */
+aside.menu-lateral::-webkit-scrollbar {
+    display: none;
+}
+
+/* Esconde a barra de rolagem no Firefox quando recolhido */
+aside.menu-lateral {
+    scrollbar-width: none;
+}
+
+/* =========================
+   CONTEÚDO
+========================= */
+
+.watch-container {
+    margin-left: 250px;
+    padding: 110px 25px 50px;
+
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 400px;
+    gap: 20px;
+}
+
+
+/* =========================
+   PLAYER
+========================= */
+
+.player {
+
+    width: 100%;
+    max-width: 1250px;
+    aspect-ratio: 16 / 9;
+
+    background-color: #151027;
+
+    border-radius: 12px;
+
+    overflow: hidden;
+}
+
+.player video {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: contain;
+    background-color: #000;
+}
+
+.player-placeholder {
+
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+}
+
+.player-placeholder i {
+
+    font-size: 70px;
+
+    color: #8A4DFF;
+
+    cursor: pointer;
+
+    transition: .3s;
+}
+
+.player-placeholder i:hover {
+
+    color: #B06EFF;
+
+    transform: scale(1.1);
+}
+
+
+/* =========================
+   INFORMAÇÕES
+========================= */
+
+.video-info {
+    width: 100%;
+    max-width: 1200px;
+
+    margin-top: 20px;
+}
+
+.video-info h1 {
+    margin: 0 0 20px;
+
+    color: #ffffff;
+
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 1.3;
+
+    word-wrap: break-word;
+}
+
+.titulo-container {
+    width: 100%;
+    max-width: 1100px;
+}
+
+.titulo-video {
+    margin: 0;
+
+    color: #ffffff;
+
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 1.3;
+
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+
+    overflow: hidden;
+}
+
+.titulo-video.aberto {
+    display: block;
+}
+
+.btn-titulo {
+    display: none;
+
+    margin-top: 8px;
+    padding: 0;
+
+    border: none;
+    background: transparent;
+
+    color: #B06EFF;
+
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+.btn-titulo:hover {
+    color: #ffffff;
+}
+
+
+/* CANAL */
+
+.video-actions {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+}
+
+.canal {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.canal img {
+    width: 45px;
+    height: 45px;
+
+    border-radius: 50%;
+
+    object-fit: cover;
+}
+
+.canal h3 {
+    margin: 0;
+
+    color: #ffffff;
+
+    font-size: 15px;
+}
+
+.nome-canal {
+    max-width: 180px;
+
+    margin: 0;
+
+    color: #ffffff;
+
+    font-size: 15px;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.canal span {
+    display: block;
+
+    margin-top: 4px;
+
+    color: #81798f;
+
+    font-size: 12px;
+}
+
+.btn-inscrever {
+    margin-left: 15px;
+
+    padding: 10px 18px;
+
+    border: none;
+    border-radius: 20px;
+
+    background-color: #8A4DFF;
+
+    color: #ffffff;
+
+    font-size: 14px;
+
+    cursor: pointer;
+
+    transition: .2s;
+}
+
+.btn-inscrever:hover {
+    background-color: #B06EFF;
+}
+
+
+/* AÇÕES */
+
+.acoes {
+
+    display: flex;
+
+    gap: 8px;
+}
+
+.acoes button {
+
+    padding: 10px 14px;
+
+    border: none;
+
+    border-radius: 20px;
+
+    background-color: #151027;
+
+    color: #ffffff;
+
+    cursor: pointer;
+}
+
+.acoes button:hover {
+
+    background-color: #32205F;
+}
+
+
+/* =========================
+   DESCRIÇÃO
+========================= */
+
+.descricao {
+    width: 100%;
+    max-width: 900px;
+
+    margin-top: 20px;
+    padding: 18px;
+
+    background-color: #151027;
+
+    border-radius: 12px;
+
+    overflow: hidden;
+}
+
+.descricao strong {
+    display: block;
+
+    margin-bottom: 10px;
+
+    color: #ffffff;
+
+    font-size: 13px;
+}
+
+.descricao-texto {
+    margin: 0;
+
+    color: #B8B8C8;
+
+    font-size: 14px;
+
+    line-height: 1.5;
+
+    /* Limita inicialmente a quantidade de linhas */
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+
+    overflow: hidden;
+}
+
+/* DESCRIÇÃO ABERTA */
+
+.descricao.aberta .descricao-texto {
+    display: block;
+
+    overflow: visible;
+}
+
+
+/* BOTÃO */
+
+.btn-descricao {
+    margin-top: 10px;
+
+    padding: 0;
+
+    border: none;
+
+    background: transparent;
+
+    color: #B06EFF;
+
+    font-family: inherit;
+
+    font-size: 13px;
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+.btn-descricao:hover {
+    color: #ffffff;
+}
+
+
+/* =========================
+   COMENTÁRIOS
+========================= */
+
+.comentarios {
+    width: 100%;
+    max-width: 900px;
+
+    margin-top: 35px;
+}
+
+.comentarios h2 {
+    margin: 0 0 25px;
+
+    color: #ffffff;
+
+    font-size: 20px;
+}
+
+.quantidade-comentarios {
+    color: #81798F;
+
+    font-size: 14px;
+}
+
+.novo-comentario {
+    display: flex;
+
+    gap: 12px;
+
+    margin-bottom: 35px;
+}
+
+.novo-comentario>img {
+    width: 42px;
+    height: 42px;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    object-fit: cover;
+}
+
+.campo-comentario {
+    width: 100%;
+}
+
+.campo-comentario textarea {
+    width: 100%;
+
+    min-height: 40px;
+
+    padding: 10px 0;
+
+    resize: none;
+
+    overflow: hidden;
+
+    background: transparent;
+
+    border: none;
+    border-bottom: 1px solid #3A3150;
+
+    outline: none;
+
+    color: #ffffff;
+
+    font-family: inherit;
+
+    font-size: 14px;
+
+    transition: .2s;
+}
+
+.campo-comentario textarea:focus {
+    border-bottom-color: #8A4DFF;
+}
+
+.campo-comentario textarea::placeholder {
+    color: #81798F;
+}
+
+.acoes-comentario {
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    margin-top: 10px;
+}
+
+.campo-comentario .acoes-comentario {
+    justify-content: flex-end;
+}
+
+.btn-cancelar {
+    padding: 9px 16px;
+
+    border: none;
+    border-radius: 20px;
+
+    background: transparent;
+
+    color: #B8B8C8;
+
+    font-family: inherit;
+
+    font-size: 12px;
+
+    cursor: pointer;
+
+    transition: .2s;
+}
+
+.btn-cancelar:hover {
+    background-color: #32205F;
+    color: #ffffff;
+}
+
+.btn-comentar {
+    padding: 9px 18px;
+
+    border: none;
+    border-radius: 20px;
+
+    background-color: #8A4DFF;
+
+    color: #ffffff;
+
+    font-family: inherit;
+
+    font-size: 12px;
+
+    cursor: pointer;
+
+    transition: .2s;
+}
+
+.btn-comentar:hover {
+    background-color: #B06EFF;
+}
+
+.comentario {
+    display: flex;
+
+    gap: 12px;
+
+    margin-bottom: 28px;
+}
+
+.comentario>img {
+    width: 42px;
+    height: 42px;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    object-fit: cover;
+}
+
+.comentario-conteudo {
+    min-width: 0;
+}
+
+.comentario-cabecalho {
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+}
+
+.comentario-cabecalho strong {
+    color: #ffffff;
+
+    font-size: 13px;
+}
+
+.comentario-cabecalho span {
+    color: #81798F;
+
+    font-size: 11px;
+}
+
+.comentario-conteudo p {
+    margin: 7px 0 8px;
+
+    color: #B8B8C8;
+
+    font-size: 13px;
+
+    line-height: 1.5;
+
+    overflow-wrap: anywhere;
+}
+
+.comentario-conteudo .acoes-comentario {
+    margin-top: 0;
+}
+
+.comentario-conteudo .acoes-comentario button {
+    padding: 6px 9px;
+
+    border: none;
+    border-radius: 15px;
+
+    background: transparent;
+
+    color: #B8B8C8;
+
+    font-family: inherit;
+
+    font-size: 11px;
+
+    cursor: pointer;
+
+    transition: .2s;
+}
+
+.comentario-conteudo .acoes-comentario button:hover {
+    background-color: #32205F;
+
+    color: #B06EFF;
+}
+
+.texto-comentario {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+
+    overflow: hidden;
+
+    overflow-wrap: anywhere;
+}
+
+.texto-comentario.aberto {
+    display: block;
+    overflow: visible;
+}
+
+.btn-mostrar-comentario {
+    display: none;
+
+    padding: 0;
+    margin: 2px 0 8px;
+
+    border: none;
+    background: transparent;
+
+    color: #B06EFF;
+
+    font-family: inherit;
+    font-size: 11px;
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+.btn-mostrar-comentario:hover {
+    color: #ffffff;
+}
+
+/* =========================
+   RECOMENDAÇÕES
+========================= */
+
+.recomendacoes h2 {
+    margin-bottom: 20px;
+    font-size: 18px;
+}
+
+.video-recomendado {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 18px;
+    cursor: pointer;
+}
+
+.video-recomendado img {
+    width: 210px;
+    height: 118px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.video-recomendado h3 {
+
+    font-size: 13px;
+
+    line-height: 1.3;
+}
+
+.video-recomendado p {
+
+    margin-top: 5px;
+
+    font-size: 11px;
+
+    color: #B8B8C8;
+}
+
+.video-recomendado span {
+
+    display: block;
+
+    margin-top: 4px;
+
+    font-size: 10px;
+
+    color: #81798f;
+}

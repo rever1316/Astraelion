@@ -114,28 +114,53 @@ input:hover {
     color: #B8B8C8;
 }
 
-.nav-perfil button {
-    gap: 10px;
-    margin-top: 10px;
-    margin-left: 15px;
-    height: 35px;
-    width: 35px;
+/* Container que agrupa os ícones do perfil na direita */
+.nav-perfil {
+    display: flex;
+    align-items: center;
+    flex-direction: row; /* Força a ficarem lado a lado na horizontal */
+    gap: 10px;           /* Espaço entre os botões */
+}
+
+/* ========================================== */
+/* ÁREA DE PERFIL (NAVA-PERFIL COM APENAS LINKS) */
+/* ========================================== */
+
+.nav-perfil {
+    display: flex;
+    align-items: center;
+    flex-direction: row; /* Mantém os itens lado a lado na horizontal */
+    gap: 10px;           /* Espaço elegante entre os ícones */
+}
+
+/* Estilização para todos os links dentro do perfil */
+.nav-perfil a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 38px;
+    width: 38px;
     background: none;
     border: none;
     cursor: pointer;
     color: #B8B8C8;
     transition: 0.2s;
-    cursor: pointer;
+    text-decoration: none;
+    padding: 0;
+    border-radius: 50%; /* Torna o link perfeitamente redondo */
 }
 
-.nav-perfil button i {
+/* Tamanho dos ícones de dentro dos links */
+.nav-perfil a i {
     font-size: 20px;
 }
 
-.nav-perfil button:hover {
+/* Efeito ao passar o mouse */
+.nav-perfil a:hover {
     background-color: #32205F;
-    border-radius: 50px;
+    color: #fff;
 }
+
 /* ========================================== */
 /* MENU LATERAL (ASIDE) FIXO E COM SCROLL PRÓPRIO */
 /* ========================================== */
@@ -255,6 +280,16 @@ aside.recolhido li .linha {
     padding: 10px;
     justify-content: center;
     border-left: none !important;
+}
+
+/* Esconde a barra de rolagem no Chrome, Safari e Opera quando recolhido */
+aside.menu-lateral::-webkit-scrollbar {
+    display: none;
+}
+
+/* Esconde a barra de rolagem no Firefox quando recolhido */
+aside.menu-lateral {
+    scrollbar-width: none; 
 }
 
 /* ========================================== */
