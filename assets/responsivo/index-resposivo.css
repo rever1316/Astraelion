@@ -1,258 +1,53 @@
-/* ========================================== */
-/* RESPONSIVIDADE PARA CELULARES (< 768px)    */
-/* ========================================== */
-
 @media screen and (max-width: 768px) {
-
-    /* --- 1. HEADER E NAVEGAÇÃO SUPERIOR --- */
-    header {
-        height: 60px;
-    }
-
-    nav {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0 15px;
-        height: 100%;
-        gap: 10px;
-    }
-
-    /* Esconde o botão de recolher/expandir lateral */
-    .nav-conterner button:first-child {
-        display: none !important;
-    }
-
-    /* Esconde o texto/span da logo */
-    .nav-conterner span {
-        display: none !important;
-    }
-
-    /* Esconde a barra de pesquisa antiga no mobile */
-    .pesquisa {
-        display: none !important;
-    }
-
-    /* Ajusta o container de perfil e adiciona ícone de pesquisa se houver */
-    .nav-perfil {
-        gap: 8px;
-    }
-
-
-    /* --- 2. OCULTAR O MENU LATERAL (ASIDE) --- */
+    /* Esconde o menu lateral */
     aside {
         display: none !important;
     }
 
-
-    /* --- 3. CONTEÚDO PRINCIPAL (MAIN) --- */
+    /* Faz o conteúdo principal ocupar 100% da largura */
     main {
         margin-left: 0 !important;
         width: 100% !important;
-        margin-top: 60px !important;
-        margin-bottom: 75px !important; /* Espaço para a barra inferior não tampar os vídeos */
-        max-width: 100% !important;
+        padding-bottom: 70px;
     }
 
-    .conteudo {
-        padding: 15px !important;
-    }
-
-    /* Grade de vídeos em coluna única */
+    /* Transforma a grade de vídeos em uma única coluna */
     .grade-videos {
         grid-template-columns: 1fr !important;
-        gap: 20px !important;
-    }
-
-    .titulo-secao h5 {
-        font-size: 20px !important;
-    }
-
-
-    /* --- 4. BARRA DE NAVEGAÇÃO INFERIOR CORRIGIDA --- */
-    .nav-inferior {
-        display: flex !important;
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        height: 60px;
-        background-color: #130A24;
-        border-top: 2px solid rgba(138, 77, 255, 0.25);
-        justify-content: space-around;
-        align-items: center;
-        z-index: 1000;
-        padding: 0 5px;
-    }
-
-    .nav-inferior a, 
-    .nav-inferior button {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        background: transparent;
-        border: none;
-        color: #B8B8C8;
-        text-decoration: none;
-        font-size: 11px; /* Tamanho da fonte menor para caber perfeito */
-        gap: 3px;
-        flex: 1;
-        height: 100%;
-        cursor: pointer;
-        transition: 0.2s;
-    }
-
-    /* Corrige o tamanho do texto do span dentro da barra inferior */
-    .nav-inferior span {
-        font-size: 10px !important;
-        background: none !important;
-        -webkit-text-fill-color: #B8B8C8 !important;
-        color: #B8B8C8 !important;
-    }
-
-    .nav-inferior a i, 
-    .nav-inferior button i {
-        font-size: 18px; /* Ícone com tamanho ideal */
-        color: #fff;
-    }
-
-    /* Estado ativo ou hover na barra inferior */
-    .nav-inferior a:hover, 
-    .nav-inferior a.active,
-    .nav-inferior button:hover {
-        color: #B06EFF;
-    }
-
-    .nav-inferior a.active i,
-    .nav-inferior a.active span {
-        color: #B06EFF !important;
-        -webkit-text-fill-color: #B06EFF !important;
-    }
-}
-
-.nav-inferior a {
-        gap: 2px !important; /* Aproxima o texto do ícone */
-        padding-top: 5px !important;
-    }
-
-    .nav-inferior a span {
-        font-size: 10px !important;
-        line-height: 1 !important;
-    }
-
-/* ========================================== */
-/* RESPONSIVIDADE PARA CELULAR E TABLET (< 1024px) */
-/* ========================================== */
-
-@media screen and (max-width: 1024px) {
-
-    /* --- 1. HEADER E NAVEGAÇÃO SUPERIOR --- */
-    header {
-        height: 60px;
-    }
-
-    nav {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0 15px;
-        height: 100%;
-        gap: 10px;
-    }
-
-    .nav-conterner button:first-child,
-    .nav-conterner span {
-        display: none !important;
-    }
-
-    .pesquisa {
-        display: none !important;
-    }
-
-    .nav-perfil {
-        gap: 8px;
-    }
-
-    /* --- 2. OCULTAR O MENU LATERAL (ASIDE) --- */
-    aside {
-        display: none !important;
-    }
-
-    /* --- 3. CONTEÚDO PRINCIPAL (MAIN) --- */
-    main {
-        margin-left: 0 !important;
-        width: 100% !important;
-        margin-top: 60px !important;
-        margin-bottom: 75px !important; /* Espaço para a barra inferior */
-        max-width: 100% !important;
+        gap: 20px;
     }
 
     .conteudo {
-        padding: 15px !important;
+        padding: 20px 15px;
     }
 
-    /* No tablet, como a tela é um pouco maior, podemos deixar 2 colunas de vídeos se preferir, ou 1 coluna igual celular */
-    .grade-videos {
-        grid-template-columns: repeat(2, 1fr) !important; /* 2 colunas no tablet */
-        gap: 20px !important;
-    }
-
-    .titulo-secao h5 {
-        font-size: 20px !important;
-    }
-
-    /* --- 4. BARRA DE NAVEGAÇÃO INFERIOR ATIVADA NO TABLET --- */
+    /* Torna o menu inferior visível */
     .nav-inferior {
-        display: flex !important;
+        visibility: visible !important;
         position: fixed;
         bottom: 0;
         left: 0;
         width: 100%;
-        height: 60px;
         background-color: #130A24;
-        border-top: 2px solid rgba(138, 77, 255, 0.25);
+        border-top: 2px solid rgba(138, 77, 255, .25);
+        display: flex;
         justify-content: space-around;
         align-items: center;
+        padding: 10px 0;
         z-index: 1000;
-        padding: 0 5px;
     }
 
-    .nav-inferior a, 
-    .nav-inferior button {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        background: transparent;
-        border: none;
-        color: #B8B8C8;
-        text-decoration: none;
-        font-size: 11px;
-        gap: 2px !important;
-        flex: 1;
-        height: 100%;
-        cursor: pointer;
-        padding-top: 5px !important;
+    /* ========================================== */
+    /* NOVOS AJUSTES PARA O CABEÇALHO NO CELULAR */
+    /* ========================================== */
+
+    /* 1. Esconde o botão de expandir/hambúrguer do menu */
+    .nav-conterner button {
+        display: none !important;
     }
 
-    .nav-inferior span {
-        font-size: 10px !important;
-        line-height: 1 !important;
-        background: none !important;
-        -webkit-text-fill-color: #B8B8C8 !important;
-        color: #B8B8C8 !important;
-    }
-
-    .nav-inferior a i, 
-    .nav-inferior button i {
-        font-size: 18px;
-        color: #fff;
-    }
-
-    .nav-inferior a.active i,
-    .nav-inferior a.active span {
-        color: #B06EFF !important;
-        -webkit-text-fill-color: #B06EFF !important;
+    /* 2. Esconde o texto/nome "Astraelion" ao lado do logo */
+    .nav-conterner span {
+        display: none !important;
     }
 }

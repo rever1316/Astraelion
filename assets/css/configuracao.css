@@ -1,0 +1,737 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Aldrich", sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #090912;
+    overflow-x: hidden;
+}
+
+/*CSS NAVEGAÇÃO SUPERIOR*/
+header {
+    background-color: #130A24;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    border-bottom: 2px solid rgba(138, 77, 255, .25);
+    padding-top: 5px;
+}
+
+.nav-conterner {
+    display: flex;
+    gap: 2px;
+    align-items: center;
+}
+
+.nav-conterner button {
+    border: none;
+    margin-left: 15px;
+    margin-right: 5px;
+    cursor: pointer;
+    padding: 5px 5px 5px 5px;
+    background-color: transparent;
+    transition: 0.5s;
+}
+
+.nav-conterner button:hover {
+    background-color: #8A4DFF;
+}
+
+.nav-conterner button i {
+    font-size: 15px;
+    color: azure;
+}
+
+.nav-conterner img {
+    width: 50px;
+    height: 50px;
+}
+
+.nav-conterner span {
+
+    /*gradient*/
+    background: linear-gradient(135deg, #fcfcfc 0%, #B06EFF 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    font-size: 25px;
+}
+
+nav {
+    display: flex;
+    gap: 518px;
+}
+
+.pesquisa {
+    display: flex;
+    align-items: center;
+}
+
+input {
+    width: 350px;
+    /* Aumenta a largura da caixinha */
+    height: 40px;
+    /* Aumenta a altura da caixinha */
+    padding: 10px;
+    /* Cria um espaço entre a borda e o texto digitado */
+    font-size: 18px;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    border-right: none;
+    background-color: #130A24;
+    border-color: rgba(138, 77, 255, .25);
+    color: #fff;
+}
+
+input:hover {
+    border-color: rgba(89, 17, 223, 0.25);
+}
+
+.buscar {
+    padding: 10px;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border-left: none;
+    background-color: #130A24;
+    border-color: rgba(134, 70, 253, 0.25);
+    color: #8A4DFF;
+}
+
+.buscar:hover {
+    cursor: pointer;
+    color: #8A4DFF;
+    background-color: #602f9c73;
+}
+
+.btn-user {
+    color: #B8B8C8;
+}
+
+/* Container que agrupa os ícones do perfil na direita */
+.nav-perfil {
+    display: flex;
+    align-items: center;
+    flex-direction: row; /* Força a ficarem lado a lado na horizontal */
+    gap: 10px;           /* Espaço entre os botões */
+}
+
+/* ========================================== */
+/* ÁREA DE PERFIL (NAVA-PERFIL COM APENAS LINKS) */
+/* ========================================== */
+
+.nav-perfil {
+    display: flex;
+    align-items: center;
+    flex-direction: row; /* Mantém os itens lado a lado na horizontal */
+    gap: 10px;           /* Espaço elegante entre os ícones */
+}
+
+/* Estilização para todos os links dentro do perfil */
+.nav-perfil a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 38px;
+    width: 38px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #B8B8C8;
+    transition: 0.2s;
+    text-decoration: none;
+    padding: 0;
+    border-radius: 50%; /* Torna o link perfeitamente redondo */
+}
+
+/* Tamanho dos ícones de dentro dos links */
+.nav-perfil a i {
+    font-size: 20px;
+}
+
+/* Efeito ao passar o mouse */
+.nav-perfil a:hover {
+    background-color: #32205F;
+    color: #fff;
+}
+
+/* ========================================== */
+/* MENU LATERAL (ASIDE) FIXO E COM SCROLL PRÓPRIO */
+/* ========================================== */
+aside {
+    background-color: #130A24;
+    width: 250px;
+    border-right: 2px solid #8A4DFF;
+    position: fixed;
+    top: 60px; /* Fica logo abaixo do header */
+    left: 0;
+    height: calc(100vh - 65px);
+    overflow-y: auto; /* Apenas o menu lateral terá scroll próprio se a lista for grande */
+    z-index: 900;
+    transition: all 0.3s ease-in-out;
+}
+
+.lis {
+    margin-top: 20px;
+    padding-top: 15px;
+}
+
+.name {
+    background: linear-gradient(135deg, #B8B8C8 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+}
+
+hr {
+    border: none;
+    height: 2px;
+    background: linear-gradient(to right,
+            transparent 0%,
+            #1D1136 20%,
+            #1D1136 80%,
+            transparent 100%);
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+aside a {
+    display: flex;
+    width: 200px;
+    padding: 12px 20px;
+    text-decoration: none;
+    margin-left: 25px;
+    border-radius: 15px;
+}
+
+aside i {
+    font-size: 25px;
+    color: #fff;
+}
+
+aside span {
+    font-size: 15px;
+    text-align: inherit;
+}
+
+aside li {
+    margin-bottom: 5px;
+}
+
+aside li .linha {
+    padding-top: 10px;
+    padding-bottom: 2px;
+    padding-right: 40px;
+    padding-left: 10px;
+    transition: 0.2s;
+    align-items: center;
+    gap: 10px;
+}
+
+.linha:hover {
+    background-color: #32205F;
+    border-left: 2px solid #B06EFF;
+}
+
+.active {
+    background-color: #32205F;
+    border-left: 2px solid #B06EFF;
+    transition: 0.5s;
+}
+
+.label-inscritos{
+    color: white;
+    margin: 2px;
+}
+
+.label-list {
+    height: 565px;
+    overflow-y: auto;
+}
+
+/* Transição suave */
+aside, main {
+    transition: all 0.3s ease-in-out;
+}
+
+/* ========================================== */
+/* ESTADO QUANDO O MENU ESTÁ RECOLHIDO       */
+/* ========================================== */
+aside.recolhido {
+    width: 85px;
+}
+
+aside.recolhido span, 
+aside.recolhido .name, 
+aside.recolhido hr {
+    display: none;
+}
+
+aside.recolhido a {
+    width: auto;
+    margin-left: 15px;
+    padding: 12px;
+    justify-content: center;
+}
+
+aside.recolhido li .linha {
+    padding: 10px;
+    justify-content: center;
+    border-left: none !important;
+}
+
+/* Esconde a barra de rolagem no Chrome, Safari e Opera quando recolhido */
+aside.menu-lateral::-webkit-scrollbar {
+    display: none;
+}
+
+/* Esconde a barra de rolagem no Firefox quando recolhido */
+aside.menu-lateral {
+    scrollbar-width: none; 
+}
+
+/* ========================================== */
+/* CABEÇALHO DAS CONFIGURAÇÕES */
+/* ========================================== */
+
+.cabecalho-configuracoes {
+    width: 100%;
+    max-width: 900px;
+
+    margin: 0 auto 40px;
+}
+
+
+/* Identidade do cabeçalho */
+
+.identidade-cabecalho-configuracoes {
+    position: relative;
+}
+
+
+/* Subtítulo */
+
+.subtitulo-configuracoes {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: #B06EFF;
+
+    font-size: 10px;
+
+    letter-spacing: 3px;
+}
+
+
+/* Título */
+
+.cabecalho-configuracoes h1 {
+    color: #ffffff;
+
+    font-size: 28px;
+
+    font-weight: 600;
+
+    margin-bottom: 8px;
+}
+
+
+/* Descrição */
+
+.cabecalho-configuracoes p {
+    max-width: 650px;
+
+    color: #81798F;
+
+    font-size: 11px;
+
+    line-height: 1.6;
+}
+
+
+/* ========================================== */
+/* LINHA DO CABEÇALHO */
+/* ========================================== */
+
+.linha-cabecalho-configuracoes {
+    width: 100%;
+    height: 1px;
+
+    margin-top: 25px;
+
+    background: linear-gradient(
+        to right,
+        #8A4DFF 0%,
+        rgba(138, 77, 255, .35) 35%,
+        rgba(138, 77, 255, .08) 75%,
+        transparent 100%
+    );
+}
+
+/* ========================================== */
+/* CATEGORIA DE CONFIGURAÇÃO */
+/* ========================================== */
+
+.item-configuracao {
+    position: relative;
+    width: 100%;
+
+    border: 1px solid rgba(138, 77, 255, .15);
+    border-radius: 14px;
+
+    background-color: #130A24;
+
+    overflow: hidden;
+
+    transition:
+        background-color .25s ease,
+        border-color .25s ease,
+        transform .25s ease,
+        box-shadow .25s ease;
+}
+
+.item-configuracao:hover {
+    background-color: #151027;
+
+    border-color: rgba(138, 77, 255, .45);
+
+    transform: translateX(5px);
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, .25),
+        0 0 20px rgba(138, 77, 255, .06);
+}
+
+
+/* ========================================== */
+/* CABEÇALHO DA CATEGORIA */
+/* ========================================== */
+
+.cabecalho-item-configuracao {
+    position: relative;
+
+    width: 100%;
+    min-height: 90px;
+
+    display: flex;
+    align-items: center;
+
+    padding: 18px 22px;
+
+    border: none;
+
+    background-color: transparent;
+
+    color: #ffffff;
+
+    font-family: inherit;
+    text-align: left;
+
+    cursor: pointer;
+}
+
+
+/* ========================================== */
+/* ÍCONE DA CATEGORIA */
+/* ========================================== */
+
+.cabecalho-item-configuracao .icone-configuracao {
+    width: 48px;
+    height: 48px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-right: 18px;
+
+    border-radius: 12px;
+
+    background-color: rgba(138, 77, 255, .08);
+
+    border: 1px solid rgba(138, 77, 255, .18);
+
+    color: #B06EFF;
+
+    font-size: 21px;
+
+    transition:
+        background-color .25s ease,
+        border-color .25s ease,
+        color .25s ease,
+        box-shadow .25s ease;
+}
+
+.cabecalho-item-configuracao:hover .icone-configuracao {
+    background-color: rgba(138, 77, 255, .16);
+
+    border-color: rgba(138, 77, 255, .45);
+
+    color: #ffffff;
+
+    box-shadow:
+        0 0 15px rgba(138, 77, 255, .15);
+}
+
+
+/* ========================================== */
+/* INFORMAÇÕES DA CATEGORIA */
+/* ========================================== */
+
+.cabecalho-item-configuracao .info-configuracao {
+    flex: 1;
+    min-width: 0;
+}
+
+.cabecalho-item-configuracao .info-configuracao h2 {
+    margin-bottom: 5px;
+
+    color: #ffffff;
+
+    font-size: 14px;
+    font-weight: 500;
+
+    transition: color .2s ease;
+}
+
+.cabecalho-item-configuracao:hover .info-configuracao h2 {
+    color: #B06EFF;
+}
+
+.cabecalho-item-configuracao .info-configuracao p {
+    color: #81798F;
+
+    font-size: 10px;
+
+    line-height: 1.5;
+}
+
+
+/* ========================================== */
+/* SETA */
+/* ========================================== */
+
+.seta-configuracao {
+    flex-shrink: 0;
+
+    margin-left: 20px;
+
+    color: #81798F;
+
+    font-size: 16px;
+
+    transition:
+        color .25s ease,
+        transform .35s ease;
+}
+
+.cabecalho-item-configuracao:hover .seta-configuracao {
+    color: #B06EFF;
+}
+
+
+/* Seta quando a categoria estiver aberta */
+
+.item-configuracao.aberto .seta-configuracao {
+    color: #B06EFF;
+
+    transform: rotate(90deg);
+}
+
+
+/* ========================================== */
+/* CONTEÚDO EXPANDIDO */
+/* ========================================== */
+
+.conteudo-configuracao {
+    max-height: 0;
+
+    overflow: hidden;
+
+    opacity: 0;
+
+    padding: 0 22px;
+
+    border-top: 1px solid transparent;
+
+    transition:
+        max-height .45s ease,
+        opacity .3s ease,
+        padding .45s ease,
+        border-color .3s ease;
+}
+
+
+/* Estado aberto */
+
+.item-configuracao.aberto .conteudo-configuracao {
+    max-height: 1000px;
+
+    opacity: 1;
+
+    padding: 10px 22px 25px;
+
+    border-top-color:
+        rgba(138, 77, 255, .15);
+}
+
+
+/* ========================================== */
+/* SEÇÕES INTERNAS */
+/* ========================================== */
+
+.secao-configuracao {
+    padding: 18px 0 5px;
+}
+
+.titulo-secao-configuracao {
+    display: block;
+
+    margin-bottom: 10px;
+
+    color: #B06EFF;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+}
+
+
+/* ========================================== */
+/* OPÇÕES */
+/* ========================================== */
+
+.opcao-configuracao {
+    display: flex;
+    align-items: center;
+
+    gap: 20px;
+
+    min-height: 65px;
+
+    padding: 12px 10px;
+
+    border-radius: 10px;
+
+    transition:
+        background-color .2s ease;
+}
+
+.opcao-configuracao:hover {
+    background-color:
+        rgba(138, 77, 255, .06);
+}
+
+
+/* ========================================== */
+/* INFORMAÇÕES DAS OPÇÕES */
+/* ========================================== */
+
+.info-opcao-configuracao {
+    flex: 1;
+    min-width: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 5px;
+}
+
+.info-opcao-configuracao strong {
+    color: #ffffff;
+
+    font-size: 11px;
+    font-weight: 500;
+}
+
+.info-opcao-configuracao span {
+    color: #81798F;
+
+    font-size: 9px;
+
+    line-height: 1.5;
+}
+
+
+/* ========================================== */
+/* BOTÃO EDITAR */
+/* ========================================== */
+
+.btn-editar-configuracao {
+    flex-shrink: 0;
+
+    padding: 7px 14px;
+
+    border: 1px solid rgba(138, 77, 255, .25);
+
+    border-radius: 18px;
+
+    background-color: transparent;
+
+    color: #B8B8C8;
+
+    font-family: inherit;
+    font-size: 9px;
+
+    cursor: pointer;
+
+    transition:
+        background-color .2s ease,
+        border-color .2s ease,
+        color .2s ease;
+}
+
+.btn-editar-configuracao:hover {
+    background-color: #32205F;
+
+    border-color: #8A4DFF;
+
+    color: #ffffff;
+}
+
+
+/* ========================================== */
+/* STATUS */
+/* ========================================== */
+
+.status-configuracao {
+    flex-shrink: 0;
+
+    padding: 6px 10px;
+
+    border-radius: 15px;
+
+    font-size: 8px;
+
+    border: 1px solid;
+}
+
+.status-configuracao.desativado {
+    color: #81798F;
+
+    background-color:
+        rgba(129, 121, 143, .08);
+
+    border-color:
+        rgba(129, 121, 143, .20);
+}
+
+.status-configuracao.ativo {
+    color: #B06EFF;
+
+    background-color:
+        rgba(138, 77, 255, .08);
+
+    border-color:
+        rgba(138, 77, 255, .25);
+}

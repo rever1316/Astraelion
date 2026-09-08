@@ -524,35 +524,28 @@ aside.menu-lateral {
 ========================================================= */
 
 .categorias-canal {
+    position: relative; /* Necessário para posicionar a linha em relação a este container */
     display: flex;
     align-items: center;
-
     gap: 8px;
-
     margin-top: 30px;
-
     padding: 0 15px;
-
     border-bottom: 1px solid rgba(138, 77, 255, .20);
 }
 
 .categoria {
     position: relative;
-
-    padding: 12px 20px;
-
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 16px;
     border: none;
-
     background: transparent;
-
     color: #81798F;
-
     font-family: inherit;
     font-size: 13px;
-
     cursor: pointer;
-
-    transition: .2s;
+    transition: color .2s;
 }
 
 .categoria:hover {
@@ -563,18 +556,1010 @@ aside.menu-lateral {
     color: #ffffff;
 }
 
-.categoria.active::after {
+/* A linha única que vai deslizar */
+.linha-indicadora {
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    height: 2px;
+    background-color: #8A4DFF;
+    border-radius: 5px;
+    /* Faz a movimentação e a mudança de tamanho serem suaves */
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); 
+    pointer-events: none; /* Evita que a linha atrapalhe o clique */
+}
+/* =========================================================
+   BASE ESTELAR
+========================================================= */
+
+.conteudo-canal{
+    margin-top: 35px;
+    display: flex;
+    flex-direction: column;
+    gap: 45px;
+}
+
+
+.video-destaque{
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 25px;
+    align-items: center;
+}
+
+.destaque-player{
+    position: relative;
+    overflow: hidden;
+    border-radius: 18px;
+    aspect-ratio:16/9;
+
+    cursor:pointer;
+
+    border:1px solid rgba(138,77,255,.25);
+    background:#151027;
+}
+
+.destaque-player img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:.35s;
+}
+
+.destaque-player:hover img{
+    transform:scale(1.04);
+}
+
+.btn-play-destaque{
+    position:absolute;
+
+    top:50%;
+    left:50%;
+
+    transform:translate(-50%,-50%);
+
+    width:75px;
+    height:75px;
+
+    border:none;
+    border-radius:50%;
+
+    background:rgba(138,77,255,.9);
+
+    color:white;
+
+    font-size:30px;
+
+    cursor:pointer;
+
+    transition:.25s;
+}
+
+.btn-play-destaque:hover{
+    transform:translate(-50%,-50%) scale(1.08);
+    box-shadow:0 0 25px rgba(138,77,255,.55);
+}
+
+.informacoes-destaque{
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+}
+
+.tag-destaque{
+    color:#B06EFF;
+    font-size:13px;
+    letter-spacing:1px;
+}
+
+.informacoes-destaque h2{
+    color:white;
+    font-size:30px;
+    line-height:1.2;
+}
+
+.informacoes-destaque p{
+    color:#B8B8C8;
+    line-height:1.7;
+}
+
+.dados-destaque{
+    color:#81798F;
+    font-size:13px;
+}
+
+.titulo-conteudo{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:20px;
+}
+
+.titulo-conteudo h2{
+    font-size:24px;
+}
+
+.grade-videos-canal{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:24px;
+}
+
+.card-video-canal{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+
+    cursor:pointer;
+}
+
+.thumbnail-canal{
+    position:relative;
+    overflow:hidden;
+
+    border-radius:14px;
+
+    aspect-ratio:16/9;
+
+    background:#151027;
+}
+
+.thumbnail-canal img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+
+    transition:.3s;
+}
+
+.card-video-canal:hover{
+    transform:translateY(-3px);
+    transition:.25s;
+}
+
+.duracao{
+    position:absolute;
+
+    right:8px;
+    bottom:8px;
+
+    padding:4px 7px;
+
+    border-radius:5px;
+
+    background:rgba(0,0,0,.8);
+
+    color:white;
+
+    font-size:12px;
+}
+
+.card-video-canal h3{
+    color:white;
+    font-size:15px;
+    line-height:1.4;
+
+    display:-webkit-box;
+    -webkit-line-clamp:2;
+    line-clamp: 2;
+    -webkit-box-orient:vertical;
+
+    overflow:hidden;
+}
+
+.dados-video{
+    color:#81798F;
+    font-size:12px;
+}
+
+/* =========================================================
+   REGISTROS DE EXPEDIÇÕES
+========================================================= */
+
+.registros-expedicoes {
+    width: 100%;
+}
+
+.registros-expedicoes .titulo-conteudo {
+    display: flex;
+    align-items: baseline;
+    gap: 15px;
+
+    margin-bottom: 20px;
+}
+
+.registros-expedicoes .titulo-conteudo h2 {
+    margin: 0;
+
+    color: #ffffff;
+
+    font-size: 24px;
+}
+
+.subtitulo-secao {
+    background: none;
+
+    color: #81798F;
+
+    font-size: 11px;
+}
+
+
+/* =========================================================
+   GRADE
+========================================================= */
+
+.grade-registros {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 24px;
+}
+
+
+/* =========================================================
+   CARD
+========================================================= */
+
+.card-registro {
+    min-width: 0;
+
+    cursor: pointer;
+
+    transition: .25s;
+}
+
+.card-registro:hover {
+    transform: translateY(-4px);
+}
+
+
+/* =========================================================
+   THUMBNAIL
+========================================================= */
+
+.thumbnail-registro {
+    position: relative;
+
+    overflow: hidden;
+
+    width: 100%;
+
+    aspect-ratio: 16 / 9;
+
+    border-radius: 14px;
+
+    background-color: #151027;
+
+    border: 1px solid rgba(138, 77, 255, .20);
+}
+
+.thumbnail-registro img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    transition: .3s;
+}
+
+.card-registro:hover .thumbnail-registro img {
+    transform: scale(1.05);
+}
+
+
+/* =========================================================
+   STATUS REPLAY
+========================================================= */
+
+.status-replay {
+    position: absolute;
+
+    left: 8px;
+    bottom: 8px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 5px;
+
+    padding: 5px 8px;
+
+    border-radius: 6px;
+
+    background-color: rgba(19, 10, 36, .90);
+
+    color: #B06EFF;
+
+    font-size: 10px;
+
+    border: 1px solid rgba(138, 77, 255, .30);
+}
+
+
+/* =========================================================
+   INFORMAÇÕES
+========================================================= */
+
+.info-registro {
+    display: flex;
+    flex-direction: column;
+
+    gap: 5px;
+
+    margin-top: 10px;
+}
+
+.info-registro h3 {
+    margin: 0;
+
+    color: #ffffff;
+
+    font-size: 14px;
+
+    line-height: 1.4;
+
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+
+    overflow: hidden;
+}
+
+.data-registro,
+.visualizacoes-registro {
+    background: none;
+
+    color: #81798F;
+
+    font-size: 11px;
+}
+
+/* =========================================================
+   SISTEMA DE ABAS
+========================================================= */
+
+.abas-viewport {
+    width: 100%;
+    overflow: hidden;
+}
+
+.abas-trilho {
+    display: flex;
+    width: 400%;
+
+    transition: transform 0.5s ease-in-out;
+}
+
+.aba-conteudo {
+    width: 25%;
+    flex-shrink: 0;
+}
+
+
+/* =========================================================
+   CATEGORIAS
+========================================================= */
+
+.categoria {
+    position: relative;
+}
+
+.categoria::after {
     content: "";
 
     position: absolute;
 
-    left: 15px;
-    right: 15px;
+    left: 0;
     bottom: -1px;
 
+    width: 0;
     height: 2px;
 
     background-color: #8A4DFF;
 
+    transition: width 0.3s ease;
+}
+
+.categoria.active {
+    color: #FFFFFF;
+}
+
+.categoria.active::after {
+    width: 100%;
+}
+
+.missao-conteudo {
+    padding-top: 35px;
+}
+
+.grade-missoes {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+}
+
+.card-missao {
+    min-width: 0;
+    cursor: pointer;
+    transition: .25s;
+}
+
+.card-missao:hover {
+    transform: translateY(-3px);
+}
+
+.thumbnail-missao {
+    position: relative;
+    overflow: hidden;
+
+    width: 100%;
+    aspect-ratio: 16 / 9;
+
+    border-radius: 14px;
+
+    background-color: #151027;
+}
+
+.thumbnail-missao img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    transition: .3s;
+}
+
+.card-missao:hover .thumbnail-missao img {
+    transform: scale(1.05);
+}
+
+.card-missao h3 {
+    margin-top: 10px;
+
+    color: #ffffff;
+
+    font-size: 14px;
+    line-height: 1.4;
+
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+
+    overflow: hidden;
+}
+
+.dados-missao {
+    display: block;
+
+    margin-top: 5px;
+
+    background: none;
+
+    color: #81798F;
+
+    font-size: 11px;
+}
+
+/* =========================================================
+   CONTROLE DE VÍDEOS — MISSÕES
+========================================================= */
+
+.video-extra {
+    display: none;
+}
+
+
+.controle-missoes {
+    display: flex;
+    justify-content: center;
+
+    margin-top: 35px;
+}
+
+
+.btn-ver-mais {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    padding: 10px 24px;
+
+    border: 1px solid rgba(138, 77, 255, .35);
+    border-radius: 25px;
+
+    background-color: #151027;
+
+    color: #B06EFF;
+
+    font-family: inherit;
+    font-size: 12px;
+
+    cursor: pointer;
+
+    transition: .25s;
+}
+
+
+.btn-ver-mais:hover {
+    background-color: #32205F;
+
+    border-color: #8A4DFF;
+
+    color: #FFFFFF;
+
+    box-shadow: 0 0 15px rgba(138, 77, 255, .25);
+}
+
+/* =========================================================
+   FENDAS
+========================================================= */
+
+.fendas-conteudo {
+    padding-top: 35px;
+}
+
+
+/* GRADE */
+
+.grade-fendas {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 22px;
+}
+
+
+/* CARD */
+
+.card-fenda {
+    min-width: 0;
+    cursor: pointer;
+    transition: .25s;
+}
+
+.card-fenda:hover {
+    transform: translateY(-4px);
+}
+
+
+/* THUMBNAIL VERTICAL */
+
+.thumbnail-fenda {
+    position: relative;
+
+    width: 100%;
+    aspect-ratio: 9 / 16;
+
+    overflow: hidden;
+
+    border-radius: 14px;
+
+    background-color: #151027;
+}
+
+
+.thumbnail-fenda img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    transition: .3s;
+}
+
+
+.card-fenda:hover .thumbnail-fenda img {
+    transform: scale(1.05);
+}
+
+
+/* DURAÇÃO */
+
+.duracao-fenda {
+    position: absolute;
+
+    right: 8px;
+    bottom: 8px;
+
+    padding: 4px 7px;
+
     border-radius: 5px;
+
+    background-color: rgba(0, 0, 0, .8);
+
+    color: #ffffff;
+
+    font-size: 11px;
+}
+
+
+/* TÍTULO */
+
+.card-fenda h3 {
+    margin-top: 10px;
+
+    color: #ffffff;
+
+    font-size: 13px;
+
+    line-height: 1.4;
+
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+
+    overflow: hidden;
+}
+
+
+/* INFORMAÇÕES */
+
+.dados-fenda {
+    display: block;
+
+    margin-top: 5px;
+
+    background: none;
+
+    color: #81798F;
+
+    font-size: 10px;
+}
+
+
+/* =========================================================
+   BOTÃO VER MAIS
+========================================================= */
+
+.controle-fendas {
+    display: flex;
+
+    justify-content: center;
+
+    width: 100%;
+
+    margin-top: 30px;
+}
+
+
+.btn-ver-mais-fendas {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    padding: 10px 24px;
+
+    border: 1px solid rgba(138, 77, 255, .35);
+
+    border-radius: 25px;
+
+    background-color: #151027;
+
+    color: #B06EFF;
+
+    font-family: inherit;
+
+    font-size: 12px;
+
+    cursor: pointer;
+
+    transition: .25s;
+}
+
+
+.btn-ver-mais-fendas:hover {
+    background-color: #32205F;
+
+    border-color: #8A4DFF;
+
+    color: #ffffff;
+
+    box-shadow: 0 0 15px rgba(138, 77, 255, .25);
+}
+
+/* =========================================================
+   GALÁXIAS
+========================================================= */
+
+.galaxias-conteudo {
+    padding-top: 35px;
+}
+
+
+/* TÍTULO */
+
+.galaxias-conteudo .titulo-conteudo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+    margin-bottom: 25px;
+}
+
+.galaxias-conteudo .titulo-conteudo h2 {
+    color: #ffffff;
+    font-size: 24px;
+}
+
+.subtitulo-galaxias {
+    background: none;
+    color: #81798F;
+    font-size: 12px;
+}
+
+
+/* GRADE */
+
+.grade-galaxias {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 28px;
+}
+
+
+/* CARD */
+
+.card-galaxia {
+    min-width: 0;
+    cursor: pointer;
+    transition: .3s ease;
+}
+
+.card-galaxia:hover {
+    transform: translateY(-5px);
+}
+
+
+/* =========================================================
+   GALÁXIAS — ESTRUTURA DA CAPA
+========================================================= */
+
+.capa-galaxia {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: visible;
+    border-radius: 16px;
+    z-index: 1;
+}
+
+
+/* =========================================================
+   ESTRUTURA DECORATIVA ATRÁS DA CAPA
+========================================================= */
+
+.capa-galaxia::before {
+    content: "";
+
+    position: absolute;
+
+    width: 75%;
+    height: 75%;
+
+    right: -8%;
+    bottom: -12%;
+
+    background: linear-gradient(
+        135deg,
+        rgba(138, 77, 255, .20),
+        rgba(176, 110, 255, .55)
+    );
+
+    border-radius: 45% 55% 35% 65%;
+
+    transform: rotate(-8deg);
+
+    filter: blur(1px);
+
+    z-index: -2;
+
+    transition: .4s ease;
+}
+
+
+/* =========================================================
+   SEGUNDA CAMADA — FRAGMENTO / ORBITA
+========================================================= */
+
+.capa-galaxia::after {
+    content: "";
+
+    position: absolute;
+
+    width: 65%;
+    height: 70%;
+
+    right: -5%;
+    bottom: -8%;
+
+    border: 2px solid rgba(138, 77, 255, .35);
+
+    border-left-color: transparent;
+    border-top-color: transparent;
+
+    border-radius: 50%;
+
+    transform: rotate(-25deg);
+
+    z-index: -1;
+
+    transition: .4s ease;
+}
+
+
+/* =========================================================
+   IMAGEM
+========================================================= */
+
+.capa-galaxia img {
+    position: relative;
+
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    border-radius: 16px;
+
+    border: 1px solid rgba(138, 77, 255, .25);
+
+    transition: .4s ease;
+
+    z-index: 2;
+}
+
+
+/* =========================================================
+   HOVER — A GALÁXIA SE EXPANDE
+========================================================= */
+
+.card-galaxia:hover .capa-galaxia::before {
+    right: -12%;
+    bottom: -17%;
+
+    transform: rotate(-12deg) scale(1.08);
+}
+
+.card-galaxia:hover .capa-galaxia::after {
+    right: -9%;
+    bottom: -12%;
+
+    transform: rotate(-32deg) scale(1.08);
+}
+
+.card-galaxia:hover .capa-galaxia img {
+    transform: scale(1.04);
+}
+
+
+/* QUANTIDADE */
+
+.quantidade-galaxia {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+
+    padding: 5px 9px;
+
+    border-radius: 6px;
+
+    background-color: rgba(0, 0, 0, .80);
+
+    color: #ffffff;
+
+    font-size: 11px;
+
+    backdrop-filter: blur(4px);
+}
+
+
+/* OVERLAY */
+
+.overlay-galaxia {
+    position: absolute;
+
+    inset: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: rgba(9, 9, 18, .45);
+
+    opacity: 0;
+
+    transition: .3s ease;
+}
+
+.card-galaxia:hover .overlay-galaxia {
+    opacity: 1;
+}
+
+
+/* BOTÃO PLAY */
+
+.overlay-galaxia i {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 58px;
+    height: 58px;
+
+    border-radius: 50%;
+
+    background-color: rgba(138, 77, 255, .92);
+
+    color: #ffffff;
+
+    font-size: 27px;
+
+    box-shadow: 0 0 25px rgba(138, 77, 255, .45);
+
+    transform: scale(.85);
+
+    transition: .3s ease;
+}
+
+.card-galaxia:hover .overlay-galaxia i {
+    transform: scale(1);
+}
+
+
+/* INFORMAÇÕES */
+
+.info-galaxia {
+    padding: 12px 3px 0;
+}
+
+.info-galaxia h3 {
+    color: #ffffff;
+
+    font-size: 16px;
+
+    line-height: 1.4;
+
+    margin-bottom: 6px;
+
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    line-clamp: 1;
+
+    overflow: hidden;
+}
+
+.info-galaxia p {
+    background: none;
+
+    color: #81798F;
+
+    font-size: 11px;
+
+    line-height: 1.5;
+
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+
+    overflow: hidden;
 }

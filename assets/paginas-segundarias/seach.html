@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/assets/css/seach.css">
+    <link rel="stylesheet" href="/assets/css/notificacao-global.css">
+    <link rel="stylesheet" href="/assets/css/user-painel.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Aldrich&family=Audiowide&family=Iceberg&display=swap"
+        rel="stylesheet">
+    <title>Astraelion - Seach</title>
+    <link rel="shortcut icon" href="/assets/img/logo.ico" type="image/ico">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div>
+                <div class="nav-conterner">
+                    <button class="expandir">
+                        <i class="bi bi-list"></i>
+                    </button>
+                    <img src="/assets/img/logo.ico" alt="img-logo">
+                    <span>Astraelion</span>
+                </div>
+            </div>
+
+            <form class="pesquisa">
+                <input type="search" placeholder="Explorar...">
+                <button class="buscar">
+                    <i class="bi bi-search"></i>
+                </button>
+            </form>
+
+            <div class="nav-perfil">
+                <a href="#" class="btn-user">
+                    <i class="bi bi-box-arrow-in-up"></i>
+                </a>
+
+                <a href="#" class="btn-user btn-notificacao">
+                    <i class="bi bi-bell"></i>
+                </a>
+
+                <a href="#" class="btn-user-painel">
+                    <i class="bi bi-person-circle"></i>
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <aside class="menu-lateral">
+        <div class="lis">
+            <li>
+                <a class="linha" href="/index.html">
+                    <i class="bi bi-house-door-fill"></i>
+                    <span class="name">Inicio</span>
+                </a>
+            </li>
+
+            <li>
+                <a class="linha" href="/assets/paginas-segundarias/notificacao.html">
+                    <i class="bi bi-bell"></i>
+                    <span class="name">Notificação</span>
+                </a>
+            </li>
+
+            <li>
+                <a class="linha" href="#">
+                    <i class="bi bi-music-note-list"></i>
+                    <span class="name">PlayList</span>
+                </a>
+            </li>
+            <hr>
+
+            <div>
+                <span class="label-inscritos">
+                    inscrições
+                </span>
+                <div class="label-list"></div>
+            </div>
+
+            <hr>
+
+            <li>
+                <a class="linha" href="/assets/paginas-segundarias/historico.html">
+                    <i class="bi bi-clock-history"></i>
+                    <span class="name">Historico</span>
+                </a>
+            </li>
+
+            <li>
+                <a class="linha" href="/assets/paginas-segundarias/configuracoes.html">
+                    <i class="bi bi-gear-fill"></i>
+                    <span class="name">Configurações</span>
+                </a>
+            </li>
+        </div>
+    </aside>
+
+    <main class="busca-container">
+
+        <section class="cabecalho-busca">
+
+            <h1>
+                Resultados para:
+                <span id="termo-busca">...</span>
+            </h1>
+
+            <div class="filtros-busca">
+
+                <button class="filtro active" data-tipo="todos">
+                    Todos
+                </button>
+
+                <button class="filtro" data-tipo="missao">
+                    Missões
+                </button>
+
+                <button class="filtro" data-tipo="fenda">
+                    Fendas
+                </button>
+
+                <button class="filtro" data-tipo="canal">
+                    Canais
+                </button>
+
+                <button class="filtro" data-tipo="galaxia">
+                    Galáxias
+                </button>
+
+            </div>
+
+            <section class="resultados-busca">
+
+                <article class="resultado-video" data-tipo="missao">
+
+                    <a href="watch.html" class="thumbnail-resultado">
+                        <img src="../img/thumb4.jpg" alt="Vídeo">
+                        <span class="duracao-resultado">12:45</span>
+                    </a>
+
+                    <div class="info-resultado">
+
+                        <a href="watch.html" class="titulo-resultado">
+                            <h2>
+                                Explorando um novo universo e descobrindo
+                                os mistérios de Astraelion
+                            </h2>
+                        </a>
+
+                        <span class="dados-resultado">
+                            Canal Astraelion · 12 mil visualizações · há 2 dias
+                        </span>
+
+                        <p>
+                            Uma jornada por novos mundos, histórias e
+                            descobertas além das estrelas.
+                        </p>
+
+                    </div>
+
+                    <button class="menu-resultado">
+                        <i class="bi bi-three-dots-vertical"></i>
+                    </button>
+
+                </article>
+
+                <article class="resultado-video" data-tipo="missao">
+
+                    <a href="watch.html" class="thumbnail-resultado">
+                        <img src="../img/thumb3.jpg" alt="Vídeo">
+                        <span class="duracao-resultado">12:45</span>
+                    </a>
+
+                    <div class="info-resultado">
+
+                        <a href="watch.html" class="titulo-resultado">
+                            <h2>
+                                Explorando um novo universo e descobrindo
+                                os mistérios de Astraelion
+                            </h2>
+                        </a>
+
+                        <span class="dados-resultado">
+                            Canal Astraelion · 12 mil visualizações · há 2 dias
+                        </span>
+
+                        <p>
+                            Uma jornada por novos mundos, histórias e
+                            descobertas além das estrelas.
+                        </p>
+
+                    </div>
+
+                    <button class="menu-resultado">
+                        <i class="bi bi-three-dots-vertical"></i>
+                    </button>
+
+                </article>
+
+
+                <article class="resultado-video" data-tipo="missao">
+
+                    <a href="watch.html" class="thumbnail-resultado">
+                        <img src="../img/thumb5.jpg" alt="Vídeo">
+                        <span class="duracao-resultado">12:45</span>
+                    </a>
+
+                    <div class="info-resultado">
+
+                        <a href="watch.html" class="titulo-resultado">
+                            <h2>
+                                Explorando um novo universo e descobrindo
+                                os mistérios de Astraelion
+                            </h2>
+                        </a>
+
+                        <span class="dados-resultado">
+                            Canal Astraelion · 12 mil visualizações · há 2 dias
+                        </span>
+
+                        <p>
+                            Uma jornada por novos mundos, histórias e
+                            descobertas além das estrelas.
+                        </p>
+
+                    </div>
+
+                    <button class="menu-resultado">
+                        <i class="bi bi-three-dots-vertical"></i>
+                    </button>
+
+                </article>
+
+
+                <article class="resultado-video" data-tipo="missao">
+
+                    <a href="watch.html" class="thumbnail-resultado">
+                        <img src="../img/thumb2.jpg" alt="Vídeo">
+                        <span class="duracao-resultado">12:45</span>
+                    </a>
+
+                    <div class="info-resultado">
+
+                        <a href="watch.html" class="titulo-resultado">
+                            <h2>
+                                Explorando um novo universo e descobrindo
+                                os mistérios de Astraelion
+                            </h2>
+                        </a>
+
+                        <span class="dados-resultado">
+                            Canal Astraelion · 12 mil visualizações · há 2 dias
+                        </span>
+
+                        <p>
+                            Uma jornada por novos mundos, histórias e
+                            descobertas além das estrelas.
+                        </p>
+
+                    </div>
+
+                    <button class="menu-resultado">
+                        <i class="bi bi-three-dots-vertical"></i>
+                    </button>
+
+                </article>
+
+                <article class="resultado-video" data-tipo="missao">
+
+                    <a href="watch.html" class="thumbnail-resultado">
+                        <img src="../img/thumb4.jpg" alt="Vídeo">
+                        <span class="duracao-resultado">12:45</span>
+                    </a>
+
+                    <div class="info-resultado">
+
+                        <a href="watch.html" class="titulo-resultado">
+                            <h2>
+                                Explorando um novo universo e descobrindo
+                                os mistérios de Astraelion
+                            </h2>
+                        </a>
+
+                        <span class="dados-resultado">
+                            Canal Astraelion · 12 mil visualizações · há 2 dias
+                        </span>
+
+                        <p>
+                            Uma jornada por novos mundos, histórias e
+                            descobertas além das estrelas.
+                        </p>
+
+                    </div>
+
+                    <button class="menu-resultado">
+                        <i class="bi bi-three-dots-vertical"></i>
+                    </button>
+
+                </article>
+
+                <article class="resultado-canal" data-tipo="canal">
+
+                    <div class="avatar-resultado-canal">
+                        <img src="../img/avatar1.jpg" alt="Canal Astraelion">
+                    </div>
+
+                    <div class="info-resultado-canal">
+
+                        <a href="canal.html" class="nome-resultado-canal">
+                            Canal Astraelion
+                        </a>
+
+                        <span class="usuario-resultado-canal">
+                            @canalastraelion
+                        </span>
+
+                        <span class="inscritos-resultado-canal">
+                            12 mil inscritos
+                        </span>
+
+                        <p>
+                            Explorando novos universos, histórias,
+                            descobertas e tudo aquilo que existe
+                            além das estrelas.
+                        </p>
+
+                    </div>
+
+                    <button class="btn-embarcar-resultado">
+                        Embarcar
+                    </button>
+
+                </article>
+
+                <article class="resultado-canal" data-tipo="canal">
+
+                    <div class="avatar-resultado-canal">
+                        <img src="../img/avatar3.jpg" alt="Canal Astraelion">
+                    </div>
+
+                    <div class="info-resultado-canal">
+
+                        <a href="canal.html" class="nome-resultado-canal">
+                            Mine Lands
+                        </a>
+
+                        <span class="usuario-resultado-canal">
+                            @mine
+                        </span>
+
+                        <span class="inscritos-resultado-canal">
+                            1 mil inscritos
+                        </span>
+
+                        <p>
+                            Explorando novos universos, histórias,
+                            descobertas e tudo aquilo que existe
+                            além das estrelas.
+                        </p>
+
+                    </div>
+
+                    <button class="btn-embarcar-resultado">
+                        Embarcar
+                    </button>
+
+                </article>
+
+                <section class="resultados-fendas">
+
+                    <article class="resultado-fenda" data-tipo="fenda">
+
+                        <a href="watch.html" class="thumbnail-resultado-fenda">
+
+                            <img src="../img/thumb2.jpg" alt="Fenda">
+
+                            <span class="duracao-fenda-resultado">
+                                00:42
+                            </span>
+
+                        </a>
+
+                        <div class="info-resultado-fenda">
+
+                            <span class="tipo-resultado">
+                                ✦ FENDA
+                            </span>
+
+                            <a href="watch.html" class="titulo-resultado-fenda">
+                                <h2>
+                                    Uma descoberta inesperada
+                                    durante a expedição
+                                </h2>
+                            </a>
+
+                            <span class="dados-fenda-resultado">
+                                Canal Astraelion · 8 mil visualizações · há 1 dia
+                            </span>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="resultado-fenda" data-tipo="fenda">
+
+                        <a href="watch.html" class="thumbnail-resultado-fenda">
+
+                            <img src="../img/thumb3.jpg" alt="Fenda">
+
+                            <span class="duracao-fenda-resultado">
+                                00:31
+                            </span>
+
+                        </a>
+
+                        <div class="info-resultado-fenda">
+
+                            <span class="tipo-resultado">
+                                ✦ FENDA
+                            </span>
+
+                            <a href="watch.html" class="titulo-resultado-fenda">
+                                <h2>
+                                    O que encontramos dentro
+                                    daquela região desconhecida?
+                                </h2>
+                            </a>
+
+                            <span class="dados-fenda-resultado">
+                                Canal Astraelion · 5 mil visualizações · há 3 dias
+                            </span>
+
+                        </div>
+
+                    </article>
+
+                    <article class="resultado-galaxia" data-tipo="galaxia">
+
+                        <a href="/assets/paginas-segundarias/galaxias.html" class="capa-resultado-galaxia">
+                            <img src="../img/thumb9.jpg" alt="Galáxia Astraelion">
+
+                            <div class="overlay-galaxia">
+                                <i class="bi bi-play-fill"></i>
+                                <span>Explorar</span>
+                            </div>
+
+                            <span class="quantidade-galaxia">
+                                24 vídeos
+                            </span>
+                        </a>
+
+                        <div class="info-resultado-galaxia">
+
+                            <span class="tipo-galaxia">
+                                ✦ GALÁXIA
+                            </span>
+
+                            <a href="/assets/paginas-segundarias/galaxias.html" class="titulo-galaxia">
+                                Explorando os confins de Astraelion
+                            </a>
+
+                            <span class="dados-galaxia">
+                                Canal Astraelion · 24 vídeos
+                            </span>
+
+                            <p>
+                                Uma coleção de expedições, descobertas e
+                                histórias registradas durante nossas jornadas
+                                pelos novos mundos.
+                            </p>
+
+                        </div>
+
+                    </article>
+
+                </section>
+
+            </section>
+
+
+
+
+
+
+            <!-- Menu flutuante único para a página inteira -->
+            <div id="menu-flutuante" class="dropdown-opcoes" style="display: none; position: absolute; z-index: 9999;">
+                <button>
+                    <i class="bi bi-plus-square"></i>
+                    Salvar na playlist
+                </button>
+                <button>
+                    <i class="bi bi-share"></i>
+                    Compartilhar
+                </button>
+                <button>
+                    <i class="bi bi-eye-slash"></i>
+                    Não tenho interesse
+                </button>
+            </div>
+
+        </section>
+
+    </main>
+</body>
+
+<script src="/assets/scripsts/seach.js"></script>
+<script src="/assets/scripsts/notificacao-global.js"></script>
+<script src="/assets/scripsts/user-painel.js"></script>
+
+</html>

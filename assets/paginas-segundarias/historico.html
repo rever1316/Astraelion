@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/assets/css/historico.css">
+    <link rel="stylesheet" href="/assets/css/notificacao-global.css">
+    <link rel="stylesheet" href="/assets/css/user-painel.css">
+    <link rel="shortcut icon" href="/assets/img/logo.ico" type="image/ico">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Aldrich&family=Audiowide&family=Iceberg&display=swap"
+        rel="stylesheet">
+    <title>Astraelion - Historico</title>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div>
+                <div class="nav-conterner">
+                    <button class="expandir">
+                        <i class="bi bi-list"></i>
+                    </button>
+                    <img src="/assets/img/logo.ico" alt="img-logo">
+                    <span>Astraelion</span>
+                </div>
+            </div>
+
+            <form class="pesquisa">
+                <input type="search" placeholder="Explorar...">
+                <button class="buscar">
+                    <i class="bi bi-search"></i>
+                </button>
+            </form>
+
+            <div class="nav-perfil">
+                <a href="#" class="btn-user">
+                    <i class="bi bi-box-arrow-in-up"></i>
+                </a>
+
+                <a href="#" class="btn-user btn-notificacao">
+                    <i class="bi bi-bell"></i>
+                </a>
+
+                <a href="#" class="btn-user-painel">
+                    <i class="bi bi-person-circle"></i>
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <aside class="menu-lateral">
+        <div class="lis">
+            <li>
+                <a class="linha" href="/index.html">
+                    <i class="bi bi-house-door-fill"></i>
+                    <span class="name">Inicio</span>
+                </a>
+            </li>
+
+            <li>
+                <a class="linha" href="/assets/paginas-segundarias/notificacao.html">
+                    <i class="bi bi-bell"></i>
+                    <span class="name">Notificação</span>
+                </a>
+            </li>
+
+            <li>
+                <a class="linha" href="#">
+                    <i class="bi bi-music-note-list"></i>
+                    <span class="name">PlayList</span>
+                </a>
+            </li>
+            <hr>
+
+            <div>
+                <span class="label-inscritos">
+                    inscrições
+                </span>
+                <div class="label-list"></div>
+            </div>
+
+            <hr>
+
+            <li>
+                <a class="linha active" href="/assets/paginas-segundarias/historico.html">
+                    <i class="bi bi-clock-history"></i>
+                    <span class="name">Historico</span>
+                </a>
+            </li>
+
+            <li>
+                <a class="linha" href="/assets/paginas-segundarias/configuracoes.html">
+                    <i class="bi bi-gear-fill"></i>
+                    <span class="name">Configurações</span>
+                </a>
+            </li>
+        </div>
+    </aside>
+
+    <main class="historico-container">
+
+        <section class="cabecalho-historico">
+
+            <div>
+                <span class="subtitulo-historico">
+                    REGISTROS DE EXPLORAÇÃO
+                </span>
+
+                <h1>Histórico</h1>
+
+                <p>
+                    Suas jornadas e descobertas pelo Astraelion.
+                </p>
+            </div>
+
+            <div class="filtros-historico">
+
+                <button class="filtro-historico active" data-filtro="todos">
+                    Todos
+                </button>
+
+                <button class="filtro-historico" data-filtro="missao">
+                    Missões
+                </button>
+
+                <button class="filtro-historico" data-filtro="fenda">
+                    Fendas
+                </button>
+
+                <button class="filtro-historico" data-filtro="galaxia">
+                    Galáxias
+                </button>
+
+            </div>
+
+            <button class="limpar-historico">
+                <i class="bi bi-trash3"></i>
+                Limpar histórico
+            </button>
+
+
+        </section>
+
+
+        <section class="linha-historico">
+
+
+            <!-- HOJE -->
+
+            <div class="grupo-historico">
+
+                <div class="marcador-periodo">
+                    <span>HOJE</span>
+                </div>
+
+
+                <article class="episodio-historico" data-tipo="missao">
+
+                    <div class="numero-episodio">
+                        01
+                    </div>
+
+                    <div class="linha-episodio"></div>
+
+                    <a href="/assets/paginas-segundarias/watch.html" class="thumbnail-historico">
+
+                        <img src="../img/thumb1.jpg" alt="Vídeo assistido">
+
+                        <span class="duracao-historico">
+                            12:45
+                        </span>
+
+                    </a>
+
+                    <div class="info-historico">
+
+                        <span class="tipo-historico">
+                            ✦ MISSÃO
+                        </span>
+
+                        <a href="/assets/paginas-segundarias/watch.html" class="titulo-historico">
+                            Explorando um novo universo e
+                            descobrindo os mistérios de Astraelion
+                        </a>
+
+                        <span class="dados-historico">
+                            Canal Astraelion · 12 mil visualizações
+                        </span>
+
+                        <span class="tempo-historico">
+                            Assistido há 10 minutos
+                        </span>
+
+                    </div>
+
+                    <button class="menu-historico">
+                        <i class="bi bi-three-dots-vertical"></i>
+                    </button>
+
+                </article>
+
+
+                <article class="episodio-historico" data-tipo="missao">
+
+                    <div class="numero-episodio">
+                        02
+                    </div>
+
+                    <div class="linha-episodio"></div>
+
+                    <a href="/assets/paginas-segundarias/watch.html" class="thumbnail-historico">
+
+                        <img src="../img/thumb2.jpg" alt="Vídeo assistido">
+
+                        <span class="duracao-historico">
+                            08:32
+                        </span>
+
+                    </a>
+
+                    <div class="info-historico">
+
+                        <span class="tipo-historico">
+                            ✦ MISSÃO
+                        </span>
+
+                        <a href="/assets/paginas-segundarias/watch.html" class="titulo-historico">
+                            Uma descoberta inesperada durante
+                            nossa expedição
+                        </a>
+
+                        <span class="dados-historico">
+                            Cosmos · 8 mil visualizações
+                        </span>
+
+                        <span class="tempo-historico">
+                            Assistido há 1 hora
+                        </span>
+
+                    </div>
+
+                    <button class="menu-historico">
+                        <i class="bi bi-three-dots-vertical"></i>
+                    </button>
+
+                </article>
+
+
+                <article class="episodio-historico" data-tipo="fenda">
+
+                    <div class="numero-episodio">
+                        03
+                    </div>
+
+                    <div class="linha-episodio"></div>
+
+                    <a href="/assets/paginas-segundarias/watch.html" class="thumbnail-historico">
+
+                        <img src="../img/thumb3.jpg" alt="Fenda assistida">
+
+                        <span class="duracao-historico">
+                            00:42
+                        </span>
+
+                    </a>
+
+                    <div class="info-historico">
+
+                        <span class="tipo-historico">
+                            ✦ FENDA
+                        </span>
+
+                        <a href="/assets/paginas-segundarias/watch.html" class="titulo-historico">
+                            O que encontramos dentro daquela
+                            região desconhecida?
+                        </a>
+
+                        <span class="dados-historico">
+                            Explorador X · 5 mil visualizações
+                        </span>
+
+                        <span class="tempo-historico">
+                            Assistido há 3 horas
+                        </span>
+
+                    </div>
+
+                    <button class="menu-historico">
+                        <i class="bi bi-three-dots-vertical"></i>
+                    </button>
+
+                </article>
+
+            </div>
+
+
+            <!-- ONTEM -->
+
+            <div class="grupo-historico">
+
+                <div class="marcador-periodo">
+                    <span>ONTEM</span>
+                </div>
+
+
+                <article class="episodio-historico" data-tipo="galaxia">
+
+                    <div class="numero-episodio">
+                        04
+                    </div>
+
+                    <div class="linha-episodio"></div>
+
+                    <a href="/assets/paginas-segundarias/galaxias.html" class="thumbnail-historico">
+
+                        <img src="../img/thumb9.jpg" alt="Galáxia visitada">
+
+                        <span class="quantidade-historico">
+                            24 vídeos
+                        </span>
+
+                    </a>
+
+                    <div class="info-historico">
+
+                        <span class="tipo-historico">
+                            ✦ GALÁXIA
+                        </span>
+
+                        <a href="/assets/paginas-segundarias/galaxias.html" class="titulo-historico">
+                            Explorando os confins de Astraelion
+                        </a>
+
+                        <span class="dados-historico">
+                            Canal Astraelion · 24 vídeos
+                        </span>
+
+                        <span class="tempo-historico">
+                            Visitado ontem
+                        </span>
+
+                    </div>
+
+                    <button class="menu-historico">
+                        <i class="bi bi-three-dots-vertical"></i>
+                    </button>
+
+                </article>
+
+
+                <article class="episodio-historico" data-tipo="missao">
+
+                    <div class="numero-episodio">
+                        05
+                    </div>
+
+                    <div class="linha-episodio"></div>
+
+                    <a href="/assets/paginas-segundarias/watch.html" class="thumbnail-historico">
+
+                        <img src="../img/thumb4.jpg" alt="Vídeo assistido">
+
+                        <span class="duracao-historico">
+                            15:20
+                        </span>
+
+                    </a>
+
+                    <div class="info-historico">
+
+                        <span class="tipo-historico">
+                            ✦ MISSÃO
+                        </span>
+
+                        <a href="/assets/paginas-segundarias/watch.html" class="titulo-historico">
+                            Os segredos escondidos além da
+                            fronteira espacial
+                        </a>
+
+                        <span class="dados-historico">
+                            Cosmos · 15 mil visualizações
+                        </span>
+
+                        <span class="tempo-historico">
+                            Assistido ontem
+                        </span>
+
+                    </div>
+
+                    <button class="menu-historico">
+                        <i class="bi bi-three-dots-vertical"></i>
+                    </button>
+
+                </article>
+
+            </div>
+
+
+            <!-- ESTA SEMANA -->
+
+            <div class="grupo-historico">
+
+                <div class="marcador-periodo">
+                    <span>ESTA SEMANA</span>
+                </div>
+
+
+                <article class="episodio-historico" data-tipo="missao">
+
+                    <div class="numero-episodio">
+                        06
+                    </div>
+
+                    <div class="linha-episodio"></div>
+
+                    <a href="/assets/paginas-segundarias/watch.html" class="thumbnail-historico">
+
+                        <img src="../img/thumb5.jpg" alt="Vídeo assistido">
+
+                        <span class="duracao-historico">
+                            10:15
+                        </span>
+
+                    </a>
+
+                    <div class="info-historico">
+
+                        <span class="tipo-historico">
+                            ✦ MISSÃO
+                        </span>
+
+                        <a href="/assets/paginas-segundarias/watch.html" class="titulo-historico">
+                            Uma jornada através de um mundo
+                            completamente desconhecido
+                        </a>
+
+                        <span class="dados-historico">
+                            Explorador Y · 21 mil visualizações
+                        </span>
+
+                        <span class="tempo-historico">
+                            Assistido há 4 dias
+                        </span>
+
+                    </div>
+
+                    <button class="menu-historico">
+                        <i class="bi bi-three-dots-vertical"></i>
+                    </button>
+
+                </article>
+
+            </div>
+
+
+        </section>
+
+    </main>
+    ```
+
+</body>
+<script src="/assets/scripsts/historico.js"></script>
+<script src="/assets/scripsts/notificacao-global.js"></script>
+<script src="/assets/scripsts/user-painel.js"></script>
+
+</html>

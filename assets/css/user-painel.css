@@ -1,0 +1,405 @@
+/* ========================================== */
+/* PAINEL DO USUÁRIO */
+/* ========================================== */
+
+.painel-usuario {
+    position: fixed;
+
+    top: 60px;
+    right: 20px;
+
+    width: 340px;
+
+    background-color: #130A24;
+
+    border: 1px solid rgba(138, 77, 255, .30);
+
+    border-radius: 16px;
+
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, .45),
+        0 0 30px rgba(138, 77, 255, .08);
+
+    overflow: hidden;
+
+    z-index: 2000;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transform: translateY(-8px) scale(.98);
+
+    transition:
+        opacity .2s ease,
+        transform .2s ease,
+        visibility .2s ease;
+}
+
+.painel-usuario.aberto {
+    opacity: 1;
+    visibility: visible;
+
+    transform: translateY(0) scale(1);
+}
+
+
+/* ========================================== */
+/* CABEÇALHO DO USUÁRIO */
+/* ========================================== */
+
+.cabecalho-painel-usuario {
+    display: flex;
+    align-items: center;
+
+    padding: 18px;
+
+    border-bottom: 1px solid rgba(138, 77, 255, .15);
+}
+
+.avatar-painel-usuario {
+    width: 48px;
+    height: 48px;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    object-fit: cover;
+
+    border: 1px solid rgba(138, 77, 255, .35);
+}
+
+.info-painel-usuario {
+    margin-left: 12px;
+
+    min-width: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 5px;
+}
+
+.nome-painel-usuario {
+    color: #ffffff;
+
+    font-size: 12px;
+    font-weight: 500;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.arroba-painel-usuario {
+    color: #81798F;
+
+    font-size: 9px;
+}
+
+.status-painel-usuario {
+    display: flex;
+    align-items: center;
+
+    gap: 5px;
+
+    color: #81798F;
+
+    font-size: 8px;
+}
+
+.status-painel-usuario::before {
+    content: "";
+
+    width: 6px;
+    height: 6px;
+
+    border-radius: 50%;
+
+    background-color: #B06EFF;
+
+    box-shadow:
+        0 0 7px rgba(176, 110, 255, .6);
+}
+
+
+/* ========================================== */
+/* LISTA */
+/* ========================================== */
+
+.lista-painel-usuario {
+    padding: 8px;
+}
+
+.item-painel-usuario {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+
+    padding: 11px 12px;
+
+    border: none;
+    border-radius: 9px;
+
+    background-color: transparent;
+
+    color: #B8B8C8;
+
+    font-family: inherit;
+
+    text-decoration: none;
+
+    text-align: left;
+
+    cursor: pointer;
+
+    transition:
+        background-color .2s ease,
+        color .2s ease;
+}
+
+.item-painel-usuario:hover {
+    background-color: #32205F;
+
+    color: #ffffff;
+}
+
+.icone-item-usuario {
+    width: 25px;
+
+    margin-right: 10px;
+
+    color: #B06EFF;
+
+    font-size: 15px;
+
+    text-align: center;
+
+    transition: color .2s ease;
+}
+
+.item-painel-usuario:hover .icone-item-usuario {
+    color: #ffffff;
+}
+
+.info-item-usuario {
+    display: flex;
+    flex-direction: column;
+
+    gap: 3px;
+
+    flex: 1;
+}
+
+.info-item-usuario strong {
+    color: inherit;
+
+    font-size: 10px;
+
+    font-weight: 500;
+}
+
+.info-item-usuario span {
+    color: #81798F;
+
+    font-size: 8px;
+}
+
+.item-painel-usuario:hover .info-item-usuario span {
+    color: #B8B8C8;
+}
+
+.seta-item-usuario {
+    color: #81798F;
+
+    font-size: 12px;
+
+    transition:
+        color .2s ease,
+        transform .2s ease;
+}
+
+.item-painel-usuario:hover .seta-item-usuario {
+    color: #B06EFF;
+
+    transform: translateX(3px);
+}
+
+
+/* ========================================== */
+/* SEPARADOR */
+/* ========================================== */
+
+.separador-painel-usuario {
+    height: 1px;
+
+    margin: 5px 10px;
+
+    background-color: rgba(138, 77, 255, .15);
+}
+
+
+/* ========================================== */
+/* PRIVACIDADE */
+/* ========================================== */
+
+.privacidade-painel-usuario {
+    display: flex;
+    align-items: center;
+
+    width: 100%;
+
+    padding: 11px 12px;
+}
+
+.privacidade-painel-usuario .icone-item-usuario {
+    margin-right: 10px;
+}
+
+.info-privacidade {
+    display: flex;
+    flex-direction: column;
+
+    gap: 3px;
+
+    flex: 1;
+}
+
+.info-privacidade strong {
+    color: #B8B8C8;
+
+    font-size: 10px;
+
+    font-weight: 500;
+}
+
+.info-privacidade span {
+    color: #81798F;
+
+    font-size: 8px;
+}
+
+
+/* ========================================== */
+/* SWITCH */
+/* ========================================== */
+
+.switch-restrito {
+    position: relative;
+
+    width: 34px;
+    height: 18px;
+
+    flex-shrink: 0;
+}
+
+.switch-restrito input {
+    width: 0;
+    height: 0;
+
+    opacity: 0;
+}
+
+.slider-restrito {
+    position: absolute;
+
+    inset: 0;
+
+    border-radius: 20px;
+
+    background-color: #211638;
+
+    border: 1px solid rgba(138, 77, 255, .25);
+
+    cursor: pointer;
+
+    transition: .25s ease;
+}
+
+.slider-restrito::before {
+    content: "";
+
+    position: absolute;
+
+    width: 12px;
+    height: 12px;
+
+    left: 2px;
+    top: 2px;
+
+    border-radius: 50%;
+
+    background-color: #81798F;
+
+    transition: .25s ease;
+}
+
+.switch-restrito input:checked + .slider-restrito {
+    background-color: #8A4DFF;
+
+    border-color: #8A4DFF;
+}
+
+.switch-restrito input:checked + .slider-restrito::before {
+    transform: translateX(16px);
+
+    background-color: #ffffff;
+}
+
+
+/* ========================================== */
+/* ÁREA DA CONTA */
+/* ========================================== */
+
+.rodape-painel-usuario {
+    padding: 8px;
+
+    border-top: 1px solid rgba(138, 77, 255, .15);
+}
+
+.btn-conta-usuario {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 11px 12px;
+
+    border: none;
+    border-radius: 9px;
+
+    background-color: transparent;
+
+    color: #B8B8C8;
+
+    font-family: inherit;
+
+    font-size: 10px;
+
+    text-align: left;
+
+    cursor: pointer;
+
+    transition:
+        background-color .2s ease,
+        color .2s ease;
+}
+
+.btn-conta-usuario:hover {
+    background-color: #32205F;
+
+    color: #ffffff;
+}
+
+.btn-conta-usuario i {
+    color: #B06EFF;
+
+    font-size: 15px;
+}
+
+.btn-conta-usuario:hover i {
+    color: #ffffff;
+}

@@ -4,12 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./assets/css/watch.css">
-
+    <link rel="stylesheet" href="/assets/css/watch.css">
+    <link rel="stylesheet" href="/assets/css/notificacao-global.css">
+    <link rel="stylesheet" href="/assets/css/user-painel.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-
     <link href="https://fonts.googleapis.com/css2?family=Aldrich&display=swap" rel="stylesheet">
+
     <title>Astraelion - Assistir</title>
+    <link rel="shortcut icon" href="/assets/img/logo.ico" type="image/ico">
 </head>
 
 <body>
@@ -22,8 +24,8 @@
                 <button class="btn-menu">
                     <i class="bi bi-list"></i>
                 </button>
-                <a href="index.html" class="logo-link">
-                    <img src="./assets/img/logo.ico" alt="Astraelion Logo">
+                <a href="/index.html" class="logo-link">
+                    <img src="/assets/img/logo.ico" alt="Astraelion Logo">
                     <span>Astraelion</span>
                 </a>
             </div>
@@ -40,11 +42,11 @@
                     <i class="bi bi-box-arrow-in-up"></i>
                 </a>
 
-                <a href="#" class="btn-user">
+                <a href="#" class="btn-user btn-notificacao">
                     <i class="bi bi-bell"></i>
                 </a>
 
-                <a href="#" class="btn-user futuro">
+                <a href="#" class="btn-user-painel">
                     <i class="bi bi-person-circle"></i>
                 </a>
             </div>
@@ -57,14 +59,14 @@
     <aside class="menu-lateral">
         <div class="lis">
             <li>
-                <a class="linha active" href="index.html">
+                <a class="linha" href="/index.html">
                     <i class="bi bi-house-door-fill"></i>
                     <span class="name">Inicio</span>
                 </a>
             </li>
 
             <li>
-                <a class="linha" href="#">
+                <a class="linha" href="/assets/paginas-segundarias/notificacao.html">
                     <i class="bi bi-bell"></i>
                     <span class="name">Notificação</span>
                 </a>
@@ -88,14 +90,14 @@
             <hr>
 
             <li>
-                <a class="linha" href="#">
+                <a class="linha" href="/assets/paginas-segundarias/historico.html">
                     <i class="bi bi-clock-history"></i>
                     <span class="name">Historico</span>
                 </a>
             </li>
 
             <li>
-                <a class="linha" href="#">
+                <a class="linha" href="/assets/paginas-segundarias/configuracoes.html">
                     <i class="bi bi-gear-fill"></i>
                     <span class="name">Configurações</span>
                 </a>
@@ -111,7 +113,7 @@
         <section class="video-section">
             <div class="player">
                 <video controls>
-                    <source src="./assets/img/parte42.mp4" type="video/mp4">
+                    <source src="/assets/img/parte42.mp4" type="video/mp4">
                 </video>
 
             </div>
@@ -137,10 +139,14 @@
 
                     <div class="canal">
 
-                        <img src="./assets/img/avatar1.jpg" alt="Canal Astraelion">
+                        <a href="/assets/paginas-segundarias/canal.html">
+                        <img src="/assets/img/avatar1.jpg" alt="Canal Astraelion">
 
+                        </a>
                         <div>
+                            <a href="/assets/paginas-segundarias/canal.html">
                             <h3 class="nome-canal">Canal Oficial Universo Astraelion</h3>
+                                </a>
 
                             <span>
                                 12 mil inscritos
@@ -148,7 +154,7 @@
                         </div>
 
                         <button class="btn-inscrever">
-                            Inscrever-se
+                            Embarcar
                         </button>
 
                     </div>
@@ -218,7 +224,7 @@
 
                 <div class="novo-comentario">
 
-                    <img src="./assets/img/avatar1.jpg" alt="Seu perfil">
+                    <img src="/assets/img/avatar1.jpg" alt="Seu perfil">
 
                     <div class="campo-comentario">
 
@@ -245,7 +251,7 @@
 
                 <article class="comentario">
 
-                    <img src="./assets/img/avatar2.jpg" alt="Usuário Astraelion">
+                    <img src="/assets/img/avatar2.jpg" alt="Usuário Astraelion">
 
                     <div class="comentario-conteudo">
 
@@ -288,7 +294,7 @@
 
                 <article class="comentario">
 
-                    <img src="./assets/img/avatar3.jpg" alt="Usuário Astraelion">
+                    <img src="/assets/img/avatar3.jpg" alt="Usuário Astraelion">
 
                     <div class="comentario-conteudo">
 
@@ -348,7 +354,7 @@
 
             <article class="video-recomendado">
 
-                <img src="./assets/img/thumb2.jpg" alt="Vídeo recomendado">
+                <img src="/assets/img/thumb2.jpg" alt="Vídeo recomendado">
 
                 <div>
 
@@ -371,7 +377,7 @@
 
             <article class="video-recomendado">
 
-                <img src="./assets/img/thumb3.jpg" alt="Vídeo recomendado">
+                <img src="/assets/img/thumb3.jpg" alt="Vídeo recomendado">
 
                 <div>
 
@@ -396,6 +402,8 @@
     </main>
 
 </body>
-<script src="./assets/scripsts/watch.js"></script>
+<script src="/assets/scripsts/watch.js"></script>
+<script src="/assets/scripsts/notificacao-global.js"></script>
+<script src="/assets/scripsts/user-painel.js"></script>
 
 </html>

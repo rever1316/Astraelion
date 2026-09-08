@@ -1,0 +1,39 @@
+@media screen and (max-width: 480px) {
+    body {
+        /* Garante que o fundo cubra a tela do celular sem distorcer */
+        background-position: center;
+        background-attachment: scroll;
+        background-size: cover;
+    }
+
+    section {
+        width: 95%;
+        height: auto;
+        min-height: 100vh; /* Ocupa a altura da tela no celular se necessário */
+        margin: 0 auto;
+        border-radius: 0; /* Remove as bordas arredondadas para ocupar a tela toda (estilo app) ou diminua se preferir */
+        border: none;
+        padding: 30px 20px;
+        box-shadow: none;
+    }
+
+    /* Reduz um pouco o tamanho do logo no celular */
+    .slogan img {
+        width: 120px;
+        height: 120px;
+    }
+
+    /* Faz os campos de input e botões ocuparem 100% da largura útil */
+    form, .alternatives, hr {
+        max-width: 100%;
+    }
+
+    /* Ajuste de fontes para leitura confortável em telas pequenas */
+    h1 {
+        font-size: 24px;
+    }
+
+    h2 {
+        font-size: 14px;
+    }
+}

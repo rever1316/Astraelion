@@ -1,0 +1,1165 @@
+/* =========================================================
+   GALÁXIA
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    font-family: "Aldrich", sans-serif;
+}
+
+
+body {
+    background-color: #090912;
+    color: #ffffff;
+}
+
+
+
+/*CSS NAVEGAÇÃO SUPERIOR*/
+header {
+    background-color: #130A24;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    border-bottom: 2px solid rgba(138, 77, 255, .25);
+    padding-top: 5px;
+}
+
+.nav-conterner {
+    display: flex;
+    gap: 2px;
+    align-items: center;
+}
+
+.nav-conterner button {
+    border: none;
+    margin-left: 15px;
+    margin-right: 5px;
+    cursor: pointer;
+    padding: 5px 5px 5px 5px;
+    background-color: transparent;
+    transition: 0.5s;
+}
+
+.nav-conterner button:hover {
+    background-color: #8A4DFF;
+}
+
+.nav-conterner button i {
+    font-size: 15px;
+    color: azure;
+}
+
+.nav-conterner img {
+    width: 50px;
+    height: 50px;
+}
+
+.nav-conterner span {
+
+    /*gradient*/
+    background: linear-gradient(135deg, #fcfcfc 0%, #B06EFF 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    font-size: 25px;
+}
+
+nav {
+    display: flex;
+    gap: 518px;
+}
+
+.pesquisa {
+    display: flex;
+    align-items: center;
+}
+
+input {
+    width: 350px;
+    /* Aumenta a largura da caixinha */
+    height: 40px;
+    /* Aumenta a altura da caixinha */
+    padding: 10px;
+    /* Cria um espaço entre a borda e o texto digitado */
+    font-size: 18px;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    border-right: none;
+    background-color: #130A24;
+    border-color: rgba(138, 77, 255, .25);
+    color: #fff;
+}
+
+input:hover {
+    border-color: rgba(89, 17, 223, 0.25);
+}
+
+.buscar {
+    padding: 10px;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border-left: none;
+    background-color: #130A24;
+    border-color: rgba(134, 70, 253, 0.25);
+    color: #8A4DFF;
+}
+
+.buscar:hover {
+    cursor: pointer;
+    color: #8A4DFF;
+    background-color: #602f9c73;
+}
+
+.btn-user {
+    color: #B8B8C8;
+}
+
+/* Container que agrupa os ícones do perfil na direita */
+.nav-perfil {
+    display: flex;
+    align-items: center;
+    flex-direction: row; /* Força a ficarem lado a lado na horizontal */
+    gap: 10px;           /* Espaço entre os botões */
+}
+
+/* ========================================== */
+/* ÁREA DE PERFIL (NAVA-PERFIL COM APENAS LINKS) */
+/* ========================================== */
+
+.nav-perfil {
+    display: flex;
+    align-items: center;
+    flex-direction: row; /* Mantém os itens lado a lado na horizontal */
+    gap: 10px;           /* Espaço elegante entre os ícones */
+}
+
+/* Estilização para todos os links dentro do perfil */
+.nav-perfil a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 38px;
+    width: 38px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #B8B8C8;
+    transition: 0.2s;
+    text-decoration: none;
+    padding: 0;
+    border-radius: 50%; /* Torna o link perfeitamente redondo */
+}
+
+/* Tamanho dos ícones de dentro dos links */
+.nav-perfil a i {
+    font-size: 20px;
+}
+
+/* Efeito ao passar o mouse */
+.nav-perfil a:hover {
+    background-color: #32205F;
+    color: #fff;
+}
+
+/* ========================================== */
+/* MENU LATERAL (ASIDE) FIXO E COM SCROLL PRÓPRIO */
+/* ========================================== */
+aside {
+    background-color: #130A24;
+    width: 250px;
+    border-right: 2px solid #8A4DFF;
+    position: fixed;
+    top: 60px; /* Fica logo abaixo do header */
+    left: 0;
+    height: calc(100vh - 65px);
+    overflow-y: auto; /* Apenas o menu lateral terá scroll próprio se a lista for grande */
+    z-index: 900;
+    transition: all 0.3s ease-in-out;
+}
+
+.lis {
+    margin-top: 20px;
+    padding-top: 15px;
+}
+
+.name {
+    background: linear-gradient(135deg, #B8B8C8 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+}
+
+hr {
+    border: none;
+    height: 2px;
+    background: linear-gradient(to right,
+            transparent 0%,
+            #1D1136 20%,
+            #1D1136 80%,
+            transparent 100%);
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+aside a {
+    display: flex;
+    width: 200px;
+    padding: 12px 20px;
+    text-decoration: none;
+    margin-left: 25px;
+    border-radius: 15px;
+}
+
+aside i {
+    font-size: 25px;
+    color: #fff;
+}
+
+aside span {
+    font-size: 15px;
+    text-align: inherit;
+}
+
+aside li {
+    margin-bottom: 5px;
+}
+
+aside li .linha {
+    padding-top: 10px;
+    padding-bottom: 2px;
+    padding-right: 40px;
+    padding-left: 10px;
+    transition: 0.2s;
+    align-items: center;
+    gap: 10px;
+}
+
+.linha:hover {
+    background-color: #32205F;
+    border-left: 2px solid #B06EFF;
+}
+
+.active {
+    background-color: #32205F;
+    border-left: 2px solid #B06EFF;
+    transition: 0.5s;
+}
+
+.label-inscritos{
+    color: white;
+    margin: 2px;
+}
+
+.label-list {
+    height: 565px;
+    overflow-y: auto;
+}
+
+/* Transição suave */
+aside, main {
+    transition: all 0.3s ease-in-out;
+}
+
+/* ========================================== */
+/* ESTADO QUANDO O MENU ESTÁ RECOLHIDO       */
+/* ========================================== */
+aside.recolhido {
+    width: 85px;
+}
+
+aside.recolhido span, 
+aside.recolhido .name, 
+aside.recolhido hr {
+    display: none;
+}
+
+aside.recolhido a {
+    width: auto;
+    margin-left: 15px;
+    padding: 12px;
+    justify-content: center;
+}
+
+aside.recolhido li .linha {
+    padding: 10px;
+    justify-content: center;
+    border-left: none !important;
+}
+
+/* Esconde a barra de rolagem no Chrome, Safari e Opera quando recolhido */
+aside.menu-lateral::-webkit-scrollbar {
+    display: none;
+}
+
+/* Esconde a barra de rolagem no Firefox quando recolhido */
+aside.menu-lateral {
+    scrollbar-width: none; 
+}
+
+.nav-inferior{
+    visibility: hidden;
+}
+
+
+
+/* =========================================================
+   CONTAINER
+========================================================= */
+
+.galaxia-container {
+
+    margin-left: 250px;
+
+    padding: 85px 45px 60px;
+
+    max-width: 1550px;
+
+    transition: .3s ease;
+}
+
+
+
+/* =========================================================
+   ASTRAELION — IDENTIDADE DA GALÁXIA
+   CAPA PRINCIPAL
+========================================================= */
+
+.hero-galaxia {
+    position: relative;
+    padding: 0 20px 15px;
+}
+
+
+/* Estrutura espacial atrás da capa */
+
+.hero-galaxia::before {
+    content: "";
+
+    position: absolute;
+
+    width: 70%;
+    height: 100%;
+
+    right: 5%;
+    top: 15px;
+
+    border-radius: 50%;
+
+    border: 2px solid rgba(138, 77, 255, .18);
+
+    transform: rotate(-8deg);
+
+    z-index: 0;
+
+    pointer-events: none;
+}
+
+
+/* Segunda órbita */
+
+.hero-galaxia::after {
+    content: "";
+
+    position: absolute;
+
+    width: 55%;
+    height: 90%;
+
+    right: 12%;
+    top: 25px;
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(176, 110, 255, .18);
+
+    transform: rotate(18deg);
+
+    z-index: 0;
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   CAPA
+========================================================= */
+
+.capa-principal-galaxia {
+
+    position: relative;
+
+    z-index: 2;
+
+    width: 100%;
+    height: 380px;
+
+    overflow: hidden;
+
+    border-radius: 22px;
+
+    background-color: #151027;
+
+    border: 1px solid rgba(138, 77, 255, .30);
+
+    box-shadow:
+        0 15px 45px rgba(0, 0, 0, .35),
+        0 0 30px rgba(138, 77, 255, .08);
+}
+
+
+/* Brilho interno */
+
+.capa-principal-galaxia::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        radial-gradient(
+            circle at 75% 30%,
+            rgba(176, 110, 255, .18),
+            transparent 35%
+        );
+
+    z-index: 1;
+
+    pointer-events: none;
+}
+
+
+/* Escurecimento inferior */
+
+.capa-principal-galaxia::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            to top,
+            rgba(9, 9, 18, .75),
+            transparent 65%
+        );
+
+    z-index: 2;
+
+    pointer-events: none;
+}
+
+
+.capa-principal-galaxia img {
+
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    transition: transform .6s ease;
+}
+
+
+/* Movimento sutil */
+
+.capa-principal-galaxia:hover img {
+    transform: scale(1.025);
+}
+
+
+
+/* =========================================================
+   IDENTIDADE DA GALÁXIA
+========================================================= */
+
+.informacoes-galaxia {
+
+    position: relative;
+
+    padding: 30px 20px 35px;
+
+    border-bottom:
+        1px solid rgba(138, 77, 255, .18);
+}
+
+
+/* Pequena linha de identificação */
+
+.tipo-galaxia {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    color: #B06EFF;
+
+    font-size: 11px;
+
+    letter-spacing: 3px;
+
+    text-transform: uppercase;
+}
+
+
+/* Título */
+
+.identidade-galaxia h1 {
+
+    margin-top: 10px;
+
+    font-size: 34px;
+
+    font-weight: 700;
+
+    line-height: 1.2;
+
+    color: #ffffff;
+}
+
+
+/* Linha dos dados */
+
+.dados-galaxia {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    margin-top: 15px;
+
+    color: #81798F;
+
+    font-size: 12px;
+}
+
+
+.dados-galaxia img {
+
+    width: 34px;
+    height: 34px;
+
+    border-radius: 50%;
+
+    object-fit: cover;
+
+    border:
+        2px solid rgba(138, 77, 255, .55);
+
+    box-shadow:
+        0 0 12px rgba(138, 77, 255, .20);
+}
+
+
+/* Separadores */
+
+.separador {
+
+    color: #8A4DFF;
+
+    font-size: 14px;
+}
+
+
+/* Descrição */
+
+.descricao-galaxia {
+
+    max-width: 800px;
+
+    margin-top: 20px;
+}
+
+
+.descricao-galaxia p {
+
+    color: #B8B8C8;
+
+    font-size: 13px;
+
+    line-height: 1.7;
+}
+
+/* =========================================================
+   AÇÕES DA GALÁXIA
+========================================================= */
+
+.acoes-galaxia {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+}
+
+
+/* Reproduzir */
+
+.btn-reproduzir {
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    min-width: 170px;
+    height: 44px;
+
+    padding: 0 22px;
+
+    border: none;
+
+    border-radius: 25px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #8A4DFF,
+            #B06EFF
+        );
+
+    color: #ffffff;
+
+    font-family: inherit;
+
+    font-size: 12px;
+
+    cursor: pointer;
+
+    transition: .25s ease;
+}
+
+
+.btn-reproduzir i {
+
+    font-size: 18px;
+}
+
+
+.btn-reproduzir:hover {
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 0 25px rgba(138, 77, 255, .40);
+}
+
+
+/* Compartilhar */
+
+.btn-compartilhar {
+
+    width: 44px;
+    height: 44px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
+
+    border:
+        1px solid rgba(138, 77, 255, .30);
+
+    border-radius: 50%;
+
+    background-color: #151027;
+
+    color: #B06EFF;
+
+    cursor: pointer;
+
+    transition: .25s ease;
+}
+
+
+.btn-compartilhar:hover {
+
+    background-color: #32205F;
+
+    border-color: #8A4DFF;
+
+    transform: translateY(-2px);
+}
+
+
+
+/* =========================================================
+   VÍDEOS
+========================================================= */
+
+.videos-galaxia {
+
+    padding-top: 35px;
+}
+
+
+.titulo-videos-galaxia {
+
+    margin-bottom: 20px;
+}
+
+
+.titulo-videos-galaxia h2 {
+
+    font-size: 23px;
+
+    color: #ffffff;
+}
+
+/* =========================================================
+   ROTA DE EXPLORAÇÃO
+========================================================= */
+
+.videos-galaxia {
+
+    position: relative;
+
+    padding-top: 40px;
+    padding-left: 5px;
+}
+
+
+.titulo-videos-galaxia {
+
+    position: relative;
+
+    margin-bottom: 25px;
+
+    padding-left: 15px;
+}
+
+
+.titulo-videos-galaxia h2 {
+
+    color: #ffffff;
+
+    font-size: 23px;
+}
+
+
+/* Pequeno detalhe abaixo do título */
+
+.titulo-videos-galaxia::after {
+
+    content: "";
+
+    display: block;
+
+    width: 55px;
+    height: 2px;
+
+    margin-top: 10px;
+
+    background-color: #8A4DFF;
+
+    border-radius: 5px;
+}
+
+
+
+
+
+/* =========================================================
+   CARD DE VÍDEO
+========================================================= */
+
+.video-galaxia {
+
+    display: grid;
+
+    grid-template-columns:
+        35px
+        260px
+        1fr
+        40px;
+
+    gap: 18px;
+
+    align-items: center;
+
+    padding: 12px;
+
+    border-radius: 15px;
+
+    transition: .25s;
+
+    cursor: pointer;
+}
+
+
+.video-galaxia:hover {
+
+    background-color: #151027;
+
+}
+
+
+.numero-video {
+
+    color: #81798F;
+
+    font-size: 13px;
+
+    text-align: center;
+}
+
+
+/* =========================================================
+   LINHA DA EXPEDIÇÃO
+========================================================= */
+
+.videos-galaxia::before {
+
+    content: "";
+
+    position: absolute;
+
+    left: 23px;
+
+    top: 100px;
+
+    bottom: 20px;
+
+    width: 2px;
+
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(138, 77, 255, .65),
+            rgba(138, 77, 255, .08)
+        );
+
+    z-index: 0;
+}
+
+/* =========================================================
+   EPISÓDIOS
+========================================================= */
+
+.video-galaxia {
+
+    position: relative;
+
+    z-index: 1;
+
+    display: grid;
+
+    grid-template-columns:
+        35px
+        260px
+        1fr
+        40px;
+
+    gap: 18px;
+
+    align-items: center;
+
+    padding: 14px 15px;
+
+    margin-bottom: 5px;
+
+    border-radius: 15px;
+
+    transition:
+        background-color .25s ease,
+        transform .25s ease;
+}
+
+
+.video-galaxia:hover {
+
+    background-color: #151027;
+
+    transform: translateX(4px);
+}
+
+/* =========================================================
+   MARCADOR DA ROTA
+========================================================= */
+
+.numero-video {
+
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 28px;
+    height: 28px;
+
+    border-radius: 50%;
+
+    background-color: #090912;
+
+    border:
+        2px solid rgba(138, 77, 255, .50);
+
+    color: #B06EFF;
+
+    font-size: 9px;
+
+    z-index: 2;
+
+    transition: .25s ease;
+}
+
+
+.video-galaxia:hover .numero-video {
+
+    background-color: #8A4DFF;
+
+    border-color: #B06EFF;
+
+    color: #ffffff;
+
+    box-shadow:
+        0 0 15px rgba(138, 77, 255, .45);
+}
+
+
+/* =========================================================
+   THUMBNAIL DA EXPEDIÇÃO
+========================================================= */
+
+.thumbnail-video-galaxia {
+
+    position: relative;
+
+    width: 260px;
+
+    aspect-ratio: 16 / 9;
+
+    overflow: hidden;
+
+    border-radius: 11px;
+
+    background-color: #151027;
+
+    border:
+        1px solid rgba(138, 77, 255, .18);
+
+    box-shadow:
+        0 5px 20px rgba(0, 0, 0, .20);
+}
+
+
+.thumbnail-video-galaxia img {
+
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    transition: .35s ease;
+}
+
+
+.video-galaxia:hover
+.thumbnail-video-galaxia img {
+
+    transform: scale(1.05);
+}
+
+
+
+/* =========================================================
+   INFORMAÇÕES DOS EPISÓDIOS
+========================================================= */
+
+.info-video-galaxia {
+
+    min-width: 0;
+}
+
+
+.info-video-galaxia h3 {
+
+    color: #ffffff;
+
+    font-size: 16px;
+
+    line-height: 1.4;
+
+    margin-bottom: 7px;
+
+    transition: color .2s ease;
+}
+
+
+.info-video-galaxia a {
+
+    text-decoration: none;
+}
+
+
+.video-galaxia:hover
+.info-video-galaxia h3 {
+
+    color: #B06EFF;
+}
+
+
+.info-video-galaxia > span {
+
+    color: #81798F;
+
+    font-size: 11px;
+}
+
+
+.info-video-galaxia p {
+
+    margin-top: 8px;
+
+    color: #B8B8C8;
+
+    font-size: 11px;
+
+    line-height: 1.5;
+
+    max-width: 700px;
+
+    display: -webkit-box;
+
+    -webkit-box-orient: vertical;
+
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   MENU
+========================================================= */
+
+.menu-video-galaxia {
+
+    border: none;
+
+    background: transparent;
+
+    color: #81798F;
+
+    font-size: 18px;
+
+    cursor: pointer;
+
+    opacity: 0;
+
+    transition: .2s;
+}
+
+
+.video-galaxia:hover
+.menu-video-galaxia {
+
+    opacity: 1;
+}
+
+
+.menu-video-galaxia:hover {
+
+    color: #B06EFF;
+}
+
+/* =========================================================
+   VER MAIS — GALÁXIA
+========================================================= */
+
+.controle-galaxia {
+
+    display: flex;
+
+    justify-content: center;
+
+    width: 100%;
+
+    margin-top: 25px;
+
+    padding-bottom: 20px;
+}
+
+
+.btn-ver-mais-galaxia {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    padding: 10px 25px;
+
+    border: 1px solid rgba(138, 77, 255, .35);
+
+    border-radius: 25px;
+
+    background-color: #151027;
+
+    color: #B06EFF;
+
+    font-family: inherit;
+
+    font-size: 12px;
+
+    cursor: pointer;
+
+    transition: .25s ease;
+}
+
+
+.btn-ver-mais-galaxia:hover {
+
+    background-color: #32205F;
+
+    border-color: #8A4DFF;
+
+    color: #ffffff;
+
+    box-shadow:
+        0 0 15px rgba(138, 77, 255, .25);
+}
+
+
+.btn-ver-mais-galaxia i {
+
+    font-size: 12px;
+
+    transition: transform .25s ease;
+}
+
+
+.btn-ver-mais-galaxia:hover i {
+
+    transform: translateY(2px);
+}

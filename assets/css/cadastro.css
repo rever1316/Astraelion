@@ -400,3 +400,183 @@ h4 a {
         background-position: 60px -60px, 120px -50px, 105px -75px;
     }
 }
+
+
+/* ============================= */
+/* MODAL - CADASTRO */
+/* ============================= */
+
+.modal-cadastro {
+    position: fixed;
+    inset: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: rgba(5, 4, 12, .78);
+
+    backdrop-filter: blur(5px);
+
+    z-index: 3000;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition:
+        opacity .25s ease,
+        visibility .25s ease;
+}
+
+.modal-cadastro.aberto {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+/* CAIXA */
+
+.caixa-modal-cadastro {
+    width: 100%;
+    max-width: 400px;
+
+    padding: 30px;
+
+    background-color: #130A24;
+
+    border: 1px solid rgba(138, 77, 255, .35);
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, .55),
+        0 0 35px rgba(138, 77, 255, .12);
+
+    text-align: center;
+
+    transform:
+        translateY(-10px)
+        scale(.97);
+
+    transition:
+        transform .25s ease;
+}
+
+.modal-cadastro.aberto
+.caixa-modal-cadastro {
+
+    transform:
+        translateY(0)
+        scale(1);
+}
+
+
+/* ÍCONE */
+
+.icone-modal-cadastro {
+    width: 55px;
+    height: 55px;
+
+    margin:
+        0 auto 18px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background-color:
+        rgba(138, 77, 255, .10);
+
+    border:
+        1px solid
+        rgba(138, 77, 255, .25);
+
+    color: #B06EFF;
+
+    font-size: 22px;
+
+    box-shadow:
+        0 0 20px
+        rgba(138, 77, 255, .15);
+}
+
+
+/* TÍTULO */
+
+.caixa-modal-cadastro h2 {
+
+    margin-bottom: 10px;
+
+    color: #ffffff;
+
+    font-size: 18px;
+
+    font-weight: 600;
+}
+
+
+/* MENSAGEM */
+
+.caixa-modal-cadastro p {
+
+    max-width: 310px;
+
+    margin: 0 auto;
+
+    color: #81798F;
+
+    font-size: 11px;
+
+    line-height: 1.6;
+}
+
+
+/* BOTÃO */
+
+.acao-modal-cadastro {
+
+    margin-top: 25px;
+
+    padding:
+        10px 25px;
+
+    border:
+        1px solid #8A4DFF;
+
+    border-radius: 20px;
+
+    background-color:
+        #8A4DFF;
+
+    color: #ffffff;
+
+    font-family: inherit;
+
+    font-size: 10px;
+
+    cursor: pointer;
+
+    transition:
+        background-color .2s ease,
+        border-color .2s ease,
+        transform .2s ease,
+        box-shadow .2s ease;
+}
+
+.acao-modal-cadastro:hover {
+
+    background-color:
+        #B06EFF;
+
+    border-color:
+        #B06EFF;
+
+    transform:
+        translateY(-1px);
+
+    box-shadow:
+        0 5px 20px
+        rgba(138, 77, 255, .25);
+}

@@ -1,0 +1,1427 @@
+<!DOCTYPE html>
+
+<html lang="pt-br">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="/assets/css/configuracao.css">
+    <link rel="stylesheet" href="/assets/css/notificacao-global.css">
+    <link rel="stylesheet" href="/assets/css/user-painel.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Aldrich&family=Audiowide&family=DynaPuff:wght@400..700&family=Iceberg&display=swap"
+        rel="stylesheet">
+
+    <title>Astraelion - Configurações</title>
+
+    <link rel="shortcut icon" href="/img/logo.ico" type="image/ico">
+
+</head>
+
+
+<body>
+
+    <header>
+        <nav>
+            <div>
+                <div class="nav-conterner">
+                    <button class="expandir">
+                        <i class="bi bi-list"></i>
+                    </button>
+                    <img src="/assets/img/logo.ico" alt="img-logo">
+                    <span>Astraelion</span>
+                </div>
+            </div>
+
+            <form class="pesquisa">
+                <input type="search" placeholder="Explorar...">
+                <button class="buscar">
+                    <i class="bi bi-search"></i>
+                </button>
+            </form>
+
+            <div class="nav-perfil">
+                <a href="#" class="btn-user">
+                    <i class="bi bi-box-arrow-in-up"></i>
+                </a>
+
+                <a href="#" class="btn-user btn-notificacao">
+                    <i class="bi bi-bell"></i>
+                </a>
+
+                <a href="#" class="btn-user-painel">
+                    <i class="bi bi-person-circle"></i>
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="configuracoes-container">
+
+    <section class="cabecalho-configuracoes">
+
+        <div class="identidade-cabecalho-configuracoes">
+
+            <span class="subtitulo-configuracoes">
+                CENTRAL DE CONTROLE
+            </span>
+
+            <h1>
+                Configurações
+            </h1>
+
+            <p>
+                Gerencie sua conta e personalize sua experiência pelo universo Astraelion.
+            </p>
+
+        </div>
+
+        <div class="linha-cabecalho-configuracoes"></div>
+
+    </section>
+
+
+        <section class="lista-configuracoes">
+
+
+            <div class="item-configuracao" data-secao="conta">
+
+                <!-- Cabeçalho da categoria -->
+
+                <button class="cabecalho-item-configuracao">
+
+                    <div class="icone-configuracao">
+                        <i class="bi bi-person-circle"></i>
+                    </div>
+
+                    <div class="info-configuracao">
+
+                        <h2>
+                            Conta
+                        </h2>
+
+                        <p>
+                            Gerencie seus dados e informações da conta.
+                        </p>
+
+                    </div>
+
+                    <i class="bi bi-chevron-right seta-configuracao"></i>
+
+                </button>
+
+
+                <!-- Conteúdo expandido -->
+
+                <div class="conteudo-configuracao">
+
+                    <div class="secao-configuracao">
+
+                        <span class="titulo-secao-configuracao">
+                            INFORMAÇÕES DA CONTA
+                        </span>
+
+
+                        <!-- Nome da conta -->
+
+                        <div class="opcao-configuracao">
+
+                            <div class="info-opcao-configuracao">
+
+                                <strong>
+                                    Nome da conta
+                                </strong>
+
+                                <span>
+                                    Nome utilizado para identificar sua conta.
+                                </span>
+
+                            </div>
+
+                            <button class="btn-editar-configuracao">
+                                Editar
+                            </button>
+
+                        </div>
+
+
+                        <!-- E-mail -->
+
+                        <div class="opcao-configuracao">
+
+                            <div class="info-opcao-configuracao">
+
+                                <strong>
+                                    E-mail
+                                </strong>
+
+                                <span>
+                                    Endereço de e-mail vinculado à sua conta.
+                                </span>
+
+                            </div>
+
+                            <button class="btn-editar-configuracao">
+                                Editar
+                            </button>
+
+                        </div>
+
+
+                        <!-- Verificação em duas etapas -->
+
+                        <div class="opcao-configuracao">
+
+                            <div class="info-opcao-configuracao">
+
+                                <strong>
+                                    Verificação em duas etapas
+                                </strong>
+
+                                <span>
+                                    Adicione uma camada extra de segurança à sua conta.
+                                </span>
+
+                            </div>
+
+                            <div class="status-configuracao desativado">
+                                Desativada
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Identidade do canal -->
+
+                    <div class="secao-configuracao">
+
+                        <span class="titulo-secao-configuracao">
+                            IDENTIDADE DO CANAL
+                        </span>
+
+
+                        <!-- Nome do canal -->
+
+                        <div class="opcao-configuracao">
+
+                            <div class="info-opcao-configuracao">
+
+                                <strong>
+                                    Nome do canal
+                                </strong>
+
+                                <span>
+                                    Nome público exibido no seu canal.
+                                </span>
+
+                            </div>
+
+                            <button class="btn-editar-configuracao">
+                                Editar
+                            </button>
+
+                        </div>
+
+
+                        <!-- @ do canal -->
+
+                        <div class="opcao-configuracao">
+
+                            <div class="info-opcao-configuracao">
+
+                                <strong>
+                                    @usuário
+                                </strong>
+
+                                <span>
+                                    Identificador público do seu canal.
+                                </span>
+
+                            </div>
+
+                            <button class="btn-editar-configuracao">
+                                Editar
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="item-configuracao" data-secao="notificacoes">
+
+                <!-- Cabeçalho da categoria -->
+
+                <button class="cabecalho-item-configuracao">
+
+                    <div class="icone-configuracao">
+                        <i class="bi bi-bell"></i>
+                    </div>
+
+                    <div class="info-configuracao">
+
+                        <h2>
+                            Notificações
+                        </h2>
+
+                        <p>
+                            Controle quais notificações você recebe.
+                        </p>
+
+                    </div>
+
+                    <i class="bi bi-chevron-right seta-configuracao"></i>
+
+                </button>
+
+
+                <!-- Conteúdo expandido -->
+
+                <div class="conteudo-configuracao">
+
+                    <div class="secao-configuracao">
+
+                        <span class="titulo-secao-configuracao">
+                            NOTIFICAÇÕES DA PLATAFORMA
+                        </span>
+
+
+                        <!-- Atividade -->
+
+                        <div class="opcao-configuracao">
+
+                            <div class="info-opcao-configuracao">
+
+                                <strong>
+                                    Atividade
+                                </strong>
+
+                                <span>
+                                    Receba notificações sobre curtidas, comentários e outras interações.
+                                </span>
+
+                            </div>
+
+                            <div class="status-configuracao ativo">
+                                Ativadas
+                            </div>
+
+                        </div>
+
+
+                        <!-- Novos inscritos -->
+
+                        <div class="opcao-configuracao">
+
+                            <div class="info-opcao-configuracao">
+
+                                <strong>
+                                    Novos inscritos
+                                </strong>
+
+                                <span>
+                                    Receba avisos quando alguém embarcar no seu canal.
+                                </span>
+
+                            </div>
+
+                            <div class="status-configuracao ativo">
+                                Ativadas
+                            </div>
+
+                        </div>
+
+
+                        <!-- Menções -->
+
+                        <div class="opcao-configuracao">
+
+                            <div class="info-opcao-configuracao">
+
+                                <strong>
+                                    Menções
+                                </strong>
+
+                                <span>
+                                    Receba notificações quando alguém mencionar você.
+                                </span>
+
+                            </div>
+
+                            <div class="status-configuracao ativo">
+                                Ativadas
+                            </div>
+
+                        </div>
+
+
+                        <!-- Recomendações -->
+
+                        <div class="opcao-configuracao">
+
+                            <div class="info-opcao-configuracao">
+
+                                <strong>
+                                    Recomendações
+                                </strong>
+
+                                <span>
+                                    Receba sugestões de Missões, Fendas e Galáxias.
+                                </span>
+
+                            </div>
+
+                            <div class="status-configuracao ativo">
+                                Ativadas
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Notificações por e-mail -->
+
+                    <div class="secao-configuracao">
+
+                        <span class="titulo-secao-configuracao">
+                            NOTIFICAÇÕES POR E-MAIL
+                        </span>
+
+
+                        <div class="opcao-configuracao">
+
+                            <div class="info-opcao-configuracao">
+
+                                <strong>
+                                    Atualizações da conta
+                                </strong>
+
+                                <span>
+                                    Receba informações importantes relacionadas à sua conta.
+                                </span>
+
+                            </div>
+
+                            <div class="status-configuracao ativo">
+                                Ativadas
+                            </div>
+
+                        </div>
+
+
+                        <div class="opcao-configuracao">
+
+                            <div class="info-opcao-configuracao">
+
+                                <strong>
+                                    Novidades do Astraelion
+                                </strong>
+
+                                <span>
+                                    Receba novidades, recursos e atualizações da plataforma.
+                                </span>
+
+                            </div>
+
+                            <div class="status-configuracao desativado">
+                                Desativadas
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Configurações avançadas -->
+
+                    <div class="secao-configuracao">
+
+                        <span class="titulo-secao-configuracao">
+                            CONFIGURAÇÕES AVANÇADAS
+                        </span>
+
+                        <div class="opcao-configuracao">
+
+                            <div class="info-opcao-configuracao">
+
+                                <strong>
+                                    Personalizar notificações
+                                </strong>
+
+                                <span>
+                                    Escolha individualmente quais tipos de notificações deseja receber.
+                                </span>
+
+                            </div>
+
+                            <button class="btn-editar-configuracao">
+                                Configurar
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="item-configuracao" data-secao="reproducao-desempenho">
+
+                <!-- Cabeçalho -->
+
+                <button class="cabecalho-item-configuracao">
+
+                    <div class="icone-configuracao">
+                        <i class="bi bi-play-circle"></i>
+                    </div>
+
+                    <div class="info-configuracao">
+
+                        <h2>
+                            Reprodução e desempenho
+                        </h2>
+
+                        <p>
+                            Controle a reprodução dos vídeos e o desempenho da plataforma.
+                        </p>
+
+                    </div>
+
+                    <i class="bi bi-chevron-right seta-configuracao"></i>
+
+                </button>
+
+
+                <!-- Conteúdo -->
+
+                <div class="conteudo-configuracao">
+
+
+                    <!-- ================================== -->
+                    <!-- REPRODUÇÃO -->
+                    <!-- ================================== -->
+
+                    <div class="secao-configuracao">
+
+                        <span class="titulo-secao-configuracao">
+                            REPRODUÇÃO
+                        </span>
+
+
+                        <!-- Reprodução automática -->
+
+                        <div class="opcao-configuracao">
+
+                            <div class="info-opcao-configuracao">
+
+                                <strong>
+                                    Reprodução automática
+                                </strong>
+
+                                <span>
+                                    Reproduza automaticamente o próximo vídeo ao terminar uma Missão.
+                                </span>
+
+                            </div>
+
+                            <div class="status-configuracao ativo">
+                                Ativada
+                            </div>
+
+                        </div>
+
+
+                        <!-- Reprodução contínua -->
+
+                        <div class="opcao-configuracao">
+
+                            <div class="info-opcao-configuracao">
+
+                                <strong>
+                                    Reprodução contínua
+                                </strong>
+
+                                <span>
+                                    Continue reproduzindo vídeos relacionados após o conteúdo atual.
+                                </span>
+
+                            </div>
+
+                            <div class="status-configuracao ativo">
+                                Ativada
+                            </div>
+
+                        </div>
+
+
+                        <!-- Qualidade padrão -->
+
+                        <div class="opcao-configuracao">
+
+                            <div class="info-opcao-configuracao">
+
+                                <strong>
+                                    Qualidade padrão
+                                </strong>
+
+                                <span>
+                                    Escolha a qualidade utilizada inicialmente nos vídeos.
+                                </span>
+
+                            </div>
+
+                            <button class="btn-editar-configuracao">
+                                Automática
+                            </button>
+
+                        </div>
+
+
+                        <!-- Legendas -->
+
+                        <div class="opcao-configuracao">
+
+                            <div class="info-opcao-configuracao">
+
+                                <strong>
+                                    Legendas
+                                </strong>
+
+                                <span>
+                                    Configure a exibição automática de legendas nos vídeos.
+                                </span>
+
+                            </div>
+
+                            <div class="status-configuracao desativado">
+                                Desativadas
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- ================================== -->
+                    <!-- DESEMPENHO -->
+                    <!-- ================================== -->
+
+                    <div class="secao-configuracao">
+
+                        <span class="titulo-secao-configuracao">
+                            DESEMPENHO
+                        </span>
+
+
+                        <!-- Qualidade adaptativa -->
+
+                        <div class="opcao-configuracao">
+
+                            <div class="info-opcao-configuracao">
+
+                                <strong>
+                                    Qualidade adaptativa
+                                </strong>
+
+                                <span>
+                                    Ajuste automaticamente a qualidade de acordo com sua conexão.
+                                </span>
+
+                            </div>
+
+                            <div class="status-configuracao ativo">
+                                Ativada
+                            </div>
+
+                        </div>
+
+
+                        <!-- Economia de dados -->
+
+                        <div class="opcao-configuracao">
+
+                            <div class="info-opcao-configuracao">
+
+                                <strong>
+                                    Economia de dados
+                                </strong>
+
+                                <span>
+                                    Reduza o consumo de dados durante a reprodução dos vídeos.
+                                </span>
+
+                            </div>
+
+                            <div class="status-configuracao desativado">
+                                Desativada
+                            </div>
+
+                        </div>
+
+
+                        <!-- Pré-carregamento -->
+
+                        <div class="opcao-configuracao">
+
+                            <div class="info-opcao-configuracao">
+
+                                <strong>
+                                    Pré-carregamento
+                                </strong>
+
+                                <span>
+                                    Carregue parte do próximo conteúdo antes da reprodução.
+                                </span>
+
+                            </div>
+
+                            <div class="status-configuracao ativo">
+                                Ativado
+                            </div>
+
+                        </div>
+
+
+                        <!-- Animações -->
+
+                        <div class="opcao-configuracao">
+
+                            <div class="info-opcao-configuracao">
+
+                                <strong>
+                                    Animações da interface
+                                </strong>
+
+                                <span>
+                                    Controle as animações utilizadas na navegação do Astraelion.
+                                </span>
+
+                            </div>
+
+                            <div class="status-configuracao ativo">
+                                Ativadas
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- ================================== -->
+                    <!-- FENDAS -->
+                    <!-- ================================== -->
+
+                    <div class="secao-configuracao">
+
+                        <span class="titulo-secao-configuracao">
+                            FENDAS
+                        </span>
+
+
+                        <!-- Reprodução automática -->
+
+                        <div class="opcao-configuracao">
+
+                            <div class="info-opcao-configuracao">
+
+                                <strong>
+                                    Reprodução automática
+                                </strong>
+
+                                <span>
+                                    Inicie automaticamente a próxima Fenda ao terminar a atual.
+                                </span>
+
+                            </div>
+
+                            <div class="status-configuracao ativo">
+                                Ativada
+                            </div>
+
+                        </div>
+
+
+                        <!-- Loop -->
+
+                        <div class="opcao-configuracao">
+
+                            <div class="info-opcao-configuracao">
+
+                                <strong>
+                                    Loop
+                                </strong>
+
+                                <span>
+                                    Reproduza uma Fenda continuamente até que você avance.
+                                </span>
+
+                            </div>
+
+                            <div class="status-configuracao desativado">
+                                Desativado
+                            </div>
+
+                        </div>
+
+
+                        <!-- Pré-carregamento -->
+
+                        <div class="opcao-configuracao">
+
+                            <div class="info-opcao-configuracao">
+
+                                <strong>
+                                    Pré-carregamento
+                                </strong>
+
+                                <span>
+                                    Prepare a próxima Fenda para reduzir o tempo de carregamento.
+                                </span>
+
+                            </div>
+
+                            <div class="status-configuracao ativo">
+                                Ativado
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- ================================== -->
+                    <!-- CONFIGURAÇÕES AVANÇADAS -->
+                    <!-- ================================== -->
+
+                    <div class="secao-configuracao">
+
+                        <span class="titulo-secao-configuracao">
+                            CONFIGURAÇÕES AVANÇADAS
+                        </span>
+
+                        <div class="opcao-configuracao">
+
+                            <div class="info-opcao-configuracao">
+
+                                <strong>
+                                    Personalizar reprodução
+                                </strong>
+
+                                <span>
+                                    Acesse opções detalhadas para controlar sua experiência de reprodução.
+                                </span>
+
+                            </div>
+
+                            <button class="btn-editar-configuracao">
+                                Configurar
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="item-configuracao" data-secao="privacidade">
+
+                <!-- Cabeçalho -->
+
+                <button class="cabecalho-item-configuracao">
+
+                    <div class="icone-configuracao">
+                        <i class="bi bi-shield-lock"></i>
+                    </div>
+
+                    <div class="info-configuracao">
+
+                        <h2>
+                            Privacidade
+                        </h2>
+
+                        <p>
+                            Controle sua privacidade e visibilidade.
+                        </p>
+
+                    </div>
+
+                    <i class="bi bi-chevron-right seta-configuracao"></i>
+
+                </button>
+
+
+                <!-- Conteúdo -->
+
+                <div class="conteudo-configuracao">
+
+
+                    <!-- ================================== -->
+                    <!-- PRIVACIDADE DA CONTA -->
+                    <!-- ================================== -->
+
+                    <div class="secao-configuracao">
+
+                        <span class="titulo-secao-configuracao">
+                            PRIVACIDADE DA CONTA
+                        </span>
+
+
+                        <!-- Perfil público -->
+
+                        <div class="opcao-configuracao">
+
+                            <div class="info-opcao-configuracao">
+
+                                <strong>
+                                    Perfil público
+                                </strong>
+
+                                <span>
+                                    Permita que outros viajantes encontrem e visualizem seu perfil.
+                                </span>
+
+                            </div>
+
+                            <div class="status-configuracao ativo">
+                                Público
+                            </div>
+
+                        </div>
+
+
+                        <!-- Modo restrito -->
+
+                        <div class="opcao-configuracao">
+
+                            <div class="info-opcao-configuracao">
+
+                                <strong>
+                                    Modo restrito
+                                </strong>
+
+                                <span>
+                                    Limite a exibição de conteúdos que possam não ser adequados para você.
+                                </span>
+
+                            </div>
+
+                            <div class="status-configuracao desativado">
+                                Desativado
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- ================================== -->
+                    <!-- ATIVIDADE E HISTÓRICO -->
+                    <!-- ================================== -->
+
+                    <div class="secao-configuracao">
+
+                        <span class="titulo-secao-configuracao">
+                            ATIVIDADE E HISTÓRICO
+                        </span>
+
+
+                        <!-- Histórico de exploração -->
+
+                        <div class="opcao-configuracao">
+
+                            <div class="info-opcao-configuracao">
+
+                                <strong>
+                                    Histórico de exploração
+                                </strong>
+
+                                <span>
+                                    Controle o registro das Missões, Fendas e Galáxias que você acessou.
+                                </span>
+
+                            </div>
+
+                            <div class="status-configuracao ativo">
+                                Ativado
+                            </div>
+
+                        </div>
+
+
+                        <!-- Histórico de pesquisa -->
+
+                        <div class="opcao-configuracao">
+
+                            <div class="info-opcao-configuracao">
+
+                                <strong>
+                                    Histórico de pesquisa
+                                </strong>
+
+                                <span>
+                                    Controle o armazenamento das suas pesquisas realizadas no Astraelion.
+                                </span>
+
+                            </div>
+
+                            <div class="status-configuracao ativo">
+                                Ativado
+                            </div>
+
+                        </div>
+
+
+                        <!-- Atividade visível -->
+
+                        <div class="opcao-configuracao">
+
+                            <div class="info-opcao-configuracao">
+
+                                <strong>
+                                    Atividade visível
+                                </strong>
+
+                                <span>
+                                    Controle se sua atividade recente pode ser exibida para outros viajantes.
+                                </span>
+
+                            </div>
+
+                            <div class="status-configuracao desativado">
+                                Oculta
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- ================================== -->
+                    <!-- VISIBILIDADE -->
+                    <!-- ================================== -->
+
+                    <div class="secao-configuracao">
+
+                        <span class="titulo-secao-configuracao">
+                            VISIBILIDADE
+                        </span>
+
+
+                        <!-- Inscrições -->
+
+                        <div class="opcao-configuracao">
+
+                            <div class="info-opcao-configuracao">
+
+                                <strong>
+                                    Inscrições
+                                </strong>
+
+                                <span>
+                                    Controle se outros viajantes podem visualizar os canais que você segue.
+                                </span>
+
+                            </div>
+
+                            <div class="status-configuracao desativado">
+                                Privadas
+                            </div>
+
+                        </div>
+
+
+                        <!-- Curtidas -->
+
+                        <div class="opcao-configuracao">
+
+                            <div class="info-opcao-configuracao">
+
+                                <strong>
+                                    Curtidas
+                                </strong>
+
+                                <span>
+                                    Controle a visibilidade das Missões que você marcou com gostei.
+                                </span>
+
+                            </div>
+
+                            <div class="status-configuracao desativado">
+                                Privadas
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- ================================== -->
+                    <!-- CONFIGURAÇÕES AVANÇADAS -->
+                    <!-- ================================== -->
+
+                    <div class="secao-configuracao">
+
+                        <span class="titulo-secao-configuracao">
+                            CONFIGURAÇÕES AVANÇADAS
+                        </span>
+
+                        <div class="opcao-configuracao">
+
+                            <div class="info-opcao-configuracao">
+
+                                <strong>
+                                    Personalizar privacidade
+                                </strong>
+
+                                <span>
+                                    Acesse opções detalhadas para controlar sua privacidade no Astraelion.
+                                </span>
+
+                            </div>
+
+                            <button class="btn-editar-configuracao">
+                                Configurar
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+            <div class="item-configuracao" data-secao="avancadas">
+
+                <!-- ================================== -->
+                <!-- CABEÇALHO -->
+                <!-- ================================== -->
+
+                <button class="cabecalho-item-configuracao">
+
+                    <div class="icone-configuracao">
+                        <i class="bi bi-sliders"></i>
+                    </div>
+
+                    <div class="info-configuracao">
+
+                        <h2>
+                            Configurações avançadas
+                        </h2>
+
+                        <p>
+                            Segurança, dados e opções adicionais.
+                        </p>
+
+                    </div>
+
+                    <i class="bi bi-chevron-right seta-configuracao"></i>
+
+                </button>
+
+
+                <!-- ================================== -->
+                <!-- CONTEÚDO -->
+                <!-- ================================== -->
+
+                <div class="conteudo-configuracao">
+
+
+                    <!-- ================================== -->
+                    <!-- PERSONALIZAÇÃO -->
+                    <!-- ================================== -->
+
+                    <div class="secao-configuracao">
+
+                        <span class="titulo-secao-configuracao">
+                            PERSONALIZAÇÃO
+                        </span>
+
+
+                        <!-- Personalização da conta -->
+
+                        <div class="opcao-configuracao">
+
+                            <div class="info-opcao-configuracao">
+
+                                <strong>
+                                    Personalização da conta
+                                </strong>
+
+                                <span>
+                                    Personalize informações e elementos da sua experiência no Astraelion.
+                                </span>
+
+                            </div>
+
+                            <button class="btn-editar-configuracao">
+                                Personalizar
+                            </button>
+
+                        </div>
+
+
+                        <!-- Personalização do canal -->
+
+                        <div class="opcao-configuracao">
+
+                            <div class="info-opcao-configuracao">
+
+                                <strong>
+                                    Personalização do canal
+                                </strong>
+
+                                <span>
+                                    Personalize a identidade visual e as informações públicas do seu canal.
+                                </span>
+
+                            </div>
+
+                            <button class="btn-editar-configuracao">
+                                Personalizar
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- ================================== -->
+                    <!-- SEGURANÇA -->
+                    <!-- ================================== -->
+
+                    <div class="secao-configuracao">
+
+                        <span class="titulo-secao-configuracao">
+                            SEGURANÇA
+                        </span>
+
+
+                        <!-- Senha -->
+
+                        <div class="opcao-configuracao">
+
+                            <div class="info-opcao-configuracao">
+
+                                <strong>
+                                    Senha
+                                </strong>
+
+                                <span>
+                                    Altere sua senha e mantenha sua chave de acesso protegida.
+                                </span>
+
+                            </div>
+
+                            <button class="btn-editar-configuracao">
+                                Alterar
+                            </button>
+
+                        </div>
+
+
+                        <!-- Verificação em duas etapas -->
+
+                        <div class="opcao-configuracao">
+
+                            <div class="info-opcao-configuracao">
+
+                                <strong>
+                                    Verificação em duas etapas
+                                </strong>
+
+                                <span>
+                                    Proteja sua conta utilizando uma camada adicional de segurança.
+                                </span>
+
+                            </div>
+
+                            <div class="status-configuracao desativado">
+                                Desativada
+                            </div>
+
+                        </div>
+
+
+                        <!-- Sessões ativas -->
+
+                        <div class="opcao-configuracao">
+
+                            <div class="info-opcao-configuracao">
+
+                                <strong>
+                                    Sessões ativas
+                                </strong>
+
+                                <span>
+                                    Consulte os dispositivos onde sua conta está conectada.
+                                </span>
+
+                            </div>
+
+                            <button class="btn-editar-configuracao">
+                                Gerenciar
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- ================================== -->
+                    <!-- DADOS E CONTA -->
+                    <!-- ================================== -->
+
+                    <div class="secao-configuracao">
+
+                        <span class="titulo-secao-configuracao">
+                            DADOS E CONTA
+                        </span>
+
+
+                        <!-- Seus dados -->
+
+                        <div class="opcao-configuracao">
+
+                            <div class="info-opcao-configuracao">
+
+                                <strong>
+                                    Seus dados
+                                </strong>
+
+                                <span>
+                                    Consulte as informações armazenadas relacionadas à sua conta.
+                                </span>
+
+                            </div>
+
+                            <button class="btn-editar-configuracao">
+                                Visualizar
+                            </button>
+
+                        </div>
+
+
+                        <!-- Baixar dados -->
+
+                        <div class="opcao-configuracao">
+
+                            <div class="info-opcao-configuracao">
+
+                                <strong>
+                                    Baixar seus dados
+                                </strong>
+
+                                <span>
+                                    Solicite uma cópia dos dados associados à sua conta.
+                                </span>
+
+                            </div>
+
+                            <button class="btn-editar-configuracao">
+                                Solicitar
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- ================================== -->
+                    <!-- AÇÕES DA CONTA -->
+                    <!-- ================================== -->
+
+                    <div class="secao-configuracao">
+
+                        <span class="titulo-secao-configuracao">
+                            AÇÕES DA CONTA
+                        </span>
+
+
+                        <!-- Desativar conta -->
+
+                        <div class="opcao-configuracao">
+
+                            <div class="info-opcao-configuracao">
+
+                                <strong>
+                                    Desativar conta
+                                </strong>
+
+                                <span>
+                                    Desative temporariamente sua conta e o acesso ao seu perfil.
+                                </span>
+
+                            </div>
+
+                            <button class="btn-editar-configuracao">
+                                Desativar
+                            </button>
+
+                        </div>
+
+
+                        <!-- Excluir conta -->
+
+                        <div class="opcao-configuracao">
+
+                            <div class="info-opcao-configuracao">
+
+                                <strong>
+                                    Excluir conta
+                                </strong>
+
+                                <span>
+                                    Exclua permanentemente sua conta e os dados associados a ela.
+                                </span>
+
+                            </div>
+
+                            <button class="btn-editar-configuracao">
+                                Excluir
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+    </main>
+
+</body>
+<script src="/assets/scripsts/configuracao.js"></script>
+<script src="/assets/scripsts/notificacao-global.js"></script>
+<script src="/assets/scripsts/user-painel.js"></script>
+
+</html>
