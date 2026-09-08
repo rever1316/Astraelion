@@ -1,0 +1,122 @@
+/* ========================================== */
+/* RESPONSIVIDADE PARA CELULARES (Mobile)     */
+/* ========================================== */
+@media (max-width: 768px) {
+
+    /* 2. Reseta a margem esquerda do container principal e do header */
+    main.watch-container {
+        margin-top: 0 !important;
+        margin-left: 0 !important;
+        width: 100% !important;
+        padding: 60px 0 30px 0 !important;
+        /* Padding lateral zerado (0) */
+        display: block !important;
+    }
+
+    /* 3. Ajusta o header para ocupar toda a largura sem margens */
+    header {
+        display: none;
+    }
+
+    .player {
+        width: 100% !important;
+        max-width: 100% !important;
+        border-radius: 0 !important;
+        margin: 0 !important;
+        aspect-ratio: 16 / 9;
+    }
+
+    .player video {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover;
+        /* Faz o vídeo preencher todo o espaço sem barras pretas */
+    }
+
+    .menu-lateral {
+        display: none !important;
+    }
+
+    /* 5. Informações do vídeo e canal empilhados e organizados */
+    .video-info {
+        max-width: 100% !important;
+        padding: 0 4px;
+    }
+
+    .video-actions {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .acoes {
+        width: 100%;
+        overflow-x: auto;
+        /* Permite arrastar os botões de like/compartilhar horizontalmente */
+        padding-bottom: 5px;
+    }
+
+    /* 6. Descrição e Comentários adaptados à largura da tela */
+    .descricao,
+    .comentarios {
+        max-width: 100% !important;
+        border-radius: 8px;
+    }
+
+    /* 7. Recomendações (Próximos vídeos) vão para o fluxo normal abaixo dos comentários */
+    .recomendacoes {
+        width: 100% !important;
+        margin-top: 30px;
+    }
+
+    .video-recomendado img {
+        width: 140px;
+        /* Miniaturas menores para telas de celular */
+        height: 80px;
+    }
+
+    /* Dá um respiro de margem à direita para o botão "Embarcar" não colar na borda */
+    .btn-inscrever {
+        padding: 8px 14px !important;
+        font-size: 13px !important;
+        margin-right: 4px !important; /* Desgruda da lateral direita da tela */
+    }
+
+    /* Afasta o bloco de ações/canal um pouco mais para baixo (espaço leve) */
+    .video-actions {
+        margin-top: 12px !important; /* Cria o respiro pedido */
+    }
+
+    /* Altera o layout do vídeo recomendado para coluna (thumb em cima, texto embaixo) */
+    .video-recomendado {
+        display: flex !important;
+        flex-direction: column !important; /* Empilha os itens verticalmente */
+        gap: 8px !important;
+        margin-bottom: 24px !important;
+    }
+
+    /* Faz a miniatura ocupar 100% da largura da tela com a proporção correta de vídeo */
+    .video-recomendado img {
+        width: 100% !important;
+        height: auto !important;
+        aspect-ratio: 16 / 9 !important; /* Mantém o formato padrão de vídeo */
+        object-fit: cover !important;
+        border-radius: 12px !important; /* Deixa as bordas arredondadas igual ao YouTube */
+    }
+
+    /* Ajusta o espaçamento do bloco de texto abaixo da thumb */
+    .video-recomendado div {
+        padding: 0 4px;
+    }
+
+    /* Melhora o tamanho do título e espaçamento dos textos */
+    .video-recomendado h3 {
+        font-size: 14px !important;
+        line-height: 1.4 !important;
+    }
+
+    .video-recomendado p, 
+    .video-recomendado span {
+        font-size: 12px !important;
+    }
+}
