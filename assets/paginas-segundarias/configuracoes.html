@@ -11,20 +11,15 @@
     <link rel="stylesheet" href="/assets/css/configuracao.css">
     <link rel="stylesheet" href="/assets/css/notificacao-global.css">
     <link rel="stylesheet" href="/assets/css/user-painel.css">
-
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
-
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
     <link
         href="https://fonts.googleapis.com/css2?family=Aldrich&family=Audiowide&family=DynaPuff:wght@400..700&family=Iceberg&display=swap"
         rel="stylesheet">
 
     <title>Astraelion - Configurações</title>
-
-    <link rel="shortcut icon" href="/img/logo.ico" type="image/ico">
+    <link rel="shortcut icon" href="/assets/img/logo.ico" type="image/ico">
 
 </head>
 
@@ -38,8 +33,10 @@
                     <button class="expandir">
                         <i class="bi bi-list"></i>
                     </button>
-                    <img src="/assets/img/logo.ico" alt="img-logo">
-                    <span>Astraelion</span>
+                    <a href="/index.html">
+                        <img src="/assets/img/logo.ico" alt="img-logo">
+                        <span>Astraelion</span>
+                    </a>
                 </div>
             </div>
 
@@ -68,28 +65,78 @@
 
     <main class="configuracoes-container">
 
-    <section class="cabecalho-configuracoes">
+        <section class="cabecalho-configuracoes">
 
-        <div class="identidade-cabecalho-configuracoes">
+            <div class="identidade-cabecalho-configuracoes">
 
-            <span class="subtitulo-configuracoes">
-                CENTRAL DE CONTROLE
-            </span>
+                <span class="subtitulo-configuracoes">
+                    CENTRAL DE CONTROLE
+                </span>
 
-            <h1>
-                Configurações
-            </h1>
+                <h1>
+                    Configurações
+                </h1>
 
-            <p>
-                Gerencie sua conta e personalize sua experiência pelo universo Astraelion.
-            </p>
+                <p>
+                    Gerencie sua conta e personalize sua experiência pelo universo Astraelion.
+                </p>
 
-        </div>
+            </div>
 
-        <div class="linha-cabecalho-configuracoes"></div>
+            <div class="linha-cabecalho-configuracoes"></div>
 
-    </section>
+        </section>
 
+        <section class="visao-geral-configuracoes">
+
+            <div class="cabecalho-visao-geral">
+                <span>VISÃO GERAL</span>
+            </div>
+
+            <div class="painel-visao-geral">
+
+                <div class="identidade-conta-configuracoes">
+
+                    <div class="icone-conta-configuracoes">
+                        <i class="bi bi-person-circle"></i>
+                    </div>
+
+                    <div class="dados-conta-configuracoes">
+                        <strong id="resumoNomeConta">
+                            Gustavo
+                        </strong>
+
+                        <span id="resumoUsuarioCanal">
+                            @astraelion
+                        </span>
+                    </div>
+
+                </div>
+
+                <div class="status-conta-configuracoes">
+
+                    <div class="status-resumo-configuracoes">
+                        <span>CONTA</span>
+                        <strong class="ativo">Ativa</strong>
+                    </div>
+
+                    <div class="status-resumo-configuracoes">
+                        <span>PERFIL</span>
+                        <strong>Público</strong>
+                    </div>
+
+                    <div class="status-resumo-configuracoes">
+                        <span>2 ETAPAS</span>
+                        <strong id="resumoVerificacao">
+                            Desativada
+                        </strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
 
         <section class="lista-configuracoes">
 
@@ -146,16 +193,19 @@
                                     Nome utilizado para identificar sua conta.
                                 </span>
 
+                                <small class="valor-configuracao" id="nomeContaAtual">
+                                    Gustavo
+                                </small>
+
                             </div>
 
-                            <button class="btn-editar-configuracao">
+
+                            <button class="btn-editar-configuracao" id="editarNomeConta" type="button">
                                 Editar
                             </button>
 
                         </div>
 
-
-                        <!-- E-mail -->
 
                         <div class="opcao-configuracao">
 
@@ -169,9 +219,13 @@
                                     Endereço de e-mail vinculado à sua conta.
                                 </span>
 
+                                <small class="valor-configuracao" id="emailContaAtual">
+                                    viajante@astraelion.com
+                                </small>
+
                             </div>
 
-                            <button class="btn-editar-configuracao">
+                            <button class="btn-editar-configuracao" id="editarEmailConta" type="button">
                                 Editar
                             </button>
 
@@ -194,25 +248,22 @@
 
                             </div>
 
-                            <div class="status-configuracao desativado">
-                                Desativada
+                            <div class="controle-seguranca-configuracao">
+
+                                <div class="status-configuracao desativado" id="statusVerificacao">
+                                    Desativada
+                                </div>
+
+                                <button class="btn-editar-configuracao" id="configurarVerificacao" type="button">
+                                    Configurar
+                                </button>
+
                             </div>
 
                         </div>
 
-                    </div>
 
-
-                    <!-- Identidade do canal -->
-
-                    <div class="secao-configuracao">
-
-                        <span class="titulo-secao-configuracao">
-                            IDENTIDADE DO CANAL
-                        </span>
-
-
-                        <!-- Nome do canal -->
+                        <!-- Identidade do canal -->
 
                         <div class="opcao-configuracao">
 
@@ -226,32 +277,37 @@
                                     Nome público exibido no seu canal.
                                 </span>
 
+                                <small class="valor-configuracao" id="nomeCanalAtual">
+                                    Astraelion
+                                </small>
+
                             </div>
 
-                            <button class="btn-editar-configuracao">
+                            <button class="btn-editar-configuracao" id="editarNomeCanal" type="button">
                                 Editar
                             </button>
 
                         </div>
 
 
-                        <!-- @ do canal -->
-
+                        <!-- @usuário -->
                         <div class="opcao-configuracao">
 
                             <div class="info-opcao-configuracao">
 
-                                <strong>
-                                    @usuário
-                                </strong>
+                                <strong>@usuário</strong>
 
                                 <span>
                                     Identificador público do seu canal.
                                 </span>
 
+                                <small class="valor-configuracao" id="usuarioCanalAtual">
+                                    @astraelion
+                                </small>
+
                             </div>
 
-                            <button class="btn-editar-configuracao">
+                            <button class="btn-editar-configuracao" id="editarUsuarioCanal" type="button">
                                 Editar
                             </button>
 
@@ -260,7 +316,6 @@
                     </div>
 
                 </div>
-
             </div>
 
 
@@ -308,18 +363,25 @@
 
                             <div class="info-opcao-configuracao">
 
-                                <strong>
-                                    Atividade
-                                </strong>
+                                <strong>Atividade</strong>
 
                                 <span>
-                                    Receba notificações sobre curtidas, comentários e outras interações.
+                                    Receba notificações sobre atividades relacionadas à sua conta.
                                 </span>
 
                             </div>
 
-                            <div class="status-configuracao ativo">
-                                Ativadas
+                            <div class="controle-seguranca-configuracao">
+
+                                <div class="status-configuracao ativo" id="statusNotificacaoAtividade">
+                                    Ativada
+                                </div>
+
+                                <button class="btn-editar-configuracao" id="configurarNotificacaoAtividade"
+                                    type="button">
+                                    Configurar
+                                </button>
+
                             </div>
 
                         </div>
@@ -331,18 +393,25 @@
 
                             <div class="info-opcao-configuracao">
 
-                                <strong>
-                                    Novos inscritos
-                                </strong>
+                                <strong>Novos inscritos</strong>
 
                                 <span>
-                                    Receba avisos quando alguém embarcar no seu canal.
+                                    Receba notificações quando alguém se inscrever no seu canal.
                                 </span>
 
                             </div>
 
-                            <div class="status-configuracao ativo">
-                                Ativadas
+                            <div class="controle-seguranca-configuracao">
+
+                                <div class="status-configuracao ativo" id="statusNotificacaoInscritos">
+                                    Ativada
+                                </div>
+
+                                <button class="btn-editar-configuracao" id="configurarNotificacaoInscritos"
+                                    type="button">
+                                    Configurar
+                                </button>
+
                             </div>
 
                         </div>
@@ -354,9 +423,7 @@
 
                             <div class="info-opcao-configuracao">
 
-                                <strong>
-                                    Menções
-                                </strong>
+                                <strong>Menções</strong>
 
                                 <span>
                                     Receba notificações quando alguém mencionar você.
@@ -364,8 +431,16 @@
 
                             </div>
 
-                            <div class="status-configuracao ativo">
-                                Ativadas
+                            <div class="controle-seguranca-configuracao">
+
+                                <div class="status-configuracao ativo" id="statusNotificacaoMencoes">
+                                    Ativada
+                                </div>
+
+                                <button class="btn-editar-configuracao" id="configurarNotificacaoMencoes" type="button">
+                                    Configurar
+                                </button>
+
                             </div>
 
                         </div>
@@ -377,18 +452,25 @@
 
                             <div class="info-opcao-configuracao">
 
-                                <strong>
-                                    Recomendações
-                                </strong>
+                                <strong>Recomendações</strong>
 
                                 <span>
-                                    Receba sugestões de Missões, Fendas e Galáxias.
+                                    Receba notificações sobre vídeos e conteúdos que podem interessar a você.
                                 </span>
 
                             </div>
 
-                            <div class="status-configuracao ativo">
-                                Ativadas
+                            <div class="controle-seguranca-configuracao">
+
+                                <div class="status-configuracao ativo" id="statusNotificacaoRecomendacoes">
+                                    Ativada
+                                </div>
+
+                                <button class="btn-editar-configuracao" id="configurarNotificacaoRecomendacoes"
+                                    type="button">
+                                    Configurar
+                                </button>
+
                             </div>
 
                         </div>
@@ -409,18 +491,24 @@
 
                             <div class="info-opcao-configuracao">
 
-                                <strong>
-                                    Atualizações da conta
-                                </strong>
+                                <strong>Atualizações da conta</strong>
 
                                 <span>
-                                    Receba informações importantes relacionadas à sua conta.
+                                    Receba e-mails sobre alterações e informações importantes da sua conta.
                                 </span>
 
                             </div>
 
-                            <div class="status-configuracao ativo">
-                                Ativadas
+                            <div class="controle-seguranca-configuracao">
+
+                                <div class="status-configuracao ativo" id="statusEmailAtualizacoes">
+                                    Ativada
+                                </div>
+
+                                <button class="btn-editar-configuracao" id="configurarEmailAtualizacoes" type="button">
+                                    Configurar
+                                </button>
+
                             </div>
 
                         </div>
@@ -430,18 +518,24 @@
 
                             <div class="info-opcao-configuracao">
 
-                                <strong>
-                                    Novidades do Astraelion
-                                </strong>
+                                <strong>Novidades do Astraelion</strong>
 
                                 <span>
-                                    Receba novidades, recursos e atualizações da plataforma.
+                                    Receba e-mails sobre novidades, recursos e atualizações da plataforma.
                                 </span>
 
                             </div>
 
-                            <div class="status-configuracao desativado">
-                                Desativadas
+                            <div class="controle-seguranca-configuracao">
+
+                                <div class="status-configuracao ativo" id="statusEmailNovidades">
+                                    Ativada
+                                </div>
+
+                                <button class="btn-editar-configuracao" id="configurarEmailNovidades" type="button">
+                                    Configurar
+                                </button>
+
                             </div>
 
                         </div>
@@ -461,18 +555,16 @@
 
                             <div class="info-opcao-configuracao">
 
-                                <strong>
-                                    Personalizar notificações
-                                </strong>
+                                <strong>Personalizar notificações</strong>
 
                                 <span>
-                                    Escolha individualmente quais tipos de notificações deseja receber.
+                                    Escolha quais tipos de notificações você deseja receber.
                                 </span>
 
                             </div>
 
-                            <button class="btn-editar-configuracao">
-                                Configurar
+                            <button class="btn-editar-configuracao" id="personalizarNotificacoes" type="button">
+                                Em breve
                             </button>
 
                         </div>
@@ -533,18 +625,25 @@
 
                             <div class="info-opcao-configuracao">
 
-                                <strong>
-                                    Reprodução automática
-                                </strong>
+                                <strong>Reprodução automática</strong>
 
                                 <span>
-                                    Reproduza automaticamente o próximo vídeo ao terminar uma Missão.
+                                    Inicie automaticamente o próximo conteúdo após o término do vídeo.
                                 </span>
 
                             </div>
 
-                            <div class="status-configuracao ativo">
-                                Ativada
+                            <div class="controle-seguranca-configuracao">
+
+                                <div class="status-configuracao ativo" id="statusReproducaoAutomatica">
+                                    Ativada
+                                </div>
+
+                                <button class="btn-editar-configuracao" id="configurarReproducaoAutomatica"
+                                    type="button">
+                                    Configurar
+                                </button>
+
                             </div>
 
                         </div>
@@ -556,9 +655,7 @@
 
                             <div class="info-opcao-configuracao">
 
-                                <strong>
-                                    Reprodução contínua
-                                </strong>
+                                <strong>Reprodução contínua</strong>
 
                                 <span>
                                     Continue reproduzindo vídeos relacionados após o conteúdo atual.
@@ -566,8 +663,18 @@
 
                             </div>
 
-                            <div class="status-configuracao ativo">
-                                Ativada
+                            <div class="radio-configuracao">
+
+                                <label>
+                                    <input type="radio" name="reproducaoContinua" value="ativada" checked>
+                                    <span>Ativada</span>
+                                </label>
+
+                                <label>
+                                    <input type="radio" name="reproducaoContinua" value="desativada">
+                                    <span>Desativada</span>
+                                </label>
+
                             </div>
 
                         </div>
@@ -579,9 +686,7 @@
 
                             <div class="info-opcao-configuracao">
 
-                                <strong>
-                                    Qualidade padrão
-                                </strong>
+                                <strong>Qualidade padrão</strong>
 
                                 <span>
                                     Escolha a qualidade utilizada inicialmente nos vídeos.
@@ -589,9 +694,25 @@
 
                             </div>
 
-                            <button class="btn-editar-configuracao">
-                                Automática
-                            </button>
+                            <div class="controle-input-configuracao">
+
+                                <input type="text" list="qualidadesVideo" id="qualidadePadrao" value="Automática"
+                                    placeholder="Escolha a qualidade" autocomplete="off">
+
+                                <datalist id="qualidadesVideo">
+
+                                    <option value="Automática">
+                                    <option value="2160p">
+                                    <option value="1440p">
+                                    <option value="1080p">
+                                    <option value="720p">
+                                    <option value="480p">
+                                    <option value="360p">
+                                    <option value="240p">
+
+                                </datalist>
+
+                            </div>
 
                         </div>
 
@@ -602,9 +723,7 @@
 
                             <div class="info-opcao-configuracao">
 
-                                <strong>
-                                    Legendas
-                                </strong>
+                                <strong>Legendas</strong>
 
                                 <span>
                                     Configure a exibição automática de legendas nos vídeos.
@@ -612,8 +731,18 @@
 
                             </div>
 
-                            <div class="status-configuracao desativado">
-                                Desativadas
+                            <div class="radio-configuracao">
+
+                                <label>
+                                    <input type="radio" name="legendas" value="ativadas" checked>
+                                    <span>Ativadas</span>
+                                </label>
+
+                                <label>
+                                    <input type="radio" name="legendas" value="desativadas">
+                                    <span>Desativadas</span>
+                                </label>
+
                             </div>
 
                         </div>
@@ -638,18 +767,26 @@
 
                             <div class="info-opcao-configuracao">
 
-                                <strong>
-                                    Qualidade adaptativa
-                                </strong>
+                                <strong>Qualidade adaptativa</strong>
 
                                 <span>
-                                    Ajuste automaticamente a qualidade de acordo com sua conexão.
+                                    Ajuste automaticamente a qualidade do vídeo de acordo com sua conexão.
                                 </span>
 
                             </div>
 
-                            <div class="status-configuracao ativo">
-                                Ativada
+                            <div class="radio-configuracao">
+
+                                <label>
+                                    <input type="radio" name="qualidadeAdaptativa" value="ativada" checked>
+                                    <span>Ativada</span>
+                                </label>
+
+                                <label>
+                                    <input type="radio" name="qualidadeAdaptativa" value="desativada">
+                                    <span>Desativada</span>
+                                </label>
+
                             </div>
 
                         </div>
@@ -661,9 +798,7 @@
 
                             <div class="info-opcao-configuracao">
 
-                                <strong>
-                                    Economia de dados
-                                </strong>
+                                <strong>Economia de dados</strong>
 
                                 <span>
                                     Reduza o consumo de dados durante a reprodução dos vídeos.
@@ -671,8 +806,18 @@
 
                             </div>
 
-                            <div class="status-configuracao desativado">
-                                Desativada
+                            <div class="radio-configuracao">
+
+                                <label>
+                                    <input type="radio" name="economiaDados" value="ativada">
+                                    <span>Ativada</span>
+                                </label>
+
+                                <label>
+                                    <input type="radio" name="economiaDados" value="desativada" checked>
+                                    <span>Desativada</span>
+                                </label>
+
                             </div>
 
                         </div>
@@ -684,18 +829,26 @@
 
                             <div class="info-opcao-configuracao">
 
-                                <strong>
-                                    Pré-carregamento
-                                </strong>
+                                <strong>Pré-carregamento</strong>
 
                                 <span>
-                                    Carregue parte do próximo conteúdo antes da reprodução.
+                                    Carregue parte dos conteúdos antecipadamente para reduzir interrupções.
                                 </span>
 
                             </div>
 
-                            <div class="status-configuracao ativo">
-                                Ativado
+                            <div class="radio-configuracao">
+
+                                <label>
+                                    <input type="radio" name="precarregamento" value="ativado" checked>
+                                    <span>Ativado</span>
+                                </label>
+
+                                <label>
+                                    <input type="radio" name="precarregamento" value="desativado">
+                                    <span>Desativado</span>
+                                </label>
+
                             </div>
 
                         </div>
@@ -707,18 +860,26 @@
 
                             <div class="info-opcao-configuracao">
 
-                                <strong>
-                                    Animações da interface
-                                </strong>
+                                <strong>Animações da interface</strong>
 
                                 <span>
-                                    Controle as animações utilizadas na navegação do Astraelion.
+                                    Ative ou desative as animações e transições da interface.
                                 </span>
 
                             </div>
 
-                            <div class="status-configuracao ativo">
-                                Ativadas
+                            <div class="radio-configuracao">
+
+                                <label>
+                                    <input type="radio" name="animacoesInterface" value="ativadas" checked>
+                                    <span>Ativadas</span>
+                                </label>
+
+                                <label>
+                                    <input type="radio" name="animacoesInterface" value="desativadas">
+                                    <span>Desativadas</span>
+                                </label>
+
                             </div>
 
                         </div>
@@ -743,9 +904,7 @@
 
                             <div class="info-opcao-configuracao">
 
-                                <strong>
-                                    Reprodução automática
-                                </strong>
+                                <strong>Reprodução automática</strong>
 
                                 <span>
                                     Inicie automaticamente a próxima Fenda ao terminar a atual.
@@ -753,8 +912,18 @@
 
                             </div>
 
-                            <div class="status-configuracao ativo">
-                                Ativada
+                            <div class="radio-configuracao">
+
+                                <label>
+                                    <input type="radio" name="fendasReproducaoAutomatica" value="ativada" checked>
+                                    <span>Ativada</span>
+                                </label>
+
+                                <label>
+                                    <input type="radio" name="fendasReproducaoAutomatica" value="desativada">
+                                    <span>Desativada</span>
+                                </label>
+
                             </div>
 
                         </div>
@@ -766,9 +935,7 @@
 
                             <div class="info-opcao-configuracao">
 
-                                <strong>
-                                    Loop
-                                </strong>
+                                <strong>Loop</strong>
 
                                 <span>
                                     Reproduza uma Fenda continuamente até que você avance.
@@ -776,8 +943,18 @@
 
                             </div>
 
-                            <div class="status-configuracao desativado">
-                                Desativado
+                            <div class="radio-configuracao">
+
+                                <label>
+                                    <input type="radio" name="fendasLoop" value="ativado">
+                                    <span>Ativado</span>
+                                </label>
+
+                                <label>
+                                    <input type="radio" name="fendasLoop" value="desativado" checked>
+                                    <span>Desativado</span>
+                                </label>
+
                             </div>
 
                         </div>
@@ -789,9 +966,7 @@
 
                             <div class="info-opcao-configuracao">
 
-                                <strong>
-                                    Pré-carregamento
-                                </strong>
+                                <strong>Pré-carregamento</strong>
 
                                 <span>
                                     Prepare a próxima Fenda para reduzir o tempo de carregamento.
@@ -799,12 +974,21 @@
 
                             </div>
 
-                            <div class="status-configuracao ativo">
-                                Ativado
+                            <div class="radio-configuracao">
+
+                                <label>
+                                    <input type="radio" name="fendasPrecarregamento" value="ativado" checked>
+                                    <span>Ativado</span>
+                                </label>
+
+                                <label>
+                                    <input type="radio" name="fendasPrecarregamento" value="desativado">
+                                    <span>Desativado</span>
+                                </label>
+
                             </div>
 
                         </div>
-
                     </div>
 
 
@@ -812,30 +996,20 @@
                     <!-- CONFIGURAÇÕES AVANÇADAS -->
                     <!-- ================================== -->
 
-                    <div class="secao-configuracao">
+                    <div class="opcao-configuracao">
 
-                        <span class="titulo-secao-configuracao">
-                            CONFIGURAÇÕES AVANÇADAS
-                        </span>
+                        <div class="info-opcao-configuracao">
 
-                        <div class="opcao-configuracao">
+                            <strong>Personalizar reprodução</strong>
 
-                            <div class="info-opcao-configuracao">
+                            <span>
+                                Ajuste configurações avançadas de reprodução.
+                            </span>
 
-                                <strong>
-                                    Personalizar reprodução
-                                </strong>
+                        </div>
 
-                                <span>
-                                    Acesse opções detalhadas para controlar sua experiência de reprodução.
-                                </span>
-
-                            </div>
-
-                            <button class="btn-editar-configuracao">
-                                Configurar
-                            </button>
-
+                        <div class="status-configuracao desativado">
+                            Em breve
                         </div>
 
                     </div>
@@ -894,9 +1068,7 @@
 
                             <div class="info-opcao-configuracao">
 
-                                <strong>
-                                    Perfil público
-                                </strong>
+                                <strong>Perfil público</strong>
 
                                 <span>
                                     Permita que outros viajantes encontrem e visualizem seu perfil.
@@ -904,8 +1076,18 @@
 
                             </div>
 
-                            <div class="status-configuracao ativo">
-                                Público
+                            <div class="radio-configuracao">
+
+                                <label>
+                                    <input type="radio" name="perfilPublico" value="publico" checked>
+                                    <span>Público</span>
+                                </label>
+
+                                <label>
+                                    <input type="radio" name="perfilPublico" value="privado">
+                                    <span>Privado</span>
+                                </label>
+
                             </div>
 
                         </div>
@@ -917,9 +1099,7 @@
 
                             <div class="info-opcao-configuracao">
 
-                                <strong>
-                                    Modo restrito
-                                </strong>
+                                <strong>Modo restrito</strong>
 
                                 <span>
                                     Limite a exibição de conteúdos que possam não ser adequados para você.
@@ -927,8 +1107,18 @@
 
                             </div>
 
-                            <div class="status-configuracao desativado">
-                                Desativado
+                            <div class="radio-configuracao">
+
+                                <label>
+                                    <input type="radio" name="modoRestrito" value="ativado">
+                                    <span>Ativado</span>
+                                </label>
+
+                                <label>
+                                    <input type="radio" name="modoRestrito" value="desativado" checked>
+                                    <span>Desativado</span>
+                                </label>
+
                             </div>
 
                         </div>
@@ -953,9 +1143,7 @@
 
                             <div class="info-opcao-configuracao">
 
-                                <strong>
-                                    Histórico de exploração
-                                </strong>
+                                <strong>Histórico de exploração</strong>
 
                                 <span>
                                     Controle o registro das Missões, Fendas e Galáxias que você acessou.
@@ -963,8 +1151,18 @@
 
                             </div>
 
-                            <div class="status-configuracao ativo">
-                                Ativado
+                            <div class="radio-configuracao">
+
+                                <label>
+                                    <input type="radio" name="historicoExploracao" value="ativado" checked>
+                                    <span>Ativado</span>
+                                </label>
+
+                                <label>
+                                    <input type="radio" name="historicoExploracao" value="desativado">
+                                    <span>Desativado</span>
+                                </label>
+
                             </div>
 
                         </div>
@@ -976,9 +1174,7 @@
 
                             <div class="info-opcao-configuracao">
 
-                                <strong>
-                                    Histórico de pesquisa
-                                </strong>
+                                <strong>Histórico de pesquisa</strong>
 
                                 <span>
                                     Controle o armazenamento das suas pesquisas realizadas no Astraelion.
@@ -986,8 +1182,18 @@
 
                             </div>
 
-                            <div class="status-configuracao ativo">
-                                Ativado
+                            <div class="radio-configuracao">
+
+                                <label>
+                                    <input type="radio" name="historicoPesquisa" value="ativado" checked>
+                                    <span>Ativado</span>
+                                </label>
+
+                                <label>
+                                    <input type="radio" name="historicoPesquisa" value="desativado">
+                                    <span>Desativado</span>
+                                </label>
+
                             </div>
 
                         </div>
@@ -999,9 +1205,7 @@
 
                             <div class="info-opcao-configuracao">
 
-                                <strong>
-                                    Atividade visível
-                                </strong>
+                                <strong>Atividade visível</strong>
 
                                 <span>
                                     Controle se sua atividade recente pode ser exibida para outros viajantes.
@@ -1009,8 +1213,18 @@
 
                             </div>
 
-                            <div class="status-configuracao desativado">
-                                Oculta
+                            <div class="radio-configuracao">
+
+                                <label>
+                                    <input type="radio" name="atividadeVisivel" value="visivel">
+                                    <span>Visível</span>
+                                </label>
+
+                                <label>
+                                    <input type="radio" name="atividadeVisivel" value="oculta" checked>
+                                    <span>Oculta</span>
+                                </label>
+
                             </div>
 
                         </div>
@@ -1035,9 +1249,7 @@
 
                             <div class="info-opcao-configuracao">
 
-                                <strong>
-                                    Inscrições
-                                </strong>
+                                <strong>Inscrições</strong>
 
                                 <span>
                                     Controle se outros viajantes podem visualizar os canais que você segue.
@@ -1045,8 +1257,18 @@
 
                             </div>
 
-                            <div class="status-configuracao desativado">
-                                Privadas
+                            <div class="radio-configuracao">
+
+                                <label>
+                                    <input type="radio" name="visibilidadeInscricoes" value="publicas">
+                                    <span>Públicas</span>
+                                </label>
+
+                                <label>
+                                    <input type="radio" name="visibilidadeInscricoes" value="privadas" checked>
+                                    <span>Privadas</span>
+                                </label>
+
                             </div>
 
                         </div>
@@ -1058,9 +1280,7 @@
 
                             <div class="info-opcao-configuracao">
 
-                                <strong>
-                                    Curtidas
-                                </strong>
+                                <strong>Curtidas</strong>
 
                                 <span>
                                     Controle a visibilidade das Missões que você marcou com gostei.
@@ -1068,8 +1288,18 @@
 
                             </div>
 
-                            <div class="status-configuracao desativado">
-                                Privadas
+                            <div class="radio-configuracao">
+
+                                <label>
+                                    <input type="radio" name="visibilidadeCurtidas" value="publicas">
+                                    <span>Públicas</span>
+                                </label>
+
+                                <label>
+                                    <input type="radio" name="visibilidadeCurtidas" value="privadas" checked>
+                                    <span>Privadas</span>
+                                </label>
+
                             </div>
 
                         </div>
@@ -1091,9 +1321,7 @@
 
                             <div class="info-opcao-configuracao">
 
-                                <strong>
-                                    Personalizar privacidade
-                                </strong>
+                                <strong>Personalizar privacidade</strong>
 
                                 <span>
                                     Acesse opções detalhadas para controlar sua privacidade no Astraelion.
@@ -1101,9 +1329,9 @@
 
                             </div>
 
-                            <button class="btn-editar-configuracao">
-                                Configurar
-                            </button>
+                            <div class="status-configuracao desativado">
+                                Em breve
+                            </div>
 
                         </div>
 
@@ -1161,9 +1389,6 @@
                             PERSONALIZAÇÃO
                         </span>
 
-
-                        <!-- Personalização da conta -->
-
                         <div class="opcao-configuracao">
 
                             <div class="info-opcao-configuracao">
@@ -1178,14 +1403,11 @@
 
                             </div>
 
-                            <button class="btn-editar-configuracao">
-                                Personalizar
-                            </button>
+                            <div class="status-configuracao desativado">
+                                Em breve
+                            </div>
 
                         </div>
-
-
-                        <!-- Personalização do canal -->
 
                         <div class="opcao-configuracao">
 
@@ -1201,9 +1423,9 @@
 
                             </div>
 
-                            <button class="btn-editar-configuracao">
-                                Personalizar
-                            </button>
+                            <div class="status-configuracao desativado">
+                                Em breve
+                            </div>
 
                         </div>
 
@@ -1220,9 +1442,7 @@
                             SEGURANÇA
                         </span>
 
-
                         <!-- Senha -->
-
                         <div class="opcao-configuracao">
 
                             <div class="info-opcao-configuracao">
@@ -1237,15 +1457,13 @@
 
                             </div>
 
-                            <button class="btn-editar-configuracao">
-                                Alterar
-                            </button>
+                            <div class="status-configuracao desativado">
+                                Em breve
+                            </div>
 
                         </div>
 
-
                         <!-- Verificação em duas etapas -->
-
                         <div class="opcao-configuracao">
 
                             <div class="info-opcao-configuracao">
@@ -1266,9 +1484,7 @@
 
                         </div>
 
-
                         <!-- Sessões ativas -->
-
                         <div class="opcao-configuracao">
 
                             <div class="info-opcao-configuracao">
@@ -1283,14 +1499,13 @@
 
                             </div>
 
-                            <button class="btn-editar-configuracao">
-                                Gerenciar
-                            </button>
+                            <div class="status-configuracao desativado">
+                                Em breve
+                            </div>
 
                         </div>
 
                     </div>
-
 
                     <!-- ================================== -->
                     <!-- DADOS E CONTA -->
@@ -1301,9 +1516,6 @@
                         <span class="titulo-secao-configuracao">
                             DADOS E CONTA
                         </span>
-
-
-                        <!-- Seus dados -->
 
                         <div class="opcao-configuracao">
 
@@ -1319,14 +1531,11 @@
 
                             </div>
 
-                            <button class="btn-editar-configuracao">
-                                Visualizar
-                            </button>
+                            <div class="status-configuracao desativado">
+                                Em breve
+                            </div>
 
                         </div>
-
-
-                        <!-- Baixar dados -->
 
                         <div class="opcao-configuracao">
 
@@ -1342,9 +1551,9 @@
 
                             </div>
 
-                            <button class="btn-editar-configuracao">
-                                Solicitar
-                            </button>
+                            <div class="status-configuracao desativado">
+                                Em breve
+                            </div>
 
                         </div>
 
@@ -1361,9 +1570,6 @@
                             AÇÕES DA CONTA
                         </span>
 
-
-                        <!-- Desativar conta -->
-
                         <div class="opcao-configuracao">
 
                             <div class="info-opcao-configuracao">
@@ -1378,14 +1584,11 @@
 
                             </div>
 
-                            <button class="btn-editar-configuracao">
+                            <button class="btn-editar-configuracao" type="button">
                                 Desativar
                             </button>
 
                         </div>
-
-
-                        <!-- Excluir conta -->
 
                         <div class="opcao-configuracao">
 
@@ -1401,7 +1604,7 @@
 
                             </div>
 
-                            <button class="btn-editar-configuracao">
+                            <button class="btn-editar-configuracao" type="button">
                                 Excluir
                             </button>
 
@@ -1418,6 +1621,94 @@
         </section>
 
     </main>
+
+    <footer class="rodape-configuracoes">
+
+        <div class="conteudo-rodape-configuracoes">
+
+            <a href="/index.html" class="identidade-rodape-configuracoes">
+
+                <span class="simbolo-rodape-configuracoes">
+                    ✦
+                </span>
+
+                <strong>
+                    ASTRAELION
+                </strong>
+
+                <p>
+                    Explore um novo universo.
+                </p>
+
+                <span class="portal-rodape-configuracoes">
+                    Voltar ao universo
+                    <i class="bi bi-arrow-right"></i>
+                </span>
+
+            </a>
+
+
+            <div class="links-rodape-configuracoes">
+
+                <div class="grupo-rodape-configuracoes">
+
+                    <span>
+                        NAVEGAÇÃO
+                    </span>
+
+                    <a href="#">
+                        Início
+                    </a>
+
+                    <a href="#">
+                        Explorar
+                    </a>
+
+                    <a href="#">
+                        Galáxias
+                    </a>
+
+                </div>
+
+
+                <div class="grupo-rodape-configuracoes">
+
+                    <span>
+                        CONTA
+                    </span>
+
+                    <a href="#">
+                        Configurações
+                    </a>
+
+                    <a href="#">
+                        Privacidade
+                    </a>
+
+                    <a href="#">
+                        Segurança
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="base-rodape-configuracoes">
+
+            <span>
+                © 2026 Astraelion
+            </span>
+
+            <span>
+                Versão 0.1.0
+            </span>
+
+        </div>
+
+    </footer>
 
 </body>
 <script src="/assets/scripsts/configuracao.js"></script>

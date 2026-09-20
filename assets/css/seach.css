@@ -1,17 +1,30 @@
+/* =========================================================
+   ASTRAELION — PÁGINA DE BUSCA
+   CSS LIMPO — ETAPA DINÂMICA
+   ========================================================= */
+
+
+/* =========================================================
+   RESET / BASE
+   ========================================================= */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: "Aldrich", sans-serif;
-    scroll-behavior: smooth;
 }
 
 body {
     background-color: #090912;
-    overflow-x: hidden;
+    color: #ffffff;
 }
 
-/*CSS NAVEGAÇÃO SUPERIOR*/
+
+/* =========================================================
+   NAVBAR
+   ========================================================= */
+
 header {
     background-color: #130A24;
     position: fixed;
@@ -301,778 +314,476 @@ aside.menu-lateral {
     visibility: hidden;
 }
 
+/* =========================================================
+   MAIN — PÁGINA DE BUSCA
+   ========================================================= */
+
 .busca-container {
+    width: calc(100% - 250px);
+
     margin-left: 250px;
-    padding: 85px 35px 50px;
-    transition: all .3s ease-in-out;
+
+    padding: 85px 45px 50px;
+
+    min-height: 100vh;
+
+    transition: all 0.3s ease-in-out;
 }
+
+
+/* Quando a sidebar estiver recolhida */
+
+.busca-container.recolhido {
+    width: calc(100% - 85px);
+    margin-left: 85px;
+}
+
+
+/* =========================================================
+   CABEÇALHO DA BUSCA
+   ========================================================= */
 
 .cabecalho-busca {
     width: 100%;
     max-width: 1200px;
-    margin: 0 auto;
+
+    margin: 0 auto 30px;
 }
 
 .cabecalho-busca h1 {
     color: #ffffff;
-    font-size: 24px;
+
+    font-size: 22px;
     font-weight: 600;
-    line-height: 1.3;
+
+    margin-bottom: 25px;
 }
 
-#termo-busca {
+.cabecalho-busca h1 span {
     color: #B06EFF;
 }
+
+
+/* =========================================================
+   FILTROS
+   ========================================================= */
 
 .filtros-busca {
     display: flex;
     align-items: center;
+
     gap: 10px;
 
-    margin-top: 25px;
-    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(138, 77, 255, .2);
 
-    border-bottom: 1px solid rgba(138, 77, 255, .18);
+    padding-bottom: 15px;
 }
 
 .filtro {
-    position: relative;
+    padding: 9px 18px;
 
-    padding: 10px 18px;
+    background-color: #151027;
 
-    border: none;
+    border: 1px solid rgba(138, 77, 255, .2);
     border-radius: 20px;
-
-    background-color: transparent;
 
     color: #81798F;
 
-    font-family: inherit;
-    font-size: 12px;
+    font-size: 10px;
 
     cursor: pointer;
 
-    transition: color .25s ease,
-                background-color .25s ease;
-}
-
-.filtro::after {
-    content: "";
-
-    position: absolute;
-
-    left: 15px;
-    right: 15px;
-    bottom: 0;
-
-    width: auto;
-    height: 2px;
-
-    background-color: #8A4DFF;
-
-    border-radius: 5px;
-
-    transform: scaleX(0);
-
-    transform-origin: center;
-
-    transition: transform .3s ease;
-
-    box-shadow:
-        0 0 8px rgba(138, 77, 255, .45);
+    transition:
+        background-color .2s ease,
+        color .2s ease,
+        border-color .2s ease;
 }
 
 .filtro:hover {
+    background-color: #32205F;
     color: #ffffff;
-
-    background-color: #151027;
-}
-
-.filtro.active:hover {
-    background-color: #9B5BFF;
-
-    border-color: #B06EFF;
-
-    box-shadow:
-        0 0 20px rgba(138, 77, 255, .35);
 }
 
 .filtro.active {
+    background-color: #8A4DFF;
+    border-color: #8A4DFF;
+
     color: #ffffff;
-
-    background-color: #151027;
 }
 
-.filtro.active:hover {
-    background-color: #32205F;
-}
 
-.filtro.active::after {
-    transform: scaleX(1);
-}
-
+/* =========================================================
+   RESULTADOS (CONTAINER PRINCIPAL)
+   ========================================================= */
 
 .resultados-busca {
     width: 100%;
     max-width: 1200px;
-    margin: 30px auto 0;
+    margin: 25px auto 0;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 
+/* Estilo padrão de linha para vídeos e canais fora da grade de fendas */
 .resultado-video {
     display: grid;
-    grid-template-columns: 280px 1fr 40px;
+    grid-template-columns: 280px minmax(0, 1fr) 40px;
     gap: 20px;
-
+    align-items: center;
+    width: 100%;
     padding: 15px;
-
     border-radius: 15px;
-
-    transition:
-        background-color .25s ease,
-        transform .25s ease;
+    transition: background-color .25s ease;
 }
 
 .resultado-video:hover {
     background-color: #151027;
-    transform: translateX(4px);
 }
 
-.thumbnail-resultado {
-    position: relative;
+/* Especificamente para o card de canal (já que o avatar é redondo e menor na largura) */
+.resultado-canal-card {
+    grid-template-columns: 150px minmax(0, 1fr) 40px !important;
+}
 
-    width: 280px;
-    aspect-ratio: 16 / 9;
+/* Força o container principal a aceitar o grid de 3 colunas se a classe estiver presente */
+.resultados-busca.grade-fendas {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 30px !important;
+    align-items: start !important;
+}
 
-    overflow: hidden;
+/* BLINTAGEM: Garante que vídeos, canais e galáxias NUNCA sofram alteração de layout por causa da grade */
+.resultados-busca.grade-fendas > .resultado-video:not(.item-grade-fenda),
+.resultados-busca.grade-fendas > .resultado-galaxia {
+    grid-column: 1 / -1 !important;
+    display: grid !important;
+    grid-template-columns: 280px minmax(0, 1fr) 40px !important;
+    gap: 20px !important;
+    align-items: center !important;
+    width: 100% !important;
+}
+/* Estilo base para o card de Galáxia fora da grade */
+.resultado-galaxia {
+    display: grid;
+    grid-template-columns: 280px minmax(0, 1fr) 40px;
+    gap: 20px;
+    align-items: center;
+    width: 100%;
+    padding: 15px;
+    border-radius: 15px;
+    transition: background-color .25s ease;
+}
 
-    border-radius: 12px;
-
+.resultado-galaxia:hover {
     background-color: #151027;
-
-    border: 1px solid rgba(138, 77, 255, .20);
 }
 
-.thumbnail-resultado img {
+.thumb-resultado-galaxia {
+    width: 280px;
+    height: 158px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.thumb-resultado-galaxia img {
     width: 100%;
     height: 100%;
-
-    display: block;
-
     object-fit: cover;
-
-    transition: transform .35s ease;
+    display: block;
 }
 
-.resultado-video:hover .thumbnail-resultado img {
-    transform: scale(1.05);
+.info-resultado-galaxia {
+    min-width: 0;
 }
+
+.info-resultado-galaxia h2 {
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.info-resultado-galaxia p {
+    color: #B8B8C8;
+    font-size: 12px;
+    margin-bottom: 6px;
+}
+
+.info-resultado-galaxia span {
+    color: #81798F;
+    font-size: 10px;
+}
+
+/* =========================================================
+   ESTILO EXCLUSIVO DOS CARDS DE FENDA (DENTRO DA GRADE)
+   ========================================================= */
+.resultados-busca .item-grade-fenda {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    padding: 15px !important;
+    background: transparent !important;
+    border-radius: 15px;
+    overflow: hidden;
+    text-align: left;
+}
+
+.resultados-busca .item-grade-fenda:hover {
+    background-color: #151027 !important;
+}
+
+/* Thumbnail vertical exata da fenda */
+.resultados-busca .item-grade-fenda .thumb-resultado {
+    width: 100% !important;
+    max-width: 210px !important;
+    height: 350px !important;
+    aspect-ratio: 9 / 16 !important;
+    position: relative !important;
+    overflow: hidden !important;
+    border-radius: 12px !important;
+    margin: 0 auto 12px auto !important;
+}
+
+.resultados-busca .item-grade-fenda .thumb-resultado img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    display: block !important;
+}
+
+.resultados-busca .item-grade-fenda .info-resultado-video {
+    width: 100% !important;
+    max-width: 210px !important;
+    padding-top: 0 !important;
+}
+
+.resultados-busca .item-grade-fenda .menu-resultado {
+    width: 100% !important;
+    max-width: 210px !important;
+    display: flex !important;
+    justify-content: flex-end !important;
+    padding-top: 5px !important;
+}
+/* =========================================================
+   AVATAR DE CANAL
+   ========================================================= */
+
+.avatar-resultado-canal {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.avatar-resultado-canal img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+/* =========================================================
+   THUMBNAILS (MINIATURAS)
+   ========================================================= */
+
+/* Thumb padrão (horizontal) */
+.thumb-resultado {
+    width: 280px;
+    height: 158px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.thumb-resultado img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+/* Thumb específica da Fenda (Vertical 9/16 que se ajusta à grade) */
+.resultado-fenda .thumb-resultado {
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 9 / 16 !important;
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.resultado-fenda .thumb-resultado img {
+    width: 100% !important;
+    height: 100% !important;
+    display: block;
+    object-fit: cover !important;
+}
+
+
+/* =========================================================
+   DURAÇÃO DO VÍDEO
+   ========================================================= */
 
 .duracao-resultado {
     position: absolute;
-
     right: 8px;
     bottom: 8px;
-
-    padding: 4px 7px;
-
-    border-radius: 5px;
-
-    background-color: rgba(0, 0, 0, .8);
-
+    padding: 4px 6px;
+    background-color: rgba(0, 0, 0, .85);
+    border-radius: 4px;
     color: #ffffff;
-
-    font-size: 11px;
+    font-size: 9px;
 }
 
-.info-resultado {
+
+/* =========================================================
+   INFORMAÇÕES DO VÍDEO E FENDA
+   ========================================================= */
+
+.info-resultado-video {
     min-width: 0;
-    padding-top: 3px;
+    padding-top: 5px;
 }
 
-.titulo-resultado {
-    text-decoration: none;
-}
-
-.titulo-resultado h2 {
+.info-resultado-video h2 {
     color: #ffffff;
-
-    font-size: 17px;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 10px;
     line-height: 1.4;
-
-    margin-bottom: 8px;
-
-    transition: color .2s ease;
 }
 
-.resultado-video:hover .titulo-resultado h2 {
-    color: #B06EFF;
-}
-
-.dados-resultado {
-    display: block;
-
-    color: #81798F;
-
-    font-size: 11px;
-
-    margin-bottom: 12px;
-}
-
-.info-resultado p {
-    max-width: 700px;
-
+.canal-resultado-video {
+    display: flex;
+    align-items: center;
+    gap: 8px;
     color: #B8B8C8;
-
-    font-size: 12px;
-
-    line-height: 1.6;
-
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
-    line-clamp: 2;
-    overflow: hidden;
+    font-size: 11px;
+    margin-bottom: 8px;
 }
+
+.meta-resultado-video {
+    color: #81798F;
+    font-size: 10px;
+    margin-top: 6px;
+}
+
+/* Ajustes de tipografia e espaçamento específicos para fendas */
+.resultado-fenda .info-resultado-video {
+    padding: 10px 5px 0;
+    width: 100%;
+}
+
+.resultado-fenda .info-resultado-video h2 {
+    font-size: 14px;
+    line-height: 1.4;
+    margin-bottom: 8px;
+}
+
+.resultado-fenda .canal-resultado-video {
+    font-size: 10px;
+    margin-bottom: 6px;
+}
+
+.resultado-fenda .meta-resultado-video {
+    font-size: 9px;
+}
+
+
+/* =========================================================
+   MENU DO RESULTADO E BOTÃO DE OPÇÕES
+   ========================================================= */
 
 .menu-resultado {
-    align-self: start;
-
-    width: 35px;
-    height: 35px;
-
-    border: none;
-    border-radius: 50%;
-
-    background-color: transparent;
-
-    color: #81798F;
-
-    cursor: pointer;
-
-    transition: .2s ease;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
 }
 
-.menu-resultado:hover {
+.btn-menu-resultado {
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: none;
+    border-radius: 50%;
+    color: #B8B8C8;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color .2s ease, color .2s ease;
+}
+
+.btn-menu-resultado:hover {
     background-color: #32205F;
     color: #ffffff;
 }
 
+
+/* =========================================================
+   MENU FLUTUANTE (DROPDOWN)
+   ========================================================= */
+
 .dropdown-opcoes {
-    position: absolute;
-    top: 38px;
-    right: 0;
     width: 210px;
-    padding: 8px;
-    background: #151027;
-    border: 1px solid rgba(138, 77, 255, .25);
-    border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, .4);
-    display: none;
-    z-index: 50;
+    background-color: #151027;
+    border: 1px solid rgba(138, 77, 255, .35);
+    border-radius: 10px;
+    padding: 6px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .45);
+    overflow: hidden;
 }
 
 .dropdown-opcoes button {
     width: 100%;
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 10px;
     padding: 10px;
-    border: none;
-    border-radius: 8px;
     background: transparent;
-    color: #ffffff;
-    font-family: inherit;
-    font-size: 13px;
+    border: none;
+    border-radius: 6px;
+    color: #B8B8C8;
+    font-size: 10px;
     text-align: left;
     cursor: pointer;
+    transition: background-color .2s ease, color .2s ease;
 }
 
 .dropdown-opcoes button:hover {
-    background: #32205F;
-}
-
-.dropdown-opcoes i {
-    color: #B06EFF;
-    font-size: 17px;
-}
-
-.resultado-canal {
-    display: grid;
-
-    grid-template-columns: 100px 1fr auto;
-
-    align-items: center;
-
-    gap: 20px;
-
-    padding: 18px 15px;
-
-    border-radius: 15px;
-
-    transition:
-        background-color .25s ease,
-        transform .25s ease;
-}
-
-.resultado-canal:hover {
-    background-color: #151027;
-
-    transform: translateX(4px);
-}
-
-.avatar-resultado-canal {
-    width: 90px;
-    height: 90px;
-
-    border-radius: 50%;
-
-    overflow: hidden;
-
-    border: 2px solid rgba(138, 77, 255, .45);
-
-    background-color: #151027;
-
-    transition: .3s ease;
-}
-
-.avatar-resultado-canal img {
-    width: 100%;
-    height: 100%;
-
-    display: block;
-
-    object-fit: cover;
-}
-
-.resultado-canal:hover .avatar-resultado-canal {
-    border-color: #B06EFF;
-
-    box-shadow:
-        0 0 20px rgba(138, 77, 255, .25);
-}
-
-.info-resultado-canal {
-    display: flex;
-
-    flex-direction: column;
-
-    min-width: 0;
-
-    gap: 4px;
-}
-
-.nome-resultado-canal {
-    width: fit-content;
-
+    background-color: #32205F;
     color: #ffffff;
-
-    text-decoration: none;
-
-    font-size: 18px;
-
-    transition: color .2s ease;
 }
 
-.resultado-canal:hover .nome-resultado-canal {
-    color: #B06EFF;
+.dropdown-opcoes button i {
+    font-size: 14px;
 }
 
-.usuario-resultado-canal {
-    color: #B8B8C8;
+/* =========================================================
+   SCROLLBAR
+   ========================================================= */
 
-    font-size: 11px;
+aside::-webkit-scrollbar,
+.label-list::-webkit-scrollbar {
+    width: 5px;
 }
 
-.inscritos-resultado-canal {
-    color: #81798F;
-
-    font-size: 11px;
+aside::-webkit-scrollbar-track,
+.label-list::-webkit-scrollbar-track {
+    background: transparent;
 }
 
-.info-resultado-canal p {
-    max-width: 650px;
-
-    margin-top: 5px;
-
-    color: #B8B8C8;
-
-    font-size: 11px;
-
-    line-height: 1.5;
-
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
-    line-clamp: 2;
-
-    overflow: hidden;
-}
-
-.info-resultado-canal {
-    display: flex;
-
-    flex-direction: column;
-
-    min-width: 0;
-
-    gap: 4px;
-}
-
-.nome-resultado-canal {
-    width: fit-content;
-
-    color: #ffffff;
-
-    text-decoration: none;
-
-    font-size: 18px;
-
-    transition: color .2s ease;
-}
-
-.resultado-canal:hover .nome-resultado-canal {
-    color: #B06EFF;
-}
-
-.usuario-resultado-canal {
-    color: #B8B8C8;
-
-    font-size: 11px;
-}
-
-.inscritos-resultado-canal {
-    color: #81798F;
-
-    font-size: 11px;
-}
-
-.info-resultado-canal p {
-    max-width: 650px;
-
-    margin-top: 5px;
-
-    color: #B8B8C8;
-
-    font-size: 11px;
-
-    line-height: 1.5;
-
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
-    line-clamp: 2;
-
-    overflow: hidden;
-}
-
-.btn-embarcar-resultado {
-    padding: 10px 20px;
-
-    border: 1px solid rgba(138, 77, 255, .35);
-
-    border-radius: 25px;
-
-    background-color: #151027;
-
-    color: #B06EFF;
-
-    font-family: inherit;
-
-    font-size: 11px;
-
-    cursor: pointer;
-
-    transition: .25s ease;
-}
-
-.btn-embarcar-resultado:hover {
-    background-color: #8A4DFF;
-
-    border-color: #8A4DFF;
-
-    color: #ffffff;
-
-    box-shadow:
-        0 0 15px rgba(138, 77, 255, .25);
-}
-
-.resultado-fenda {
-    display: grid;
-
-    grid-template-columns: 130px 1fr;
-
-    align-items: center;
-
-    gap: 18px;
-
-    padding: 15px;
-
-    border-radius: 15px;
-
-    transition:
-        background-color .25s ease,
-        transform .25s ease;
-}
-
-.resultado-fenda:hover {
-    background-color: #151027;
-
-    transform: translateY(-3px);
-}
-
-.thumbnail-resultado-fenda {
-    position: relative;
-
-    width: 130px;
-
-    aspect-ratio: 9 / 16;
-
-    overflow: hidden;
-
-    border-radius: 12px;
-
-    background-color: #151027;
-
-    border: 1px solid rgba(138, 77, 255, .20);
-}
-
-.thumbnail-resultado-fenda img {
-    width: 100%;
-    height: 100%;
-
-    display: block;
-
-    object-fit: cover;
-
-    transition: transform .35s ease;
-}
-
-.resultado-fenda:hover
-.thumbnail-resultado-fenda img {
-    transform: scale(1.05);
-}
-
-.duracao-fenda-resultado {
-    position: absolute;
-
-    right: 7px;
-    bottom: 7px;
-
-    padding: 4px 6px;
-
-    border-radius: 5px;
-
-    background-color: rgba(0, 0, 0, .8);
-
-    color: #ffffff;
-
-    font-size: 10px;
-}
-
-.info-resultado-fenda {
-    min-width: 0;
-}
-
-.tipo-resultado {
-    display: block;
-
-    margin-bottom: 8px;
-
-    color: #B06EFF;
-
-    font-size: 10px;
-
-    letter-spacing: 2px;
-}
-
-.titulo-resultado-fenda {
-    text-decoration: none;
-}
-
-.titulo-resultado-fenda h2 {
-    color: #ffffff;
-
-    font-size: 15px;
-
-    line-height: 1.4;
-
-    margin-bottom: 8px;
-
-    transition: color .2s ease;
-}
-
-.resultado-fenda:hover
-.titulo-resultado-fenda h2 {
-    color: #B06EFF;
-}
-
-.dados-fenda-resultado {
-    color: #81798F;
-
-    font-size: 10px;
-
-    line-height: 1.4;
-}
-
-.resultado-galaxia {
-    display: grid;
-    grid-template-columns: 280px 1fr;
-    gap: 20px;
-    padding: 15px;
-    border-radius: 15px;
-    transition: background-color .25s ease, transform .25s ease;
-}
-
-.resultado-galaxia:hover {
-    background-color: #151027;
-    transform: translateX(4px);
+aside::-webkit-scrollbar-thumb,
+.label-list::-webkit-scrollbar-thumb {
+    background-color: #32205F;
+    border-radius: 10px;
 }
 
 
-/* CAPA */
-
-.capa-resultado-galaxia {
-    position: relative;
-    width: 280px;
-    aspect-ratio: 16 / 9;
-    overflow: hidden;
-    border-radius: 12px;
-    background-color: #151027;
-    border: 1px solid rgba(138, 77, 255, .20);
-    text-decoration: none;
-}
-
-.capa-resultado-galaxia img {
-    width: 100%;
-    height: 100%;
-    display: block;
-    object-fit: cover;
-    transition: transform .35s ease;
-}
-
-.resultado-galaxia:hover .capa-resultado-galaxia img {
-    transform: scale(1.05);
-}
-
-
-/* ESTRUTURA ROXA */
-
-.capa-resultado-galaxia::before,
-.capa-resultado-galaxia::after {
-    content: "";
-    position: absolute;
-    bottom: -5px;
-    height: 8px;
-    background-color: #8A4DFF;
-    border-radius: 0 0 8px 8px;
-    z-index: 0;
-}
-
-.capa-resultado-galaxia::before {
-    left: 8%;
-    width: 84%;
-    opacity: .55;
-}
-
-.capa-resultado-galaxia::after {
-    left: 15%;
-    width: 70%;
-    bottom: -9px;
-    opacity: .3;
-}
-
-
-/* OVERLAY */
-
-.overlay-galaxia {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    gap: 5px;
-    background-color: rgba(9, 9, 18, .72);
-    color: #ffffff;
-    opacity: 0;
-    transition: opacity .3s ease;
-}
-
-.overlay-galaxia i {
-    font-size: 32px;
-    color: #B06EFF;
-}
-
-.overlay-galaxia span {
-    font-size: 11px;
-    letter-spacing: 1px;
-}
-
-.resultado-galaxia:hover .overlay-galaxia {
-    opacity: 1;
-}
-
-
-/* QUANTIDADE */
-
-.quantidade-galaxia {
-    position: absolute;
-    right: 8px;
-    bottom: 8px;
-    padding: 5px 8px;
-    border-radius: 5px;
-    background-color: rgba(0, 0, 0, .8);
-    color: #ffffff;
-    font-size: 10px;
-}
-
-
-/* INFORMAÇÕES */
-
-.info-resultado-galaxia {
-    min-width: 0;
-    padding-top: 5px;
-}
-
-.tipo-galaxia {
-    display: block;
-    margin-bottom: 8px;
-    color: #B06EFF;
-    font-size: 10px;
-    letter-spacing: 2px;
-}
-
-.titulo-galaxia {
-    display: block;
-    width: fit-content;
-    color: #ffffff;
-    text-decoration: none;
-    font-size: 18px;
-    line-height: 1.4;
-    margin-bottom: 8px;
-    transition: color .2s ease;
-}
-
-.resultado-galaxia:hover .titulo-galaxia {
-    color: #B06EFF;
-}
-
-.dados-galaxia {
-    display: block;
-    color: #81798F;
-    font-size: 11px;
-    margin-bottom: 12px;
-}
-
-.info-resultado-galaxia p {
-    max-width: 700px;
-    color: #B8B8C8;
-    font-size: 12px;
-    line-height: 1.6;
-
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
-    line-clamp: 2;
-    overflow: hidden;
-}
