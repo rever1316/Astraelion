@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/assets/responsivo/index-resposivo.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- Navegação Superior (Mantém-se para desktop ou topo) -->
+    <header>
+        <nav>
+            <div>
+                <div class="nav-conterner">
+                    <button class="expandir">
+                        <i class="bi bi-list"></i>
+                    </button>
+                    <img src="./assets/img/logo.ico" alt="img-logo">
+                    <span>Astraelion</span>
+                </div>
+            </div>
+
+            <form class="pesquisa">
+                <input type="search" placeholder="Explorar...">
+                <button class="buscar">
+                    <i class="bi bi-search"></i>
+                </button>
+            </form>
+
+            <div class="nav-perfil">
+                <a href="#" class="btn-user-postar">
+                    <i class="bi bi-box-arrow-in-up"></i>
+                </a>
+                <a href="#" class="btn-user btn-notificacao">
+                    <i class="bi bi-bell"></i>
+                </a>
+                <a href="#" class="btn-user-painel">
+                    <i class="bi bi-person-circle"></i>
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Barra de Navegação Inferior Personalizada -->
+   <!-- Menu flutuante único para a página inteira -->
+    <div id="menu-flutuante" class="dropdown-opcoes" style="display: none; position: absolute; z-index: 9999;">
+        <button>
+            <i class="bi bi-plus-square"></i>
+            Salvar na playlist
+        </button>
+        <button>
+            <i class="bi bi-share"></i>
+            Compartilhar
+        </button>
+        <button>
+            <i class="bi bi-eye-slash"></i>
+            Não tenho interesse
+        </button>
+    </div>
+
+    <!-- Barra de Navegação Inferior (Estilo YouTube Mobile) -->
+    <nav class="mobile-bottom-nav">
+        <a href="/index.html" class="nav-item active">
+            <i class="bi bi-house-door-fill"></i>
+            <span>Início</span>
+        </a>
+        <a href="/assets/paginas-segundarias/notificacao.html" class="nav-item">
+            <i class="bi bi-bell"></i>
+            <span>Notificações</span>
+        </a>
+        <a href="#" class="nav-item btn-center-post">
+            <i class="bi bi-box-arrow-in-up"></i>
+            <span>Postar</span>
+        </a>
+        <a href="/assets/paginas-segundarias/historico.html" class="nav-item">
+            <i class="bi bi-clock-history"></i>
+            <span>Histórico</span>
+        </a>
+        <a href="#" class="nav-item btn-user-painel">
+            <i class="bi bi-person-circle"></i>
+            <span>Perfil</span>
+        </a>
+    </nav>
+</body>
+</body>
+
+</html>

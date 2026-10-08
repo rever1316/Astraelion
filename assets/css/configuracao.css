@@ -3,15 +3,17 @@
     padding: 0;
     box-sizing: border-box;
     font-family: "Aldrich", sans-serif;
-    scroll-behavior: smooth;
 }
 
 body {
     background-color: #090912;
-    overflow-x: hidden;
+    color: #ffffff;
 }
 
-/*CSS NAVEGAÇÃO SUPERIOR*/
+
+/* ========================================== */
+/* HEADER / NAVEGAÇÃO SUPERIOR (Isolado)     */
+/* ========================================== */
 header {
     background-color: #130A24;
     position: fixed;
@@ -20,107 +22,119 @@ header {
     width: 100%;
     z-index: 1000;
     border-bottom: 2px solid rgba(138, 77, 255, .25);
-    padding-top: 5px;
+    padding: 8px 0;
+    font-family: 'Aldrich', sans-serif;
 }
 
-.nav-conterner {
+header .nav-container {
     display: flex;
-    gap: 2px;
     align-items: center;
-    text-decoration: none;
-    color: inherit;
+    justify-content: space-between;
+    padding: 0 20px;
 }
 
-.nav-conterner button {
+/* Agrupamento da esquerda (Botão do menu + Logo + Imagem) */
+header .nav-esquerda {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Botão do menu lateral */
+header .btn-menu {
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    background-color: transparent;
+    transition: 0.3s;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     visibility: hidden;
 }
 
-.nav-conterner a {
+header .btn-menu:hover {
+    background-color: #32205F;
+}
+
+header .btn-menu i {
+    font-size: 20px;
+    color: azure;
+}
+
+/* Logo e Imagem */
+header .logo-link {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
     text-decoration: none;
 }
 
-.nav-conterner a img {
-    width: 50px;
-    height: 50px;
+header .nav-container img {
+    width: 35px;
+    height: 35px;
+    object-fit: contain;
 }
 
-.nav-conterner a span {
-    /* gradient */
-    background: linear-gradient(
-        135deg,
-        #fcfcfc 0%,
-        #B06EFF 100%
-    );
-
+header .logo-link span {
+    background: linear-gradient(135deg, #fcfcfc 0%, #B06EFF 100%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
     color: transparent;
-
-    font-size: 25px;
+    font-size: 22px;
 }
 
-nav {
-    display: flex;
-    gap: 518px;
-}
-
-.pesquisa {
+/* Barra de Pesquisa */
+header .pesquisa {
     display: flex;
     align-items: center;
 }
 
-input {
+header .pesquisa input {
     width: 350px;
-    /* Aumenta a largura da caixinha */
     height: 40px;
-    /* Aumenta a altura da caixinha */
-    padding: 10px;
-    /* Cria um espaço entre a borda e o texto digitado */
-    font-size: 18px;
+    padding: 10px 15px;
+    font-size: 16px;
     border-top-left-radius: 15px;
     border-bottom-left-radius: 15px;
+    border: 1px solid rgba(138, 77, 255, .25);
     border-right: none;
     background-color: #130A24;
-    border-color: rgba(138, 77, 255, .25);
     color: #fff;
+    outline: none;
 }
 
-input:hover {
-    border-color: rgba(89, 17, 223, 0.25);
+header .pesquisa input:hover,
+header .pesquisa input:focus {
+    border-color: rgba(138, 77, 255, 0.6);
 }
 
-.buscar {
-    padding: 10px;
+header .buscar {
+    height: 40px;
+    padding: 0 16px;
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;
+    border: 1px solid rgba(134, 70, 253, 0.25);
     border-left: none;
     background-color: #130A24;
-    border-color: rgba(134, 70, 253, 0.25);
     color: #8A4DFF;
-}
-
-.buscar:hover {
     cursor: pointer;
-    color: #8A4DFF;
-    background-color: #602f9c73;
+    transition: 0.2s;
 }
 
-.btn-user {
-    color: #B8B8C8;
+header .buscar:hover {
+    color: #fff;
+    background-color: #602f9c73;
 }
 
 /* Container que agrupa os ícones do perfil na direita */
 .nav-perfil {
     display: flex;
     align-items: center;
-    flex-direction: row;
-    /* Força a ficarem lado a lado na horizontal */
-    gap: 10px;
-    /* Espaço entre os botões */
+    flex-direction: row; /* Força a ficarem lado a lado na horizontal */
+    gap: 10px;           /* Espaço entre os botões */
 }
 
 /* ========================================== */
@@ -130,10 +144,8 @@ input:hover {
 .nav-perfil {
     display: flex;
     align-items: center;
-    flex-direction: row;
-    /* Mantém os itens lado a lado na horizontal */
-    gap: 10px;
-    /* Espaço elegante entre os ícones */
+    flex-direction: row; /* Mantém os itens lado a lado na horizontal */
+    gap: 10px;           /* Espaço elegante entre os ícones */
 }
 
 /* Estilização para todos os links dentro do perfil */
@@ -150,8 +162,7 @@ input:hover {
     transition: 0.2s;
     text-decoration: none;
     padding: 0;
-    border-radius: 50%;
-    /* Torna o link perfeitamente redondo */
+    border-radius: 50%; /* Torna o link perfeitamente redondo */
 }
 
 /* Tamanho dos ícones de dentro dos links */

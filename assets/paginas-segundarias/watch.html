@@ -74,6 +74,13 @@
             </li>
 
             <li>
+                <a class="linha" href="/assets/paginas-segundarias/fenda.html">
+                    <i class="bi bi-stars"></i>
+                    <span class="name">Fendas</span>
+                </a>
+            </li>
+
+            <li>
                 <a class="linha" href="#">
                     <i class="bi bi-music-note-list"></i>
                     <span class="name">PlayList</span>
@@ -112,13 +119,153 @@
 
         <!--Assistir-->
         <section class="video-section">
+
             <div class="player">
-                <video controls>
-                    <source src="/assets/img/parte42.mp4" type="video/mp4">
+
+
+                <video id="videoPlayer">
+                    <source src="/assets/img/teste.mp4" type="video/mp4">
                 </video>
 
-            </div>
+                <div class="indicador-carregamento" id="indicadorCarregamento">
+                    <i class="bi bi-arrow-repeat"></i>
+                    <span>Carregando...</span>
+                </div>
 
+                <div class="indicador-acao" id="indicadorAcao">
+    <i class="bi bi-play-fill"></i>
+    <span>Reproduzindo</span>
+</div>
+
+                <!-- CONTROLES DO PLAYER -->
+                <div class="player-controles">
+
+                    <!-- PLAY / PAUSE -->
+                    <button type="button" class="controle-video btn-play" id="btnPlay" aria-label="Reproduzir">
+                        <i class="bi bi-play-fill"></i>
+                    </button>
+
+                    <!-- BARRA DE PROGRESSO -->
+                    <div class="progresso-container">
+
+                        <!-- BARRA DE CARREGAMENTO -->
+                        <div class="barra-buffer" id="barraBuffer"></div>
+
+                        <!-- BARRA DE REPRODUÇÃO -->
+                        <input type="range" id="barraProgresso" min="0" max="100" value="0" step="0.1"
+                            aria-label="Progresso do vídeo">
+
+                    </div>
+
+                    <!-- TEMPO -->
+                    <span class="tempo-video" id="tempoVideo">
+                        0:00 / 0:00
+                    </span>
+
+                    <!-- VOLUME -->
+                    <div class="controle-volume">
+                        <button type="button" class="controle-video btn-volume" id="btnVolume" aria-label="Volume">
+                            <i class="bi bi-volume-up-fill"></i>
+                        </button>
+
+                        <input type="range" id="barraVolume" min="0" max="1" step="0.01" value="1" aria-label="Volume">
+                    </div>
+
+                    <!-- CONFIGURAÇÕES -->
+                    <button type="button" class="controle-video btn-config" id="btnConfiguracoes"
+                        aria-label="Configurações">
+                        <i class="bi bi-gear-fill"></i>
+                    </button>
+
+                    <!-- TELA CHEIA -->
+                    <button type="button" class="controle-video btn-fullscreen" id="btnTelaCheia"
+                        aria-label="Tela cheia">
+                        <i class="bi bi-fullscreen"></i>
+                    </button>
+
+                </div>
+
+
+                <div class="menu-configuracoes" id="menuConfiguracoes">
+
+                    <div class="config-header">
+                        <strong>Configurações</strong>
+                    </div>
+
+                    <!-- QUALIDADE -->
+                    <button type="button" class="config-opcao" id="configQualidade">
+                        <span>Qualidade</span>
+
+                        <span>
+                            Automática
+                            <i class="bi bi-chevron-right"></i>
+                        </span>
+                    </button>
+
+
+                    <!-- LEGENDAS -->
+                    <button type="button" class="config-opcao" id="configLegendas">
+                        <span>Legendas</span>
+
+                        <span>
+                            Desativadas
+                            <i class="bi bi-chevron-right"></i>
+                        </span>
+                    </button>
+
+
+                    <!-- VELOCIDADE -->
+                    <button type="button" class="config-opcao" id="configVelocidade">
+                        <span>Velocidade</span>
+
+                        <span>
+                            Normal
+                            <i class="bi bi-chevron-right"></i>
+                        </span>
+                    </button>
+
+                </div>
+
+                <div class="submenu-configuracao" id="menuVelocidade">
+
+                    <div class="config-header">
+
+                        <button type="button" class="btn-voltar-config" id="voltarVelocidade">
+                            <i class="bi bi-chevron-left"></i>
+                        </button>
+
+                        <strong>Velocidade</strong>
+
+                    </div>
+
+
+                    <button type="button" class="config-opcao velocidade-opcao" data-speed="0.5">
+                        <span>0,5x</span>
+                    </button>
+
+                    <button type="button" class="config-opcao velocidade-opcao" data-speed="0.75">
+                        <span>0,75x</span>
+                    </button>
+
+                    <button type="button" class="config-opcao velocidade-opcao" data-speed="1">
+                        <span>Normal</span>
+                    </button>
+
+                    <button type="button" class="config-opcao velocidade-opcao" data-speed="1.25">
+                        <span>1,25x</span>
+                    </button>
+
+                    <button type="button" class="config-opcao velocidade-opcao" data-speed="1.5">
+                        <span>1,5x</span>
+                    </button>
+
+                    <button type="button" class="config-opcao velocidade-opcao" data-speed="2">
+                        <span>2x</span>
+                    </button>
+
+                </div>
+
+            </div>
             <!--INFORMAÇÔES DO VIDEO-->
 
             <div class="video-info">
@@ -141,13 +288,13 @@
                     <div class="canal">
 
                         <a href="/assets/paginas-segundarias/canal.html">
-                        <img src="/assets/img/avatar1.jpg" alt="Canal Astraelion">
+                            <img src="/assets/img/avatar1.jpg" alt="Canal Astraelion">
 
                         </a>
                         <div>
                             <a href="/assets/paginas-segundarias/canal.html">
-                            <h3 class="nome-canal">Canal Oficial Universo Astraelion</h3>
-                                </a>
+                                <h3 class="nome-canal">Canal Oficial Universo Astraelion</h3>
+                            </a>
 
                             <span>
                                 12 mil inscritos

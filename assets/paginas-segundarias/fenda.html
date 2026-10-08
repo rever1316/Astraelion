@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Aldrich&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/notificacao-global.css">
+    <link rel="stylesheet" href="/assets/css/user-painel.css">
+    <link rel="stylesheet" href="/assets/css/fenda.css">
+    <title>Astraileon - Fendas</title>
+</head>
+
+<body>
+    <header>
+        <nav class="nav-container">
+
+            <div class="nav-esquerda">
+                <button class="btn-menu">
+                    <i class="bi bi-list"></i>
+                </button>
+                <a href="/index.html" class="logo-link">
+                    <img src="/assets/img/logo.ico" alt="Astraelion Logo">
+                    <span>Astraelion</span>
+                </a>
+            </div>
+
+            <div class="pesquisa">
+                <input type="search" placeholder="Explorar...">
+                <button class="buscar">
+                    <i class="bi bi-search"></i>
+                </button>
+            </div>
+
+            <div class="nav-perfil">
+                <a href="#" class="btn-user">
+                    <i class="bi bi-box-arrow-in-up"></i>
+                </a>
+
+                <a href="#" class="btn-user btn-notificacao">
+                    <i class="bi bi-bell"></i>
+                </a>
+
+                <a href="#" class="btn-user-painel">
+                    <i class="bi bi-person-circle"></i>
+                </a>
+            </div>
+
+        </nav>
+    </header>
+
+    <!-- MENU DE NAVEGAÇÃO LATERAL - MVL -->
+
+    <aside class="menu-lateral">
+        <div class="lis">
+            <li>
+                <a class="linha" href="/index.html">
+                    <i class="bi bi-house-door-fill"></i>
+                    <span class="name">Inicio</span>
+                </a>
+            </li>
+
+            <li>
+                <a class="linha" href="/assets/paginas-segundarias/notificacao.html">
+                    <i class="bi bi-bell"></i>
+                    <span class="name">Notificação</span>
+                </a>
+            </li>
+
+            <li>
+                <a class="linha active" href="/assets/paginas-segundarias/fenda.html">
+
+                    <i class="bi bi-stars"></i>
+                    <span class="name">Fendas</span>
+                </a>
+            </li>
+
+            <li>
+                <a class="linha" href="#">
+                    <i class="bi bi-music-note-list"></i>
+                    <span class="name">PlayList</span>
+                </a>
+            </li>
+            <hr>
+
+            <div>
+                <span class="label-inscritos">
+                    inscrições
+                </span>
+                <div class="label-list"></div>
+            </div>
+
+            <hr>
+
+            <li>
+                <a class="linha" href="/assets/paginas-segundarias/historico.html">
+                    <i class="bi bi-clock-history"></i>
+                    <span class="name">Historico</span>
+                </a>
+            </li>
+
+            <li>
+                <a class="linha" href="/assets/paginas-segundarias/configuracoes.html">
+                    <i class="bi bi-gear-fill"></i>
+                    <span class="name">Configurações</span>
+                </a>
+            </li>
+        </div>
+    </aside>
+
+    <main class="fendas-container">
+
+        <!-- FEED VERTICAL DAS FENDAS -->
+        <div class="fendas-feed">
+
+            <!-- ==================== FENDA 01 ==================== -->
+            <section class="fenda-experiencia">
+
+                <!-- INFORMAÇÕES -->
+                <div class="fenda-detalhes">
+
+                    <div class="fenda-canal">
+                        <div class="fenda-avatar">
+                            <i class="bi bi-person-fill"></i>
+                        </div>
+
+                        <div class="fenda-canal-info">
+                            <strong>Astraelion</strong>
+                            <span>@astraelion</span>
+                        </div>
+
+                        <button type="button" class="btn-seguir-fenda">
+                            Seguir
+                        </button>
+                    </div>
+
+                    <div class="fenda-texto">
+                        <h1>O que existe além da fenda?</h1>
+                        <p>Uma dimensão desconhecida acaba de ser encontrada.</p>
+                    </div>
+
+                    <div class="fenda-estatisticas">
+                        <span>
+                            <i class="bi bi-eye"></i>
+                            5,2 mil visualizações
+                        </span>
+                        <span>há 1 dia</span>
+                    </div>
+
+                    <div class="fenda-tags">
+                        <span>#Astraelion</span>
+                        <span>#Fendas</span>
+                        <span>#Universo</span>
+                    </div>
+
+                </div>
+
+                <!-- PLAYER -->
+                <div class="fenda-player">
+                    <video class="video-fenda" controls playsinline>
+                        <source src="/assets/img/gl2.mp4" type="video/mp4">
+                        Seu navegador não suporta reprodução de vídeo.
+                    </video>
+                </div>
+
+                <!-- AÇÕES -->
+                <div class="fenda-acoes">
+
+                    <button type="button" class="acao-fenda acao-curtir">
+                        <i class="bi bi-heart"></i>
+                        <span>1,2 mil</span>
+                    </button>
+
+                    <button type="button" class="acao-fenda" id="abrirComentarios">
+                        <i class="bi bi-chat"></i>
+                        <span>84</span>
+                    </button>
+
+                    <button type="button" class="acao-fenda">
+                        <i class="bi bi-share"></i>
+                    </button>
+
+                    <button type="button" class="acao-fenda" id="abrirInformacoes">
+                        <i class="bi bi-info-lg"></i>
+                        <span>Informações</span>
+                    </button>
+
+                </div>
+
+            </section>
+
+
+            <!-- ==================== FENDA 02 ==================== -->
+            <section class="fenda-experiencia">
+
+                <!-- INFORMAÇÕES -->
+                <div class="fenda-detalhes">
+
+                    <div class="fenda-canal">
+                        <div class="fenda-avatar">
+                            <i class="bi bi-person-fill"></i>
+                        </div>
+
+                        <div class="fenda-canal-info">
+                            <strong>Explorador</strong>
+                            <span>@explorador</span>
+                        </div>
+
+                        <button type="button" class="btn-seguir-fenda">
+                            Seguir
+                        </button>
+                    </div>
+
+                    <div class="fenda-texto">
+                        <h1>Aquilo que se move no vazio</h1>
+                        <p>
+                            Uma nova presença foi registrada nas proximidades
+                            da Fenda.
+                        </p>
+                    </div>
+
+                    <div class="fenda-estatisticas">
+                        <span>
+                            <i class="bi bi-eye"></i>
+                            3,8 mil visualizações
+                        </span>
+                        <span>há 8 horas</span>
+                    </div>
+
+                    <div class="fenda-tags">
+                        <span>#Fendas</span>
+                        <span>#Exploração</span>
+                        <span>#Mistério</span>
+                    </div>
+
+                </div>
+
+                <!-- PLAYER -->
+                <div class="fenda-player">
+                    <div class="fenda-video">
+                        <img src="/assets/img/fenda1.jpg" alt="Aquilo que se move no vazio">
+                    </div>
+                </div>
+
+                <!-- AÇÕES -->
+                <div class="fenda-acoes">
+
+                    <button type="button" class="acao-fenda acao-curtir">
+                        <i class="bi bi-heart"></i>
+                        <span>846</span>
+                    </button>
+
+                    <button type="button" class="acao-fenda">
+                        <i class="bi bi-chat"></i>
+                        <span>42</span>
+                    </button>
+
+                    <button type="button" class="acao-fenda">
+                        <i class="bi bi-share"></i>
+                    </button>
+
+                    <button type="button" class="acao-fenda">
+                        <i class="bi bi-info-lg"></i>
+                        <span>Informações</span>
+                    </button>
+
+                </div>
+
+            </section>
+
+
+            <!-- ==================== FENDA 03 ==================== -->
+            <section class="fenda-experiencia">
+
+                <!-- INFORMAÇÕES -->
+                <div class="fenda-detalhes">
+
+                    <div class="fenda-canal">
+                        <div class="fenda-avatar">
+                            <i class="bi bi-person-fill"></i>
+                        </div>
+
+                        <div class="fenda-canal-info">
+                            <strong>Viajante</strong>
+                            <span>@viajante</span>
+                        </div>
+
+                        <button type="button" class="btn-seguir-fenda">
+                            Seguir
+                        </button>
+                    </div>
+
+                    <div class="fenda-texto">
+                        <h1>Não atravesse esta Fenda</h1>
+                        <p>
+                            O sinal desapareceu poucos segundos depois
+                            desta gravação.
+                        </p>
+                    </div>
+
+                    <div class="fenda-estatisticas">
+                        <span>
+                            <i class="bi bi-eye"></i>
+                            9,1 mil visualizações
+                        </span>
+                        <span>há 3 horas</span>
+                    </div>
+
+                    <div class="fenda-tags">
+                        <span>#Fendas</span>
+                        <span>#Alerta</span>
+                        <span>#Astraelion</span>
+                    </div>
+
+                </div>
+
+                <!-- PLAYER -->
+                <div class="fenda-player">
+                    <div class="fenda-video">
+                        <img src="/assets/img/fenda1.jpg" alt="Não atravesse esta Fenda">
+                    </div>
+                </div>
+
+                <!-- AÇÕES (Exemplo Fenda 01, 02 e 03) -->
+                <div class="fenda-acoes">
+
+                    <button type="button" class="acao-fenda acao-curtir">
+                        <i class="bi bi-heart"></i>
+                        <span>1,2 mil</span>
+                    </button>
+
+                    <button type="button" class="acao-fenda btn-abrir-comentarios">
+                        <i class="bi bi-chat"></i>
+                        <span>84</span>
+                    </button>
+
+                    <button type="button" class="acao-fenda">
+                        <i class="bi bi-share"></i>
+                    </button>
+
+                    <button type="button" class="acao-fenda btn-abrir-informacoes">
+                        <i class="bi bi-info-lg"></i>
+                        <span>Informações</span>
+                    </button>
+
+                </div>
+
+            </section>
+
+        </div>
+
+        <!-- PAINEL DE COMENTÁRIOS -->
+        <div class="painel-overlay" id="painelComentarios">
+
+            <div class="painel-comentarios">
+
+                <!-- CABEÇALHO COM TÍTULO E BOTÃO FECHAR -->
+                <div class="painel-cabecalho">
+                    <div class="cabecalho-info">
+                        <h2>Comentários</h2>
+                    </div>
+
+                    <button type="button" class="fechar-painel" id="fecharComentarios">
+                        <i class="bi bi-x-lg"></i>
+                    </button>
+                </div>
+
+                <!-- LISTA DE COMENTÁRIOS -->
+                <div class="lista-comentarios">
+
+                    <!-- COMENTÁRIO 1 -->
+                    <div class="comentario" id="comentario-1">
+                        <div class="comentario-avatar">
+                            <i class="bi bi-person-fill"></i>
+                        </div>
+
+                        <div class="comentario-conteudo">
+                            <div class="comentario-topo">
+                                <strong class="autor-nome">Astraelion <span class="badge-tag">Criador</span></strong>
+                                <span class="comentario-tempo">há 10m</span>
+                            </div>
+
+                            <p>Essa Fenda ficou incrível!</p>
+
+                            <div class="comentario-acoes">
+                                <button type="button" class="btn-acao btn-curtir active">
+                                    <i class="bi bi-heart-fill"></i>
+                                    <span class="qtd-curtidas">12</span>
+                                </button>
+                                <button type="button" class="btn-acao btn-responder" data-usuario="Astraelion">
+                                    <i class="bi bi-reply-fill"></i>
+                                    <span>Responder</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- COMENTÁRIO 2 -->
+                    <div class="comentario" id="comentario-2">
+                        <div class="comentario-avatar">
+                            <i class="bi bi-person-fill"></i>
+                        </div>
+
+                        <div class="comentario-conteudo">
+                            <div class="comentario-topo">
+                                <strong class="autor-nome">Explorador</strong>
+                                <span class="comentario-tempo">há 25m</span>
+                            </div>
+
+                            <p>O que será que existe além dela?</p>
+
+                            <div class="comentario-acoes">
+                                <button type="button" class="btn-acao btn-curtir">
+                                    <i class="bi bi-heart"></i>
+                                    <span class="qtd-curtidas">5</span>
+                                </button>
+                                <button type="button" class="btn-acao btn-responder" data-usuario="Explorador">
+                                    <i class="bi bi-reply-fill"></i>
+                                    <span>Responder</span>
+                                </button>
+                            </div>
+
+                            <!-- THREAD DE RESPOSTAS -->
+                            <div class="respostas-thread">
+
+                                <div class="comentario comentario-resposta" id="comentario-3">
+                                    <div class="comentario-avatar">
+                                        <i class="bi bi-person-fill"></i>
+                                    </div>
+
+                                    <div class="comentario-conteudo">
+                                        <div class="comentario-topo">
+                                            <strong class="autor-nome">Viajante <span
+                                                    class="badge-tag">Explorador</span></strong>
+                                            <span class="comentario-tempo">há 5m</span>
+                                        </div>
+
+                                        <p>
+                                            <span class="mencao-resposta">@Explorador</span> Essa dimensão parece
+                                            esconder alguma coisa.
+                                        </p>
+
+                                        <div class="comentario-acoes">
+                                            <button type="button" class="btn-acao btn-curtir active">
+                                                <i class="bi bi-heart-fill"></i>
+                                                <span class="qtd-curtidas">2</span>
+                                            </button>
+                                            <button type="button" class="btn-acao btn-responder"
+                                                data-usuario="Viajante">
+                                                <i class="bi bi-reply-fill"></i>
+                                                <span>Responder</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div> <!-- FIM THREAD -->
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- FORMULÁRIO DE COMENTÁRIO -->
+                <form class="campo-comentario">
+
+                    <!-- INDICADOR DE RESPOSTA ATIVA -->
+                    <div class="indicador-resposta" id="indicadorResposta" style="display: none;">
+                        <span>Respondendo a <strong id="nomeUsuarioResposta">@Explorador</strong></span>
+                        <button type="button" class="cancelar-resposta" id="cancelarResposta">
+                            <i class="bi bi-x"></i>
+                        </button>
+                    </div>
+
+                    <div class="campo-input-wrapper">
+                        <input type="text" placeholder="Transmita sua mensagem pela Fenda..." autocomplete="off">
+
+                        <button type="submit">
+                            <i class="bi bi-send-fill"></i>
+                        </button>
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+
+        <!-- PAINEL DE INFORMAÇÕES -->
+        <div class="painel-overlay" id="painelInformacoes">
+
+            <div class="painel-informacoes">
+
+                <div class="painel-cabecalho">
+                    <div>
+                        <h2>Informações da Fenda</h2>
+                        <span>Registro da transmissão</span>
+                    </div>
+
+                    <button type="button" class="fechar-painel" id="fecharInformacoes">
+                        <i class="bi bi-x-lg"></i>
+                    </button>
+                </div>
+
+                <div class="informacoes-conteudo">
+
+                    <div class="info-principal">
+                        <span class="info-label">TÍTULO</span>
+                        <h3>O que existe além da Fenda?</h3>
+                    </div>
+
+                    <div class="info-descricao">
+                        <span class="info-label">DESCRIÇÃO</span>
+                        <!-- Adicionamos o container e a classe "limitada" -->
+                        <div class="descricao-container limitada" id="descricaoContainer">
+                            <p>
+                                Uma dimensão desconhecida acaba de ser encontrada. Ninguém sabe o que existe do outro
+                                lado dessa Fenda.
+                                Relatos preliminares indicam distorções no espaço-tempo e frequências sonoras não
+                                identificadas emitidas do seu centro.
+                                A navegação próxima requer cautela extrema até novos relatórios da equipe de exploração.
+                            </p>
+                        </div>
+                        <!-- Botão de Mostrar mais / menos -->
+                        <button type="button" class="btn-mostrar-mais" id="btnExpandirDescricao">
+                            Mostrar mais
+                        </button>
+                    </div>
+
+                    <div class="info-bloco">
+                        <div class="info-item">
+                            <span class="info-label">TRANSMISSOR</span>
+                            <strong>Astraelion</strong>
+                        </div>
+
+                        <div class="info-item">
+                            <span class="info-label">PUBLICADO</span>
+                            <strong>Há 1 dia</strong>
+                        </div>
+                    </div>
+
+                    <div class="info-bloco">
+                        <div class="info-item">
+                            <span class="info-label">VISUALIZAÇÕES</span>
+                            <strong>5,2 mil</strong>
+                        </div>
+
+                        <div class="info-item">
+                            <span class="info-label">FREQUÊNCIA</span>
+                            <strong>Fenda ativa</strong>
+                        </div>
+                    </div>
+
+                    <div class="info-tags">
+                        <span>#Astraelion</span>
+                        <span>#Fendas</span>
+                        <span>#Universo</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+    </main>
+
+
+</body>
+
+<script src="/assets/scripsts/fendas.js"></script>
+<script src="/assets/scripsts/notificacao-global.js"></script>
+<script src="/assets/scripsts/user-painel.js"></script>
+
+</html>

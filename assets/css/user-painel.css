@@ -403,3 +403,386 @@
 .btn-conta-usuario:hover i {
     color: #ffffff;
 }
+
+/* =========================================================
+   POP-UP DE ATALHOS DE TECLADO
+   ========================================================= */
+
+.painel-atalhos-usuario {
+    position: fixed;
+
+    top: 50%;
+    left: 50%;
+
+    width: 580px;
+    max-width: calc(100vw - 40px);
+    max-height: calc(100vh - 60px);
+
+    padding: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(25, 14, 46, .98),
+            rgba(13, 9, 25, .99)
+        );
+
+    border: 1px solid rgba(138, 77, 255, .45);
+    border-radius: 18px;
+
+    box-shadow:
+        0 30px 90px rgba(0, 0, 0, .75),
+        0 0 50px rgba(138, 77, 255, .12),
+        inset 0 1px 0 rgba(255, 255, 255, .04);
+
+    overflow: hidden;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transform:
+        translate(-50%, -48%)
+        scale(.96);
+
+    transition:
+        opacity .22s ease,
+        visibility .22s ease,
+        transform .22s ease;
+
+    z-index: 3000;
+}
+
+
+/* =========================================================
+   ABERTO
+   ========================================================= */
+
+.painel-atalhos-usuario.aberto {
+    opacity: 1;
+    visibility: visible;
+
+    transform:
+        translate(-50%, -50%)
+        scale(1);
+}
+
+
+/* =========================================================
+   CABEÇALHO
+   ========================================================= */
+
+.cabecalho-atalhos {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    gap: 14px;
+
+    width: 100%;
+
+    padding: 20px 22px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(138, 77, 255, .12),
+            rgba(176, 110, 255, .03)
+        );
+
+    border-bottom: 1px solid rgba(138, 77, 255, .20);
+}
+
+
+/* brilho discreto no topo */
+
+.cabecalho-atalhos::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 10%;
+    right: 10%;
+
+    height: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(176, 110, 255, .65),
+            transparent
+        );
+}
+
+
+/* =========================================================
+   BOTÃO VOLTAR
+   ========================================================= */
+
+.btn-voltar-atalhos {
+    width: 40px;
+    height: 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border: 1px solid rgba(138, 77, 255, .30);
+    border-radius: 10px;
+
+    background: rgba(138, 77, 255, .08);
+
+    color: #ffffff;
+
+    cursor: pointer;
+
+    transition:
+        background .2s ease,
+        border-color .2s ease,
+        box-shadow .2s ease,
+        transform .2s ease;
+}
+
+.btn-voltar-atalhos:hover {
+    background: rgba(138, 77, 255, .18);
+
+    border-color: rgba(176, 110, 255, .60);
+
+    box-shadow:
+        0 0 15px rgba(138, 77, 255, .15);
+
+    transform: translateX(-2px);
+}
+
+.btn-voltar-atalhos i {
+    font-size: 17px;
+}
+
+
+/* =========================================================
+   TEXTO DO CABEÇALHO
+   ========================================================= */
+
+.cabecalho-atalhos > div {
+    display: flex;
+    flex-direction: column;
+
+    gap: 5px;
+
+    min-width: 0;
+}
+
+.cabecalho-atalhos strong {
+    color: #ffffff;
+
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.cabecalho-atalhos span {
+    color: #81798F;
+
+    font-size: 9px;
+}
+
+
+/* =========================================================
+   CONTEÚDO
+   ========================================================= */
+
+.conteudo-atalhos {
+    display: flex;
+    flex-direction: column;
+
+    gap: 22px;
+
+    width: 100%;
+
+    padding: 22px;
+
+    overflow-y: auto;
+}
+
+
+/* =========================================================
+   GRUPOS
+   ========================================================= */
+
+.grupo-atalhos {
+    display: flex;
+    flex-direction: column;
+
+    gap: 7px;
+
+    width: 100%;
+}
+
+
+/* TÍTULO DO GRUPO */
+
+.titulo-grupo-atalhos {
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+
+    margin-bottom: 4px;
+
+    color: #B06EFF;
+
+    font-size: 9px;
+    font-weight: 500;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1.5px;
+}
+
+
+/* linha ao lado do título */
+
+.titulo-grupo-atalhos::after {
+    content: "";
+
+    flex: 1;
+
+    height: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(138, 77, 255, .25),
+            transparent
+        );
+}
+
+
+/* =========================================================
+   ITEM
+   ========================================================= */
+
+.atalho-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 100%;
+
+    min-height: 40px;
+
+    padding: 7px 10px;
+
+    background: rgba(255, 255, 255, .018);
+
+    border: 1px solid rgba(138, 77, 255, .08);
+
+    border-radius: 9px;
+
+    color: #FCFCFC;
+
+    font-size: 10px;
+
+    transition:
+        background .2s ease,
+        border-color .2s ease,
+        transform .2s ease;
+}
+
+.atalho-item:hover {
+    background: rgba(138, 77, 255, .08);
+
+    border-color: rgba(138, 77, 255, .22);
+
+    transform: translateX(2px);
+}
+
+.atalho-item > span {
+    color: #D8D5E0;
+}
+
+
+/* =========================================================
+   TECLAS
+   ========================================================= */
+
+.atalho-item kbd {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 58px;
+
+    padding: 5px 9px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #211638,
+            #130A24
+        );
+
+    border: 1px solid rgba(138, 77, 255, .35);
+
+    border-bottom: 2px solid rgba(138, 77, 255, .55);
+
+    border-radius: 6px;
+
+    color: #B06EFF;
+
+    font-family: "Aldrich", sans-serif;
+
+    font-size: 9px;
+
+    white-space: nowrap;
+
+    box-shadow:
+        0 3px 8px rgba(0, 0, 0, .25);
+
+    transition:
+        border-color .2s ease,
+        color .2s ease,
+        box-shadow .2s ease;
+}
+
+.atalho-item:hover kbd {
+    color: #ffffff;
+
+    border-color: rgba(176, 110, 255, .65);
+
+    box-shadow:
+        0 0 12px rgba(138, 77, 255, .15);
+}
+
+
+/* =========================================================
+   SCROLLBAR
+   ========================================================= */
+
+.conteudo-atalhos::-webkit-scrollbar {
+    width: 5px;
+}
+
+.conteudo-atalhos::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.conteudo-atalhos::-webkit-scrollbar-thumb {
+    background: rgba(138, 77, 255, .30);
+
+    border-radius: 10px;
+}
+
+.conteudo-atalhos {
+    scrollbar-width: thin;
+
+    scrollbar-color:
+        rgba(138, 77, 255, .30)
+        transparent;
+}

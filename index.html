@@ -18,27 +18,28 @@
 </head>
 
 <body>
-    <header>
-        <nav>
-            <div>
-                <div class="nav-conterner">
-                    <button class="expandir">
-                        <i class="bi bi-list"></i>
-                    </button>
-                    <img src="./assets/img/logo.ico" alt="img-logo">
+      <header>
+        <nav class="nav-container">
+
+            <div class="nav-esquerda">
+                <button class="btn-menu">
+                    <i class="bi bi-list"></i>
+                </button>
+                <a href="/index.html" class="logo-link">
+                    <img src="/assets/img/logo.ico" alt="Astraelion Logo">
                     <span>Astraelion</span>
-                </div>
+                </a>
             </div>
 
-            <form class="pesquisa">
+            <div class="pesquisa">
                 <input type="search" placeholder="Explorar...">
                 <button class="buscar">
                     <i class="bi bi-search"></i>
                 </button>
-            </form>
+            </div>
 
             <div class="nav-perfil">
-                <a href="#" class="btn-user-postar">
+                <a href="#" class="btn-user">
                     <i class="bi bi-box-arrow-in-up"></i>
                 </a>
 
@@ -50,8 +51,11 @@
                     <i class="bi bi-person-circle"></i>
                 </a>
             </div>
+
         </nav>
     </header>
+
+    <!-- MENU DE NAVEGAÇÃO LATERAL - MVL -->
 
     <aside class="menu-lateral">
         <div class="lis">
@@ -66,6 +70,13 @@
                 <a class="linha" href="/assets/paginas-segundarias/notificacao.html">
                     <i class="bi bi-bell"></i>
                     <span class="name">Notificação</span>
+                </a>
+            </li>
+
+            <li>
+                <a class="linha" href="/assets/paginas-segundarias/fenda.html">
+                    <i class="bi bi-stars"></i>
+                    <span class="name">Fendas</span>
                 </a>
             </li>
 
@@ -413,6 +424,7 @@
                 Não tenho interesse
             </button>
         </div>
+
 
 </body>
 <script src="/assets/scripsts/script.js"></script>

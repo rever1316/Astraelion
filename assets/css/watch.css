@@ -350,24 +350,461 @@ aside.menu-lateral {
 ========================= */
 
 .player {
-
+    position: relative;
     width: 100%;
-    max-width: 1250px;
     aspect-ratio: 16 / 9;
 
-    background-color: #151027;
-
-    border-radius: 12px;
-
     overflow: hidden;
+
+    border-radius: 14px;
+
+    background: #000;
+
+    border: 1px solid rgba(138, 77, 255, .25);
+
+    box-shadow:
+        0 18px 45px rgba(0, 0, 0, .45),
+        0 0 35px rgba(138, 77, 255, .08);
 }
 
 .player video {
+    display: block;
     width: 100%;
     height: 100%;
-    display: block;
+    background: #000;
     object-fit: contain;
-    background-color: #000;
+    border-radius: 3px;
+}
+
+/* =========================================================
+   CONTROLES
+   ========================================================= */
+
+.player-controles {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-height: 64px;
+    padding: 20px 18px 12px;
+    background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, .92),
+        rgba(0, 0, 0, .65),
+        transparent
+    );
+    z-index: 20;
+}
+
+/* BOTÕES */
+
+.controle-video {
+    width: 36px;
+    height: 36px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border: none;
+    border-radius: 50%;
+
+    background: transparent;
+    color: #fff;
+
+    font-size: 18px;
+
+    cursor: pointer;
+
+    transition:
+        background-color .2s ease,
+        color .2s ease,
+        transform .2s ease;
+}
+
+.controle-video:hover {
+    background: rgba(138, 77, 255, .25);
+    color: #B06EFF;
+    transform: scale(1.05);
+}
+
+.controle-video:active {
+    transform: scale(.95);
+}
+
+.controle-volume {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+#barraVolume {
+    width: 80px;
+    height: 16px;
+    appearance: none;
+    -webkit-appearance: none;
+    background: transparent;
+    outline: none;
+    cursor: pointer;
+}
+
+/* Trilha */
+#barraVolume::-webkit-slider-runnable-track {
+    height: 4px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, .25);
+}
+
+#barraVolume::-moz-range-track {
+    height: 4px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, .25);
+}
+
+/* Bolinha */
+#barraVolume::-webkit-slider-thumb {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 12px;
+    height: 12px;
+    margin-top: -4px;
+    border-radius: 50%;
+    background: #8A4DFF;
+    border: none;
+}
+
+#barraVolume::-moz-range-thumb {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #8A4DFF;
+    border: none;
+}
+
+/* =========================================================
+   BARRA DE PROGRESSO
+   ========================================================= */
+
+.progresso-container {
+    position: relative;
+    flex: 1;
+    height: 16px;
+    display: flex;
+    align-items: center;
+    min-width: 80px;
+}
+
+/* BARRA DE FUNDO */
+
+.progresso-container::before {
+    content: "";
+
+    position: absolute;
+    left: 0;
+    right: 0;
+
+    height: 4px;
+
+    border-radius: 10px;
+
+    background: rgba(255, 255, 255, .22);
+}
+
+
+/* BARRA DE CARREGAMENTO */
+
+.barra-buffer {
+    position: absolute;
+
+    left: 0;
+
+    width: 0%;
+    height: 4px;
+
+    border-radius: 10px;
+
+    background: rgba(255, 255, 255, .45);
+
+    pointer-events: none;
+
+    transition: width .15s linear;
+}
+
+
+/* BARRA DE REPRODUÇÃO */
+
+#barraProgresso {
+    position: relative;
+
+    width: 100%;
+    height: 16px;
+
+    margin: 0;
+
+    appearance: none;
+    -webkit-appearance: none;
+
+    background: transparent;
+
+    outline: none;
+
+    cursor: pointer;
+
+    z-index: 2;
+}
+
+
+/* TRILHO */
+
+#barraProgresso::-webkit-slider-runnable-track {
+    height: 4px;
+
+    border-radius: 10px;
+
+    background: transparent;
+}
+
+#barraProgresso::-moz-range-track {
+    height: 4px;
+
+    border-radius: 10px;
+
+    background: transparent;
+}
+
+
+/* PONTO */
+
+#barraProgresso::-webkit-slider-thumb {
+    appearance: none;
+    -webkit-appearance: none;
+
+    width: 12px;
+    height: 12px;
+
+    margin-top: -4px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: #8A4DFF;
+
+    box-shadow:
+        0 0 8px rgba(138, 77, 255, .7);
+
+    transition: transform .15s ease;
+}
+
+#barraProgresso:hover::-webkit-slider-thumb {
+    transform: scale(1.3);
+}
+
+#barraProgresso::-moz-range-thumb {
+    width: 12px;
+    height: 12px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: #8A4DFF;
+
+    box-shadow:
+        0 0 8px rgba(138, 77, 255, .7);
+}
+
+/* =========================================================
+   INDICADOR DE CARREGAMENTO
+   ========================================================= */
+
+.indicador-carregamento {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+
+    color: #fff;
+
+    font-size: 12px;
+
+    opacity: 0;
+    visibility: hidden;
+
+    pointer-events: none;
+
+    z-index: 6;
+
+    transition:
+        opacity .2s ease,
+        visibility .2s ease;
+}
+
+.indicador-carregamento.ativo {
+    opacity: 1;
+    visibility: visible;
+}
+
+.indicador-carregamento i {
+    font-size: 28px;
+    color: #B06EFF;
+
+    animation: girarCarregamento 1s linear infinite;
+}
+
+@keyframes girarCarregamento {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* =========================================================
+   TEMPO
+   ========================================================= */
+
+.tempo-video {
+    flex-shrink: 0;
+
+    min-width: 85px;
+
+    color: #fff;
+
+    font-family: "Aldrich", sans-serif;
+    font-size: 12px;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   MENU DE CONFIGURAÇÕES
+   ========================================================= */
+
+.menu-configuracoes {
+    position: absolute;
+
+    right: 18px;
+    bottom: 65px;
+
+    width: 240px;
+
+    padding: 8px;
+
+    background: rgba(19, 10, 36, .97);
+
+    border: 1px solid rgba(138, 77, 255, .35);
+    border-radius: 12px;
+
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, .55),
+        0 0 25px rgba(138, 77, 255, .12);
+
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(8px);
+
+    transition:
+        opacity .2s ease,
+        visibility .2s ease,
+        transform .2s ease;
+
+    z-index: 30;
+}
+
+
+/* quando aberto */
+
+.menu-configuracoes.aberto {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+
+/* cabeçalho */
+
+.config-header {
+    padding: 10px 12px 12px;
+
+    color: #fff;
+
+    font-size: 14px;
+
+    border-bottom: 1px solid rgba(255, 255, 255, .08);
+}
+
+
+/* opções */
+
+.config-opcao {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 12px;
+
+    border: none;
+    border-radius: 8px;
+
+    background: transparent;
+    color: #fff;
+
+    font-family: "Aldrich", sans-serif;
+    font-size: 12px;
+
+    text-align: left;
+
+    cursor: pointer;
+
+    transition:
+        background-color .2s ease,
+        color .2s ease;
+}
+
+.config-opcao:hover {
+    background: rgba(138, 77, 255, .16);
+    color: #B06EFF;
+}
+
+.config-opcao span:last-child {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    color: #B8B8C8;
+}
+
+
+/* =========================================================
+   AJUSTE DO PLAYER AO PASSAR O MOUSE
+   ========================================================= */
+
+.player-controles {
+    opacity: .9;
+    transition: opacity .25s ease;
+}
+
+.player:hover .player-controles {
+    opacity: 1;
 }
 
 .player-placeholder {
@@ -399,6 +836,191 @@ aside.menu-lateral {
     transform: scale(1.1);
 }
 
+
+/* =========================================================
+   CONTROLES AUTOMÁTICOS DO PLAYER
+   ========================================================= */
+
+.player-controles {
+    opacity: 1;
+    visibility: visible;
+
+    transition:
+        opacity .25s ease,
+        visibility .25s ease;
+}
+
+.player:fullscreen {
+    width: 100vw;
+    height: 100vh;
+    max-width: none;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    background: #000;
+}
+
+.player:fullscreen video {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.player:-webkit-full-screen {
+    width: 100vw;
+    height: 100vh;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    background: #000;
+}
+
+.player:-webkit-full-screen video {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+
+/* esconder controles */
+
+.player.controles-ocultos .player-controles {
+    opacity: 0;
+    visibility: hidden;
+}
+
+
+/* esconder cursor junto com os controles */
+
+.player.controles-ocultos {
+    cursor: none;
+}
+
+
+/* manter o cursor nos controles quando visíveis */
+
+.player-controles,
+.player-controles button,
+.player-controles input {
+    cursor: default;
+}
+
+.indicador-acao {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(.85);
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    padding: 12px 18px;
+
+    background: rgba(0, 0, 0, .65);
+    border: 1px solid rgba(138, 77, 255, .35);
+    border-radius: 30px;
+
+    color: #fff;
+    font-size: 14px;
+
+    opacity: 0;
+    visibility: hidden;
+
+    pointer-events: none;
+
+    z-index: 15;
+
+    transition:
+        opacity .2s ease,
+        visibility .2s ease,
+        transform .2s ease;
+}
+
+.indicador-acao.ativo {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.indicador-acao i {
+    font-size: 24px;
+    color: #B06EFF;
+}
+
+/* =========================================================
+   SUBMENU DE CONFIGURAÇÕES
+   ========================================================= */
+
+.submenu-configuracao {
+    position: absolute;
+
+    right: 18px;
+    bottom: 65px;
+
+    width: 240px;
+
+    padding: 8px;
+
+    background: rgba(19, 10, 36, .97);
+
+    border: 1px solid rgba(138, 77, 255, .35);
+
+    border-radius: 12px;
+
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, .55),
+        0 0 25px rgba(138, 77, 255, .12);
+
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transform: translateY(8px);
+
+    transition:
+        opacity .2s ease,
+        visibility .2s ease,
+        transform .2s ease;
+
+    z-index: 30;
+}
+
+
+.submenu-configuracao.aberto {
+    opacity: 1;
+    visibility: visible;
+
+    transform: translateY(0);
+}
+
+
+/* CABEÇALHO DO SUBMENU */
+
+.btn-voltar-config {
+    width: 30px;
+    height: 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: none;
+    border-radius: 50%;
+
+    background: transparent;
+
+    color: #fff;
+
+    cursor: pointer;
+}
+
+.btn-voltar-config:hover {
+    background: rgba(138, 77, 255, .2);
+    color: #B06EFF;
+}
 
 /* =========================
    INFORMAÇÕES
