@@ -642,16 +642,13 @@ if (botaoUsuario) {
     /* SAIR */
     /* ========================================= */
 
-    btnConta.addEventListener(
-        'click',
-        () => {
+    const btnConta = document.querySelector('#btnContaUsuario');
 
-            console.log(
-                'Encerrar sessão'
-            );
-
-        }
-    );
+    if (btnConta) {
+        btnConta.addEventListener('click', () => {
+            console.log('Encerrar sessão');
+        });
+    }
 
 
     /* ========================================= */
@@ -669,25 +666,25 @@ if (botaoUsuario) {
         pesquisa: {
             tecla: 's',
             alt: true,
-            caminho: '/assets/paginas-secundarias/search.html'
+            caminho: '/assets/paginas-segundarias/seach.html'
         },
 
         galaxias: {
             tecla: 'g',
             alt: true,
-            caminho: '/assets/paginas-secundarias/galaxia.html'
+            caminho: '/assets/paginas-segundarias/galaxias.html'
         },
 
         notificacoes: {
             tecla: 'n',
             alt: true,
-            caminho: '/assets/paginas-secundarias/notifications.html'
+            caminho: '/assets/paginas-segundarias/notificacao.html'
         },
 
         canal: {
             tecla: 'c',
             alt: true,
-            caminho: '/assets/paginas-secundarias/canal.html'
+            caminho: '/assets/paginas-segundarias/canal.html'
         },
 
         inscricoes: {

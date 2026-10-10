@@ -326,6 +326,10 @@ main div i {
     margin: 0;
 }
 
+.titilo-secao-line {
+    margin-bottom: 10px;
+}
+
 .grade-videos {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
