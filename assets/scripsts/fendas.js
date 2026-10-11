@@ -194,17 +194,32 @@ document.addEventListener('click', (event) => {
 
 
 
-// CANCELAR RESPOSTA
+
+/* CANCELAR RESPOSTA */
 
 if (cancelarResposta) {
     cancelarResposta.addEventListener('click', () => {
+        // Sai do modo de resposta
+        comentarioRespondido = null;
+
+        // Esconde o indicador de resposta
         if (indicadorResposta) {
             indicadorResposta.style.display = 'none';
         }
 
-        comentarioRespondido = null;
+        // Limpa o nome exibido no indicador
+        if (nomeUsuarioResposta) {
+            nomeUsuarioResposta.textContent = '';
+        }
+
+        // Limpa o texto digitado
+        if (textoComentario) {
+            textoComentario.value = '';
+            textoComentario.focus();
+        }
     });
 }
+
 
 
 

@@ -132,8 +132,10 @@ header .buscar:hover {
 .nav-perfil {
     display: flex;
     align-items: center;
-    flex-direction: row; /* Força a ficarem lado a lado na horizontal */
-    gap: 10px;           /* Espaço entre os botões */
+    flex-direction: row;
+    /* Força a ficarem lado a lado na horizontal */
+    gap: 10px;
+    /* Espaço entre os botões */
 }
 
 /* ========================================== */
@@ -143,8 +145,10 @@ header .buscar:hover {
 .nav-perfil {
     display: flex;
     align-items: center;
-    flex-direction: row; /* Mantém os itens lado a lado na horizontal */
-    gap: 10px;           /* Espaço elegante entre os ícones */
+    flex-direction: row;
+    /* Mantém os itens lado a lado na horizontal */
+    gap: 10px;
+    /* Espaço elegante entre os ícones */
 }
 
 /* Estilização para todos os links dentro do perfil */
@@ -161,7 +165,8 @@ header .buscar:hover {
     transition: 0.2s;
     text-decoration: none;
     padding: 0;
-    border-radius: 50%; /* Torna o link perfeitamente redondo */
+    border-radius: 50%;
+    /* Torna o link perfeitamente redondo */
 }
 
 /* Tamanho dos ícones de dentro dos links */
@@ -338,9 +343,12 @@ aside.menu-lateral {
 /* Estado Normal (Menu Expandido - 250px) */
 main.watch-container,
 .fendas-container {
-    margin-left: 250px; /* Alinha perfeitamente com a largura do aside expandido */
-    width: calc(100% - 250px); /* Ocupa exatamente o espaço restante da tela */
-    margin-top: 60px; /* Compensa a altura do header */
+    margin-left: 250px;
+    /* Alinha perfeitamente com a largura do aside expandido */
+    width: calc(100% - 250px);
+    /* Ocupa exatamente o espaço restante da tela */
+    margin-top: 60px;
+    /* Compensa a altura do header */
     height: calc(100vh - 60px);
     position: relative;
     padding: 0 40px 0 60px;
@@ -349,7 +357,7 @@ main.watch-container,
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    
+
     /* Transição suave sincronizada com o menu lateral */
     transition: margin-left 0.3s ease-in-out, width 0.3s ease-in-out;
 }
@@ -361,9 +369,12 @@ main.watch-container,
 /* Quando o aside ganha a classe .recolhido, o container expande */
 main.watch-container.recolhido,
 .fendas-container.recolhido {
-    margin-left: 85px; /* Reduz a margem esquerda para acompanhar o menu recolhido */
-    width: calc(100% - 85px); /* Expande a largura ocupando o espaço liberto */
+    margin-left: 85px;
+    /* Reduz a margem esquerda para acompanhar o menu recolhido */
+    width: calc(100% - 85px);
+    /* Expande a largura ocupando o espaço liberto */
 }
+
 /* CONTAINER DO FEED CENTRALIZADO E SNAP */
 .fendas-feed {
     width: 100%;
@@ -383,10 +394,12 @@ main.watch-container.recolhido,
 .fendas-feed::-webkit-scrollbar {
     display: none;
 }
+
 /* CADA FENDA INDIVIDUAL */
 .fenda-experiencia {
     width: 100%;
-    max-width: 1200px; /* Aumentado ligeiramente para ter mais espaço interno */
+    max-width: 1200px;
+    /* Aumentado ligeiramente para ter mais espaço interno */
     height: 100vh;
     min-height: 100vh;
     box-sizing: border-box;
@@ -396,7 +409,8 @@ main.watch-container.recolhido,
     /* Ajustado as colunas para o conteúdo ficar bem distribuído */
     grid-template-columns: 1fr min-content 70px;
     align-items: center;
-    gap: 40px; /* Aumentado o espaço interno entre os elementos */
+    gap: 40px;
+    /* Aumentado o espaço interno entre os elementos */
 
     scroll-snap-align: start;
     scroll-snap-stop: always;
@@ -433,12 +447,10 @@ main.watch-container.recolhido,
     bottom: 0;
     height: 35%;
     pointer-events: none;
-    background: linear-gradient(
-        to top,
-        rgba(9, 9, 18, .65),
-        rgba(9, 9, 18, .18),
-        transparent
-    );
+    background: linear-gradient(to top,
+            rgba(9, 9, 18, .65),
+            rgba(9, 9, 18, .18),
+            transparent);
 }
 
 .fenda-video img,
@@ -480,6 +492,7 @@ main.watch-container.recolhido,
     align-self: flex-end;
     margin-bottom: 20px;
 }
+
 .acao-curtir.ativo i {
     background-color: rgba(138, 77, 255, .2);
     border-color: rgba(176, 110, 255, .55);
@@ -580,7 +593,8 @@ main.watch-container.recolhido,
 .fenda-detalhes {
     width: 100%;
     max-width: 380px;
-    justify-self: center; /* Alinha o texto mais ao centro da coluna dele */
+    justify-self: center;
+    /* Alinha o texto mais ao centro da coluna dele */
     display: flex;
     flex-direction: column;
     gap: 16px;
@@ -828,30 +842,38 @@ main.watch-container.recolhido,
     gap: 12px;
     margin-bottom: 22px;
     position: relative;
-    padding: 8px; /* Adiciona padding para o efeito não grudar no texto */
-    border-radius: 12px; /* Cantos arredondados para o fundo */
-    transition: background-color 0.3s ease; /* Transição suave do fundo */
+    padding: 8px;
+    /* Adiciona padding para o efeito não grudar no texto */
+    border-radius: 12px;
+    /* Cantos arredondados para o fundo */
+    transition: background-color 0.3s ease;
+    /* Transição suave do fundo */
     cursor: pointer;
 }
 
 /* EFEITO DE SELEÇÃO AO PASSAR O MOUSE (HOVER) */
 .comentario:hover {
-    background-color: rgba(138, 77, 255, 0.08); /* Fundo lilás muito sutil */
+    background-color: rgba(138, 77, 255, 0.08);
+    /* Fundo lilás muito sutil */
     /* Removemos o transform: translateX(4px); para não se mover */
 }
 
 /* GLOW NO AVATAR AO PASSAR O MOUSE */
 .comentario:hover .comentario-avatar {
-    border-color: #B06EFF; /* Borda mais brilhante */
-    box-shadow: 0 0 15px rgba(176, 110, 255, 0.5); /* Brilho neon intenso */
-    transform: scale(1.05); /* Leve aumento do avatar */
+    border-color: #B06EFF;
+    /* Borda mais brilhante */
+    box-shadow: 0 0 15px rgba(176, 110, 255, 0.5);
+    /* Brilho neon intenso */
+    transform: scale(1.05);
+    /* Leve aumento do avatar */
     transition: all 0.3s ease;
 }
 
 /* BRILHO NO NOME AO PASSAR O MOUSE */
 .comentario:hover .comentario-conteudo strong {
     color: #FFFFFF;
-    text-shadow: 0 0 10px rgba(176, 110, 255, 0.8); /* Brilho místico no texto */
+    text-shadow: 0 0 10px rgba(176, 110, 255, 0.8);
+    /* Brilho místico no texto */
     transition: text-shadow 0.3s ease;
 }
 
@@ -869,7 +891,7 @@ main.watch-container.recolhido,
     border: 1px solid rgba(176, 110, 255, 0.4);
 
     color: #B06EFF;
-    
+
     /* Brilho neon leve ao redor do avatar */
     box-shadow: 0 0 10px rgba(138, 77, 255, 0.2);
 }
@@ -880,9 +902,10 @@ main.watch-container.recolhido,
     margin-bottom: 5px;
 
     color: #FFFFFF;
-    font-size: 11px; /* Leve ajuste de legibilidade */
+    font-size: 11px;
+    /* Leve ajuste de legibilidade */
     letter-spacing: 0.5px;
-    
+
     /* Efeito de brilho estelar no nome */
     text-shadow: 0 0 8px rgba(176, 110, 255, 0.5);
 }
@@ -965,7 +988,8 @@ main.watch-container.recolhido,
 .respostas-thread {
     margin-top: 14px;
     padding-left: 14px;
-    border-left: 2px solid rgba(138, 77, 255, 0.2); /* Linha vertical conector da thread */
+    border-left: 2px solid rgba(138, 77, 255, 0.2);
+    /* Linha vertical conector da thread */
     display: flex;
     flex-direction: column;
     gap: 14px;
@@ -1060,9 +1084,17 @@ main.watch-container.recolhido,
 }
 
 @keyframes pulseHeart {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.3); }
-    100% { transform: scale(1); }
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.3);
+    }
+
+    100% {
+        transform: scale(1);
+    }
 }
 
 /* CAMPO DE INPUT COM SUPORTE A INDICADOR DE RESPOSTA */
@@ -1134,7 +1166,7 @@ main.watch-container.recolhido,
 
 /* CABEÇALHO */
 
-.painel-informacoes .painel-cabecalho > div {
+.painel-informacoes .painel-cabecalho>div {
     display: flex;
     flex-direction: column;
     gap: 5px;
@@ -1246,7 +1278,8 @@ main.watch-container.recolhido,
 .descricao-container.limitada {
     display: -webkit-box;
     -webkit-line-clamp: 3;
-    line-clamp: 3; /* Número de linhas visíveis */
+    line-clamp: 3;
+    /* Número de linhas visíveis */
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
@@ -1255,7 +1288,8 @@ main.watch-container.recolhido,
 .btn-mostrar-mais {
     background: transparent;
     border: none;
-    color: #38ef7d; /* Substitua pela cor temática do seu projeto */
+    color: #38ef7d;
+    /* Substitua pela cor temática do seu projeto */
     font-size: 0.85rem;
     font-weight: 600;
     cursor: pointer;
@@ -1274,4 +1308,622 @@ main.watch-container.recolhido,
     object-fit: contain;
     display: block;
     background: #000;
+}
+
+
+/* ========================================== */
+/* RESPONSIVIDADE COMPLETA PARA CELULARES & MINI */
+/* ========================================== */
+
+@media (max-width: 768px) {
+
+    header,
+    aside.menu-lateral {
+        display: none !important;
+    }
+
+    main.fendas-container,
+    main.watch-container {
+        margin: 0 !important;
+        padding: 0 !important;
+        width: 100vw !important;
+        height: 100vh !important;
+        height: 100dvh !important;
+        overflow: hidden !important;
+    }
+
+    .fendas-feed {
+        width: 100vw;
+        height: 100vh;
+        height: 100dvh;
+    }
+
+    .fenda-experiencia {
+        width: 100vw !important;
+        height: 100vh !important;
+        height: 100dvh !important;
+        max-width: 100vw !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        display: block !important;
+        position: relative !important;
+    }
+
+    /* PLAYER OCUPANDO A TELA INTEIRA DE FUNDO */
+    .fenda-player {
+        position: absolute !important;
+        inset: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        max-height: none !important;
+        z-index: 1 !important;
+    }
+
+    .fenda-video,
+    .fenda-video img,
+    .fenda-video video,
+    .video-fenda {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        border: none !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+    }
+
+    /* AÇÕES NA DIREITA (Ícones flutuantes) */
+    .fenda-acoes {
+        position: absolute !important;
+        right: 12px !important;
+        bottom: 110px !important;
+        /* Antes: 40px */
+        z-index: 20 !important;
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 16px !important;
+        margin: 0 !important;
+        align-items: center !important;
+    }
+
+    .fenda-acoes button,
+    .acao-fenda i {
+        width: auto !important;
+        height: auto !important;
+        background: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
+        font-size: 22px !important;
+        color: #ffffff !important;
+        filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.9)) !important;
+    }
+
+    .acao-fenda {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 2px !important;
+    }
+
+    .acao-fenda span {
+        font-size: 10px !important;
+        color: #ffffff !important;
+        text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9) !important;
+    }
+
+    /* DETALHES E CANAL NA ESQUERDA INFERIOR */
+    .fenda-detalhes {
+        position: absolute !important;
+        left: 14px !important;
+        bottom: 100px !important;
+        /* Antes: 30px */
+        width: calc(100% - 80px) !important;
+        max-width: none !important;
+        z-index: 20 !important;
+        padding: 0 !important;
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 6px !important;
+    }
+
+    .fenda-canal {
+        display: flex !important;
+        align-items: center !important;
+        gap: 8px !important;
+        margin: 0 !important;
+    }
+
+    .fenda-avatar {
+        width: 32px !important;
+        height: 32px !important;
+        min-width: 32px !important;
+        font-size: 14px !important;
+    }
+
+    .fenda-canal-info {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 1px !important;
+    }
+
+    .canal-linha-principal {
+        display: flex !important;
+        align-items: center !important;
+        gap: 8px !important;
+    }
+
+    .fenda-canal-info strong {
+        font-size: 12px !important;
+        color: #ffffff !important;
+        text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9) !important;
+        white-space: nowrap !important;
+    }
+
+    .fenda-canal-info span {
+        font-size: 10px !important;
+        color: rgba(255, 255, 255, 0.8) !important;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.9) !important;
+    }
+
+    /* BOTÃO SEGUIR COMPACTO AO LADO DO NOME */
+    .btn-seguir-fenda {
+        margin: 0 !important;
+        padding: 3px 10px !important;
+        font-size: 9px !important;
+        border-radius: 12px !important;
+        background: rgba(255, 255, 255, 0.25) !important;
+        color: #ffffff !important;
+        border: 1px solid rgba(255, 255, 255, 0.4) !important;
+        backdrop-filter: blur(4px) !important;
+        white-space: nowrap !important;
+    }
+
+    /* TÍTULO E TEXTO */
+    .fenda-texto h1 {
+        font-size: 13px !important;
+        line-height: 1.3 !important;
+        margin: 2px 0 !important;
+        font-weight: 600 !important;
+        color: #ffffff !important;
+        text-shadow: 0 1px 4px rgba(0, 0, 0, 0.95) !important;
+        display: -webkit-box !important;
+        -webkit-line-clamp: 2 !important;
+        line-clamp: 2 !important;
+        -webkit-box-orient: vertical !important;
+        overflow: hidden !important;
+    }
+
+    .fenda-texto p {
+        font-size: 11px !important;
+        line-height: 1.2 !important;
+        color: rgba(255, 255, 255, 0.9) !important;
+        text-shadow: 0 1px 3px rgba(0, 0, 0, 0.95) !important;
+        display: -webkit-box !important;
+        -webkit-line-clamp: 1 !important;
+        line-clamp: 1 !important;
+        -webkit-box-orient: vertical !important;
+        overflow: hidden !important;
+    }
+
+    .fenda-estatisticas,
+    .fenda-tags {
+        display: none !important;
+    }
+}
+
+/* ========================================== */
+/* DISPOSITIVOS MINI (Até 568px - ex: iPhone SE / 5) */
+/* ========================================== */
+@media (max-width: 568px) {
+    .fenda-detalhes {
+        left: 10px !important;
+        bottom: 75px !important;
+        /* Antes: 20px */
+        width: calc(100% - 65px) !important;
+    }
+
+
+
+    .fenda-acoes {
+        right: 8px !important;
+        bottom: 85px !important;
+        /* Antes: 25px */
+        gap: 12px !important;
+    }
+
+    .fenda-acoes button,
+    .acao-fenda i {
+        font-size: 18px !important;
+    }
+
+    .fenda-avatar {
+        width: 26px !important;
+        height: 26px !important;
+        min-width: 26px !important;
+        font-size: 12px !important;
+    }
+
+    .fenda-canal-info strong {
+        font-size: 11px !important;
+    }
+
+    .btn-seguir-fenda {
+        padding: 2px 7px !important;
+        font-size: 8px !important;
+    }
+
+    .fenda-texto h1 {
+        font-size: 11px !important;
+    }
+
+    .fenda-texto p {
+        font-size: 9px !important;
+    }
+}
+
+/* ========================================== */
+/* RESPONSIVIDADE PARA TABLETS */
+/* ========================================== */
+
+@media (min-width: 769px) and (max-width: 1024px) {
+
+    /* Esconde cabeçalho e menu lateral */
+    header,
+    aside.menu-lateral {
+        display: none !important;
+    }
+
+    /* Área principal ocupa a tela */
+    main.fendas-container,
+    main.watch-container {
+        margin: 0 !important;
+        padding: 0 !important;
+        width: 100% !important;
+        height: 100vh !important;
+        height: 100dvh !important;
+        overflow: hidden !important;
+    }
+
+    /* Feed vertical */
+    .fendas-feed {
+        width: 100% !important;
+        height: 100% !important;
+    }
+
+    /* Cada Fenda ocupa a tela inteira */
+    .fenda-experiencia {
+        position: relative !important;
+        display: block !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        height: 100vh !important;
+        height: 100dvh !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    /* Vídeo de fundo */
+    .fenda-player {
+        position: absolute !important;
+        inset: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        max-height: none !important;
+        z-index: 1 !important;
+    }
+
+    .fenda-video,
+    .fenda-video img,
+    .fenda-video video,
+    .video-fenda {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        border: none !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+    }
+
+    /* Ações na lateral direita */
+    .fenda-acoes {
+        position: absolute !important;
+        right: 22px !important;
+        bottom: 125px !important;
+        z-index: 20 !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 22px !important;
+        margin: 0 !important;
+    }
+
+    .fenda-acoes button,
+    .acao-fenda i {
+        width: auto !important;
+        height: auto !important;
+        background: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
+        color: #fff !important;
+        font-size: 28px !important;
+        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, .9)) !important;
+    }
+
+    .acao-fenda {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 4px !important;
+    }
+
+    .acao-fenda span {
+        color: #fff !important;
+        font-size: 12px !important;
+        text-shadow: 0 1px 3px rgba(0, 0, 0, .9) !important;
+    }
+
+    /* Informações na parte inferior esquerda */
+    .fenda-detalhes {
+        position: absolute !important;
+        left: 24px !important;
+        bottom: 110px !important;
+        width: calc(100% - 115px) !important;
+        max-width: 650px !important;
+        z-index: 20 !important;
+        padding: 0 !important;
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 10px !important;
+    }
+
+    .fenda-canal {
+        display: flex !important;
+        align-items: center !important;
+        gap: 10px !important;
+    }
+
+    .fenda-avatar {
+        width: 42px !important;
+        height: 42px !important;
+        min-width: 42px !important;
+        font-size: 18px !important;
+    }
+
+    .canal-linha-principal {
+        display: flex !important;
+        align-items: center !important;
+        gap: 12px !important;
+    }
+
+    .fenda-canal-info strong {
+        color: #fff !important;
+        font-size: 15px !important;
+        text-shadow: 0 1px 3px rgba(0, 0, 0, .9) !important;
+    }
+
+    .fenda-canal-info span {
+        color: rgba(255, 255, 255, .85) !important;
+        font-size: 12px !important;
+        text-shadow: 0 1px 3px rgba(0, 0, 0, .9) !important;
+    }
+
+    /* Botão Seguir */
+    .btn-seguir-fenda {
+        margin: 0 !important;
+        padding: 5px 12px !important;
+        font-size: 11px !important;
+        border-radius: 16px !important;
+        background: rgba(255, 255, 255, .22) !important;
+        color: #fff !important;
+        border: 1px solid rgba(255, 255, 255, .4) !important;
+        white-space: nowrap !important;
+    }
+
+    /* Título e descrição */
+    .fenda-texto h1 {
+        color: #fff !important;
+        font-size: 17px !important;
+        line-height: 1.4 !important;
+        text-shadow: 0 1px 4px rgba(0, 0, 0, .95) !important;
+        display: -webkit-box !important;
+        -webkit-line-clamp: 2 !important;
+        line-clamp: 2 !important;
+        -webkit-box-orient: vertical !important;
+        overflow: hidden !important;
+    }
+
+    .fenda-texto p {
+        color: rgba(255, 255, 255, .9) !important;
+        font-size: 13px !important;
+        line-height: 1.4 !important;
+        text-shadow: 0 1px 3px rgba(0, 0, 0, .95) !important;
+        display: -webkit-box !important;
+        -webkit-line-clamp: 2 !important;
+        line-clamp: 2 !important;
+        -webkit-box-orient: vertical !important;
+        overflow: hidden !important;
+    }
+
+    .fenda-estatisticas,
+    .fenda-tags {
+        display: none !important;
+    }
+}
+
+
+/* ========================================== */
+/* POP-UPS RESPONSIVOS — CELULAR */
+/* ========================================== */
+
+@media (max-width: 768px) {
+
+    /* Fundo escuro atrás dos painéis */
+    .painel-overlay {
+        padding: 0 !important;
+        align-items: flex-end !important;
+        justify-content: center !important;
+        overflow: hidden !important;
+    }
+
+    /* Painel de comentários */
+    .painel-comentarios {
+        width: 100% !important;
+        max-width: 100% !important;
+        height: 90vh !important;
+        height: 90dvh !important;
+        max-height: 90vh !important;
+        max-height: 90dvh !important;
+        margin: 0 !important;
+        border-radius: 20px 20px 0 0 !important;
+        overflow: hidden !important;
+        box-sizing: border-box !important;
+    }
+
+    /* Painel de informações */
+    .painel-informacoes {
+        width: 100% !important;
+        max-width: 100% !important;
+        height: auto !important;
+        max-height: 85vh !important;
+        max-height: 85dvh !important;
+        margin: 0 !important;
+        border-radius: 20px 20px 0 0 !important;
+        overflow-y: auto !important;
+        overscroll-behavior: contain;
+        box-sizing: border-box !important;
+    }
+
+    /* Lista de comentários: rolagem independente */
+    .lista-comentarios {
+        flex: 1 1 auto !important;
+        min-height: 0 !important;
+        overflow-y: auto !important;
+        overscroll-behavior: contain;
+        -webkit-overflow-scrolling: touch;
+    }
+
+
+    /* ========================================== */
+    /* POP-UPS RESPONSIVOS — CELULARES */
+    /* ========================================== */
+
+    @media (max-width: 768px) {
+
+        /* Fundo escuro atrás dos painéis */
+        .painel-overlay {
+            padding: 0 !important;
+            align-items: flex-end !important;
+            justify-content: center !important;
+            overflow: hidden !important;
+        }
+
+        /* Painel de comentários */
+        .painel-comentarios {
+            display: flex !important;
+            flex-direction: column !important;
+            width: 100% !important;
+            max-width: 100% !important;
+            height: 90vh !important;
+            height: 90dvh !important;
+            max-height: 90vh !important;
+            max-height: 90dvh !important;
+            margin: 0 !important;
+            border-radius: 20px 20px 0 0 !important;
+            overflow: hidden !important;
+            box-sizing: border-box !important;
+        }
+
+        /* Painel de informações */
+        .painel-informacoes {
+            width: 100% !important;
+            max-width: 100% !important;
+            height: auto !important;
+            max-height: 85vh !important;
+            max-height: 85dvh !important;
+            margin: 0 !important;
+            border-radius: 20px 20px 0 0 !important;
+            overflow-x: hidden !important;
+            overflow-y: auto !important;
+            overscroll-behavior: contain;
+            -webkit-overflow-scrolling: touch;
+            box-sizing: border-box !important;
+        }
+
+        /* Lista de comentários */
+        .lista-comentarios {
+            flex: 1 1 auto !important;
+            min-height: 0 !important;
+            overflow-y: auto !important;
+            overscroll-behavior: contain;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        /* Campo de comentário */
+        .campo-comentario {
+            flex-shrink: 0 !important;
+            padding-bottom: max(14px, env(safe-area-inset-bottom)) !important;
+        }
+
+        /* Evita conteúdo largo ultrapassando o painel */
+        .painel-comentarios *,
+        .painel-informacoes * {
+            min-width: 0;
+            overflow-wrap: anywhere;
+        }
+
+        /* Campos de texto */
+        .campo-comentario input,
+        .campo-comentario textarea {
+            max-width: 100% !important;
+            box-sizing: border-box !important;
+            font-size: 14px !important;
+        }
+    }
+
+}
+
+
+/* ========================================== */
+/* POP-UPS RESPONSIVOS — TABLETS */
+/* ========================================== */
+
+@media (min-width: 769px) and (max-width: 1024px) {
+
+    .painel-overlay {
+        padding: 24px !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+
+    .painel-comentarios {
+        width: 90vw !important;
+        max-width: 620px !important;
+        height: 85vh !important;
+        height: 85dvh !important;
+        max-height: 800px !important;
+        border-radius: 18px !important;
+        overflow: hidden !important;
+        box-sizing: border-box !important;
+    }
+
+    .painel-informacoes {
+        width: 90vw !important;
+        max-width: 600px !important;
+        max-height: 82vh !important;
+        max-height: 82dvh !important;
+        border-radius: 18px !important;
+        overflow-y: auto !important;
+        overscroll-behavior: contain;
+        box-sizing: border-box !important;
+    }
+
+    .lista-comentarios {
+        flex: 1 1 auto !important;
+        min-height: 0 !important;
+        overflow-y: auto !important;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .campo-comentario {
+        flex-shrink: 0 !important;
+    }
 }

@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Aldrich&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/css/notificacao-global.css">
+    <link rel="stylesheet" href="./paginas-responsivas/css-responsiva/fenda-responsivo.css" media="screen and (max-width: 1780px)">
     <link rel="stylesheet" href="/assets/css/user-painel.css">
     <link rel="stylesheet" href="/assets/css/fenda.css">
     <link rel="shortcut icon" href="/assets/img/astraelion-icon.png" type="image/png">
@@ -161,7 +162,6 @@
                 <div class="fenda-player">
                     <video class="video-fenda" controls playsinline>
                         <source src="/assets/img/gl2.mp4" type="video/mp4">
-                        Seu navegador não suporta reprodução de vídeo.
                     </video>
                 </div>
 
@@ -173,7 +173,7 @@
                         <span>1,2 mil</span>
                     </button>
 
-                    <button type="button"  class="acao-fenda btn-abrir-comentarios">
+                    <button type="button" class="acao-fenda btn-abrir-comentarios">
                         <i class="bi bi-chat"></i>
                         <span>84</span>
                     </button>
@@ -182,7 +182,7 @@
                         <i class="bi bi-share"></i>
                     </button>
 
-                    <button type="button"  class="acao-fenda btn-abrir-informacoes">
+                    <button type="button" class="acao-fenda btn-abrir-informacoes">
                         <i class="bi bi-info-lg"></i>
                         <span>Informações</span>
                     </button>
@@ -466,15 +466,16 @@
                 <form class="campo-comentario">
 
                     <!-- INDICADOR DE RESPOSTA ATIVA -->
-                    <div class="indicador-resposta" id="indicadorResposta" style="display: none;">
+                    <div class="indicador-resposta" id="indicadorResposta" style="display:none">
                         <span>Respondendo a <strong id="nomeUsuarioResposta">@Explorador</strong></span>
-                        <button type="button" class="cancelar-resposta" id="cancelarResposta">
+                        <button type="button" id="cancelarResposta">
                             <i class="bi bi-x"></i>
                         </button>
                     </div>
 
                     <div class="campo-input-wrapper">
-                        <input type="text" placeholder="Transmita sua mensagem pela Fenda..." autocomplete="off" id="textoComentario" required>
+                        <input type="text" placeholder="Transmita sua mensagem pela Fenda..." autocomplete="off"
+                            id="textoComentario" required>
 
                         <button type="submit">
                             <i class="bi bi-send-fill"></i>

@@ -106,3 +106,60 @@ document.addEventListener('click', function(event) {
         }
     }
 });
+
+
+/* ========================================
+   PESQUISA EXPANSÍVEL — CELULARES
+======================================== */
+
+const pesquisa = document.querySelector('.pesquisa');
+const inputPesquisa = document.querySelector('#inputPesquisa');
+const btnBuscar = document.querySelector('.pesquisa .buscar');
+const btnFecharPesquisa = document.querySelector('.fechar-pesquisa');
+
+if (pesquisa && inputPesquisa && btnBuscar && btnFecharPesquisa) {
+
+    function abrirPesquisa() {
+        if (window.innerWidth > 768) return;
+
+        pesquisa.classList.add('ativa');
+        inputPesquisa.focus();
+    }
+
+    function fecharPesquisa() {
+        pesquisa.classList.remove('ativa');
+        inputPesquisa.value = '';
+        inputPesquisa.blur();
+    }
+
+    btnBuscar.addEventListener('click', () => {
+        if (window.innerWidth <= 768 && !pesquisa.classList.contains('ativa')) {
+            abrirPesquisa();
+            return;
+        }
+
+        // Ação de pesquisa será conectada ao sistema de busca existente.
+        if (inputPesquisa.value.trim()) {
+            inputPesquisa.dispatchEvent(
+                new KeyboardEvent('keydown', {
+                    key: 'Enter',
+                    bubbles: true
+                })
+            );
+        }
+    });
+
+    btnFecharPesquisa.addEventListener('click', fecharPesquisa);
+
+    inputPesquisa.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') {
+            fecharPesquisa();
+        }
+    });
+
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 768) {
+            pesquisa.classList.remove('ativa');
+        }
+    });
+}

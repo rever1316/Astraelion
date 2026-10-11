@@ -528,6 +528,602 @@ main div i {
     display: none;
 }
 
+
+/* ========================================== */
+/* HOME RESPONSIVA — TABLETS E CELULARES      */
+/* ========================================== */
+
+/* Evita rolagem horizontal */
+html,
+body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+/* Impede que os cards ultrapassem a grade */
+.grade-videos,
+.card-video {
+    min-width: 0;
+}
+
+/* ========================================
+   TABLETS — ATÉ 1280px
+======================================== */
+
+@media (min-width: 769px) and (max-width: 1280px) {
+
+    /* Esconde a barra lateral do PC */
+    aside.menu-lateral {
+        display: none;
+    }
+
+    .nav-esquerda .btn-menu{
+        display: none;
+    }
+
+    /* Conteúdo principal ocupa a tela */
+    main:not(.watch-container):not(.fendas-container),
+    main.watch-container,
+    .fendas-container {
+        margin-left: 0 !important;
+        width: 100% !important;
+    }
+
+    /* Grade de vídeos */
+    .conteudo {
+        padding: 28px 24px;
+    }
+
+    .grade-videos {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 26px 18px;
+    }
+
+    /* Menu inferior */
+    .menu-mobile {
+        position: fixed;
+        display: flex;
+        align-items: stretch;
+        justify-content: space-around;
+        gap: 6px;
+
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+
+        padding: 10px 12px;
+        padding-bottom: calc(10px + env(safe-area-inset-bottom));
+
+        box-sizing: border-box;
+        background: #130A24;
+        border-top: 1px solid rgba(138, 77, 255, 0.25);
+        box-shadow: 0 -4px 18px rgba(0, 0, 0, 0.25);
+
+        z-index: 999;
+    }
+
+    .item-menu-mobile {
+        display: flex;
+        flex: 1 1 0;
+        min-width: 0;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+
+        padding: 6px 4px;
+        border-radius: 8px;
+
+        color: #B8B8C8;
+        text-decoration: none;
+        text-align: center;
+        font-size: 12px;
+    }
+
+    .item-menu-mobile i {
+        font-size: 23px;
+        line-height: 1;
+    }
+
+    .item-menu-mobile span {
+        display: block;
+        max-width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .item-menu-mobile.active {
+        color: #B06EFF;
+        background: rgba(138, 77, 255, 0.10);
+    }
+
+    /* Espaço para o menu não cobrir os vídeos */
+    body {
+        padding-bottom: calc(76px + env(safe-area-inset-bottom));
+    }
+}
+
+/* ========================================
+   PC — ACIMA DE 1280px
+======================================== */
+
+@media (min-width: 1281px) {
+    .menu-mobile {
+        display: none;
+    }
+
+    aside.menu-lateral {
+        display: flex;
+    }
+
+    body {
+        padding-bottom: 0;
+    }
+}
+
+/* ========================================== */
+/* CELULARES — ATÉ 768px                      */
+/* ========================================== */
+@media (max-width: 768px) {
+
+    .nav-container .btn-menu {
+        display: none;
+    }
+
+    .nav-esquerda span {
+        display: none;
+    }
+
+    .nav-perfil a {
+        display: none;
+    }
+
+    main:not(.watch-container):not(.fendas-container) {
+        margin: 60px 0 0 !important;
+        width: 100% !important;
+        height: auto !important;
+        min-height: calc(100vh - 60px);
+    }
+
+    .conteudo {
+        padding: 24px 16px;
+    }
+
+    .titulo-secao {
+        margin-bottom: 18px;
+    }
+
+    .titulo-secao h5 {
+        font-size: 23px;
+    }
+
+    .grade-videos {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 24px 12px;
+    }
+
+    .info-video {
+        gap: 8px;
+        margin-top: 8px;
+    }
+
+    .avatar-canal {
+        width: 32px;
+        height: 32px;
+    }
+
+    .dados-video h2 {
+        font-size: 13px;
+        line-height: 1.35;
+        margin-bottom: 4px;
+    }
+
+    .dados-video p {
+        font-size: 11px;
+    }
+
+    .dados-video span {
+        font-size: 10px;
+    }
+
+    .duracao {
+        right: 5px;
+        bottom: 5px;
+        padding: 3px 5px;
+        font-size: 10px;
+    }
+
+    .mais-opcoes {
+        width: 26px;
+        height: 26px;
+        font-size: 15px;
+    }
+}
+
+/* ========================================== */
+/* CELULARES ESTREITOS — ATÉ 480px            */
+/* ========================================== */
+@media (max-width: 480px) {
+
+    .conteudo {
+        padding: 20px 12px;
+    }
+
+    .titulo-secao h5 {
+        font-size: 20px;
+    }
+
+    .grade-videos {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 26px;
+    }
+
+    .thumbnail {
+        border-radius: 10px;
+    }
+
+    .info-video {
+        gap: 10px;
+        margin-top: 10px;
+    }
+
+    .avatar-canal {
+        width: 38px;
+        height: 38px;
+    }
+
+    .dados-video h2 {
+        font-size: 14px;
+    }
+
+    .dados-video p {
+        font-size: 12px;
+    }
+
+    .dados-video span {
+        font-size: 11px;
+    }
+
+    .mais-opcoes {
+        width: 30px;
+        height: 30px;
+    }
+}
+
+/* ========================================
+   PESQUISA EXPANSÍVEL — CELULARES
+======================================== */
+
+.fechar-pesquisa {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .nav-container {
+        position: relative;
+    }
+
+    .pesquisa {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        flex: 0 0 auto;
+        width: 42px;
+        min-width: 42px;
+        margin: 0;
+        transition: width 0.3s ease;
+    }
+
+    .pesquisa input {
+        display: none;
+    }
+
+    .pesquisa .buscar {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        width: 42px;
+        height: 42px;
+        border: none;
+        background: transparent;
+        color: #FCFCFC;
+        cursor: pointer;
+    }
+
+    .pesquisa .fechar-pesquisa {
+        display: none;
+    }
+
+    /* Pesquisa aberta */
+    .pesquisa.ativa {
+        position: absolute;
+        z-index: 1000;
+        left: 8px;
+        right: 8px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: auto;
+        min-width: 0;
+        height: 44px;
+        padding: 0 6px 0 12px;
+        box-sizing: border-box;
+        background: #130A24;
+        border: 1px solid rgba(138, 77, 255, 0.65);
+        border-radius: 10px;
+        box-shadow: 0 4px 18px rgba(0, 0, 0, 0.35);
+    }
+
+    .pesquisa.ativa input {
+        display: block;
+        flex: 1;
+        width: 100%;
+        min-width: 0;
+        height: 100%;
+        padding: 0 8px;
+        border: none;
+        outline: none;
+        background: transparent;
+        color: #FCFCFC;
+        font-size: 14px;
+    }
+
+    .pesquisa.ativa input::placeholder {
+        color: #B8B8C8;
+    }
+
+    .pesquisa.ativa .buscar {
+        width: 36px;
+        height: 36px;
+        color: #B06EFF;
+    }
+
+    .pesquisa.ativa .fechar-pesquisa {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        width: 34px;
+        height: 36px;
+        border: none;
+        background: transparent;
+        color: #B8B8C8;
+        cursor: pointer;
+    }
+}
+
+
+/* CORREÇÃO: POSIÇÃO DA PESQUISA NO CELULAR */
+
+@media (max-width: 768px) {
+    .nav-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .pesquisa {
+        position: static;
+        flex: 0 0 42px;
+        width: 42px;
+        min-width: 42px;
+        margin-left: auto;
+        margin-right: 0;
+    }
+
+    .nav-perfil {
+        flex-shrink: 0;
+    }
+
+    /* Pesquisa aberta sobre o cabeçalho */
+    .pesquisa.ativa {
+        position: absolute;
+        left: 8px;
+        right: 8px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: auto;
+        min-width: 0;
+        margin: 0;
+        z-index: 1000;
+    }
+}
+
+
+/* ========================================
+   MENU INFERIOR RESPONSIVO — ASTRAELION
+======================================== */
+
 .menu-mobile {
     display: none;
+}
+
+/* CELULARES */
+@media (max-width: 768px) {
+    .menu-mobile {
+        position: fixed;
+        display: flex;
+        align-items: stretch;
+        justify-content: space-around;
+        gap: 2px;
+
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+
+        padding: 8px 4px;
+        padding-bottom: calc(8px + env(safe-area-inset-bottom));
+
+        box-sizing: border-box;
+        background: #130A24;
+        border-top: 1px solid rgba(138, 77, 255, 0.25);
+        box-shadow: 0 -4px 18px rgba(0, 0, 0, 0.25);
+
+        z-index: 999;
+    }
+
+    .item-menu-mobile {
+        display: flex;
+        flex: 1 1 0;
+        min-width: 0;
+
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 4px;
+
+        padding: 5px 1px;
+        border-radius: 8px;
+
+        color: #B8B8C8;
+        text-decoration: none;
+        text-align: center;
+
+        font-size: 11px;
+        transition: color 0.2s ease, background 0.2s ease;
+    }
+
+    .item-menu-mobile i {
+        font-size: 21px;
+        line-height: 1;
+    }
+
+    .item-menu-mobile span {
+        display: block;
+        max-width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .item-menu-mobile.active {
+        color: #B06EFF;
+        background: rgba(138, 77, 255, 0.10);
+    }
+
+    .item-menu-mobile:active {
+        background: rgba(138, 77, 255, 0.18);
+    }
+
+    /* Espaço para o conteúdo não ficar atrás do menu */
+    body {
+        padding-bottom: calc(68px + env(safe-area-inset-bottom));
+    }
+
+    /* Mantém a pesquisa acima do menu inferior */
+    .pesquisa.ativa {
+        z-index: 1001;
+    }
+}
+
+/* CELULARES MINI */
+@media (max-width: 360px) {
+    .menu-mobile {
+        gap: 0;
+        padding: 6px 2px;
+        padding-bottom: calc(6px + env(safe-area-inset-bottom));
+    }
+
+    .item-menu-mobile {
+        gap: 4px;
+        padding: 5px 0;
+        font-size: 9px;
+    }
+
+    .item-menu-mobile i {
+        font-size: 19px;
+    }
+
+    body {
+        padding-bottom: calc(60px + env(safe-area-inset-bottom));
+    }
+}
+
+
+/* ========================================
+   MENU INFERIOR — TABLETS
+======================================== */
+
+@media (min-width: 769px) and (max-width: 1280px) {
+
+    .menu-lateral{
+        display: hidden;
+    }
+
+    .menu-mobile {
+        position: fixed;
+        display: flex;
+        align-items: stretch;
+        justify-content: space-around;
+        gap: 6px;
+
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+
+        padding: 10px 12px;
+        padding-bottom: calc(10px + env(safe-area-inset-bottom));
+
+        box-sizing: border-box;
+        background: #130A24;
+        border-top: 1px solid rgba(138, 77, 255, 0.25);
+        box-shadow: 0 -4px 18px rgba(0, 0, 0, 0.25);
+
+        z-index: 999;
+    }
+
+    .item-menu-mobile {
+        display: flex;
+        flex: 1 1 0;
+        min-width: 0;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+
+        padding: 6px 4px;
+        border-radius: 8px;
+
+        color: #B8B8C8;
+        text-decoration: none;
+        text-align: center;
+        font-size: 12px;
+    }
+
+    .item-menu-mobile i {
+        font-size: 23px;
+        line-height: 1;
+    }
+
+    .item-menu-mobile span {
+        display: block;
+        max-width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .item-menu-mobile.active {
+        color: #B06EFF;
+        background: rgba(138, 77, 255, 0.10);
+    }
+
+    body {
+        padding-bottom: calc(76px + env(safe-area-inset-bottom));
+    }
+}
+
+/* PC — acima de 1280px */
+@media (min-width: 1281px) {
+    .menu-mobile {
+        display: none;
+    }
+
+    body {
+        padding-bottom: 0;
+    }
 }
