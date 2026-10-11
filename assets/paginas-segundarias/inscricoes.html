@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="/assets/css/styles.css">
+    <link rel="stylesheet" href="/assets/responsivo/index-resposivo.css" media="screen and (max-width: 1780px)">
+    <link rel="stylesheet" href="/assets/css/notificacao-global.css">
+    <link rel="stylesheet" href="/assets/css/user-painel.css">
+    <link rel="stylesheet" href="/assets/css/inscricoes.css">
+
+    <link rel="shortcut icon" href="/assets/img/logo.ico" type="image/ico">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Aldrich&family=Audiowide&family=Iceberg&display=swap"
+        rel="stylesheet">
+
+    <title>Astraelion - Inscrições</title>
+</head>
+
+<body>
+
+    <header>
+        <nav class="nav-container">
+            <div class="nav-esquerda">
+                <button class="btn-menu" type="button">
+                    <i class="bi bi-list"></i>
+                </button>
+
+                <a href="/index.html" class="logo-link">
+                    <img src="/assets/img/logo.ico" alt="Astraelion Logo">
+                    <span>Astraelion</span>
+                </a>
+            </div>
+
+            <div class="pesquisa">
+                <input type="search" id="inputPesquisa" placeholder="Explorar...">
+
+                <button class="buscar" type="button" aria-label="Pesquisar">
+                    <i class="bi bi-search"></i>
+                </button>
+
+                <button class="fechar-pesquisa" type="button" aria-label="Fechar pesquisa">
+                    <i class="bi bi-x-lg"></i>
+                </button>
+            </div>
+
+            <div class="nav-perfil">
+                <a href="#" class="btn-user">
+                    <i class="bi bi-box-arrow-in-up"></i>
+                </a>
+
+                <a href="#" class="btn-user btn-notificacao">
+                    <i class="bi bi-bell"></i>
+                </a>
+
+                <a href="#" class="btn-user-painel">
+                    <i class="bi bi-person-circle"></i>
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <aside class="menu-lateral">
+        <div class="lis">
+            <li>
+                <a class="linha" href="/index.html">
+                    <i class="bi bi-house-door-fill"></i>
+                    <span class="name">Início</span>
+                </a>
+            </li>
+
+            <li>
+                <a class="linha" href="/assets/paginas-segundarias/notificacao.html">
+                    <i class="bi bi-bell"></i>
+                    <span class="name">Notificações</span>
+                </a>
+            </li>
+
+            <li>
+                <a class="linha" href="/assets/paginas-segundarias/fenda.html">
+                    <i class="bi bi-stars"></i>
+                    <span class="name">Fendas</span>
+                </a>
+            </li>
+
+            <li>
+                <a class="linha" href="#">
+                    <i class="bi bi-music-note-list"></i>
+                    <span class="name">Playlists</span>
+                </a>
+            </li>
+
+            <hr>
+
+            <div class="grupo-inscricoes">
+
+                <a href="/assets/paginas-segundarias/inscricoes.html" class="label-inscritos">
+                    Inscrições
+                </a>
+
+                <div class="label-list" id="listaInscricoesMenu">
+
+                    <a href="/assets/paginas-segundarias/canal.html" class="item-inscrito">
+                        <img src="/assets/img/avatar1.jpg" alt="">
+                        <span>Canal Astraelion</span>
+                    </a>
+
+                    <a href="/assets/paginas-segundarias/canal.html" class="item-inscrito">
+                        <img src="/assets/img/avatar2.jpg" alt="">
+                        <span>Cosmos Channel</span>
+                    </a>
+
+                    <a href="/assets/paginas-segundarias/canal.html" class="item-inscrito">
+                        <img src="/assets/img/avatar3.jpg" alt="">
+                        <span>Universo X</span>
+                    </a>
+
+                    <a href="/assets/paginas-segundarias/canal.html" class="item-inscrito">
+                        <img src="/assets/img/avatar4.jpg" alt="">
+                        <span>Dev Space</span>
+                    </a>
+
+                    <a href="/assets/paginas-segundarias/canal.html" class="item-inscrito">
+                        <img src="/assets/img/avatar5.jpg" alt="">
+                        <span>Beyond Worlds</span>
+                    </a>
+
+                    <a href="/assets/paginas-segundarias/canal.html" class="item-inscrito">
+                        <img src="/assets/img/avatar6.jpg" alt="">
+                        <span>AstroLab</span>
+                    </a>
+
+                    <!-- Adicione os demais canais seguindo este padrão -->
+
+                </div>
+
+                <button type="button" class="btn-ver-inscricoes" id="btnVerInscricoes">
+                    <i class="bi bi-chevron-down"></i>
+                    <span>Ver mais</span>
+                </button>
+
+            </div>
+
+            <hr>
+
+            <li>
+                <a class="linha active" href="/assets/paginas-segundarias/inscricoes.html">
+                    <i class="bi bi-collection-play"></i>
+                    <span class="name">Ver inscrições</span>
+                </a>
+            </li>
+
+            <li>
+                <a class="linha" href="/assets/paginas-segundarias/historico.html">
+                    <i class="bi bi-clock-history"></i>
+                    <span class="name">Histórico</span>
+                </a>
+            </li>
+
+            <li>
+                <a class="linha" href="/assets/paginas-segundarias/configuracoes.html">
+                    <i class="bi bi-gear-fill"></i>
+                    <span class="name">Configurações</span>
+                </a>
+            </li>
+        </div>
+    </aside>
+
+    <nav class="menu-mobile">
+        <a href="/index.html" class="item-menu-mobile">
+            <i class="bi bi-house-door-fill"></i>
+            <span>Início</span>
+        </a>
+
+        <a href="/assets/paginas-segundarias/notificacao.html" class="item-menu-mobile">
+            <i class="bi bi-bell"></i>
+            <span>Notificações</span>
+        </a>
+
+        <a href="#" class="item-menu-mobile item-postar-mobile">
+            <i class="bi bi-plus-lg"></i>
+            <span>Postar</span>
+        </a>
+
+        <a href="/assets/paginas-segundarias/fenda.html" class="item-menu-mobile">
+            <i class="bi bi-stars"></i>
+            <span>Fendas</span>
+        </a>
+
+        <a href="#" class="item-menu-mobile">
+            <i class="bi bi-person-circle"></i>
+            <span>Perfil</span>
+        </a>
+    </nav>
+
+    <main class="pagina-inscricoes">
+
+        <!-- CABEÇALHO -->
+        <section class="inscricoes-cabecalho">
+            <div>
+                <span class="inscricoes-subtitulo">SEU UNIVERSO</span>
+                <h1>Inscrições</h1>
+                <p>Acompanhe as novidades dos canais que você segue.</p>
+            </div>
+        </section>
+
+        <!-- CANAIS INSCRITOS -->
+        <section class="secao-canais">
+
+            <div class="titulo-inscricoes">
+                <div>
+                    <h2>Seus canais</h2>
+                    <p>Fique por dentro das últimas transmissões.</p>
+                </div>
+
+                <div class="controles-canais">
+                    <button class="seta-canais" id="canaisAnterior" type="button" aria-label="Canais anteriores">
+                        <i class="bi bi-chevron-left"></i>
+                    </button>
+
+                    <button class="seta-canais" id="canaisProximo" type="button" aria-label="Próximos canais">
+                        <i class="bi bi-chevron-right"></i>
+                    </button>
+
+                    <button class="btn-todos-canais" id="abrirTodosCanais" type="button">
+                        <i class="bi bi-list-ul"></i>
+                        <span>Ver todos</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="faixa-canais" id="faixaCanais">
+
+                <a href="/assets/paginas-segundarias/canal.html" class="canal-inscrito">
+                    <div class="avatar-inscrito">
+                        <img src="/assets/img/avatar1.jpg" alt="">
+                        <span class="indicador-video" title="Vídeo recente"></span>
+                        <span class="indicador-fenda" title="Fenda recente"></span>
+                    </div>
+                    <strong>Canal Astraelion</strong>
+                    <span class="arroba-canal">@astraelion</span>
+                </a>
+
+                <a href="/assets/paginas-segundarias/canal.html" class="canal-inscrito">
+                    <div class="avatar-inscrito">
+                        <img src="/assets/img/avatar2.jpg" alt="">
+                        <span class="indicador-live" title="Ao vivo"></span>
+                    </div>
+                    <strong>Cosmos Channel</strong>
+                    <span class="arroba-canal">@cosmos</span>
+                </a>
+
+                <a href="/assets/paginas-segundarias/canal.html" class="canal-inscrito">
+                    <div class="avatar-inscrito">
+                        <img src="/assets/img/avatar3.jpg" alt="">
+                        <span class="indicador-video" title="Vídeo recente"></span>
+                    </div>
+                    <strong>Universo X</strong>
+                    <span class="arroba-canal">@universox</span>
+                </a>
+
+                <a href="/assets/paginas-segundarias/canal.html" class="canal-inscrito">
+                    <div class="avatar-inscrito">
+                        <img src="/assets/img/avatar4.jpg" alt="">
+                        <span class="indicador-fenda" title="Fenda recente"></span>
+                    </div>
+                    <strong>Dev Space</strong>
+                    <span class="arroba-canal">@devspace</span>
+                </a>
+
+                <a href="/assets/paginas-segundarias/canal.html" class="canal-inscrito">
+                    <div class="avatar-inscrito">
+                        <img src="/assets/img/avatar5.jpg" alt="">
+                        <span class="indicador-live" title="Ao vivo"></span>
+                        <span class="indicador-video" title="Vídeo recente"></span>
+                    </div>
+                    <strong>Beyond Worlds</strong>
+                    <span class="arroba-canal">@beyondworlds</span>
+                </a>
+
+                <a href="/assets/paginas-segundarias/canal.html" class="canal-inscrito">
+                    <div class="avatar-inscrito">
+                        <img src="/assets/img/avatar6.jpg" alt="">
+                    </div>
+                    <strong>AstroLab</strong>
+                    <span class="arroba-canal">@astrolab</span>
+                </a>
+
+            </div>
+
+            <div class="legenda-canais">
+                <span><i class="ponto-legenda video"></i> Vídeo recente</span>
+                <span><i class="ponto-legenda live"></i> Ao vivo</span>
+                <span><i class="ponto-legenda fenda"></i> Fenda recente</span>
+            </div>
+        </section>
+
+        <!-- FEED EXCLUSIVO DAS INSCRIÇÕES -->
+        <section class="secao-feed-inscricoes">
+
+            <div class="titulo-inscricoes titulo-feed">
+                <div>
+                    <h2>Publicações recentes</h2>
+                    <p>Novidades dos canais que você acompanha.</p>
+                </div>
+            </div>
+
+            <div class="grade-inscricoes" id="gradeInscricoes">
+
+                <!-- 1 -->
+                <article class="card-inscricao" data-tipo="missao" data-data="2026-10-11T15:00:00">
+                    <a href="/assets/paginas-segundarias/watch.html" class="link-card-inscricao">
+                        <div class="thumb-inscricao">
+                            <img src="/assets/img/thumb1.jpg" alt="Explorando um novo universo">
+                            <span class="duracao-inscricao">12:34</span>
+                        </div>
+                    </a>
+                    <div class="info-inscricao">
+                        <img src="/assets/img/avatar1.jpg" alt="" class="avatar-card-inscricao">
+                        <div class="texto-card-inscricao">
+                            <h3>Explorando um novo universo</h3>
+                            <p>Canal Astraelion</p>
+                            <span>12 mil visualizações · há 10 min</span>
+                        </div>
+                        <button class="opcoes-inscricao" type="button" aria-label="Opções do conteúdo">
+                            <i class="bi bi-three-dots-vertical"></i>
+                        </button>
+                    </div>
+                </article>
+
+                <!-- 2 -->
+                <article class="card-inscricao" data-tipo="live" data-data="2026-10-11T14:30:00">
+                    <a href="/assets/paginas-segundarias/watch.html" class="link-card-inscricao">
+                        <div class="thumb-inscricao">
+                            <img src="/assets/img/thumb2.jpg" alt="Transmissão pelo desconhecido">
+                            <span class="selo-live">AO VIVO</span>
+                        </div>
+                    </a>
+                    <div class="info-inscricao">
+                        <img src="/assets/img/avatar2.jpg" alt="" class="avatar-card-inscricao">
+                        <div class="texto-card-inscricao">
+                            <h3>Transmissão pelo desconhecido</h3>
+                            <p>Cosmos Channel</p>
+                            <span>Ao vivo agora</span>
+                        </div>
+                        <button class="opcoes-inscricao" type="button" aria-label="Opções do conteúdo">
+                            <i class="bi bi-three-dots-vertical"></i>
+                        </button>
+                    </div>
+                </article>
+
+                <!-- 3 -->
+                <article class="card-inscricao" data-tipo="missao" data-data="2026-10-11T13:00:00">
+                    <a href="/assets/paginas-segundarias/watch.html" class="link-card-inscricao">
+                        <div class="thumb-inscricao">
+                            <img src="/assets/img/thumb3.jpg" alt="O que existe além do espaço">
+                            <span class="duracao-inscricao">15:47</span>
+                        </div>
+                    </a>
+                    <div class="info-inscricao">
+                        <img src="/assets/img/avatar3.jpg" alt="" class="avatar-card-inscricao">
+                        <div class="texto-card-inscricao">
+                            <h3>O que existe além do espaço?</h3>
+                            <p>Universo X</p>
+                            <span>24 mil visualizações · há 1 h</span>
+                        </div>
+                        <button class="opcoes-inscricao" type="button" aria-label="Opções do conteúdo">
+                            <i class="bi bi-three-dots-vertical"></i>
+                        </button>
+                    </div>
+                </article>
+
+                <!-- 4 -->
+                <article class="card-inscricao" data-tipo="missao" data-data="2026-10-11T12:00:00">
+                    <a href="/assets/paginas-segundarias/watch.html" class="link-card-inscricao">
+                        <div class="thumb-inscricao">
+                            <img src="/assets/img/thumb4.jpg" alt="Construindo meu primeiro projeto">
+                            <span class="duracao-inscricao">10:02</span>
+                        </div>
+                    </a>
+                    <div class="info-inscricao">
+                        <img src="/assets/img/avatar4.jpg" alt="" class="avatar-card-inscricao">
+                        <div class="texto-card-inscricao">
+                            <h3>Construindo meu primeiro projeto</h3>
+                            <p>Dev Space</p>
+                            <span>5,2 mil visualizações · há 2 h</span>
+                        </div>
+                        <button class="opcoes-inscricao" type="button" aria-label="Opções do conteúdo">
+                            <i class="bi bi-three-dots-vertical"></i>
+                        </button>
+                    </div>
+                </article>
+
+                <!-- 5 -->
+                <article class="card-inscricao" data-tipo="missao" data-data="2026-10-11T11:00:00">
+                    <a href="/assets/paginas-segundarias/watch.html" class="link-card-inscricao">
+                        <div class="thumb-inscricao">
+                            <img src="/assets/img/thumb5.jpg" alt="Uma viagem pelo desconhecido">
+                            <span class="duracao-inscricao">21:15</span>
+                        </div>
+                    </a>
+                    <div class="info-inscricao">
+                        <img src="/assets/img/avatar5.jpg" alt="" class="avatar-card-inscricao">
+                        <div class="texto-card-inscricao">
+                            <h3>Uma viagem pelo desconhecido</h3>
+                            <p>Beyond Worlds</p>
+                            <span>18 mil visualizações · há 4 h</span>
+                        </div>
+                        <button class="opcoes-inscricao" type="button" aria-label="Opções do conteúdo">
+                            <i class="bi bi-three-dots-vertical"></i>
+                        </button>
+                    </div>
+                </article>
+
+                <!-- 6 -->
+                <article class="card-inscricao" data-tipo="missao" data-data="2026-10-10T18:00:00">
+                    <a href="/assets/paginas-segundarias/watch.html" class="link-card-inscricao">
+                        <div class="thumb-inscricao">
+                            <img src="/assets/img/thumb6.jpg" alt="Como funciona uma galáxia">
+                            <span class="duracao-inscricao">06:38</span>
+                        </div>
+                    </a>
+                    <div class="info-inscricao">
+                        <img src="/assets/img/avatar6.jpg" alt="" class="avatar-card-inscricao">
+                        <div class="texto-card-inscricao">
+                            <h3>Como funciona uma galáxia?</h3>
+                            <p>AstroLab</p>
+                            <span>31 mil visualizações · ontem</span>
+                        </div>
+                        <button class="opcoes-inscricao" type="button" aria-label="Opções do conteúdo">
+                            <i class="bi bi-three-dots-vertical"></i>
+                        </button>
+                    </div>
+                </article>
+
+                <!-- 7 -->
+                <article class="card-inscricao" data-tipo="missao" data-data="2026-10-10T16:00:00">
+                    <a href="/assets/paginas-segundarias/watch.html" class="link-card-inscricao">
+                        <div class="thumb-inscricao">
+                            <img src="/assets/img/thumb7.jpg" alt="Mistérios de outro mundo">
+                            <span class="duracao-inscricao">08:50</span>
+                        </div>
+                    </a>
+                    <div class="info-inscricao">
+                        <img src="/assets/img/avatar3.jpg" alt="" class="avatar-card-inscricao">
+                        <div class="texto-card-inscricao">
+                            <h3>Mistérios de outro mundo</h3>
+                            <p>Universo X</p>
+                            <span>1,4 mil visualizações · ontem</span>
+                        </div>
+                        <button class="opcoes-inscricao" type="button" aria-label="Opções do conteúdo">
+                            <i class="bi bi-three-dots-vertical"></i>
+                        </button>
+                    </div>
+                </article>
+
+                <!-- 8 -->
+                <article class="card-inscricao" data-tipo="missao" data-data="2026-10-10T14:00:00">
+                    <a href="/assets/paginas-segundarias/watch.html" class="link-card-inscricao">
+                        <div class="thumb-inscricao">
+                            <img src="/assets/img/thumb8.jpg" alt="Viagem pela galáxia">
+                            <span class="duracao-inscricao">06:50</span>
+                        </div>
+                    </a>
+                    <div class="info-inscricao">
+                        <img src="/assets/img/avatar6.jpg" alt="" class="avatar-card-inscricao">
+                        <div class="texto-card-inscricao">
+                            <h3>Viagem pela galáxia</h3>
+                            <p>AstroLab</p>
+                            <span>3 mil visualizações · ontem</span>
+                        </div>
+                        <button class="opcoes-inscricao" type="button" aria-label="Opções do conteúdo">
+                            <i class="bi bi-three-dots-vertical"></i>
+                        </button>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- LINHAS INDEPENDENTES DE FENDAS -->
+        <section class="secao-fendas-inscricoes">
+            <div class="titulo-inscricoes">
+                <div>
+                    <h2>Fendas recentes</h2>
+                    <p>Descobertas dos canais que você acompanha.</p>
+                </div>
+            </div>
+
+            <div class="linha-fendas">
+                <button class="seta-fendas anterior" type="button" aria-label="Fendas anteriores">
+                    <i class="bi bi-chevron-left"></i>
+                </button>
+
+                <div class="faixa-fendas">
+                    <a href="/assets/paginas-segundarias/fenda.html" class="card-fenda-inscricao">
+                        <img src="/assets/img/thumb1.jpg" alt="">
+                        <span>Uma descoberta inesperada</span>
+                        <small>Canal Astraelion</small>
+                    </a>
+                    <a href="/assets/paginas-segundarias/fenda.html" class="card-fenda-inscricao">
+                        <img src="/assets/img/thumb2.jpg" alt="">
+                        <span>O portal desconhecido</span>
+                        <small>Cosmos Channel</small>
+                    </a>
+                    <a href="/assets/paginas-segundarias/fenda.html" class="card-fenda-inscricao">
+                        <img src="/assets/img/thumb3.jpg" alt="">
+                        <span>Segredos do universo</span>
+                        <small>Universo X</small>
+                    </a>
+                    <a href="/assets/paginas-segundarias/fenda.html" class="card-fenda-inscricao">
+                        <img src="/assets/img/thumb4.jpg" alt="">
+                        <span>Construção dimensional</span>
+                        <small>Dev Space</small>
+                    </a>
+                    <a href="/assets/paginas-segundarias/fenda.html" class="card-fenda-inscricao">
+                        <img src="/assets/img/thumb5.jpg" alt="">
+                        <span>Além da realidade</span>
+                        <small>Beyond Worlds</small>
+                    </a>
+                </div>
+
+                <button class="seta-fendas proximo" type="button" aria-label="Próximas Fendas">
+                    <i class="bi bi-chevron-right"></i>
+                </button>
+            </div>
+
+            <!-- As próximas linhas serão adicionadas na etapa de distribuição -->
+        </section>
+
+    </main>
+
+    <!-- JANELA: TODOS OS CANAIS -->
+    <div class="overlay-canais" id="overlayCanais" hidden>
+        <section class="modal-canais" role="dialog" aria-modal="true" aria-labelledby="tituloTodosCanais">
+
+            <div class="cabecalho-modal-canais">
+                <div>
+                    <span class="inscricoes-subtitulo">SUA REDE</span>
+                    <h2 id="tituloTodosCanais">Todos os canais</h2>
+                </div>
+
+                <button id="fecharTodosCanais" type="button" aria-label="Fechar janela">
+                    <i class="bi bi-x-lg"></i>
+                </button>
+            </div>
+
+            <input type="search" id="pesquisaCanais" placeholder="Pesquisar canal ou @...">
+
+            <p class="descricao-modal-canais">
+                Seus canais inscritos, organizados alfabeticamente.
+            </p>
+
+            <div class="lista-todos-canais" id="listaTodosCanais">
+                <!-- Preenchida pelo JavaScript -->
+            </div>
+        </section>
+    </div>
+
+    <script src="/assets/scripsts/script.js"></script>
+    <script src="/assets/scripsts/user-painel.js"></script>
+    <script src="/assets/scripsts/notificacao-global.js"></script>
+    <script src="/assets/scripsts/inscricoes.js"></script>
+
+</body>
+
+</html>

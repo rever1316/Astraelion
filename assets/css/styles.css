@@ -10,8 +10,10 @@ body {
     color: #ffffff;
 }
 
+
+
 /* ========================================== */
-/* HEADER / NAVEGAÇÃO SUPERIOR               */
+/* HEADER / NAVEGAÇÃO SUPERIOR (Isolado)     */
 /* ========================================== */
 header {
     background-color: #130A24;
@@ -32,12 +34,14 @@ header .nav-container {
     padding: 0 20px;
 }
 
+/* Agrupamento da esquerda (Botão do menu + Logo + Imagem) */
 header .nav-esquerda {
     display: flex;
     align-items: center;
     gap: 15px;
 }
 
+/* Botão do menu lateral */
 header .btn-menu {
     border: none;
     cursor: pointer;
@@ -59,6 +63,7 @@ header .btn-menu i {
     color: azure;
 }
 
+/* Logo e Imagem */
 header .logo-link {
     display: flex;
     align-items: center;
@@ -81,6 +86,7 @@ header .logo-link span {
     font-size: 22px;
 }
 
+/* Barra de Pesquisa */
 header .pesquisa {
     display: flex;
     align-items: center;
@@ -123,13 +129,26 @@ header .buscar:hover {
     background-color: #602f9c73;
 }
 
+/* Container que agrupa os ícones do perfil na direita */
 .nav-perfil {
     display: flex;
     align-items: center;
-    flex-direction: row;
-    gap: 10px;
+    flex-direction: row; /* Força a ficarem lado a lado na horizontal */
+    gap: 10px;           /* Espaço entre os botões */
 }
 
+/* ========================================== */
+/* ÁREA DE PERFIL (NAVA-PERFIL COM APENAS LINKS) */
+/* ========================================== */
+
+.nav-perfil {
+    display: flex;
+    align-items: center;
+    flex-direction: row; /* Mantém os itens lado a lado na horizontal */
+    gap: 10px;           /* Espaço elegante entre os ícones */
+}
+
+/* Estilização para todos os links dentro do perfil */
 .nav-perfil a {
     display: flex;
     align-items: center;
@@ -143,20 +162,22 @@ header .buscar:hover {
     transition: 0.2s;
     text-decoration: none;
     padding: 0;
-    border-radius: 50%;
+    border-radius: 50%; /* Torna o link perfeitamente redondo */
 }
 
+/* Tamanho dos ícones de dentro dos links */
 .nav-perfil a i {
     font-size: 20px;
 }
 
+/* Efeito ao passar o mouse */
 .nav-perfil a:hover {
     background-color: #32205F;
     color: #fff;
 }
 
 /* ========================================== */
-/* MENU LATERAL (ASIDE)                      */
+/* MENU LATERAL (ASIDE) FIXO E COM SCROLL PRÓPRIO */
 /* ========================================== */
 aside.menu-lateral {
     background-color: #130A24;
@@ -164,16 +185,13 @@ aside.menu-lateral {
     border-right: 2px solid #8A4DFF;
     position: fixed;
     top: 60px;
+    /* Fica logo abaixo do header */
     left: 0;
-    height: calc(100vh - 60px);
-    overflow-y: auto;
+    height: calc(100vh - 65px);
+    overflow-y: auto ;
+    /* Apenas o menu lateral terá scroll próprio */
     z-index: 900;
-    transition: width 0.3s ease-in-out;
-    scrollbar-width: none;
-}
-
-aside.menu-lateral::-webkit-scrollbar {
-    display: none;
+    transition: all 0.3s ease-in-out;
 }
 
 aside.menu-lateral .lis {
@@ -253,17 +271,133 @@ aside.menu-lateral .label-list {
     overflow-y: auto;
 }
 
+/* Transição suave específica */
+aside.menu-lateral {
+    transition: all 0.3s ease-in-out;
+}
+
+/* Esconde a barra de rolagem no Chrome, Safari e Opera quando recolhido */
+aside.menu-lateral::-webkit-scrollbar {
+    display: none;
+}
+
+/* Esconde a barra de rolagem no Firefox quando recolhido */
+aside.menu-lateral {
+    scrollbar-width: none;
+}
+
+
+/* ========================================
+   INSCRIÇÕES NO MENU LATERAL
+======================================== */
+
+.grupo-inscricoes {
+    width: 100%;
+    margin-top: 12px;
+}
+
+.grupo-inscricoes .label-inscritos {
+    display: flex;
+    align-items: center;
+    padding: 12px 16px;
+    color: var(--texto, #FCFCFC);
+    font-family: "Aldrich", sans-serif;
+    font-size: 13px;
+    text-decoration: none;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.grupo-inscricoes .label-inscritos:hover {
+    color: #B06EFF;
+}
+
+.grupo-inscricoes .label-list {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.grupo-inscricoes .item-inscrito {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-height: 42px;
+    padding: 6px 16px;
+    color: #B8B8C8;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background .2s, color .2s;
+}
+
+.grupo-inscricoes .item-inscrito:hover {
+    background: rgba(138, 77, 255, .12);
+    color: #FCFCFC;
+}
+
+.grupo-inscricoes .item-inscrito img {
+    width: 30px;
+    height: 30px;
+    flex-shrink: 0;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.grupo-inscricoes .item-inscrito span {
+    overflow: hidden;
+    font-size: 12px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.grupo-inscricoes .btn-ver-inscricoes {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    padding: 12px 18px;
+    border: 0;
+    background: transparent;
+    color: #B8B8C8;
+    font-family: "Aldrich", sans-serif;
+    font-size: 12px;
+    text-align: left;
+    cursor: pointer;
+}
+
+.grupo-inscricoes .btn-ver-inscricoes:hover {
+    color: #B06EFF;
+}
+
+.grupo-inscricoes .btn-ver-inscricoes i {
+    width: 26px;
+    text-align: center;
+    transition: transform .2s;
+}
+
+.grupo-inscricoes.expandido .btn-ver-inscricoes i {
+    transform: rotate(180deg);
+}
+
+/* Lista recolhida: mostra somente os primeiros 6 canais */
+.grupo-inscricoes:not(.expandido) .item-inscrito:nth-child(n + 7) {
+    display: none;
+}
+
 /* ========================================== */
-/* ESTADO QUANDO O MENU ESTÁ RECOLHIDO        */
+/* ESTADO QUANDO O MENU ESTÁ RECOLHIDO      */
 /* ========================================== */
 aside.menu-lateral.recolhido {
     width: 85px;
+
+    .label-inscritos, .btn-ver-inscricoes{
+        display: none;
+    }
 }
 
 aside.menu-lateral.recolhido span,
 aside.menu-lateral.recolhido .name,
-aside.menu-lateral.recolhido hr,
-aside.menu-lateral.recolhido .label-inscritos {
+aside.menu-lateral.recolhido hr {
     display: none;
 }
 

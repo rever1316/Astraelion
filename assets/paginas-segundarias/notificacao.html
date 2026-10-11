@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,8 +13,9 @@
         rel="stylesheet">
     <title>Astraelion - Notificação</title>
 </head>
+
 <body>
-        <header>
+    <header>
         <nav class="nav-container">
 
             <div class="nav-esquerda">
@@ -111,11 +113,53 @@
             </li>
             <hr>
 
-            <div>
-                <span class="label-inscritos">
-                    inscrições
-                </span>
-                <div class="label-list"></div>
+            <div class="grupo-inscricoes">
+
+                <a href="/assets/paginas-segundarias/inscricoes.html" class="label-inscritos">
+                    Inscrições
+                </a>
+
+                <div class="label-list" id="listaInscricoesMenu">
+
+                    <a href="/assets/paginas-segundarias/canal.html" class="item-inscrito">
+                        <img src="/assets/img/avatar1.jpg" alt="">
+                        <span>Canal Astraelion</span>
+                    </a>
+
+                    <a href="/assets/paginas-segundarias/canal.html" class="item-inscrito">
+                        <img src="/assets/img/avatar2.jpg" alt="">
+                        <span>Cosmos Channel</span>
+                    </a>
+
+                    <a href="/assets/paginas-segundarias/canal.html" class="item-inscrito">
+                        <img src="/assets/img/avatar3.jpg" alt="">
+                        <span>Universo X</span>
+                    </a>
+
+                    <a href="/assets/paginas-segundarias/canal.html" class="item-inscrito">
+                        <img src="/assets/img/avatar4.jpg" alt="">
+                        <span>Dev Space</span>
+                    </a>
+
+                    <a href="/assets/paginas-segundarias/canal.html" class="item-inscrito">
+                        <img src="/assets/img/avatar5.jpg" alt="">
+                        <span>Beyond Worlds</span>
+                    </a>
+
+                    <a href="/assets/paginas-segundarias/canal.html" class="item-inscrito">
+                        <img src="/assets/img/avatar6.jpg" alt="">
+                        <span>AstroLab</span>
+                    </a>
+
+                    <!-- Adicione os demais canais seguindo este padrão -->
+
+                </div>
+
+                <button type="button" class="btn-ver-inscricoes" id="btnVerInscricoes">
+                    <i class="bi bi-chevron-down"></i>
+                    <span>Ver mais</span>
+                </button>
+
             </div>
 
             <hr>
@@ -138,181 +182,283 @@
 
     <main class="notificacoes-container">
 
-    <section class="cabecalho-notificacoes">
+        <section class="cabecalho-notificacoes">
 
-        <div>
-            <span class="subtitulo-notificacoes">
-                CENTRAL DE COMUNICAÇÕES
-            </span>
-
-            <h1>
-                Notificações
-            </h1>
-        </div>
-
-        <button class="marcar-todas">
-            <i class="bi bi-check2-all"></i>
-            Marcar todas como lidas
-        </button>
-
-    </section>
-
-
-    <section class="filtros-notificacoes">
-
-        <button class="filtro-notificacao active" data-filtro="todas">
-            Todas
-        </button>
-
-        <button class="filtro-notificacao" data-filtro="atividade">
-            Atividade
-        </button>
-
-        <button class="filtro-notificacao" data-filtro="inscricoes">
-            Inscrições
-        </button>
-
-        <button class="filtro-notificacao" data-filtro="mencoes">
-            Menções
-        </button>
-
-    </section>
-
-
-    <section class="lista-notificacoes">
-
-
-        <!-- NOTIFICAÇÃO NÃO LIDA -->
-
-        <article class="notificacao nao-lida"
-                 data-tipo="atividade">
-
-            <div class="icone-notificacao">
-                <i class="bi bi-heart-fill"></i>
-            </div>
-
-            <div class="conteudo-notificacao">
-
-                <p>
-                    <strong>Canal Astraelion</strong>
-                    curtiu sua Missão.
-                </p>
-
-                <span>
-                    Explorando um novo universo
+            <div>
+                <span class="subtitulo-notificacoes">
+                    CENTRAL DE COMUNICAÇÕES
                 </span>
 
-                <small>
-                    há 10 minutos
-                </small>
-
+                <h1>
+                    Notificações
+                </h1>
             </div>
 
-            <button class="menu-notificacao">
-                <i class="bi bi-three-dots-vertical"></i>
+            <button class="marcar-todas">
+                <i class="bi bi-check2-all"></i>
+                Marcar todas como lidas
             </button>
 
-        </article>
+        </section>
 
 
-        <!-- NOVA INSCRIÇÃO -->
+        <section class="filtros-notificacoes">
 
-        <article class="notificacao nao-lida"
-                 data-tipo="inscricoes">
-
-            <div class="icone-notificacao">
-                <i class="bi bi-person-plus-fill"></i>
-            </div>
-
-            <div class="conteudo-notificacao">
-
-                <p>
-                    <strong>Explorador X</strong>
-                    embarcou no seu canal.
-                </p>
-
-                <small>
-                    há 1 hora
-                </small>
-
-            </div>
-
-            <button class="menu-notificacao">
-                <i class="bi bi-three-dots-vertical"></i>
+            <button class="filtro-notificacao active" data-filtro="todas">
+                Todas
             </button>
 
-        </article>
-
-
-        <!-- COMENTÁRIO -->
-
-        <article class="notificacao"
-                 data-tipo="atividade">
-
-            <div class="icone-notificacao">
-                <i class="bi bi-chat-left-fill"></i>
-            </div>
-
-            <div class="conteudo-notificacao">
-
-                <p>
-                    <strong>Explorador Y</strong>
-                    comentou na sua Missão.
-                </p>
-
-                <span>
-                    "Essa descoberta foi incrível!"
-                </span>
-
-                <small>
-                    há 3 horas
-                </small>
-
-            </div>
-
-            <button class="menu-notificacao">
-                <i class="bi bi-three-dots-vertical"></i>
+            <button class="filtro-notificacao" data-filtro="atividade">
+                Atividade
             </button>
 
-        </article>
-
-
-        <!-- MENÇÃO -->
-
-        <article class="notificacao"
-                 data-tipo="mencoes">
-
-            <div class="icone-notificacao">
-                <i class="bi bi-at"></i>
-            </div>
-
-            <div class="conteudo-notificacao">
-
-                <p>
-                    <strong>Canal Cosmos</strong>
-                    mencionou você em uma Fenda.
-                </p>
-
-                <span>
-                    Uma descoberta que merece ser compartilhada...
-                </span>
-
-                <small>
-                    ontem
-                </small>
-
-            </div>
-
-            <button class="menu-notificacao">
-                <i class="bi bi-three-dots-vertical"></i>
+            <button class="filtro-notificacao" data-filtro="inscricoes">
+                Inscrições
             </button>
 
-        </article>
+            <button class="filtro-notificacao" data-filtro="mencoes">
+                Menções
+            </button>
+
+            <button class="filtro-notificacao" data-filtro="missoes">
+                Missões
+            </button>
+
+            <button class="filtro-notificacao" data-filtro="fendas">
+                Fendas
+            </button>
+
+            <button class="filtro-notificacao" data-filtro="lives">
+                Lives
+            </button>
+
+        </section>
 
 
-    </section>
+        </section>
 
-</main>
+
+        <section class="lista-notificacoes">
+
+
+            <!-- NOTIFICAÇÃO NÃO LIDA -->
+
+            <article class="notificacao nao-lida" data-tipo="atividade">
+
+                <div class="icone-notificacao">
+                    <i class="bi bi-heart-fill"></i>
+                </div>
+
+                <div class="conteudo-notificacao">
+
+                    <p>
+                        <strong>Canal Astraelion</strong>
+                        curtiu sua Missão.
+                    </p>
+
+                    <span>
+                        Explorando um novo universo
+                    </span>
+
+                    <small>
+                        há 10 minutos
+                    </small>
+
+                </div>
+
+                <button class="menu-notificacao">
+                    <i class="bi bi-three-dots-vertical"></i>
+                </button>
+
+            </article>
+
+
+            <!-- NOVA INSCRIÇÃO -->
+
+            <article class="notificacao nao-lida" data-tipo="inscricoes">
+
+                <div class="icone-notificacao">
+                    <i class="bi bi-person-plus-fill"></i>
+                </div>
+
+                <div class="conteudo-notificacao">
+
+                    <p>
+                        <strong>Explorador X</strong>
+                        embarcou no seu canal.
+                    </p>
+
+                    <small>
+                        há 1 hora
+                    </small>
+
+                </div>
+
+                <button class="menu-notificacao">
+                    <i class="bi bi-three-dots-vertical"></i>
+                </button>
+
+            </article>
+
+
+            <!-- COMENTÁRIO -->
+
+            <article class="notificacao" data-tipo="atividade">
+
+                <div class="icone-notificacao">
+                    <i class="bi bi-chat-left-fill"></i>
+                </div>
+
+                <div class="conteudo-notificacao">
+
+                    <p>
+                        <strong>Explorador Y</strong>
+                        comentou na sua Missão.
+                    </p>
+
+                    <span>
+                        "Essa descoberta foi incrível!"
+                    </span>
+
+                    <small>
+                        há 3 horas
+                    </small>
+
+                </div>
+
+                <button class="menu-notificacao">
+                    <i class="bi bi-three-dots-vertical"></i>
+                </button>
+
+            </article>
+
+
+            <!-- MENÇÃO -->
+
+            <article class="notificacao" data-tipo="mencoes">
+
+                <div class="icone-notificacao">
+                    <i class="bi bi-at"></i>
+                </div>
+
+                <div class="conteudo-notificacao">
+
+                    <p>
+                        <strong>Canal Cosmos</strong>
+                        mencionou você em uma Fenda.
+                    </p>
+
+                    <span>
+                        Uma descoberta que merece ser compartilhada...
+                    </span>
+
+                    <small>
+                        ontem
+                    </small>
+
+                </div>
+
+                <button class="menu-notificacao">
+                    <i class="bi bi-three-dots-vertical"></i>
+                </button>
+
+            </article>
+
+
+            <!-- NOVA MISSÃO -->
+
+            <article class="notificacao nao-lida" data-tipo="missoes">
+
+                <div class="icone-notificacao">
+                    <i class="bi bi-play-circle-fill"></i>
+                </div>
+
+                <div class="conteudo-notificacao">
+                    <p>
+                        <strong>Canal Cosmos</strong>
+                        publicou uma nova Missão.
+                    </p>
+
+                    <span>Uma nova jornada está começando...</span>
+
+                    <small>há 5 minutos</small>
+
+                </div>
+
+                <div class="miniatura-notificacao">
+                    <img src="/assets/img/thumb2.jpg" alt="Miniatura da Missão">
+                </div>
+
+                <button class="menu-notificacao" aria-label="Opções da notificação">
+                    <i class="bi bi-three-dots-vertical"></i>
+                </button>
+
+            </article>
+
+
+            <!-- NOVA FENDA -->
+
+            <article class="notificacao nao-lida" data-tipo="fendas">
+
+                <div class="icone-notificacao">
+                    <i class="bi bi-stars"></i>
+                </div>
+
+                <div class="conteudo-notificacao">
+                    <p>
+                        <strong>Explorador X</strong>
+                        publicou uma nova Fenda.
+                    </p>
+
+                    <span>Uma nova transmissão chegou ao universo.</span>
+
+                    <small>há 15 minutos</small>
+
+                </div>
+
+                <button class="menu-notificacao" aria-label="Opções da notificação">
+                    <i class="bi bi-three-dots-vertical"></i>
+                </button>
+
+            </article>
+
+
+            <!-- LIVE AO VIVO -->
+
+            <article class="notificacao nao-lida" data-tipo="lives">
+
+                <div class="icone-notificacao">
+                    <i class="bi bi-broadcast"></i>
+                </div>
+
+                <div class="conteudo-notificacao">
+
+                    <p>
+                        <strong>Canal Astraelion</strong>
+                        está ao vivo agora!
+                    </p>
+
+                    <span>Entre e acompanhe a transmissão.</span>
+
+                    <small>agora</small>
+
+                </div>
+
+                <div class="miniatura-notificacao-lives">
+                    <img src="/assets/img/thumb1.jpg" alt="Miniatura da lives">
+                </div>
+
+                <button class="menu-notificacao" aria-label="Opções da notificação">
+                    <i class="bi bi-three-dots-vertical"></i>
+                </button>
+
+            </article>
+
+
+
+        </section>
+
+    </main>
 </body>
 
 <script src="/assets/scripsts/notificacao.js"></script>

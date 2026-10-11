@@ -1,0 +1,765 @@
+
+/* =========================================
+   INSCRIÇÕES — VARIÁVEIS DO TEMA
+========================================= */
+
+:root {
+    --ins-bg: #090912;
+    --ins-superficie: #151027;
+    --ins-superficie-hover: #20163A;
+    --ins-texto: #FCFCFC;
+    --ins-texto-secundario: #B8B8C8;
+    --ins-texto-suave: #81798F;
+    --ins-acento: #8A4DFF;
+    --ins-acento-claro: #B06EFF;
+    --ins-borda: rgba(138, 77, 255, .25);
+    --ins-raio: 12px;
+    --ins-espaco: 16px;
+}
+
+/* =========================================
+   ESTRUTURA
+========================================= */
+
+.pagina-inscricoes {
+    margin-left: 250px;
+    width: calc(100% - 250px);
+    margin-top: 60px;
+    min-height: calc(100vh - 60px);
+    padding: 30px 36px 50px;
+    box-sizing: border-box;
+    color: var(--ins-texto);
+    background: var(--ins-bg);
+    transition: margin-left .3s ease, width .3s ease;
+}
+
+.pagina-inscricoes.recolhido {
+    margin-left: 85px;
+    width: calc(100% - 85px);
+}
+
+.inscricoes-cabecalho {
+    margin-bottom: 30px;
+}
+
+.inscricoes-subtitulo {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--ins-acento-claro);
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+.inscricoes-cabecalho h1 {
+    margin: 0;
+    font-size: 28px;
+    font-weight: 600;
+}
+
+.inscricoes-cabecalho p,
+.titulo-inscricoes p {
+    margin: 8px 0 0;
+    color: var(--ins-texto-suave);
+    font-size: 12px;
+}
+
+/* =========================================
+   TÍTULOS DAS SEÇÕES
+========================================= */
+
+.titulo-inscricoes {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 18px;
+}
+
+.titulo-inscricoes h2 {
+    margin: 0;
+    font-size: 19px;
+    font-weight: 500;
+}
+
+.secao-canais {
+    margin-bottom: 38px;
+}
+
+.secao-feed-inscricoes {
+    margin-bottom: 42px;
+}
+
+/* =========================================
+   FAIXA DE CANAIS
+========================================= */
+
+.controles-canais {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.seta-canais,
+.btn-todos-canais {
+    min-height: 36px;
+    border: 1px solid var(--ins-borda);
+    border-radius: 9px;
+    background: var(--ins-superficie);
+    color: var(--ins-texto-secundario);
+    cursor: pointer;
+    transition: background .2s ease, color .2s ease;
+}
+
+.seta-canais {
+    width: 36px;
+    display: grid;
+    place-items: center;
+}
+
+.btn-todos-canais {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 0 12px;
+    font-family: inherit;
+    font-size: 11px;
+}
+
+.seta-canais:hover,
+.btn-todos-canais:hover {
+    background: var(--ins-superficie-hover);
+    color: var(--ins-texto);
+}
+
+.faixa-canais {
+    display: flex;
+    gap: 26px;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    padding: 8px 3px 16px;
+}
+
+.faixa-canais::-webkit-scrollbar {
+    display: none;
+}
+
+.canal-inscrito {
+    flex: 0 0 112px;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 7px;
+    color: var(--ins-texto);
+    text-decoration: none;
+    text-align: center;
+}
+
+.avatar-inscrito {
+    position: relative;
+    width: 76px;
+    height: 76px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    padding: 3px;
+    box-sizing: border-box;
+    background: var(--ins-superficie);
+    border: 1px solid var(--ins-borda);
+    transition: border-color .2s ease, transform .2s ease;
+}
+
+.canal-inscrito:hover .avatar-inscrito {
+    border-color: var(--ins-acento-claro);
+    transform: translateY(-2px);
+}
+
+.avatar-inscrito img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.canal-inscrito strong {
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 11px;
+    font-weight: 500;
+}
+
+.arroba-canal {
+    color: var(--ins-texto-suave);
+    font-size: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+}
+
+.indicador-video,
+.indicador-live,
+.indicador-fenda {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    border: 2px solid var(--ins-bg);
+    box-sizing: content-box;
+}
+
+.indicador-video {
+    right: -1px;
+    bottom: 1px;
+    border-radius: 50%;
+    background: #55A7FF;
+}
+
+.indicador-live {
+    top: -2px;
+    right: 1px;
+    border-radius: 50%;
+    background: #FF4E68;
+    box-shadow: 0 0 9px rgba(255, 78, 104, .4);
+}
+
+.indicador-fenda {
+    left: -2px;
+    bottom: 1px;
+    border-radius: 4px;
+    transform: rotate(45deg);
+    background: var(--ins-acento-claro);
+}
+
+.legenda-canais {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    color: var(--ins-texto-suave);
+    font-size: 10px;
+}
+
+.legenda-canais span {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.ponto-legenda {
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+}
+
+.ponto-legenda.video {
+    background: #55A7FF;
+}
+
+.ponto-legenda.live {
+    background: #FF4E68;
+}
+
+.ponto-legenda.fenda {
+    background: var(--ins-acento-claro);
+}
+
+/* =========================================
+   GRADE DE MISSÕES E LIVES
+========================================= */
+
+.grade-inscricoes {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 30px 18px;
+}
+
+.card-inscricao {
+    min-width: 0;
+    color: var(--ins-texto);
+}
+
+.link-card-inscricao {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+}
+
+.thumb-inscricao {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    border-radius: var(--ins-raio);
+    background: var(--ins-superficie);
+}
+
+.thumb-inscricao img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .3s ease;
+}
+
+.card-inscricao:hover .thumb-inscricao img {
+    transform: scale(1.035);
+}
+
+.duracao-inscricao,
+.selo-live {
+    position: absolute;
+    right: 8px;
+    bottom: 8px;
+    padding: 4px 6px;
+    border-radius: 4px;
+    background: rgba(9, 9, 18, .88);
+    color: #fff;
+    font-size: 9px;
+}
+
+.selo-live {
+    right: auto;
+    left: 8px;
+    background: #E63955;
+    font-weight: 700;
+    letter-spacing: .4px;
+}
+
+.info-inscricao {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding-top: 12px;
+}
+
+.avatar-card-inscricao {
+    width: 36px;
+    height: 36px;
+    flex: 0 0 36px;
+    border-radius: 50%;
+    object-fit: cover;
+    background: var(--ins-superficie);
+}
+
+.texto-card-inscricao {
+    flex: 1;
+    min-width: 0;
+}
+
+.texto-card-inscricao h3 {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    overflow: hidden;
+    margin: 0 0 7px;
+    color: var(--ins-texto);
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1.5;
+}
+
+.texto-card-inscricao p {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin: 0 0 5px;
+    color: var(--ins-texto-secundario);
+    font-size: 10px;
+}
+
+.texto-card-inscricao > span {
+    display: block;
+    color: var(--ins-texto-suave);
+    font-size: 9px;
+    line-height: 1.5;
+}
+
+.opcoes-inscricao {
+    flex: 0 0 28px;
+    width: 28px;
+    height: 28px;
+    border: none;
+    border-radius: 50%;
+    background: transparent;
+    color: var(--ins-texto-suave);
+    cursor: pointer;
+}
+
+.opcoes-inscricao:hover {
+    background: var(--ins-superficie-hover);
+    color: var(--ins-texto);
+}
+
+/* =========================================
+   FENDAS — FILEIRAS INDEPENDENTES
+========================================= */
+
+.secao-fendas-inscricoes {
+    margin-top: 38px;
+}
+
+.linha-fendas {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.faixa-fendas {
+    display: grid;
+    grid-auto-columns: calc((100% - 64px) / 5);
+    grid-auto-flow: column;
+    gap: 16px;
+    width: 100%;
+    min-width: 0;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+}
+
+.faixa-fendas::-webkit-scrollbar {
+    display: none;
+}
+
+.card-fenda-inscricao {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    color: var(--ins-texto);
+    text-decoration: none;
+}
+
+.card-fenda-inscricao img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    border: 1px solid var(--ins-borda);
+    border-radius: var(--ins-raio);
+    background: var(--ins-superficie);
+}
+
+.card-fenda-inscricao span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 11px;
+}
+
+.card-fenda-inscricao small {
+    color: var(--ins-texto-suave);
+    font-size: 10px;
+}
+
+.seta-fendas {
+    position: absolute;
+    z-index: 2;
+    top: 35%;
+    width: 34px;
+    height: 34px;
+    display: grid;
+    place-items: center;
+    border: 1px solid var(--ins-borda);
+    border-radius: 50%;
+    background: var(--ins-superficie);
+    color: var(--ins-texto);
+    cursor: pointer;
+}
+
+.seta-fendas.anterior {
+    left: -12px;
+}
+
+.seta-fendas.proximo {
+    right: -12px;
+}
+
+/* =========================================
+   JANELA DE TODOS OS CANAIS
+========================================= */
+
+.overlay-canais[hidden] {
+    display: none !important;
+}
+
+.overlay-canais {
+    position: fixed;
+    z-index: 2000;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    background: rgba(4, 3, 10, .78);
+    backdrop-filter: blur(6px);
+}
+
+.modal-canais {
+    width: min(100%, 560px);
+    max-height: min(80vh, 720px);
+    display: flex;
+    flex-direction: column;
+    padding: 24px;
+    border: 1px solid var(--ins-borda);
+    border-radius: 18px;
+    background: var(--ins-superficie);
+    box-shadow: 0 20px 70px rgba(0, 0, 0, .4);
+}
+
+.cabecalho-modal-canais {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.cabecalho-modal-canais h2 {
+    margin: 0;
+    font-size: 21px;
+}
+
+.cabecalho-modal-canais button {
+    width: 36px;
+    height: 36px;
+    border: 1px solid var(--ins-borda);
+    border-radius: 50%;
+    background: transparent;
+    color: var(--ins-texto);
+    cursor: pointer;
+}
+
+#pesquisaCanais {
+    width: 100%;
+    min-height: 42px;
+    box-sizing: border-box;
+    padding: 0 14px;
+    border: 1px solid var(--ins-borda);
+    border-radius: 10px;
+    outline: none;
+    background: var(--ins-bg);
+    color: var(--ins-texto);
+    font: inherit;
+    font-size: 12px;
+}
+
+#pesquisaCanais:focus {
+    border-color: var(--ins-acento);
+}
+
+.descricao-modal-canais {
+    margin: 14px 0;
+    color: var(--ins-texto-suave);
+    font-size: 11px;
+}
+
+.lista-todos-canais {
+    overflow-y: auto;
+    min-height: 0;
+    padding-right: 4px;
+}
+
+.item-todos-canais {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    padding: 10px;
+    border: 0;
+    border-radius: 10px;
+    background: transparent;
+    color: var(--ins-texto);
+    text-align: left;
+    cursor: pointer;
+}
+
+.item-todos-canais:hover {
+    background: var(--ins-superficie-hover);
+}
+
+.item-todos-canais img {
+    width: 42px;
+    height: 42px;
+    flex: 0 0 42px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.dados-todos-canais {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    min-width: 0;
+}
+
+.dados-todos-canais strong {
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.dados-todos-canais span {
+    color: var(--ins-texto-suave);
+    font-size: 10px;
+}
+
+/* =========================================
+   TABLETS
+========================================= */
+
+@media (min-width: 769px) and (max-width: 1280px) {
+    .pagina-inscricoes,
+    .pagina-inscricoes.recolhido {
+        margin-left: 0;
+        width: 100%;
+        padding: 28px 24px 90px;
+    }
+
+    .grade-inscricoes {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .faixa-fendas {
+        grid-auto-columns: calc((100% - 32px) / 3);
+    }
+}
+
+/* =========================================
+   CELULARES
+========================================= */
+
+@media (max-width: 768px) {
+    .pagina-inscricoes,
+    .pagina-inscricoes.recolhido {
+        margin-left: 0;
+        width: 100%;
+        margin-top: 60px;
+        padding: 24px 14px 90px;
+    }
+
+    .inscricoes-cabecalho h1 {
+        font-size: 24px;
+    }
+
+    .titulo-inscricoes h2 {
+        font-size: 17px;
+    }
+
+    .titulo-inscricoes p {
+        font-size: 10px;
+    }
+
+    .seta-canais {
+        display: none;
+    }
+
+    .btn-todos-canais {
+        min-height: 34px;
+        padding: 0 10px;
+    }
+
+    .faixa-canais {
+        gap: 16px;
+        margin-right: -14px;
+        padding-right: 14px;
+        scroll-snap-type: x proximity;
+    }
+
+    .canal-inscrito {
+        flex-basis: 88px;
+        scroll-snap-align: start;
+    }
+
+    .avatar-inscrito {
+        width: 64px;
+        height: 64px;
+    }
+
+    .legenda-canais {
+        gap: 10px;
+        font-size: 9px;
+    }
+
+    .grade-inscricoes {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 24px 12px;
+    }
+
+    .info-inscricao {
+        gap: 7px;
+        padding-top: 9px;
+    }
+
+    .avatar-card-inscricao {
+        width: 30px;
+        height: 30px;
+        flex-basis: 30px;
+    }
+
+    .texto-card-inscricao h3 {
+        font-size: 11px;
+    }
+
+    .texto-card-inscricao p {
+        font-size: 9px;
+    }
+
+    .texto-card-inscricao > span {
+        font-size: 8px;
+    }
+
+    .opcoes-inscricao {
+        width: 22px;
+        height: 26px;
+        flex-basis: 22px;
+    }
+
+    .faixa-fendas {
+        grid-auto-columns: calc((100% - 16px) / 2.2);
+        gap: 12px;
+    }
+
+    .seta-fendas {
+        display: none;
+    }
+
+    .overlay-canais {
+        align-items: flex-end;
+        padding: 0;
+    }
+
+    .modal-canais {
+        width: 100%;
+        max-height: 85dvh;
+        box-sizing: border-box;
+        padding: 20px 16px calc(20px + env(safe-area-inset-bottom));
+        border-radius: 20px 20px 0 0;
+        border-bottom: 0;
+    }
+}
+
+@media (max-width: 360px) {
+    .pagina-inscricoes,
+    .pagina-inscricoes.recolhido {
+        padding-right: 10px;
+        padding-left: 10px;
+    }
+
+    .grade-inscricoes {
+        gap: 22px 9px;
+    }
+
+    .avatar-card-inscricao {
+        display: none;
+    }
+
+    .btn-todos-canais span {
+        font-size: 10px;
+    }
+}

@@ -7,7 +7,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Aldrich&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/css/notificacao-global.css">
-    <link rel="stylesheet" href="./paginas-responsivas/css-responsiva/fenda-responsivo.css" media="screen and (max-width: 1780px)">
+    <link rel="stylesheet" href="./paginas-responsivas/css-responsiva/fenda-responsivo.css"
+        media="screen and (max-width: 1780px)">
     <link rel="stylesheet" href="/assets/css/user-painel.css">
     <link rel="stylesheet" href="/assets/css/fenda.css">
     <link rel="shortcut icon" href="/assets/img/astraelion-icon.png" type="image/png">
@@ -86,11 +87,53 @@
             </li>
             <hr>
 
-            <div>
-                <span class="label-inscritos">
-                    inscrições
-                </span>
-                <div class="label-list"></div>
+            <div class="grupo-inscricoes">
+
+                <a href="/assets/paginas-segundarias/inscricoes.html" class="label-inscritos">
+                    Inscrições
+                </a>
+
+                <div class="label-list" id="listaInscricoesMenu">
+
+                    <a href="/assets/paginas-segundarias/canal.html" class="item-inscrito">
+                        <img src="/assets/img/avatar1.jpg" alt="">
+                        <span>Canal Astraelion</span>
+                    </a>
+
+                    <a href="/assets/paginas-segundarias/canal.html" class="item-inscrito">
+                        <img src="/assets/img/avatar2.jpg" alt="">
+                        <span>Cosmos Channel</span>
+                    </a>
+
+                    <a href="/assets/paginas-segundarias/canal.html" class="item-inscrito">
+                        <img src="/assets/img/avatar3.jpg" alt="">
+                        <span>Universo X</span>
+                    </a>
+
+                    <a href="/assets/paginas-segundarias/canal.html" class="item-inscrito">
+                        <img src="/assets/img/avatar4.jpg" alt="">
+                        <span>Dev Space</span>
+                    </a>
+
+                    <a href="/assets/paginas-segundarias/canal.html" class="item-inscrito">
+                        <img src="/assets/img/avatar5.jpg" alt="">
+                        <span>Beyond Worlds</span>
+                    </a>
+
+                    <a href="/assets/paginas-segundarias/canal.html" class="item-inscrito">
+                        <img src="/assets/img/avatar6.jpg" alt="">
+                        <span>AstroLab</span>
+                    </a>
+
+                    <!-- Adicione os demais canais seguindo este padrão -->
+
+                </div>
+
+                <button type="button" class="btn-ver-inscricoes" id="btnVerInscricoes">
+                    <i class="bi bi-chevron-down"></i>
+                    <span>Ver mais</span>
+                </button>
+
             </div>
 
             <hr>
