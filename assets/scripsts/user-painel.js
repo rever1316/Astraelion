@@ -61,7 +61,7 @@ if (botaoUsuario) {
             <!-- MEU PERFIL -->
 
             <a
-                href="/assets/paginas-secundarias/canal.html"
+                href="/assets/paginas-segundarias/canal.html"
                 class="item-painel-usuario"
             >
 
@@ -87,7 +87,7 @@ if (botaoUsuario) {
             <!-- CONTA -->
 
             <a
-                href="/assets/paginas-secundarias/configuracoes.html"
+                href="/assets/paginas-segundarias/configuracoes.html"
                 class="item-painel-usuario"
             >
 
@@ -116,7 +116,7 @@ if (botaoUsuario) {
             <!-- CONFIGURAÇÕES -->
 
             <a
-                href="/assets/paginas-secundarias/configuracoes.html"
+                href="/assets/paginas-segundarias/configuracoes.html"
                 class="item-painel-usuario"
             >
 
