@@ -1,0 +1,1694 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Aldrich", sans-serif;
+}
+
+/* ========================================
+   ASTRAELION — SISTEMA DE CORES
+   Tema padrão: Universo Noturno
+======================================== */
+
+:root {
+    /* 1. FUNDOS GERAIS */
+    --cor-fundo-pagina: #090912;
+    --cor-fundo-cabecalho: #130A24;
+    --cor-fundo-menu-lateral: #130A24;
+    --cor-fundo-cartao: #151027;
+
+    /* 2. TEXTOS */
+    --cor-texto-principal: #FFFFFF;
+    --cor-texto-destaque: #FCFCFC;
+    --cor-texto-secundario: #B8B8C8;
+    --cor-texto-suave: #81798F;
+    --cor-texto-invertido: #090912;
+
+    /* 3. IDENTIDADE ROXA */
+    --cor-roxo-principal: #8A4DFF;
+    --cor-roxo-claro: #B06EFF;
+    --cor-roxo-escuro: #32205F;
+    --cor-roxo-hover: #602F9C;
+
+    /* 4. SUPERFÍCIES E INTERAÇÕES */
+    --cor-fundo-hover: #32205F;
+    --cor-fundo-hover-suave: rgba(138, 77, 255, 0.12);
+    --cor-fundo-destaque: rgba(138, 77, 255, 0.10);
+    --cor-fundo-destaque-hover: rgba(138, 77, 255, 0.18);
+
+    /* 5. BORDAS E DIVISORES */
+    --cor-borda-padrao: rgba(138, 77, 255, 0.25);
+    --cor-borda-destaque: rgba(138, 77, 255, 0.60);
+    --cor-borda-buscar: rgba(134, 70, 253, 0.25);
+    --cor-divisor: #1D1136;
+
+    /* 6. EFEITOS */
+    --cor-sombra: rgba(0, 0, 0, 0.35);
+    --cor-sombra-forte: rgba(0, 0, 0, 0.40);
+
+    /* 7. GRADIENTES DA IDENTIDADE */
+    --gradiente-logo: linear-gradient(135deg,
+            var(--cor-texto-destaque) 0%,
+            var(--cor-roxo-claro) 100%);
+
+    --gradiente-divisor: linear-gradient(to right,
+            transparent 0%,
+            var(--cor-divisor) 20%,
+            var(--cor-divisor) 80%,
+            transparent 100%);
+
+    /* 8. CORES DE STATUS */
+    --cor-status-video: #55B8FF;
+    --cor-status-live: #FF4568;
+    --cor-status-fenda: #B06EFF;
+
+    /* 9. ROLAGEM */
+    --cor-scroll-trilho: var(--cor-fundo-cabecalho);
+    --cor-scroll-indicador: var(--cor-roxo-principal);
+}
+
+html,
+body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+body {
+    background-color: var(--cor-fundo-pagina);
+    color: var(--cor-texto-principal);
+}
+
+
+/* ===================================== */
+/* HOME — CORREÇÃO DE ROLAGEM DUPLA      */
+/* ===================================== */
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+    overflow-x: clip;
+    overflow-y: auto;
+}
+
+body {
+    height: auto;
+}
+
+/* Conteúdo principal */
+.conteudo {
+    height: auto;
+    min-height: calc(100vh - 60px);
+    overflow: visible;
+}
+
+/* Grade de vídeos */
+.grade-videos {
+    height: auto;
+    overflow: visible;
+}
+
+
+/* ========================================= */
+/* ASTRAELION — SCROLL PERSONALIZADO         */
+/* ========================================= */
+
+/* Firefox */
+html {
+    scrollbar-width: thin;
+    scrollbar-color: var(--cor-roxo-principal) var(--cor-fundo-pagina);
+}
+
+/* Chrome, Edge e outros navegadores WebKit */
+html::-webkit-scrollbar {
+    width: 10px;
+}
+
+html::-webkit-scrollbar-track {
+    background: var(--cor-fundo-pagina);
+}
+
+html::-webkit-scrollbar-thumb {
+    background: var(--cor-roxo-escuro);
+    border: 2px solid var(--cor-fundo-pagina);
+    border-radius: 10px;
+}
+
+html::-webkit-scrollbar-thumb:hover {
+    background: var(--cor-roxo-claro);
+}
+
+/* Evita barras horizontais desnecessárias */
+html,
+body {
+    overflow-x: clip;
+}
+
+
+/* ========================================== */
+/* HEADER / NAVEGAÇÃO SUPERIOR               */
+/* ========================================== */
+header {
+    background-color: var(--cor-fundo-cabecalho);
+    border-bottom: 2px solid var(--cor-borda-padrao);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 8px 0;
+}
+
+header .nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+
+header .nav-esquerda {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+header .btn-menu {
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    background-color: transparent;
+    transition: 0.3s;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+header .btn-menu:hover {
+    background-color: var(--cor-fundo-hover);
+}
+
+header .btn-menu i {
+    font-size: 20px;
+    color: var(--cor-texto-principal);
+}
+
+header .logo-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+}
+
+header .nav-container img {
+    width: 35px;
+    height: 35px;
+    object-fit: contain;
+}
+
+header .logo-link span {
+    background: var(--gradiente-logo);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    font-size: 22px;
+}
+
+/* Barra de Pesquisa */
+header .pesquisa {
+    display: flex;
+    align-items: center;
+}
+
+header .pesquisa input {
+    width: 350px;
+    height: 40px;
+    padding: 10px 15px;
+    font-size: 16px;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    border-right: none;
+    outline: none;
+    background-color: var(--cor-fundo-cabecalho);
+    color: var(--cor-texto-principal);
+    border: 1px solid var(--cor-borda-padrao);
+}
+
+header .pesquisa input:hover,
+header .pesquisa input:focus {
+    border-color: var(--cor-borda-destaque);
+}
+
+header .buscar {
+    height: 40px;
+    padding: 0 16px;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border: 1px solid var(--cor-borda-buscar);
+    border-left: none;
+    background-color: var(--cor-fundo-cabecalho);
+    color: var(--cor-roxo-principal);
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+header .buscar:hover {
+    color: var(--cor-texto-principal);
+    background-color: var(--cor-fundo-destaque-hover);
+}
+
+/* ÁREA DE PERFIL */
+.nav-perfil {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.nav-perfil a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 38px;
+    width: 38px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--cor-texto-secundario);
+    transition: 0.2s;
+    text-decoration: none;
+    padding: 0;
+    border-radius: 50%;
+}
+
+.nav-perfil a i {
+    font-size: 20px;
+}
+
+.nav-perfil a:hover {
+    background-color: var(--cor-fundo-hover);
+    color: var(--cor-texto-principal);
+}
+
+
+/* ========================================
+   ASTRAELION — MENU LATERAL COMPARTILHADO
+   Arquivo: /assets/css/menu-lateral.css
+======================================== */
+
+/* ========================================
+   ESTRUTURA PRINCIPAL
+======================================== */
+
+aside.menu-lateral {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    z-index: 900;
+
+    display: block;
+    width: 250px;
+    height: calc(100vh - 60px);
+
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    background-color: var(--cor-fundo-menu-lateral);
+    border-right: 2px solid var(--cor-roxo-principal);
+
+    scrollbar-width: none;
+
+    transition: width 0.3s ease-in-out;
+}
+
+aside.menu-lateral::-webkit-scrollbar {
+    display: none;
+}
+
+/* ========================================
+   LINKS PRINCIPAIS E ÍCONES
+======================================== */
+
+aside.menu-lateral a {
+    display: flex;
+    align-items: center;
+
+    width: calc(100% - 30px);
+    min-width: 0;
+    min-height: 45px;
+
+    margin: 0 auto 5px;
+    padding: 10px 15px;
+    gap: 15px;
+
+    color: var(--cor-texto-secundario);
+    text-decoration: none;
+
+    border-left: 3px solid transparent;
+    border-radius: 12px;
+
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease;
+}
+
+aside.menu-lateral a i {
+    display: block;
+    flex-shrink: 0;
+
+    min-width: 24px;
+
+    color: var(--cor-texto-principal);
+    font-size: 22px;
+    text-align: center;
+
+    transition: color 0.2s ease;
+}
+
+aside.menu-lateral a span {
+    flex: 1;
+    min-width: 0;
+
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+    color: var(--cor-texto-destaque);
+    font-size: 15px;
+}
+
+/* ========================================
+   HOVER E PÁGINA ATIVA
+======================================== */
+
+aside.menu-lateral a:hover,
+aside.menu-lateral .linha:hover {
+    color: var(--cor-texto-principal);
+    background-color: var(--cor-fundo-hover-suave);
+    border-left-color: var(--cor-roxo-claro);
+}
+
+aside.menu-lateral a:hover i,
+aside.menu-lateral .linha:hover i {
+    color: var(--cor-roxo-claro);
+}
+
+aside.menu-lateral a.active,
+aside.menu-lateral .linha.active {
+    color: var(--cor-texto-principal);
+    background-color: var(--cor-fundo-destaque);
+    border-left-color: var(--cor-roxo-principal);
+}
+
+aside.menu-lateral a.active i,
+aside.menu-lateral .linha.active i {
+    color: var(--cor-roxo-claro);
+}
+
+/* ========================================
+   DIVISORES E TÍTULOS DE GRUPO
+======================================== */
+
+aside.menu-lateral hr {
+    display: block;
+
+    width: calc(100% - 36px);
+    height: 1px;
+
+    margin: 12px auto;
+    border: none;
+
+    background: var(--gradiente-divisor);
+    opacity: 1;
+}
+
+aside.menu-lateral .label-inscritos {
+    display: block;
+
+    padding: 8px 20px;
+    margin-top: 8px;
+
+    color: var(--cor-texto-secundario);
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
+/* ========================================
+   GRUPO DE INSCRIÇÕES
+======================================== */
+
+.menu-lateral .grupo-inscricoes {
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    min-width: 0;
+    margin-top: 12px;
+}
+
+.menu-lateral .grupo-inscricoes .label-list {
+    width: 100%;
+    min-width: 0;
+}
+
+/* Canais inscritos */
+
+.menu-lateral .grupo-inscricoes .item-inscrito {
+    display: flex;
+    align-items: center;
+
+    width: calc(100% - 30px);
+    min-width: 0;
+    min-height: 40px;
+
+    margin: 0 auto;
+    padding: 6px 15px;
+    gap: 15px;
+
+    color: var(--cor-texto-secundario);
+    text-decoration: none;
+
+    border-left: none;
+    border-radius: 10px;
+
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease;
+}
+
+.menu-lateral .grupo-inscricoes .item-inscrito img {
+    display: block;
+    flex-shrink: 0;
+
+    width: 28px;
+    height: 28px;
+    min-width: 28px;
+
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.menu-lateral .grupo-inscricoes .item-inscrito span {
+    display: block;
+    flex: 1;
+    min-width: 0;
+
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.menu-lateral .grupo-inscricoes .item-inscrito:hover {
+    color: var(--cor-texto-principal);
+    background-color: var(--cor-fundo-hover-suave);
+}
+
+.menu-lateral .grupo-inscricoes .item-inscrito:hover span {
+    color: var(--cor-roxo-claro);
+}
+
+/* Evita bordas laterais nos avatares */
+
+.menu-lateral .grupo-inscricoes .item-inscrito.active {
+    border-left: none;
+}
+
+/* Ocultação controlada pelo JavaScript */
+
+.menu-lateral .grupo-inscricoes .item-inscrito[hidden],
+.menu-lateral .grupo-inscricoes .btn-ver-inscricoes[hidden] {
+    display: none !important;
+}
+
+/* Lista expandida */
+
+.menu-lateral .grupo-inscricoes .label-list.lista-expandida {
+    height: 432px;
+    max-height: 432px;
+
+    overflow-x: hidden;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+
+    scrollbar-width: thin;
+    scrollbar-color:
+        var(--cor-roxo-principal)
+        var(--cor-fundo-cabecalho);
+}
+
+.menu-lateral .grupo-inscricoes
+.label-list.lista-expandida::-webkit-scrollbar {
+    width: 6px;
+}
+
+.menu-lateral .grupo-inscricoes
+.label-list.lista-expandida::-webkit-scrollbar-thumb {
+    background: var(--cor-roxo-principal);
+    border-radius: 10px;
+}
+
+/* ========================================
+   BOTÃO VER MAIS / VER MENOS
+======================================== */
+
+aside.menu-lateral .grupo-inscricoes .btn-ver-inscricoes {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    width: calc(100% - 30px);
+    min-height: 40px;
+    margin: 5px auto 10px;
+    padding: 8px 15px;
+    gap: 12px;
+
+    color: var(--cor-texto-secundario);
+    font-family: "Aldrich", sans-serif;
+    font-size: 12px;
+
+    background: transparent;
+    border: none;
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease;
+}
+
+aside.menu-lateral .btn-ver-inscricoes i {
+    flex-shrink: 0;
+    min-width: 24px;
+
+    font-size: 15px;
+    text-align: center;
+
+    transition: transform 0.25s ease;
+}
+
+aside.menu-lateral .btn-ver-inscricoes:hover {
+    color: var(--cor-roxo-claro);
+    background-color: var(--cor-fundo-hover-suave);
+}
+
+aside.menu-lateral .grupo-inscricoes.expandido
+.btn-ver-inscricoes i {
+    transform: rotate(180deg);
+}
+
+/* ========================================
+   MENU RECOLHIDO
+======================================== */
+
+aside.menu-lateral.recolhido {
+    width: 85px;
+}
+
+/* Oculta textos, títulos e divisores */
+
+aside.menu-lateral.recolhido span,
+aside.menu-lateral.recolhido .name,
+aside.menu-lateral.recolhido .label-inscritos,
+aside.menu-lateral.recolhido .btn-ver-inscricoes,
+aside.menu-lateral.recolhido hr {
+    display: none !important;
+}
+
+/* Centraliza os links e ícones */
+
+aside.menu-lateral.recolhido a {
+    justify-content: center;
+
+    width: 50px;
+    height: 50px;
+    min-height: 50px;
+
+    margin: 0 auto 5px;
+    padding: 0;
+    gap: 0;
+}
+
+aside.menu-lateral.recolhido a:hover,
+aside.menu-lateral.recolhido a.active {
+    border-left-color: transparent;
+}
+
+/* Mantém os avatares centralizados */
+
+aside.menu-lateral.recolhido
+.grupo-inscricoes .item-inscrito {
+    justify-content: center;
+
+    width: 50px;
+    height: 42px;
+    min-height: 42px;
+
+    margin: 0 auto;
+    padding: 0;
+}
+
+/* ========================================
+   RESPONSIVIDADE GLOBAL DO MENU
+======================================== */
+
+/* Tablets e celulares */
+
+@media (max-width: 1280px) {
+    aside.menu-lateral {
+        display: none !important;
+    }
+
+    header .nav-esquerda .btn-menu {
+        display: none !important;
+    }
+}
+
+/* Desktop */
+
+@media (min-width: 1281px) {
+    aside.menu-lateral {
+        display: block;
+    }
+
+    header .nav-esquerda .btn-menu {
+        display: flex;
+    }
+}
+
+
+/* ========================================
+   CONTEÚDO PRINCIPAL
+======================================== */
+
+.conteudo-galaxias {
+    margin-left: 250px;
+    width: calc(100% - 250px);
+    min-height: calc(100vh - 60px);
+    padding: 35px;
+    padding-top: 95px;
+}
+
+/* ========================================
+   CABEÇALHO DA PÁGINA
+======================================== */
+
+.cabecalho-galaxias {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 22px;
+    margin-bottom: 35px;
+}
+
+.galaxias-titulo {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    min-width: 0;
+}
+
+.galaxias-icone {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+
+    width: 60px;
+    height: 60px;
+
+    color: #ffffff;
+    font-size: 27px;
+
+    background: linear-gradient(135deg, #8A4DFF, #32205F);
+    border: 1px solid rgba(176, 110, 255, 0.45);
+    border-radius: 16px;
+    box-shadow: 0 5px 22px rgba(138, 77, 255, 0.15);
+}
+
+.galaxias-titulo h1 {
+    margin-bottom: 8px;
+    font-size: clamp(22px, 2vw, 30px);
+    font-weight: 700;
+    overflow-wrap: anywhere;
+}
+
+.galaxias-titulo p {
+    color: var(--cor-texto-secundario, #B8B8C8);
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+/* ========================================
+   BOTÃO CRIAR GALÁXIA
+======================================== */
+
+.btn-criar-galaxia {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+
+    min-height: 44px;
+    padding: 0 18px;
+
+    color: #ffffff;
+    font-size: 12px;
+
+    background: linear-gradient(135deg, #8A4DFF, #6332C9);
+    border: 1px solid rgba(176, 110, 255, 0.5);
+    border-radius: 10px;
+
+    cursor: pointer;
+    transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.btn-criar-galaxia i {
+    font-size: 17px;
+}
+
+.btn-criar-galaxia:hover {
+    filter: brightness(1.15);
+    transform: translateY(-2px);
+}
+
+/* ========================================
+   PESQUISA E FILTROS
+======================================== */
+
+.controles-galaxias {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 38px;
+}
+
+.pesquisa-galaxias {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    width: 100%;
+    max-width: 480px;
+    height: 45px;
+    padding: 0 15px;
+
+    color: var(--cor-texto-secundario, #B8B8C8);
+    background-color: var(--cor-fundo-cartao, #151027);
+
+    border: 1px solid var(--cor-borda-padrao, rgba(138, 77, 255, 0.25));
+    border-radius: 10px;
+
+    transition: border-color 0.2s ease;
+}
+
+.pesquisa-galaxias:focus-within {
+    border-color: var(--cor-roxo-principal, #8A4DFF);
+}
+
+.pesquisa-galaxias > i {
+    flex-shrink: 0;
+    font-size: 17px;
+}
+
+.pesquisa-galaxias input {
+    width: 100%;
+    min-width: 0;
+    height: 100%;
+
+    color: var(--cor-texto-principal, #FCFCFC);
+    font-size: 12px;
+
+    background: transparent;
+    border: none;
+    outline: none;
+}
+
+.pesquisa-galaxias input::placeholder {
+    color: var(--cor-texto-suave, #81798F);
+}
+
+.filtros-galaxias {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.filtro-galaxia {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+
+    min-height: 37px;
+    padding: 0 15px;
+
+    color: var(--cor-texto-secundario, #B8B8C8);
+    font-size: 11px;
+    white-space: nowrap;
+
+    background-color: var(--cor-fundo-cartao, #151027);
+    border: 1px solid var(--cor-borda-padrao, rgba(138, 77, 255, 0.25));
+    border-radius: 20px;
+
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.filtro-galaxia i {
+    font-size: 13px;
+}
+
+.filtro-galaxia:hover {
+    color: #ffffff;
+    border-color: var(--cor-roxo-principal, #8A4DFF);
+}
+
+.filtro-galaxia.active {
+    color: #ffffff;
+    background-color: #32205F;
+    border-color: var(--cor-roxo-principal, #8A4DFF);
+}
+
+/* ========================================
+   TÍTULO DA SEÇÃO
+======================================== */
+
+.secao-minhas-galaxias {
+    width: 100%;
+}
+
+.titulo-secao-galaxias {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 22px;
+}
+
+.titulo-secao-galaxias h2 {
+    margin-bottom: 7px;
+    font-size: 19px;
+}
+
+.titulo-secao-galaxias p {
+    color: var(--cor-texto-secundario, #B8B8C8);
+    font-size: 11px;
+    line-height: 1.6;
+}
+
+.titulo-secao-galaxias > span {
+    flex-shrink: 0;
+    color: var(--cor-texto-suave, #81798F);
+    font-size: 10px;
+}
+
+/* ========================================
+   GRADE DE GALÁXIAS
+======================================== */
+
+.grade-galaxias {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 28px 20px;
+    align-items: start;
+    width: 100%;
+}
+
+.card-galaxia {
+    min-width: 0;
+    overflow: hidden;
+    background-color: var(--cor-fundo-cartao, #151027);
+    border: 1px solid var(--cor-borda-padrao, rgba(138, 77, 255, 0.2));
+    border-radius: 13px;
+
+    transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.card-galaxia:hover {
+    border-color: rgba(138, 77, 255, 0.65);
+    transform: translateY(-3px);
+}
+
+/* ========================================
+   CAPA DA PLAYLIST
+======================================== */
+
+.capa-galaxia {
+    position: relative;
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background-color: #201638;
+    text-decoration: none;
+}
+
+.capa-galaxia img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    transition: transform 0.35s ease;
+}
+
+.card-galaxia:hover .capa-galaxia img {
+    transform: scale(1.04);
+}
+
+.quantidade-videos {
+    position: absolute;
+    right: 9px;
+    bottom: 9px;
+
+    display: flex;
+    align-items: center;
+    gap: 4px;
+
+    padding: 6px 9px;
+
+    color: #ffffff;
+    font-size: 10px;
+
+    background: rgba(9, 9, 18, 0.88);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 6px;
+    backdrop-filter: blur(6px);
+}
+
+/* ========================================
+   INFORMAÇÕES DA GALÁXIA
+======================================== */
+
+.informacoes-galaxia {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 15px;
+}
+
+.detalhes-galaxia {
+    flex: 1;
+    min-width: 0;
+}
+
+.detalhes-galaxia h3 {
+    margin-bottom: 8px;
+    font-size: 13px;
+    line-height: 1.6;
+    overflow-wrap: anywhere;
+}
+
+.detalhes-galaxia h3 a {
+    color: var(--cor-texto-principal, #FCFCFC);
+    text-decoration: none;
+}
+
+.detalhes-galaxia h3 a:hover {
+    color: var(--cor-roxo-claro, #B06EFF);
+}
+
+.detalhes-galaxia p {
+    margin-bottom: 10px;
+    color: var(--cor-texto-secundario, #B8B8C8);
+    font-size: 10px;
+}
+
+.status-galaxia {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+
+    color: var(--cor-texto-secundario, #B8B8C8);
+    font-size: 9px;
+}
+
+.status-galaxia i {
+    font-size: 12px;
+}
+
+.status-galaxia.salva {
+    color: var(--cor-roxo-claro, #B06EFF);
+}
+
+.status-galaxia.privada {
+    color: #D6A6FF;
+}
+
+/* ========================================
+   BOTÃO DE OPÇÕES
+======================================== */
+
+.btn-opcoes-galaxia {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+
+    width: 32px;
+    height: 32px;
+
+    color: var(--cor-texto-secundario, #B8B8C8);
+    font-size: 17px;
+
+    background: transparent;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+
+    transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.btn-opcoes-galaxia:hover {
+    color: #ffffff;
+    background-color: var(--cor-fundo-hover-suave, rgba(138, 77, 255, 0.15));
+}
+
+/* ========================================
+   ESTADO VAZIO
+======================================== */
+
+.galaxias-vazio {
+    padding: 55px 20px;
+    text-align: center;
+
+    color: var(--cor-texto-secundario, #B8B8C8);
+    background-color: var(--cor-fundo-cartao, #151027);
+    border: 1px dashed var(--cor-borda-padrao, rgba(138, 77, 255, 0.25));
+    border-radius: 14px;
+}
+
+.galaxias-vazio[hidden] {
+    display: none !important;
+}
+
+.galaxias-vazio > i {
+    display: block;
+    margin-bottom: 15px;
+    color: var(--cor-roxo-claro, #B06EFF);
+    font-size: 34px;
+}
+
+.galaxias-vazio h3 {
+    margin-bottom: 10px;
+    color: var(--cor-texto-principal, #FCFCFC);
+    font-size: 15px;
+}
+
+.galaxias-vazio p {
+    font-size: 11px;
+    line-height: 1.7;
+}
+
+/* ========================================
+   TABLETS
+======================================== */
+
+@media (min-width: 769px) and (max-width: 1280px) {
+    .conteudo-galaxias {
+        margin-left: 0;
+        width: 100%;
+        padding: 35px 28px 30px;
+        padding-top: 95px;
+    }
+
+    .grade-galaxias {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 24px 18px;
+    }
+
+    .cabecalho-galaxias {
+        margin-bottom: 30px;
+    }
+}
+
+/* ========================================
+   CELULARES
+======================================== */
+
+@media (max-width: 768px) {
+    .conteudo-galaxias {
+        margin-left: 0;
+        width: 100%;
+        padding: 25px 16px 25px;
+        padding-top: 82px;
+    }
+
+    .cabecalho-galaxias {
+        align-items: flex-start;
+        gap: 18px;
+        margin-bottom: 27px;
+    }
+
+    .galaxias-titulo {
+        gap: 12px;
+    }
+
+    .galaxias-icone {
+        width: 46px;
+        height: 46px;
+        font-size: 21px;
+        border-radius: 12px;
+    }
+
+    .galaxias-titulo h1 {
+        font-size: 19px;
+        margin-bottom: 6px;
+    }
+
+    .galaxias-titulo p {
+        font-size: 10px;
+    }
+
+    .btn-criar-galaxia {
+        width: 100%;
+        min-height: 42px;
+    }
+
+    .controles-galaxias {
+        gap: 15px;
+        margin-bottom: 30px;
+    }
+
+    .pesquisa-galaxias {
+        max-width: none;
+        height: 43px;
+    }
+
+    .filtros-galaxias {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        overflow-y: hidden;
+        padding-bottom: 5px;
+        scrollbar-width: thin;
+        scrollbar-color: #32205F transparent;
+    }
+
+    .filtro-galaxia {
+        flex-shrink: 0;
+        min-height: 35px;
+        padding: 0 12px;
+        font-size: 10px;
+    }
+
+    .titulo-secao-galaxias h2 {
+        font-size: 16px;
+    }
+
+    .titulo-secao-galaxias p {
+        font-size: 10px;
+    }
+
+    .grade-galaxias {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 20px 12px;
+    }
+
+    .informacoes-galaxia {
+        gap: 4px;
+        padding: 10px;
+    }
+
+    .detalhes-galaxia h3 {
+        font-size: 11px;
+    }
+
+    .detalhes-galaxia p {
+        font-size: 9px;
+    }
+
+    .status-galaxia {
+        font-size: 8px;
+    }
+
+    .btn-opcoes-galaxia {
+        width: 26px;
+        height: 28px;
+        font-size: 15px;
+    }
+
+    .quantidade-videos {
+        right: 6px;
+        bottom: 6px;
+        padding: 5px 6px;
+        font-size: 8px;
+    }
+}
+
+/* CELULARES ESTREITOS */
+@media (max-width: 480px) {
+    .conteudo-galaxias {
+        padding-right: 12px;
+        padding-left: 12px;
+    }
+
+    .grade-galaxias {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 18px;
+    }
+
+    .informacoes-galaxia {
+        padding: 13px;
+    }
+
+    .detalhes-galaxia h3 {
+        font-size: 12px;
+    }
+
+    .detalhes-galaxia p {
+        font-size: 10px;
+    }
+
+    .status-galaxia {
+        font-size: 9px;
+    }
+
+    .quantidade-videos {
+        font-size: 9px;
+    }
+}
+
+
+/* ========================================
+   CORREÇÕES — NAVEGAÇÃO E MENU LATERAL
+======================================== */
+
+/* ========================================
+   MENU MOBILE — OCULTO NO PC
+======================================== */
+
+.menu-mobile {
+    display: none !important;
+}
+
+@media (max-width: 1280px) {
+    .menu-mobile {
+        display: flex !important;
+    }
+
+    /* O menu lateral não deve aparecer em tablet/celular */
+    aside.menu-lateral {
+        display: none;
+    }
+
+    /* O botão de abrir a sidebar também fica oculto */
+    header .nav-esquerda .btn-menu {
+        display: none;
+    }
+}
+
+@media (min-width: 1281px) {
+    .menu-mobile {
+        display: none !important;
+    }
+
+    aside.menu-lateral {
+        display: block;
+    }
+
+    header .nav-esquerda .btn-menu {
+        display: flex;
+    }
+}
+
+/* ========================================
+   DIVISÓRIAS DO MENU LATERAL
+======================================== */
+
+aside.menu-lateral hr {
+    display: block;
+    height: 1px;
+    width: calc(100% - 36px);
+
+    margin: 12px auto;
+    border: none;
+
+    background: var(--gradiente-divisor);
+    opacity: 1;
+}
+
+/* ========================================
+   HOVER DOS LINKS DO MENU LATERAL
+======================================== */
+
+aside.menu-lateral .linha {
+    color: var(--cor-texto-secundario);
+    border-left: 3px solid transparent;
+}
+
+aside.menu-lateral .linha:hover {
+    background-color: var(--cor-fundo-hover-suave);
+    border-left-color: var(--cor-roxo-claro);
+}
+
+aside.menu-lateral .linha.active {
+    background-color: var(--cor-fundo-destaque);
+    border-left-color: var(--cor-roxo-principal);
+}
+
+aside.menu-lateral .linha.active i,
+aside.menu-lateral .linha:hover i {
+    color: var(--cor-roxo-claro);
+}
+
+/* ========================================
+   HOVER DOS CANAIS INSCRITOS
+======================================== */
+
+aside.menu-lateral .grupo-inscricoes .item-inscrito:hover {
+    background-color: var(--cor-fundo-hover-suave);
+}
+
+aside.menu-lateral .grupo-inscricoes .item-inscrito:hover span {
+    color: var(--cor-roxo-claro);
+}
+
+/* ========================================
+   BOTÃO VER MAIS / VER MENOS
+======================================== */
+
+aside.menu-lateral .btn-ver-inscricoes {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 12px;
+
+    width: calc(100% - 30px);
+    min-height: 40px;
+    margin: 5px auto 10px;
+    padding: 8px 15px;
+
+    color: var(--cor-texto-secundario);
+    font-family: "Aldrich", sans-serif;
+    font-size: 12px;
+
+    background: transparent;
+    border: none;
+    border-radius: 10px;
+
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+aside.menu-lateral .btn-ver-inscricoes i {
+    min-width: 24px;
+    font-size: 15px;
+    text-align: center;
+    transition: transform 0.25s ease;
+}
+
+aside.menu-lateral .btn-ver-inscricoes:hover {
+    color: var(--cor-roxo-claro);
+    background-color: var(--cor-fundo-hover-suave);
+}
+
+/* Seta quando a lista estiver expandida */
+aside.menu-lateral .grupo-inscricoes.expandido
+.btn-ver-inscricoes i {
+    transform: rotate(180deg);
+}
+
+/* ========================================
+   AJUSTES NO MENU RECOLHIDO
+======================================== */
+
+aside.menu-lateral.recolhido hr {
+    display: none;
+}
+
+aside.menu-lateral.recolhido
+.grupo-inscricoes .btn-ver-inscricoes {
+    display: none;
+}
+
+/* ========================================
+   MENU RECOLHIDO — EXPANSÃO DO CONTEÚDO
+======================================== */
+
+@media (min-width: 1281px) {
+    aside.menu-lateral.recolhido ~ main,
+    aside.menu-lateral.recolhido ~ .conteudo-galaxias,
+    main.recolhido,
+    main.watch-container.recolhido,
+    .fendas-container.recolhido {
+        margin-left: 85px !important;
+        width: calc(100% - 85px) !important;
+    }
+
+    aside.menu-lateral:not(.recolhido) ~ main,
+    aside.menu-lateral:not(.recolhido) ~ .conteudo-galaxias {
+        margin-left: 250px;
+        width: calc(100% - 250px);
+    }
+}
+
+/* ========================================
+   PESQUISA — BOTÃO NATIVO DE LIMPAR
+======================================== */
+
+@media (min-width: 769px) {
+    header .pesquisa input[type="search"]::-webkit-search-cancel-button {
+        -webkit-appearance: none;
+        appearance: none;
+        display: none;
+    }
+
+    header .pesquisa .fechar-pesquisa {
+        display: none !important;
+    }
+}
+
+/* ========================================
+   CABEÇALHO — TABLETS
+======================================== */
+
+@media (min-width: 769px) and (max-width: 1280px) {
+    header .nav-container {
+        width: 100%;
+        min-width: 0;
+        gap: 16px;
+        padding: 0 20px;
+    }
+
+    header .nav-esquerda {
+        flex: 0 0 auto;
+        min-width: 0;
+    }
+
+    header .pesquisa {
+        flex: 0 1 350px;
+        width: 350px;
+        min-width: 180px;
+        margin: 0 auto;
+    }
+
+    header .pesquisa input {
+        width: 100%;
+        min-width: 0;
+    }
+
+    header .nav-perfil {
+        flex: 0 0 auto;
+        gap: 6px;
+    }
+}
+
+/* ========================================
+   CABEÇALHO — CELULARES
+======================================== */
+
+@media (max-width: 768px) {
+    header {
+        padding: 8px 0;
+    }
+
+    header .nav-container {
+        width: 100%;
+        min-width: 0;
+        gap: 8px;
+        padding: 0 12px;
+    }
+
+    header .nav-esquerda {
+        flex: 0 1 auto;
+        min-width: 0;
+        gap: 8px;
+    }
+
+    header .logo-link {
+        min-width: 0;
+        gap: 6px;
+    }
+
+    header .nav-container .logo-link img {
+        width: 32px;
+        height: 32px;
+        flex-shrink: 0;
+    }
+
+    header .pesquisa {
+        flex: 0 0 42px;
+    }
+
+    header .pesquisa.ativa {
+        position: absolute;
+        left: 8px;
+        right: 8px;
+        width: auto;
+        max-width: none;
+    }
+
+    header .pesquisa.ativa input {
+        flex: 1;
+        width: 100%;
+        min-width: 0;
+    }
+}
+
+/* ========================================
+   MINHAS GALÁXIAS — CABEÇALHO MOBILE
+   Corrige a especificidade dos seletores
+======================================== */
+
+@media (max-width: 768px) {
+    header .nav-container {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        min-height: 44px;
+        padding: 0 12px;
+        gap: 8px;
+    }
+
+    /* Logo visível, sem ocupar espaço excessivo */
+    header .nav-esquerda {
+        display: flex;
+        align-items: center;
+        flex: 0 1 auto;
+        min-width: 0;
+        gap: 8px;
+    }
+
+    header .nav-esquerda .btn-menu {
+        display: none !important;
+    }
+
+    header .logo-link {
+        display: flex;
+        align-items: center;
+        min-width: 0;
+    }
+
+    header .logo-link span {
+        display: none;
+    }
+
+    /* Pesquisa fechada: somente a lupa */
+    header .pesquisa {
+        position: static;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        flex: 0 0 42px;
+        width: 42px;
+        min-width: 42px;
+        height: 42px;
+        margin-left: auto;
+        padding: 0;
+        border: none;
+        background: transparent;
+        box-shadow: none;
+    }
+
+    /* Este seletor mais específico esconde o campo */
+    header .pesquisa:not(.ativa) input {
+        display: none !important;
+    }
+
+    header .pesquisa:not(.ativa) .fechar-pesquisa {
+        display: none !important;
+    }
+
+    header .pesquisa .buscar {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex: 0 0 42px;
+        width: 42px;
+        height: 42px;
+        padding: 0;
+        border: none;
+        border-radius: 50%;
+        background: transparent;
+        color: var(--cor-texto-principal);
+    }
+
+    /* Pesquisa aberta: ocupa o cabeçalho como uma sobreposição */
+    header .pesquisa.ativa {
+        position: absolute;
+        z-index: 1001;
+        top: 50%;
+        left: 8px;
+        right: 8px;
+        transform: translateY(-50%);
+        display: flex;
+        width: auto;
+        min-width: 0;
+        height: 44px;
+        padding: 0 6px 0 12px;
+        gap: 2px;
+        border: 1px solid var(--cor-borda-destaque);
+        border-radius: 10px;
+        background: var(--cor-fundo-cabecalho);
+        box-shadow: 0 4px 18px var(--cor-sombra);
+    }
+
+    header .pesquisa.ativa input {
+        display: block !important;
+        flex: 1 1 auto;
+        width: 100%;
+        min-width: 0;
+        height: 100%;
+        padding: 0 8px;
+        border: none;
+        border-radius: 0;
+        outline: none;
+        background: transparent;
+        color: var(--cor-texto-principal);
+        font-size: 14px;
+    }
+
+    header .pesquisa.ativa .buscar {
+        flex: 0 0 36px;
+        width: 36px;
+        height: 36px;
+        color: var(--cor-roxo-claro);
+    }
+
+    header .pesquisa.ativa .fechar-pesquisa {
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+        flex: 0 0 34px;
+        width: 34px;
+        height: 36px;
+        padding: 0;
+        border: none;
+        background: transparent;
+        color: var(--cor-texto-secundario);
+        cursor: pointer;
+    }
+
+    /* Evita que outros elementos do cabeçalho cubram a pesquisa */
+    header .nav-perfil {
+        display: none;
+    }
+}

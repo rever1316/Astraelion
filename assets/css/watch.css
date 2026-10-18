@@ -5,25 +5,158 @@
     font-family: "Aldrich", sans-serif;
 }
 
+/* ========================================
+   ASTRAELION — SISTEMA DE CORES
+   Tema padrão: Universo Noturno
+======================================== */
+
+:root {
+    /* 1. FUNDOS GERAIS */
+    --cor-fundo-pagina: #090912;
+    --cor-fundo-cabecalho: #130A24;
+    --cor-fundo-menu-lateral: #130A24;
+    --cor-fundo-cartao: #151027;
+
+    /* 2. TEXTOS */
+    --cor-texto-principal: #FFFFFF;
+    --cor-texto-destaque: #FCFCFC;
+    --cor-texto-secundario: #B8B8C8;
+    --cor-texto-suave: #81798F;
+    --cor-texto-invertido: #090912;
+
+    /* 3. IDENTIDADE ROXA */
+    --cor-roxo-principal: #8A4DFF;
+    --cor-roxo-claro: #B06EFF;
+    --cor-roxo-escuro: #32205F;
+    --cor-roxo-hover: #602F9C;
+
+    /* 4. SUPERFÍCIES E INTERAÇÕES */
+    --cor-fundo-hover: #32205F;
+    --cor-fundo-hover-suave: rgba(138, 77, 255, 0.12);
+    --cor-fundo-destaque: rgba(138, 77, 255, 0.10);
+    --cor-fundo-destaque-hover: rgba(138, 77, 255, 0.18);
+
+    /* 5. BORDAS E DIVISORES */
+    --cor-borda-padrao: rgba(138, 77, 255, 0.25);
+    --cor-borda-destaque: rgba(138, 77, 255, 0.60);
+    --cor-borda-buscar: rgba(134, 70, 253, 0.25);
+    --cor-divisor: #1D1136;
+
+    /* 6. EFEITOS */
+    --cor-sombra: rgba(0, 0, 0, 0.35);
+    --cor-sombra-forte: rgba(0, 0, 0, 0.40);
+
+    /* 7. GRADIENTES DA IDENTIDADE */
+    --gradiente-logo: linear-gradient(135deg,
+            var(--cor-texto-destaque) 0%,
+            var(--cor-roxo-claro) 100%);
+
+    --gradiente-divisor: linear-gradient(to right,
+            transparent 0%,
+            var(--cor-divisor) 20%,
+            var(--cor-divisor) 80%,
+            transparent 100%);
+
+    /* 8. CORES DE STATUS */
+    --cor-status-video: #55B8FF;
+    --cor-status-live: #FF4568;
+    --cor-status-fenda: #B06EFF;
+
+    /* 9. ROLAGEM */
+    --cor-scroll-trilho: var(--cor-fundo-cabecalho);
+    --cor-scroll-indicador: var(--cor-roxo-principal);
+}
+
+html,
 body {
-    background-color: #090912;
-    color: #ffffff;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+body {
+    background-color: var(--cor-fundo-pagina);
+    color: var(--cor-texto-principal);
+}
+
+
+/* ===================================== */
+/* HOME — CORREÇÃO DE ROLAGEM DUPLA      */
+/* ===================================== */
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+    overflow-x: clip;
+    overflow-y: auto;
+}
+
+body {
+    height: auto;
+}
+
+/* Conteúdo principal */
+.conteudo {
+    height: auto;
+    min-height: calc(100vh - 60px);
+    overflow: visible;
+}
+
+/* Grade de vídeos */
+.grade-videos {
+    height: auto;
+    overflow: visible;
+}
+
+
+/* ========================================= */
+/* ASTRAELION — SCROLL PERSONALIZADO         */
+/* ========================================= */
+
+/* Firefox */
+html {
+    scrollbar-width: thin;
+    scrollbar-color: var(--cor-roxo-principal) var(--cor-fundo-pagina);
+}
+
+/* Chrome, Edge e outros navegadores WebKit */
+html::-webkit-scrollbar {
+    width: 10px;
+}
+
+html::-webkit-scrollbar-track {
+    background: var(--cor-fundo-pagina);
+}
+
+html::-webkit-scrollbar-thumb {
+    background: var(--cor-roxo-escuro);
+    border: 2px solid var(--cor-fundo-pagina);
+    border-radius: 10px;
+}
+
+html::-webkit-scrollbar-thumb:hover {
+    background: var(--cor-roxo-claro);
+}
+
+/* Evita barras horizontais desnecessárias */
+html,
+body {
+    overflow-x: clip;
 }
 
 
 /* ========================================== */
-/* HEADER / NAVEGAÇÃO SUPERIOR (Isolado)     */
+/* HEADER / NAVEGAÇÃO SUPERIOR               */
 /* ========================================== */
 header {
-    background-color: #130A24;
+    background-color: var(--cor-fundo-cabecalho);
+    border-bottom: 2px solid var(--cor-borda-padrao);
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     z-index: 1000;
-    border-bottom: 2px solid rgba(138, 77, 255, .25);
     padding: 8px 0;
-    font-family: 'Aldrich', sans-serif;
 }
 
 header .nav-container {
@@ -33,14 +166,12 @@ header .nav-container {
     padding: 0 20px;
 }
 
-/* Agrupamento da esquerda (Botão do menu + Logo + Imagem) */
 header .nav-esquerda {
     display: flex;
     align-items: center;
     gap: 15px;
 }
 
-/* Botão do menu lateral */
 header .btn-menu {
     border: none;
     cursor: pointer;
@@ -54,15 +185,14 @@ header .btn-menu {
 }
 
 header .btn-menu:hover {
-    background-color: #32205F;
+    background-color: var(--cor-fundo-hover);
 }
 
 header .btn-menu i {
     font-size: 20px;
-    color: azure;
+    color: var(--cor-texto-principal);
 }
 
-/* Logo e Imagem */
 header .logo-link {
     display: flex;
     align-items: center;
@@ -77,7 +207,7 @@ header .nav-container img {
 }
 
 header .logo-link span {
-    background: linear-gradient(135deg, #fcfcfc 0%, #B06EFF 100%);
+    background: var(--gradiente-logo);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -98,16 +228,16 @@ header .pesquisa input {
     font-size: 16px;
     border-top-left-radius: 15px;
     border-bottom-left-radius: 15px;
-    border: 1px solid rgba(138, 77, 255, .25);
     border-right: none;
-    background-color: #130A24;
-    color: #fff;
     outline: none;
+    background-color: var(--cor-fundo-cabecalho);
+    color: var(--cor-texto-principal);
+    border: 1px solid var(--cor-borda-padrao);
 }
 
 header .pesquisa input:hover,
 header .pesquisa input:focus {
-    border-color: rgba(138, 77, 255, 0.6);
+    border-color: var(--cor-borda-destaque);
 }
 
 header .buscar {
@@ -115,39 +245,27 @@ header .buscar {
     padding: 0 16px;
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;
-    border: 1px solid rgba(134, 70, 253, 0.25);
+    border: 1px solid var(--cor-borda-buscar);
     border-left: none;
-    background-color: #130A24;
-    color: #8A4DFF;
+    background-color: var(--cor-fundo-cabecalho);
+    color: var(--cor-roxo-principal);
     cursor: pointer;
     transition: 0.2s;
 }
 
 header .buscar:hover {
-    color: #fff;
-    background-color: #602f9c73;
+    color: var(--cor-texto-principal);
+    background-color: var(--cor-fundo-destaque-hover);
 }
 
-/* Container que agrupa os ícones do perfil na direita */
+/* ÁREA DE PERFIL */
 .nav-perfil {
     display: flex;
     align-items: center;
-    flex-direction: row; /* Força a ficarem lado a lado na horizontal */
-    gap: 10px;           /* Espaço entre os botões */
+    flex-direction: row;
+    gap: 10px;
 }
 
-/* ========================================== */
-/* ÁREA DE PERFIL (NAVA-PERFIL COM APENAS LINKS) */
-/* ========================================== */
-
-.nav-perfil {
-    display: flex;
-    align-items: center;
-    flex-direction: row; /* Mantém os itens lado a lado na horizontal */
-    gap: 10px;           /* Espaço elegante entre os ícones */
-}
-
-/* Estilização para todos os links dentro do perfil */
 .nav-perfil a {
     display: flex;
     align-items: center;
@@ -157,261 +275,404 @@ header .buscar:hover {
     background: none;
     border: none;
     cursor: pointer;
-    color: #B8B8C8;
+    color: var(--cor-texto-secundario);
     transition: 0.2s;
     text-decoration: none;
     padding: 0;
-    border-radius: 50%; /* Torna o link perfeitamente redondo */
+    border-radius: 50%;
 }
 
-/* Tamanho dos ícones de dentro dos links */
 .nav-perfil a i {
     font-size: 20px;
 }
 
-/* Efeito ao passar o mouse */
 .nav-perfil a:hover {
-    background-color: #32205F;
-    color: #fff;
-}
-
-/* ========================================== */
-/* MENU LATERAL (ASIDE) FIXO E COM SCROLL PRÓPRIO */
-/* ========================================== */
-aside.menu-lateral {
-    background-color: #130A24;
-    width: 250px;
-    border-right: 2px solid #8A4DFF;
-    position: fixed;
-    top: 60px;
-    /* Fica logo abaixo do header */
-    left: 0;
-    height: calc(100vh - 65px);
-    overflow-y: auto ;
-    /* Apenas o menu lateral terá scroll próprio */
-    z-index: 900;
-    transition: all 0.3s ease-in-out;
-}
-
-aside.menu-lateral .lis {
-    margin-top: 20px;
-    padding-top: 15px;
-    list-style: none;
-    padding-left: 0;
-}
-
-aside.menu-lateral .name {
-    background: linear-gradient(135deg, #B8B8C8 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    color: transparent;
-}
-
-aside.menu-lateral hr {
-    border: none;
-    height: 2px;
-    background: linear-gradient(to right,
-            transparent 0%,
-            #1D1136 20%,
-            #1D1136 80%,
-            transparent 100%);
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-
-aside.menu-lateral a {
-    display: flex;
-    width: 200px;
-    padding: 12px 20px;
-    text-decoration: none;
-    margin-left: 25px;
-    border-radius: 15px;
-}
-
-aside.menu-lateral i {
-    font-size: 25px;
-    color: #fff;
-}
-
-aside.menu-lateral span {
-    font-size: 15px;
-    text-align: inherit;
-}
-
-aside.menu-lateral li {
-    margin-bottom: 5px;
-    list-style: none;
-}
-
-aside.menu-lateral li .linha {
-    padding-top: 10px;
-    padding-bottom: 2px;
-    padding-right: 40px;
-    padding-left: 10px;
-    transition: 0.2s;
-    align-items: center;
-    gap: 10px;
-}
-
-aside.menu-lateral .linha:hover {
-    background-color: #32205F;
-    border-left: 2px solid #B06EFF;
-}
-
-aside.menu-lateral .active {
-    background-color: #32205F;
-    border-left: 2px solid #B06EFF;
-    transition: 0.5s;
-}
-
-aside.menu-lateral .label-list {
-    height: 560px;
-    overflow-y: auto;
-}
-
-/* Transição suave específica */
-aside.menu-lateral {
-    transition: all 0.3s ease-in-out;
-}
-
-/* Esconde a barra de rolagem no Chrome, Safari e Opera quando recolhido */
-aside.menu-lateral::-webkit-scrollbar {
-    display: none;
-}
-
-/* Esconde a barra de rolagem no Firefox quando recolhido */
-aside.menu-lateral {
-    scrollbar-width: none;
+    background-color: var(--cor-fundo-hover);
+    color: var(--cor-texto-principal);
 }
 
 
 /* ========================================
-   INSCRIÇÕES NO MENU LATERAL
+   ASTRAELION — MENU LATERAL COMPARTILHADO
+   Arquivo: /assets/css/menu-lateral.css
 ======================================== */
 
-.grupo-inscricoes {
+/* ========================================
+   ESTRUTURA PRINCIPAL
+======================================== */
+
+aside.menu-lateral {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    z-index: 900;
+
+    display: block;
+    width: 250px;
+    height: calc(100vh - 60px);
+
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    background-color: var(--cor-fundo-menu-lateral);
+    border-right: 2px solid var(--cor-roxo-principal);
+
+    scrollbar-width: none;
+
+    transition: width 0.3s ease-in-out;
+}
+
+aside.menu-lateral::-webkit-scrollbar {
+    display: none;
+}
+
+/* ========================================
+   LINKS PRINCIPAIS E ÍCONES
+======================================== */
+
+aside.menu-lateral a {
+    display: flex;
+    align-items: center;
+
+    width: calc(100% - 30px);
+    min-width: 0;
+    min-height: 45px;
+
+    margin: 0 auto 5px;
+    padding: 10px 15px;
+    gap: 15px;
+
+    color: var(--cor-texto-secundario);
+    text-decoration: none;
+
+    border-left: 3px solid transparent;
+    border-radius: 12px;
+
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease;
+}
+
+aside.menu-lateral a i {
+    display: block;
+    flex-shrink: 0;
+
+    min-width: 24px;
+
+    color: var(--cor-texto-principal);
+    font-size: 22px;
+    text-align: center;
+
+    transition: color 0.2s ease;
+}
+
+aside.menu-lateral a span {
+    flex: 1;
+    min-width: 0;
+
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+    color: var(--cor-texto-destaque);
+    font-size: 15px;
+}
+
+/* ========================================
+   HOVER E PÁGINA ATIVA
+======================================== */
+
+aside.menu-lateral a:hover,
+aside.menu-lateral .linha:hover {
+    color: var(--cor-texto-principal);
+    background-color: var(--cor-fundo-hover-suave);
+    border-left-color: var(--cor-roxo-claro);
+}
+
+aside.menu-lateral a:hover i,
+aside.menu-lateral .linha:hover i {
+    color: var(--cor-roxo-claro);
+}
+
+aside.menu-lateral a.active,
+aside.menu-lateral .linha.active {
+    color: var(--cor-texto-principal);
+    background-color: var(--cor-fundo-destaque);
+    border-left-color: var(--cor-roxo-principal);
+}
+
+aside.menu-lateral a.active i,
+aside.menu-lateral .linha.active i {
+    color: var(--cor-roxo-claro);
+}
+
+/* ========================================
+   DIVISORES E TÍTULOS DE GRUPO
+======================================== */
+
+aside.menu-lateral hr {
+    display: block;
+
+    width: calc(100% - 36px);
+    height: 1px;
+
+    margin: 12px auto;
+    border: none;
+
+    background: var(--gradiente-divisor);
+    opacity: 1;
+}
+
+aside.menu-lateral .label-inscritos {
+    display: block;
+
+    padding: 8px 20px;
+    margin-top: 8px;
+
+    color: var(--cor-texto-secundario);
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
+/* ========================================
+   GRUPO DE INSCRIÇÕES
+======================================== */
+
+.menu-lateral .grupo-inscricoes {
+    display: flex;
+    flex-direction: column;
+
     width: 100%;
+    min-width: 0;
     margin-top: 12px;
 }
 
-.grupo-inscricoes .label-inscritos {
+.menu-lateral .grupo-inscricoes .label-list {
+    width: 100%;
+    min-width: 0;
+}
+
+/* Canais inscritos */
+
+.menu-lateral .grupo-inscricoes .item-inscrito {
     display: flex;
     align-items: center;
-    padding: 12px 16px;
-    color: var(--texto, #FCFCFC);
-    font-family: "Aldrich", sans-serif;
-    font-size: 13px;
+
+    width: calc(100% - 30px);
+    min-width: 0;
+    min-height: 40px;
+
+    margin: 0 auto;
+    padding: 6px 15px;
+    gap: 15px;
+
+    color: var(--cor-texto-secundario);
     text-decoration: none;
-    text-transform: uppercase;
-    cursor: pointer;
+
+    border-left: none;
+    border-radius: 10px;
+
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease;
 }
 
-.grupo-inscricoes .label-inscritos:hover {
-    color: #B06EFF;
-}
-
-.grupo-inscricoes .label-list {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-}
-
-.grupo-inscricoes .item-inscrito {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    min-height: 42px;
-    padding: 6px 16px;
-    color: #B8B8C8;
-    text-decoration: none;
-    border-radius: 8px;
-    transition: background .2s, color .2s;
-}
-
-.grupo-inscricoes .item-inscrito:hover {
-    background: rgba(138, 77, 255, .12);
-    color: #FCFCFC;
-}
-
-.grupo-inscricoes .item-inscrito img {
-    width: 30px;
-    height: 30px;
+.menu-lateral .grupo-inscricoes .item-inscrito img {
+    display: block;
     flex-shrink: 0;
+
+    width: 28px;
+    height: 28px;
+    min-width: 28px;
+
     object-fit: cover;
     border-radius: 50%;
 }
 
-.grupo-inscricoes .item-inscrito span {
+.menu-lateral .grupo-inscricoes .item-inscrito span {
+    display: block;
+    flex: 1;
+    min-width: 0;
+
     overflow: hidden;
-    font-size: 12px;
     white-space: nowrap;
     text-overflow: ellipsis;
 }
 
-.grupo-inscricoes .btn-ver-inscricoes {
+.menu-lateral .grupo-inscricoes .item-inscrito:hover {
+    color: var(--cor-texto-principal);
+    background-color: var(--cor-fundo-hover-suave);
+}
+
+.menu-lateral .grupo-inscricoes .item-inscrito:hover span {
+    color: var(--cor-roxo-claro);
+}
+
+/* Evita bordas laterais nos avatares */
+
+.menu-lateral .grupo-inscricoes .item-inscrito.active {
+    border-left: none;
+}
+
+/* Ocultação controlada pelo JavaScript */
+
+.menu-lateral .grupo-inscricoes .item-inscrito[hidden],
+.menu-lateral .grupo-inscricoes .btn-ver-inscricoes[hidden] {
+    display: none !important;
+}
+
+/* Lista expandida */
+
+.menu-lateral .grupo-inscricoes .label-list.lista-expandida {
+    height: 432px;
+    max-height: 432px;
+
+    overflow-x: hidden;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+
+    scrollbar-width: thin;
+    scrollbar-color:
+        var(--cor-roxo-principal) var(--cor-fundo-cabecalho);
+}
+
+.menu-lateral .grupo-inscricoes .label-list.lista-expandida::-webkit-scrollbar {
+    width: 6px;
+}
+
+.menu-lateral .grupo-inscricoes .label-list.lista-expandida::-webkit-scrollbar-thumb {
+    background: var(--cor-roxo-principal);
+    border-radius: 10px;
+}
+
+/* ========================================
+   BOTÃO VER MAIS / VER MENOS
+======================================== */
+
+aside.menu-lateral .grupo-inscricoes .btn-ver-inscricoes {
     display: flex;
     align-items: center;
+    justify-content: flex-start;
+
+    width: calc(100% - 30px);
+    min-height: 40px;
+    margin: 5px auto 10px;
+    padding: 8px 15px;
     gap: 12px;
-    width: 100%;
-    padding: 12px 18px;
-    border: 0;
-    background: transparent;
-    color: #B8B8C8;
+
+    color: var(--cor-texto-secundario);
     font-family: "Aldrich", sans-serif;
     font-size: 12px;
-    text-align: left;
+
+    background: transparent;
+    border: none;
+    border-radius: 10px;
+
     cursor: pointer;
+
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease;
 }
 
-.grupo-inscricoes .btn-ver-inscricoes:hover {
-    color: #B06EFF;
-}
+aside.menu-lateral .btn-ver-inscricoes i {
+    flex-shrink: 0;
+    min-width: 24px;
 
-.grupo-inscricoes .btn-ver-inscricoes i {
-    width: 26px;
+    font-size: 15px;
     text-align: center;
-    transition: transform .2s;
+
+    transition: transform 0.25s ease;
 }
 
-.grupo-inscricoes.expandido .btn-ver-inscricoes i {
+aside.menu-lateral .btn-ver-inscricoes:hover {
+    color: var(--cor-roxo-claro);
+    background-color: var(--cor-fundo-hover-suave);
+}
+
+aside.menu-lateral .grupo-inscricoes.expandido .btn-ver-inscricoes i {
     transform: rotate(180deg);
 }
 
-/* Lista recolhida: mostra somente os primeiros 6 canais */
-.grupo-inscricoes:not(.expandido) .item-inscrito:nth-child(n + 7) {
-    display: none;
-}
+/* ========================================
+   MENU RECOLHIDO
+======================================== */
 
-/* ========================================== */
-/* ESTADO QUANDO O MENU ESTÁ RECOLHIDO      */
-/* ========================================== */
 aside.menu-lateral.recolhido {
     width: 85px;
-
-    .label-inscritos, .btn-ver-inscricoes{
-        display: none;
-    }
 }
+
+/* Oculta textos, títulos e divisores */
 
 aside.menu-lateral.recolhido span,
 aside.menu-lateral.recolhido .name,
+aside.menu-lateral.recolhido .label-inscritos,
+aside.menu-lateral.recolhido .btn-ver-inscricoes,
 aside.menu-lateral.recolhido hr {
-    display: none;
+    display: none !important;
 }
+
+/* Centraliza os links e ícones */
 
 aside.menu-lateral.recolhido a {
-    width: auto;
-    margin-left: 15px;
-    padding: 12px;
     justify-content: center;
+
+    width: 50px;
+    height: 50px;
+    min-height: 50px;
+
+    margin: 0 auto 5px;
+    padding: 0;
+    gap: 0;
 }
 
-aside.menu-lateral.recolhido li .linha {
-    padding: 10px;
-    justify-content: center;
-    border-left: none !important;
+aside.menu-lateral.recolhido a:hover,
+aside.menu-lateral.recolhido a.active {
+    border-left-color: transparent;
 }
+
+/* Mantém os avatares centralizados */
+
+aside.menu-lateral.recolhido .grupo-inscricoes .item-inscrito {
+    justify-content: center;
+
+    width: 50px;
+    height: 42px;
+    min-height: 42px;
+
+    margin: 0 auto;
+    padding: 0;
+}
+
+/* ========================================
+   RESPONSIVIDADE GLOBAL DO MENU
+======================================== */
+
+/* Tablets e celulares */
+
+@media (max-width: 1280px) {
+    aside.menu-lateral {
+        display: none !important;
+    }
+
+    header .nav-esquerda .btn-menu {
+        display: none !important;
+    }
+}
+
+/* Desktop */
+
+@media (min-width: 1281px) {
+    aside.menu-lateral {
+        display: block;
+    }
+
+    header .nav-esquerda .btn-menu {
+        display: flex;
+    }
+}
+
 
 /* ========================================== */
 /* CONTEÚDO PRINCIPAL (MAIN DA PÁGINA)       */
@@ -492,12 +753,10 @@ main.watch-container.recolhido {
     gap: 10px;
     min-height: 64px;
     padding: 20px 18px 12px;
-    background: linear-gradient(
-        to top,
-        rgba(0, 0, 0, .92),
-        rgba(0, 0, 0, .65),
-        transparent
-    );
+    background: linear-gradient(to top,
+            rgba(0, 0, 0, .92),
+            rgba(0, 0, 0, .65),
+            transparent);
     z-index: 20;
 }
 
@@ -622,18 +881,12 @@ main.watch-container.recolhido {
 
 .barra-buffer {
     position: absolute;
-
     left: 0;
-
     width: 0%;
     height: 4px;
-
     border-radius: 10px;
-
     background: rgba(255, 255, 255, .45);
-
     pointer-events: none;
-
     transition: width .15s linear;
 }
 
@@ -734,18 +987,12 @@ main.watch-container.recolhido {
     flex-direction: column;
     align-items: center;
     gap: 8px;
-
     color: #fff;
-
     font-size: 12px;
-
     opacity: 0;
     visibility: hidden;
-
     pointer-events: none;
-
     z-index: 6;
-
     transition:
         opacity .2s ease,
         visibility .2s ease;
@@ -759,7 +1006,6 @@ main.watch-container.recolhido {
 .indicador-carregamento i {
     font-size: 28px;
     color: #B06EFF;
-
     animation: girarCarregamento 1s linear infinite;
 }
 
@@ -780,14 +1026,10 @@ main.watch-container.recolhido {
 
 .tempo-video {
     flex-shrink: 0;
-
     min-width: 85px;
-
     color: #fff;
-
     font-family: "Aldrich", sans-serif;
     font-size: 12px;
-
     white-space: nowrap;
 }
 
@@ -801,32 +1043,23 @@ main.watch-container.recolhido {
 
     right: 18px;
     bottom: 65px;
-
     width: 240px;
-
     padding: 8px;
-
     background: rgba(19, 10, 36, .97);
-
     border: 1px solid rgba(138, 77, 255, .35);
     border-radius: 12px;
-
     box-shadow:
         0 15px 40px rgba(0, 0, 0, .55),
         0 0 25px rgba(138, 77, 255, .12);
-
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-
     opacity: 0;
     visibility: hidden;
     transform: translateY(8px);
-
     transition:
         opacity .2s ease,
         visibility .2s ease,
         transform .2s ease;
-
     z-index: 30;
 }
 
@@ -844,11 +1077,8 @@ main.watch-container.recolhido {
 
 .config-header {
     padding: 10px 12px 12px;
-
     color: #fff;
-
     font-size: 14px;
-
     border-bottom: 1px solid rgba(255, 255, 255, .08);
 }
 
@@ -857,26 +1087,18 @@ main.watch-container.recolhido {
 
 .config-opcao {
     width: 100%;
-
     display: flex;
     align-items: center;
     justify-content: space-between;
-
     padding: 12px;
-
     border: none;
     border-radius: 8px;
-
     background: transparent;
     color: #fff;
-
     font-family: "Aldrich", sans-serif;
     font-size: 12px;
-
     text-align: left;
-
     cursor: pointer;
-
     transition:
         background-color .2s ease,
         color .2s ease;
@@ -910,31 +1132,22 @@ main.watch-container.recolhido {
 }
 
 .player-placeholder {
-
     width: 100%;
     height: 100%;
-
     display: flex;
-
     align-items: center;
     justify-content: center;
 }
 
 .player-placeholder i {
-
     font-size: 70px;
-
     color: #8A4DFF;
-
     cursor: pointer;
-
     transition: .3s;
 }
 
 .player-placeholder i:hover {
-
     color: #B06EFF;
-
     transform: scale(1.1);
 }
 
@@ -946,7 +1159,6 @@ main.watch-container.recolhido {
 .player-controles {
     opacity: 1;
     visibility: visible;
-
     transition:
         opacity .25s ease,
         visibility .25s ease;
@@ -1012,27 +1224,19 @@ main.watch-container.recolhido {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) scale(.85);
-
     display: flex;
     align-items: center;
     gap: 10px;
-
     padding: 12px 18px;
-
     background: rgba(0, 0, 0, .65);
     border: 1px solid rgba(138, 77, 255, .35);
     border-radius: 30px;
-
     color: #fff;
     font-size: 14px;
-
     opacity: 0;
     visibility: hidden;
-
     pointer-events: none;
-
     z-index: 15;
-
     transition:
         opacity .2s ease,
         visibility .2s ease,
@@ -1056,37 +1260,25 @@ main.watch-container.recolhido {
 
 .submenu-configuracao {
     position: absolute;
-
     right: 18px;
     bottom: 65px;
-
     width: 240px;
-
     padding: 8px;
-
     background: rgba(19, 10, 36, .97);
-
     border: 1px solid rgba(138, 77, 255, .35);
-
     border-radius: 12px;
-
     box-shadow:
         0 15px 40px rgba(0, 0, 0, .55),
         0 0 25px rgba(138, 77, 255, .12);
-
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-
     opacity: 0;
     visibility: hidden;
-
     transform: translateY(8px);
-
     transition:
         opacity .2s ease,
         visibility .2s ease,
         transform .2s ease;
-
     z-index: 30;
 }
 
@@ -1094,7 +1286,6 @@ main.watch-container.recolhido {
 .submenu-configuracao.aberto {
     opacity: 1;
     visibility: visible;
-
     transform: translateY(0);
 }
 
@@ -1104,18 +1295,13 @@ main.watch-container.recolhido {
 .btn-voltar-config {
     width: 30px;
     height: 30px;
-
     display: flex;
     align-items: center;
     justify-content: center;
-
     border: none;
     border-radius: 50%;
-
     background: transparent;
-
     color: #fff;
-
     cursor: pointer;
 }
 
@@ -1131,19 +1317,15 @@ main.watch-container.recolhido {
 .video-info {
     width: 100%;
     max-width: 1200px;
-
     margin-top: 20px;
 }
 
 .video-info h1 {
     margin: 0 0 20px;
-
     color: #ffffff;
-
     font-size: 24px;
     font-weight: 600;
     line-height: 1.3;
-
     word-wrap: break-word;
 }
 
@@ -1154,18 +1336,14 @@ main.watch-container.recolhido {
 
 .titulo-video {
     margin: 0;
-
     color: #ffffff;
-
     font-size: 24px;
     font-weight: 600;
     line-height: 1.3;
-
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
     line-clamp: 2;
-
     overflow: hidden;
 }
 
@@ -1175,19 +1353,14 @@ main.watch-container.recolhido {
 
 .btn-titulo {
     display: none;
-
     margin-top: 8px;
     padding: 0;
-
     border: none;
     background: transparent;
-
     color: #B06EFF;
-
     font-family: inherit;
     font-size: 13px;
     font-weight: bold;
-
     cursor: pointer;
 }
 
@@ -1199,51 +1372,45 @@ main.watch-container.recolhido {
 /* CANAL */
 
 .video-actions {
-
     display: flex;
-
     align-items: center;
-
     justify-content: space-between;
-
     gap: 20px;
+    text-decoration: none;
+    list-style: none;
 }
 
 .canal {
     display: flex;
     align-items: center;
     gap: 12px;
+
 }
 
 .canal img {
     width: 45px;
     height: 45px;
-
     border-radius: 50%;
-
     object-fit: cover;
 }
 
 .canal h3 {
     margin: 0;
-
+    text-decoration: none;
     color: #ffffff;
-
     font-size: 15px;
 }
 
 .nome-canal {
     max-width: 180px;
-
     margin: 0;
-
     color: #ffffff;
-
     font-size: 15px;
-
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+        text-decoration: none;
+    list-style: none;
 }
 
 .canal span {
@@ -1788,18 +1955,21 @@ main.watch-container.recolhido {
     .btn-inscrever {
         padding: 8px 14px !important;
         font-size: 13px !important;
-        margin-right: 4px !important; /* Desgruda da lateral direita da tela */
+        margin-right: 4px !important;
+        /* Desgruda da lateral direita da tela */
     }
 
     /* Afasta o bloco de ações/canal um pouco mais para baixo (espaço leve) */
     .video-actions {
-        margin-top: 12px !important; /* Cria o respiro pedido */
+        margin-top: 12px !important;
+        /* Cria o respiro pedido */
     }
 
     /* Altera o layout do vídeo recomendado para coluna (thumb em cima, texto embaixo) */
     .video-recomendado {
         display: flex !important;
-        flex-direction: column !important; /* Empilha os itens verticalmente */
+        flex-direction: column !important;
+        /* Empilha os itens verticalmente */
         gap: 8px !important;
         margin-bottom: 24px !important;
     }
@@ -1808,9 +1978,11 @@ main.watch-container.recolhido {
     .video-recomendado img {
         width: 100% !important;
         height: auto !important;
-        aspect-ratio: 16 / 9 !important; /* Mantém o formato padrão de vídeo */
+        aspect-ratio: 16 / 9 !important;
+        /* Mantém o formato padrão de vídeo */
         object-fit: cover !important;
-        border-radius: 12px !important; /* Deixa as bordas arredondadas igual ao YouTube */
+        border-radius: 12px !important;
+        /* Deixa as bordas arredondadas igual ao YouTube */
     }
 
     /* Ajusta o espaçamento do bloco de texto abaixo da thumb */
@@ -1824,7 +1996,7 @@ main.watch-container.recolhido {
         line-height: 1.4 !important;
     }
 
-    .video-recomendado p, 
+    .video-recomendado p,
     .video-recomendado span {
         font-size: 12px !important;
     }

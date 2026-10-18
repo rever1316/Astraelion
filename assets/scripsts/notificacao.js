@@ -230,18 +230,43 @@ if (pesquisa && inputPesquisa && btnBuscar && btnFecharPesquisa) {
 
 document.addEventListener("DOMContentLoaded", () => {
     const grupo = document.querySelector(".grupo-inscricoes");
-    const botao = document.querySelector("#btnVerInscricoes");
     const lista = document.querySelector("#listaInscricoesMenu");
+    const botao = document.querySelector("#btnVerInscricoes");
 
-    if (!grupo || !botao || !lista) return;
+    if (!grupo || !lista || !botao) return;
 
-    const canais = [...lista.querySelectorAll(".item-inscrito")];
+    const LIMITE_INICIAL = 10;
 
-    // Limita a lista lateral aos primeiros 25 canais.
-    canais.slice(25).forEach(canal => canal.remove());
+    // Organiza os canais alfabeticamente.
+    function ordenarCanais() {
+        const canais = [
+            ...lista.querySelectorAll(".item-inscrito")
+        ];
 
-    function atualizarBotao() {
+        canais.sort((a, b) => {
+            const nomeA = a.querySelector("span")?.textContent.trim() || "";
+            const nomeB = b.querySelector("span")?.textContent.trim() || "";
+
+            return nomeA.localeCompare(nomeB, "pt-BR", {
+                sensitivity: "base"
+            });
+        });
+
+        canais.forEach(canal => lista.appendChild(canal));
+
+        return canais;
+    }
+
+    const canais = ordenarCanais();
+
+    function atualizarLista() {
         const expandido = grupo.classList.contains("expandido");
+        const temMaisCanais = canais.length > LIMITE_INICIAL;
+
+        // O botão só existe quando há mais de 10 canais.
+        botao.hidden = !temMaisCanais;
+
+        // Atualiza o texto e o estado acessível do botão.
         const texto = botao.querySelector("span");
 
         if (texto) {
@@ -250,14 +275,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
         botao.setAttribute("aria-expanded", String(expandido));
 
-        // Não mostra o botão quando existem 6 canais ou menos.
-        botao.hidden = canais.length <= 6;
+        canais.forEach((canal, indice) => {
+    canal.hidden = !expandido && indice >= LIMITE_INICIAL;
+});
+
+lista.classList.toggle("lista-expandida", expandido);
+
+// Ao expandir, a lista começa do início.
+if (expandido) {
+    lista.scrollTop = 0;
+}
     }
 
     botao.addEventListener("click", () => {
         grupo.classList.toggle("expandido");
-        atualizarBotao();
+        atualizarLista();
     });
 
-    atualizarBotao();
+    atualizarLista();
 });

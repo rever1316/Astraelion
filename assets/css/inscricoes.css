@@ -1,42 +1,713 @@
-
-/* =========================================
-   INSCRIÇÕES — VARIÁVEIS DO TEMA
-========================================= */
-
-:root {
-    --ins-bg: #090912;
-    --ins-superficie: #151027;
-    --ins-superficie-hover: #20163A;
-    --ins-texto: #FCFCFC;
-    --ins-texto-secundario: #B8B8C8;
-    --ins-texto-suave: #81798F;
-    --ins-acento: #8A4DFF;
-    --ins-acento-claro: #B06EFF;
-    --ins-borda: rgba(138, 77, 255, .25);
-    --ins-raio: 12px;
-    --ins-espaco: 16px;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Aldrich", sans-serif;
 }
 
+/* ========================================
+   ASTRAELION — SISTEMA DE CORES
+   Tema padrão: Universo Noturno
+======================================== */
+
+:root {
+    /* 1. FUNDOS GERAIS */
+    --cor-fundo-pagina: #090912;
+    --cor-fundo-cabecalho: #130A24;
+    --cor-fundo-menu-lateral: #130A24;
+    --cor-fundo-cartao: #151027;
+
+    /* 2. TEXTOS */
+    --cor-texto-principal: #FFFFFF;
+    --cor-texto-destaque: #FCFCFC;
+    --cor-texto-secundario: #B8B8C8;
+    --cor-texto-suave: #81798F;
+    --cor-texto-invertido: #090912;
+
+    /* 3. IDENTIDADE ROXA */
+    --cor-roxo-principal: #8A4DFF;
+    --cor-roxo-claro: #B06EFF;
+    --cor-roxo-escuro: #32205F;
+    --cor-roxo-hover: #602F9C;
+
+    /* 4. SUPERFÍCIES E INTERAÇÕES */
+    --cor-fundo-hover: #32205F;
+    --cor-fundo-hover-suave: rgba(138, 77, 255, 0.12);
+    --cor-fundo-destaque: rgba(138, 77, 255, 0.10);
+    --cor-fundo-destaque-hover: rgba(138, 77, 255, 0.18);
+
+    /* 5. BORDAS E DIVISORES */
+    --cor-borda-padrao: rgba(138, 77, 255, 0.25);
+    --cor-borda-destaque: rgba(138, 77, 255, 0.60);
+    --cor-borda-buscar: rgba(134, 70, 253, 0.25);
+    --cor-divisor: #1D1136;
+
+    /* 6. EFEITOS */
+    --cor-sombra: rgba(0, 0, 0, 0.35);
+    --cor-sombra-forte: rgba(0, 0, 0, 0.40);
+
+    /* 7. GRADIENTES DA IDENTIDADE */
+    --gradiente-logo: linear-gradient(135deg,
+            var(--cor-texto-destaque) 0%,
+            var(--cor-roxo-claro) 100%);
+
+    --gradiente-divisor: linear-gradient(to right,
+            transparent 0%,
+            var(--cor-divisor) 20%,
+            var(--cor-divisor) 80%,
+            transparent 100%);
+
+    /* 8. CORES DE STATUS */
+    --cor-status-video: #55B8FF;
+    --cor-status-live: #FF4568;
+    --cor-status-fenda: #B06EFF;
+
+    /* 9. ROLAGEM */
+    --cor-scroll-trilho: var(--cor-fundo-cabecalho);
+    --cor-scroll-indicador: var(--cor-roxo-principal);
+}
+
+html,
+body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+body {
+    background-color: var(--cor-fundo-pagina);
+    color: var(--cor-texto-principal);
+}
+
+
+/* ===================================== */
+/* HOME — CORREÇÃO DE ROLAGEM DUPLA      */
+/* ===================================== */
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+    overflow-x: clip;
+    overflow-y: auto;
+}
+
+body {
+    height: auto;
+}
+
+/* Conteúdo principal */
+.conteudo {
+    height: auto;
+    min-height: calc(100vh - 60px);
+    overflow: visible;
+}
+
+/* Grade de vídeos */
+.grade-videos {
+    height: auto;
+    overflow: visible;
+}
+
+
+/* ========================================= */
+/* ASTRAELION — SCROLL PERSONALIZADO         */
+/* ========================================= */
+
+/* Firefox */
+html {
+    scrollbar-width: thin;
+    scrollbar-color: var(--cor-roxo-principal) var(--cor-fundo-pagina);
+}
+
+/* Chrome, Edge e outros navegadores WebKit */
+html::-webkit-scrollbar {
+    width: 10px;
+}
+
+html::-webkit-scrollbar-track {
+    background: var(--cor-fundo-pagina);
+}
+
+html::-webkit-scrollbar-thumb {
+    background: var(--cor-roxo-escuro);
+    border: 2px solid var(--cor-fundo-pagina);
+    border-radius: 10px;
+}
+
+html::-webkit-scrollbar-thumb:hover {
+    background: var(--cor-roxo-claro);
+}
+
+/* Evita barras horizontais desnecessárias */
+html,
+body {
+    overflow-x: clip;
+}
+
+
+/* ========================================== */
+/* HEADER / NAVEGAÇÃO SUPERIOR               */
+/* ========================================== */
+header {
+    background-color: var(--cor-fundo-cabecalho);
+    border-bottom: 2px solid var(--cor-borda-padrao);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 8px 0;
+}
+
+header .nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+
+header .nav-esquerda {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+header .btn-menu {
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    background-color: transparent;
+    transition: 0.3s;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+header .btn-menu:hover {
+    background-color: var(--cor-fundo-hover);
+}
+
+header .btn-menu i {
+    font-size: 20px;
+    color: var(--cor-texto-principal);
+}
+
+header .logo-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+}
+
+header .nav-container img {
+    width: 35px;
+    height: 35px;
+    object-fit: contain;
+}
+
+header .logo-link span {
+    background: var(--gradiente-logo);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    font-size: 22px;
+}
+
+/* Barra de Pesquisa */
+header .pesquisa {
+    display: flex;
+    align-items: center;
+}
+
+header .pesquisa input {
+    width: 350px;
+    height: 40px;
+    padding: 10px 15px;
+    font-size: 16px;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    border-right: none;
+    outline: none;
+    background-color: var(--cor-fundo-cabecalho);
+    color: var(--cor-texto-principal);
+    border: 1px solid var(--cor-borda-padrao);
+}
+
+header .pesquisa input:hover,
+header .pesquisa input:focus {
+    border-color: var(--cor-borda-destaque);
+}
+
+header .buscar {
+    height: 40px;
+    padding: 0 16px;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border: 1px solid var(--cor-borda-buscar);
+    border-left: none;
+    background-color: var(--cor-fundo-cabecalho);
+    color: var(--cor-roxo-principal);
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+header .buscar:hover {
+    color: var(--cor-texto-principal);
+    background-color: var(--cor-fundo-destaque-hover);
+}
+
+/* ÁREA DE PERFIL */
+.nav-perfil {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.nav-perfil a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 38px;
+    width: 38px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--cor-texto-secundario);
+    transition: 0.2s;
+    text-decoration: none;
+    padding: 0;
+    border-radius: 50%;
+}
+
+.nav-perfil a i {
+    font-size: 20px;
+}
+
+.nav-perfil a:hover {
+    background-color: var(--cor-fundo-hover);
+    color: var(--cor-texto-principal);
+}
+
+
+/* ========================================
+   ASTRAELION — MENU LATERAL COMPARTILHADO
+   Arquivo: /assets/css/menu-lateral.css
+======================================== */
+
+/* ========================================
+   ESTRUTURA PRINCIPAL
+======================================== */
+
+aside.menu-lateral {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    z-index: 900;
+
+    display: block;
+    width: 250px;
+    height: calc(100vh - 60px);
+
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    background-color: var(--cor-fundo-menu-lateral);
+    border-right: 2px solid var(--cor-roxo-principal);
+
+    scrollbar-width: none;
+
+    transition: width 0.3s ease-in-out;
+}
+
+aside.menu-lateral::-webkit-scrollbar {
+    display: none;
+}
+
+/* ========================================
+   LINKS PRINCIPAIS E ÍCONES
+======================================== */
+
+aside.menu-lateral a {
+    display: flex;
+    align-items: center;
+
+    width: calc(100% - 30px);
+    min-width: 0;
+    min-height: 45px;
+
+    margin: 0 auto 5px;
+    padding: 10px 15px;
+    gap: 15px;
+
+    color: var(--cor-texto-secundario);
+    text-decoration: none;
+
+    border-left: 3px solid transparent;
+    border-radius: 12px;
+
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease;
+}
+
+aside.menu-lateral a i {
+    display: block;
+    flex-shrink: 0;
+
+    min-width: 24px;
+
+    color: var(--cor-texto-principal);
+    font-size: 22px;
+    text-align: center;
+
+    transition: color 0.2s ease;
+}
+
+aside.menu-lateral a span {
+    flex: 1;
+    min-width: 0;
+
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+    color: var(--cor-texto-destaque);
+    font-size: 15px;
+}
+
+/* ========================================
+   HOVER E PÁGINA ATIVA
+======================================== */
+
+aside.menu-lateral a:hover,
+aside.menu-lateral .linha:hover {
+    color: var(--cor-texto-principal);
+    background-color: var(--cor-fundo-hover-suave);
+    border-left-color: var(--cor-roxo-claro);
+}
+
+aside.menu-lateral a:hover i,
+aside.menu-lateral .linha:hover i {
+    color: var(--cor-roxo-claro);
+}
+
+aside.menu-lateral a.active,
+aside.menu-lateral .linha.active {
+    color: var(--cor-texto-principal);
+    background-color: var(--cor-fundo-destaque);
+    border-left-color: var(--cor-roxo-principal);
+}
+
+aside.menu-lateral a.active i,
+aside.menu-lateral .linha.active i {
+    color: var(--cor-roxo-claro);
+}
+
+/* ========================================
+   DIVISORES E TÍTULOS DE GRUPO
+======================================== */
+
+aside.menu-lateral hr {
+    display: block;
+
+    width: calc(100% - 36px);
+    height: 1px;
+
+    margin: 12px auto;
+    border: none;
+
+    background: var(--gradiente-divisor);
+    opacity: 1;
+}
+
+aside.menu-lateral .label-inscritos {
+    display: block;
+
+    padding: 8px 20px;
+    margin-top: 8px;
+
+    color: var(--cor-texto-secundario);
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
+/* ========================================
+   GRUPO DE INSCRIÇÕES
+======================================== */
+
+.menu-lateral .grupo-inscricoes {
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    min-width: 0;
+    margin-top: 12px;
+}
+
+.menu-lateral .grupo-inscricoes .label-list {
+    width: 100%;
+    min-width: 0;
+}
+
+/* Canais inscritos */
+
+.menu-lateral .grupo-inscricoes .item-inscrito {
+    display: flex;
+    align-items: center;
+
+    width: calc(100% - 30px);
+    min-width: 0;
+    min-height: 40px;
+
+    margin: 0 auto;
+    padding: 6px 15px;
+    gap: 15px;
+
+    color: var(--cor-texto-secundario);
+    text-decoration: none;
+
+    border-left: none;
+    border-radius: 10px;
+
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease;
+}
+
+.menu-lateral .grupo-inscricoes .item-inscrito img {
+    display: block;
+    flex-shrink: 0;
+
+    width: 28px;
+    height: 28px;
+    min-width: 28px;
+
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.menu-lateral .grupo-inscricoes .item-inscrito span {
+    display: block;
+    flex: 1;
+    min-width: 0;
+
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.menu-lateral .grupo-inscricoes .item-inscrito:hover {
+    color: var(--cor-texto-principal);
+    background-color: var(--cor-fundo-hover-suave);
+}
+
+.menu-lateral .grupo-inscricoes .item-inscrito:hover span {
+    color: var(--cor-roxo-claro);
+}
+
+/* Evita bordas laterais nos avatares */
+
+.menu-lateral .grupo-inscricoes .item-inscrito.active {
+    border-left: none;
+}
+
+/* Ocultação controlada pelo JavaScript */
+
+.menu-lateral .grupo-inscricoes .item-inscrito[hidden],
+.menu-lateral .grupo-inscricoes .btn-ver-inscricoes[hidden] {
+    display: none !important;
+}
+
+/* Lista expandida */
+
+.menu-lateral .grupo-inscricoes .label-list.lista-expandida {
+    height: 432px;
+    max-height: 432px;
+
+    overflow-x: hidden;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+
+    scrollbar-width: thin;
+    scrollbar-color:
+        var(--cor-roxo-principal)
+        var(--cor-fundo-cabecalho);
+}
+
+.menu-lateral .grupo-inscricoes
+.label-list.lista-expandida::-webkit-scrollbar {
+    width: 6px;
+}
+
+.menu-lateral .grupo-inscricoes
+.label-list.lista-expandida::-webkit-scrollbar-thumb {
+    background: var(--cor-roxo-principal);
+    border-radius: 10px;
+}
+
+/* ========================================
+   BOTÃO VER MAIS / VER MENOS
+======================================== */
+
+aside.menu-lateral .grupo-inscricoes .btn-ver-inscricoes {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    width: calc(100% - 30px);
+    min-height: 40px;
+    margin: 5px auto 10px;
+    padding: 8px 15px;
+    gap: 12px;
+
+    color: var(--cor-texto-secundario);
+    font-family: "Aldrich", sans-serif;
+    font-size: 12px;
+
+    background: transparent;
+    border: none;
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease;
+}
+
+aside.menu-lateral .btn-ver-inscricoes i {
+    flex-shrink: 0;
+    min-width: 24px;
+
+    font-size: 15px;
+    text-align: center;
+
+    transition: transform 0.25s ease;
+}
+
+aside.menu-lateral .btn-ver-inscricoes:hover {
+    color: var(--cor-roxo-claro);
+    background-color: var(--cor-fundo-hover-suave);
+}
+
+aside.menu-lateral .grupo-inscricoes.expandido
+.btn-ver-inscricoes i {
+    transform: rotate(180deg);
+}
+
+/* ========================================
+   MENU RECOLHIDO
+======================================== */
+
+aside.menu-lateral.recolhido {
+    width: 85px;
+}
+
+/* Oculta textos, títulos e divisores */
+
+aside.menu-lateral.recolhido span,
+aside.menu-lateral.recolhido .name,
+aside.menu-lateral.recolhido .label-inscritos,
+aside.menu-lateral.recolhido .btn-ver-inscricoes,
+aside.menu-lateral.recolhido hr {
+    display: none !important;
+}
+
+/* Centraliza os links e ícones */
+
+aside.menu-lateral.recolhido a {
+    justify-content: center;
+
+    width: 50px;
+    height: 50px;
+    min-height: 50px;
+
+    margin: 0 auto 5px;
+    padding: 0;
+    gap: 0;
+}
+
+aside.menu-lateral.recolhido a:hover,
+aside.menu-lateral.recolhido a.active {
+    border-left-color: transparent;
+}
+
+/* Mantém os avatares centralizados */
+
+aside.menu-lateral.recolhido
+.grupo-inscricoes .item-inscrito {
+    justify-content: center;
+
+    width: 50px;
+    height: 42px;
+    min-height: 42px;
+
+    margin: 0 auto;
+    padding: 0;
+}
+
+/* ========================================
+   RESPONSIVIDADE GLOBAL DO MENU
+======================================== */
+
+/* Tablets e celulares */
+
+@media (max-width: 1280px) {
+    aside.menu-lateral {
+        display: none !important;
+    }
+
+    header .nav-esquerda .btn-menu {
+        display: none !important;
+    }
+}
+
+/* Desktop */
+
+@media (min-width: 1281px) {
+    aside.menu-lateral {
+        display: block;
+    }
+
+    header .nav-esquerda .btn-menu {
+        display: flex;
+    }
+}
+
+
 /* =========================================
-   ESTRUTURA
+   1. ESTRUTURA PRINCIPAL
 ========================================= */
 
 .pagina-inscricoes {
-    margin-left: 250px;
     width: calc(100% - 250px);
-    margin-top: 60px;
     min-height: calc(100vh - 60px);
+    margin-top: 60px;
+    margin-left: 250px;
     padding: 30px 36px 50px;
+
     box-sizing: border-box;
-    color: var(--ins-texto);
-    background: var(--ins-bg);
-    transition: margin-left .3s ease, width .3s ease;
+    color: var(--cor-texto-principal);
+    background: var(--cor-fundo-pagina);
+
+    transition:
+        margin-left 0.3s ease,
+        width 0.3s ease;
 }
 
 .pagina-inscricoes.recolhido {
-    margin-left: 85px;
     width: calc(100% - 85px);
+    margin-left: 85px;
 }
+
+
+/* =========================================
+   2. CABEÇALHO DA PÁGINA
+========================================= */
 
 .inscricoes-cabecalho {
     margin-bottom: 30px;
@@ -45,26 +716,34 @@
 .inscricoes-subtitulo {
     display: block;
     margin-bottom: 8px;
-    color: var(--ins-acento-claro);
+
+    color: var(--cor-roxo-claro);
     font-size: 10px;
     letter-spacing: 2px;
+    text-transform: uppercase;
 }
 
 .inscricoes-cabecalho h1 {
     margin: 0;
+
+    color: var(--cor-texto-destaque);
     font-size: 28px;
     font-weight: 600;
+    line-height: 1.4;
 }
 
 .inscricoes-cabecalho p,
 .titulo-inscricoes p {
     margin: 8px 0 0;
-    color: var(--ins-texto-suave);
+
+    color: var(--cor-texto-suave);
     font-size: 12px;
+    line-height: 1.6;
 }
 
+
 /* =========================================
-   TÍTULOS DAS SEÇÕES
+   3. TÍTULOS DAS SEÇÕES
 ========================================= */
 
 .titulo-inscricoes {
@@ -72,48 +751,70 @@
     align-items: center;
     justify-content: space-between;
     gap: 16px;
+
+    min-width: 0;
     margin-bottom: 18px;
+}
+
+.titulo-inscricoes > div:first-child {
+    min-width: 0;
 }
 
 .titulo-inscricoes h2 {
     margin: 0;
+
+    color: var(--cor-texto-destaque);
     font-size: 19px;
     font-weight: 500;
+    line-height: 1.5;
 }
 
 .secao-canais {
+    min-width: 0;
     margin-bottom: 38px;
 }
 
 .secao-feed-inscricoes {
+    min-width: 0;
     margin-bottom: 42px;
 }
 
+
 /* =========================================
-   FAIXA DE CANAIS
+   4. CONTROLES DA FAIXA DE CANAIS
 ========================================= */
 
 .controles-canais {
     display: flex;
     align-items: center;
     gap: 8px;
+    flex-shrink: 0;
 }
 
 .seta-canais,
 .btn-todos-canais {
     min-height: 36px;
-    border: 1px solid var(--ins-borda);
+
+    border: 1px solid var(--cor-borda-padrao);
     border-radius: 9px;
-    background: var(--ins-superficie);
-    color: var(--ins-texto-secundario);
+
+    background: var(--cor-fundo-cartao);
+    color: var(--cor-texto-secundario);
+
     cursor: pointer;
-    transition: background .2s ease, color .2s ease;
+
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease;
 }
 
 .seta-canais {
-    width: 36px;
     display: grid;
     place-items: center;
+
+    width: 36px;
+    padding: 0;
 }
 
 .btn-todos-canais {
@@ -121,25 +822,41 @@
     align-items: center;
     justify-content: center;
     gap: 8px;
+
     padding: 0 12px;
+
     font-family: inherit;
     font-size: 11px;
+    white-space: nowrap;
 }
 
 .seta-canais:hover,
 .btn-todos-canais:hover {
-    background: var(--ins-superficie-hover);
-    color: var(--ins-texto);
+    border-color: var(--cor-borda-destaque);
+    background: var(--cor-fundo-hover-suave);
+    color: var(--cor-texto-principal);
 }
+
+
+/* =========================================
+   5. FAIXA HORIZONTAL DE CANAIS
+========================================= */
 
 .faixa-canais {
     display: flex;
+    align-items: flex-start;
     gap: 26px;
+
+    width: 100%;
+    min-width: 0;
+    padding: 8px 3px 16px;
+
     overflow-x: auto;
+    overflow-y: hidden;
+
     overscroll-behavior-x: contain;
     scroll-behavior: smooth;
     scrollbar-width: none;
-    padding: 8px 3px 16px;
 }
 
 .faixa-canais::-webkit-scrollbar {
@@ -147,98 +864,133 @@
 }
 
 .canal-inscrito {
-    flex: 0 0 112px;
-    min-width: 0;
     display: flex;
+    flex: 0 0 112px;
     flex-direction: column;
     align-items: center;
     gap: 7px;
-    color: var(--ins-texto);
+
+    min-width: 0;
+
+    color: var(--cor-texto-principal);
     text-decoration: none;
     text-align: center;
 }
 
 .avatar-inscrito {
     position: relative;
+
     width: 76px;
     height: 76px;
     flex-shrink: 0;
-    border-radius: 50%;
+
     padding: 3px;
     box-sizing: border-box;
-    background: var(--ins-superficie);
-    border: 1px solid var(--ins-borda);
-    transition: border-color .2s ease, transform .2s ease;
+
+    border: 1px solid var(--cor-borda-padrao);
+    border-radius: 50%;
+
+    background: var(--cor-fundo-cartao);
+
+    transition:
+        border-color 0.2s ease,
+        transform 0.2s ease;
 }
 
 .canal-inscrito:hover .avatar-inscrito {
-    border-color: var(--ins-acento-claro);
+    border-color: var(--cor-roxo-claro);
     transform: translateY(-2px);
 }
 
 .avatar-inscrito img {
     display: block;
+
     width: 100%;
     height: 100%;
-    object-fit: cover;
+
     border-radius: 50%;
+    object-fit: cover;
 }
 
 .canal-inscrito strong {
     width: 100%;
+    min-width: 0;
+
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+
+    color: var(--cor-texto-principal);
     font-size: 11px;
     font-weight: 500;
 }
 
 .arroba-canal {
-    color: var(--ins-texto-suave);
-    font-size: 10px;
+    max-width: 100%;
+
     overflow: hidden;
     text-overflow: ellipsis;
-    max-width: 100%;
+    white-space: nowrap;
+
+    color: var(--cor-texto-suave);
+    font-size: 10px;
 }
+
+
+/* =========================================
+   6. INDICADORES DE ATIVIDADE DOS CANAIS
+========================================= */
 
 .indicador-video,
 .indicador-live,
 .indicador-fenda {
     position: absolute;
+
     width: 12px;
     height: 12px;
-    border: 2px solid var(--ins-bg);
+
+    border: 2px solid var(--cor-fundo-pagina);
     box-sizing: content-box;
 }
 
 .indicador-video {
     right: -1px;
     bottom: 1px;
+
     border-radius: 50%;
-    background: #55A7FF;
+    background: var(--cor-status-video);
 }
 
 .indicador-live {
     top: -2px;
     right: 1px;
+
     border-radius: 50%;
-    background: #FF4E68;
-    box-shadow: 0 0 9px rgba(255, 78, 104, .4);
+    background: var(--cor-status-live);
+    box-shadow: 0 0 9px rgba(255, 69, 104, 0.4);
 }
 
 .indicador-fenda {
     left: -2px;
     bottom: 1px;
+
     border-radius: 4px;
     transform: rotate(45deg);
-    background: var(--ins-acento-claro);
+
+    background: var(--cor-status-fenda);
 }
+
+
+/* =========================================
+   7. LEGENDA DOS INDICADORES
+========================================= */
 
 .legenda-canais {
     display: flex;
     flex-wrap: wrap;
     gap: 16px;
-    color: var(--ins-texto-suave);
+
+    color: var(--cor-texto-suave);
     font-size: 10px;
 }
 
@@ -250,99 +1002,138 @@
 
 .ponto-legenda {
     display: inline-block;
+
     width: 7px;
     height: 7px;
+    flex-shrink: 0;
+
     border-radius: 50%;
 }
 
 .ponto-legenda.video {
-    background: #55A7FF;
+    background: var(--cor-status-video);
 }
 
 .ponto-legenda.live {
-    background: #FF4E68;
+    background: var(--cor-status-live);
 }
 
 .ponto-legenda.fenda {
-    background: var(--ins-acento-claro);
+    background: var(--cor-status-fenda);
 }
 
+
 /* =========================================
-   GRADE DE MISSÕES E LIVES
+   8. GRADE DE VÍDEOS E LIVES
 ========================================= */
 
 .grade-inscricoes {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 30px 18px;
+
+    width: 100%;
+    min-width: 0;
 }
 
 .card-inscricao {
     min-width: 0;
-    color: var(--ins-texto);
+    color: var(--cor-texto-principal);
 }
 
 .link-card-inscricao {
     display: block;
+
+    min-width: 0;
+
     color: inherit;
     text-decoration: none;
 }
 
 .thumb-inscricao {
     position: relative;
+
     width: 100%;
     aspect-ratio: 16 / 9;
+
     overflow: hidden;
-    border-radius: var(--ins-raio);
-    background: var(--ins-superficie);
+
+    border: 1px solid var(--cor-borda-padrao);
+    border-radius: 12px;
+
+    background: var(--cor-fundo-cartao);
 }
 
 .thumb-inscricao img {
     display: block;
+
     width: 100%;
     height: 100%;
+
     object-fit: cover;
-    transition: transform .3s ease;
+
+    transition: transform 0.3s ease;
 }
 
 .card-inscricao:hover .thumb-inscricao img {
     transform: scale(1.035);
 }
 
+
+/* Duração e selo de transmissão ao vivo */
+
 .duracao-inscricao,
 .selo-live {
     position: absolute;
-    right: 8px;
     bottom: 8px;
+
     padding: 4px 6px;
     border-radius: 4px;
-    background: rgba(9, 9, 18, .88);
-    color: #fff;
+
+    color: #FFFFFF;
     font-size: 9px;
+}
+
+.duracao-inscricao {
+    right: 8px;
+    background: rgba(9, 9, 18, 0.88);
 }
 
 .selo-live {
     right: auto;
     left: 8px;
-    background: #E63955;
+
+    background: var(--cor-status-live);
+
     font-weight: 700;
-    letter-spacing: .4px;
+    letter-spacing: 0.4px;
 }
+
+
+/* =========================================
+   9. INFORMAÇÕES DOS CARDS
+========================================= */
 
 .info-inscricao {
     display: flex;
     align-items: flex-start;
     gap: 10px;
+
+    min-width: 0;
     padding-top: 12px;
 }
 
 .avatar-card-inscricao {
+    display: block;
+
     width: 36px;
     height: 36px;
     flex: 0 0 36px;
+
     border-radius: 50%;
     object-fit: cover;
-    background: var(--ins-superficie);
+
+    background: var(--cor-fundo-cartao);
 }
 
 .texto-card-inscricao {
@@ -355,9 +1146,12 @@
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
     line-clamp: 2;
+
     overflow: hidden;
+
     margin: 0 0 7px;
-    color: var(--ins-texto);
+
+    color: var(--cor-texto-principal);
     font-size: 12px;
     font-weight: 500;
     line-height: 1.5;
@@ -367,47 +1161,73 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+
     margin: 0 0 5px;
-    color: var(--ins-texto-secundario);
+
+    color: var(--cor-texto-secundario);
     font-size: 10px;
 }
 
 .texto-card-inscricao > span {
     display: block;
-    color: var(--ins-texto-suave);
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    color: var(--cor-texto-suave);
     font-size: 9px;
     line-height: 1.5;
 }
 
+
+/* Botão de opções do card */
+
 .opcoes-inscricao {
+    display: grid;
+    place-items: center;
+
     flex: 0 0 28px;
     width: 28px;
     height: 28px;
+
+    padding: 0;
     border: none;
     border-radius: 50%;
+
     background: transparent;
-    color: var(--ins-texto-suave);
+    color: var(--cor-texto-suave);
+
     cursor: pointer;
+
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease;
 }
 
 .opcoes-inscricao:hover {
-    background: var(--ins-superficie-hover);
-    color: var(--ins-texto);
+    background: var(--cor-fundo-hover-suave);
+    color: var(--cor-texto-principal);
 }
 
+
 /* =========================================
-   FENDAS — FILEIRAS INDEPENDENTES
+   10. SEÇÃO DE FENDAS
 ========================================= */
 
 .secao-fendas-inscricoes {
+    min-width: 0;
     margin-top: 38px;
 }
 
 .linha-fendas {
     position: relative;
+
     display: flex;
     align-items: center;
     gap: 10px;
+
+    min-width: 0;
 }
 
 .faixa-fendas {
@@ -415,9 +1235,13 @@
     grid-auto-columns: calc((100% - 64px) / 5);
     grid-auto-flow: column;
     gap: 16px;
+
     width: 100%;
     min-width: 0;
+
     overflow-x: auto;
+    overflow-y: hidden;
+
     overscroll-behavior-x: contain;
     scroll-behavior: smooth;
     scrollbar-width: none;
@@ -428,49 +1252,86 @@
 }
 
 .card-fenda-inscricao {
-    min-width: 0;
     display: flex;
     flex-direction: column;
     gap: 7px;
-    color: var(--ins-texto);
+
+    min-width: 0;
+
+    color: var(--cor-texto-principal);
     text-decoration: none;
 }
 
 .card-fenda-inscricao img {
     display: block;
+
     width: 100%;
     aspect-ratio: 3 / 4;
+
+    border: 1px solid var(--cor-borda-padrao);
+    border-radius: 12px;
+
     object-fit: cover;
-    border: 1px solid var(--ins-borda);
-    border-radius: var(--ins-raio);
-    background: var(--ins-superficie);
+    background: var(--cor-fundo-cartao);
+
+    transition:
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.card-fenda-inscricao:hover img {
+    border-color: var(--cor-borda-destaque);
+    transform: translateY(-2px);
 }
 
 .card-fenda-inscricao span {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+
+    color: var(--cor-texto-principal);
     font-size: 11px;
 }
 
 .card-fenda-inscricao small {
-    color: var(--ins-texto-suave);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    color: var(--cor-texto-suave);
     font-size: 10px;
 }
+
+
+/* Setas para navegar pelas Fendas */
 
 .seta-fendas {
     position: absolute;
     z-index: 2;
     top: 35%;
-    width: 34px;
-    height: 34px;
+
     display: grid;
     place-items: center;
-    border: 1px solid var(--ins-borda);
+
+    width: 34px;
+    height: 34px;
+
+    border: 1px solid var(--cor-borda-padrao);
     border-radius: 50%;
-    background: var(--ins-superficie);
-    color: var(--ins-texto);
+
+    background: var(--cor-fundo-cartao);
+    color: var(--cor-texto-principal);
+
     cursor: pointer;
+
+    transition:
+        background-color 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.seta-fendas:hover {
+    border-color: var(--cor-borda-destaque);
+    background: var(--cor-fundo-hover);
 }
 
 .seta-fendas.anterior {
@@ -481,8 +1342,9 @@
     right: -12px;
 }
 
+
 /* =========================================
-   JANELA DE TODOS OS CANAIS
+   11. MODAL — TODOS OS CANAIS
 ========================================= */
 
 .overlay-canais[hidden] {
@@ -493,131 +1355,221 @@
     position: fixed;
     z-index: 2000;
     inset: 0;
+
     display: flex;
     align-items: center;
     justify-content: center;
+
     padding: 24px;
-    background: rgba(4, 3, 10, .78);
+
+    background: rgba(4, 3, 10, 0.78);
+    -webkit-backdrop-filter: blur(6px);
     backdrop-filter: blur(6px);
 }
 
 .modal-canais {
-    width: min(100%, 560px);
-    max-height: min(80vh, 720px);
     display: flex;
     flex-direction: column;
+
+    width: min(100%, 560px);
+    max-height: min(80vh, 720px);
+    min-height: 0;
+
     padding: 24px;
-    border: 1px solid var(--ins-borda);
+
+    border: 1px solid var(--cor-borda-padrao);
     border-radius: 18px;
-    background: var(--ins-superficie);
-    box-shadow: 0 20px 70px rgba(0, 0, 0, .4);
+
+    background: var(--cor-fundo-cartao);
+    box-shadow: 0 20px 70px var(--cor-sombra-forte);
 }
+
+
+/* Cabeçalho do modal */
 
 .cabecalho-modal-canais {
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 16px;
+
     margin-bottom: 20px;
 }
 
 .cabecalho-modal-canais h2 {
     margin: 0;
+
+    color: var(--cor-texto-principal);
     font-size: 21px;
+    font-weight: 500;
 }
 
 .cabecalho-modal-canais button {
+    display: grid;
+    place-items: center;
+
     width: 36px;
     height: 36px;
-    border: 1px solid var(--ins-borda);
+    flex-shrink: 0;
+
+    border: 1px solid var(--cor-borda-padrao);
     border-radius: 50%;
+
     background: transparent;
-    color: var(--ins-texto);
+    color: var(--cor-texto-principal);
+
     cursor: pointer;
 }
+
+.cabecalho-modal-canais button:hover {
+    background: var(--cor-fundo-hover-suave);
+}
+
+
+/* Campo de pesquisa */
 
 #pesquisaCanais {
     width: 100%;
     min-height: 42px;
-    box-sizing: border-box;
+
     padding: 0 14px;
-    border: 1px solid var(--ins-borda);
+    box-sizing: border-box;
+
+    border: 1px solid var(--cor-borda-padrao);
     border-radius: 10px;
     outline: none;
-    background: var(--ins-bg);
-    color: var(--ins-texto);
+
+    background: var(--cor-fundo-pagina);
+    color: var(--cor-texto-principal);
+
     font: inherit;
     font-size: 12px;
 }
 
-#pesquisaCanais:focus {
-    border-color: var(--ins-acento);
+#pesquisaCanais::placeholder {
+    color: var(--cor-texto-suave);
 }
+
+#pesquisaCanais:focus {
+    border-color: var(--cor-roxo-principal);
+}
+
+
+/* Descrição e lista */
 
 .descricao-modal-canais {
     margin: 14px 0;
-    color: var(--ins-texto-suave);
+
+    color: var(--cor-texto-suave);
     font-size: 11px;
+    line-height: 1.6;
 }
 
 .lista-todos-canais {
-    overflow-y: auto;
     min-height: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+
     padding-right: 4px;
+
+    scrollbar-width: thin;
+    scrollbar-color:
+        var(--cor-scroll-indicador)
+        var(--cor-scroll-trilho);
 }
+
+.lista-todos-canais::-webkit-scrollbar {
+    width: 6px;
+}
+
+.lista-todos-canais::-webkit-scrollbar-track {
+    background: var(--cor-scroll-trilho);
+}
+
+.lista-todos-canais::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: var(--cor-scroll-indicador);
+}
+
+
+/* Item individual no modal */
 
 .item-todos-canais {
     display: flex;
     align-items: center;
     gap: 12px;
+
     width: 100%;
+    min-width: 0;
     padding: 10px;
+
     border: 0;
     border-radius: 10px;
+
     background: transparent;
-    color: var(--ins-texto);
+    color: var(--cor-texto-principal);
+
     text-align: left;
     cursor: pointer;
+
+    transition: background-color 0.2s ease;
 }
 
 .item-todos-canais:hover {
-    background: var(--ins-superficie-hover);
+    background: var(--cor-fundo-hover-suave);
 }
 
 .item-todos-canais img {
+    display: block;
+
     width: 42px;
     height: 42px;
     flex: 0 0 42px;
+
     border-radius: 50%;
     object-fit: cover;
+
+    background: var(--cor-fundo-pagina);
 }
 
 .dados-todos-canais {
     display: flex;
     flex-direction: column;
     gap: 5px;
+
     min-width: 0;
 }
 
 .dados-todos-canais strong {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    color: var(--cor-texto-principal);
     font-size: 12px;
     font-weight: 500;
 }
 
 .dados-todos-canais span {
-    color: var(--ins-texto-suave);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    color: var(--cor-texto-suave);
     font-size: 10px;
 }
 
+
 /* =========================================
-   TABLETS
+   12. TABLETS
 ========================================= */
 
 @media (min-width: 769px) and (max-width: 1280px) {
     .pagina-inscricoes,
     .pagina-inscricoes.recolhido {
-        margin-left: 0;
         width: 100%;
+        margin-left: 0;
+
         padding: 28px 24px 90px;
     }
 
@@ -630,21 +1582,35 @@
     }
 }
 
+
 /* =========================================
-   CELULARES
+   13. CELULARES
 ========================================= */
 
 @media (max-width: 768px) {
     .pagina-inscricoes,
     .pagina-inscricoes.recolhido {
-        margin-left: 0;
         width: 100%;
         margin-top: 60px;
+        margin-left: 0;
+
         padding: 24px 14px 90px;
+    }
+
+    .inscricoes-cabecalho {
+        margin-bottom: 26px;
     }
 
     .inscricoes-cabecalho h1 {
         font-size: 24px;
+    }
+
+    .inscricoes-cabecalho p {
+        font-size: 11px;
+    }
+
+    .titulo-inscricoes {
+        gap: 10px;
     }
 
     .titulo-inscricoes h2 {
@@ -655,6 +1621,9 @@
         font-size: 10px;
     }
 
+
+    /* Canais */
+
     .seta-canais {
         display: none;
     }
@@ -662,12 +1631,15 @@
     .btn-todos-canais {
         min-height: 34px;
         padding: 0 10px;
+        font-size: 10px;
     }
 
     .faixa-canais {
         gap: 16px;
+
         margin-right: -14px;
         padding-right: 14px;
+
         scroll-snap-type: x proximity;
     }
 
@@ -686,6 +1658,9 @@
         font-size: 9px;
     }
 
+
+    /* Cards de vídeos e lives */
+
     .grade-inscricoes {
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 24px 12px;
@@ -703,6 +1678,7 @@
     }
 
     .texto-card-inscricao h3 {
+        margin-bottom: 5px;
         font-size: 11px;
     }
 
@@ -720,6 +1696,9 @@
         flex-basis: 22px;
     }
 
+
+    /* Fendas */
+
     .faixa-fendas {
         grid-auto-columns: calc((100% - 16px) / 2.2);
         gap: 12px;
@@ -729,6 +1708,9 @@
         display: none;
     }
 
+
+    /* Modal como painel inferior */
+
     .overlay-canais {
         align-items: flex-end;
         padding: 0;
@@ -737,12 +1719,27 @@
     .modal-canais {
         width: 100%;
         max-height: 85dvh;
-        box-sizing: border-box;
-        padding: 20px 16px calc(20px + env(safe-area-inset-bottom));
-        border-radius: 20px 20px 0 0;
+        max-height: 85vh;
+
+        padding: 20px 16px
+            calc(20px + env(safe-area-inset-bottom));
+
+        border-right: 0;
         border-bottom: 0;
+        border-left: 0;
+
+        border-radius: 20px 20px 0 0;
+    }
+
+    .cabecalho-modal-canais h2 {
+        font-size: 19px;
     }
 }
+
+
+/* =========================================
+   14. CELULARES PEQUENOS
+========================================= */
 
 @media (max-width: 360px) {
     .pagina-inscricoes,
@@ -759,7 +1756,20 @@
         display: none;
     }
 
+    .btn-todos-canais {
+        gap: 5px;
+        padding: 0 8px;
+    }
+
     .btn-todos-canais span {
         font-size: 10px;
+    }
+
+    .titulo-inscricoes h2 {
+        font-size: 15px;
+    }
+
+    .faixa-fendas {
+        grid-auto-columns: calc((100% - 12px) / 1.8);
     }
 }
