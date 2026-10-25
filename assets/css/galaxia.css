@@ -2305,6 +2305,10 @@ aside.menu-lateral.recolhido .grupo-inscricoes .item-inscrito {
     transform: translateY(2px);
 }
 
+.acoes-galaxia a{
+    text-decoration: none;
+}
+
 
 /* =========================================================
    11. RESPONSIVIDADE
