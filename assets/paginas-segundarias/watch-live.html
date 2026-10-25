@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/assets/css/watch-lives.css">
+    <link rel="stylesheet" href="/assets/css/notificacao-global.css">
+    <link rel="stylesheet" href="/assets/css/user-painel.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Aldrich&display=swap" rel="stylesheet">
+
+    <title>Astraelion - Transmissão Ao Vivo</title>
+    <link rel="shortcut icon" href="/assets/img/logo.ico" type="image/ico">
+</head>
+
+<body>
+    <header>
+        <nav class="nav-container">
+
+            <div class="nav-esquerda">
+                <button class="btn-menu">
+                    <i class="bi bi-list"></i>
+                </button>
+                <a href="/index.html" class="logo-link">
+                    <img src="/assets/img/logo.ico" alt="Astraelion Logo">
+                    <span>Astraelion</span>
+                </a>
+            </div>
+
+            <div class="pesquisa">
+                <input type="search" placeholder="Explorar...">
+                <button class="buscar">
+                    <i class="bi bi-search"></i>
+                </button>
+            </div>
+
+            <div class="nav-perfil">
+                <a href="#" class="btn-user">
+                    <i class="bi bi-box-arrow-in-up"></i>
+                </a>
+
+                <a href="#" class="btn-user btn-notificacao">
+                    <i class="bi bi-bell"></i>
+                </a>
+
+                <a href="#" class="btn-user-painel">
+                    <i class="bi bi-person-circle"></i>
+                </a>
+            </div>
+
+        </nav>
+    </header>
+
+    <!-- MENU DE NAVEGAÇÃO LATERAL - MVL -->
+
+    <aside class="menu-lateral">
+        <div class="lis">
+            <li>
+                <a class="linha active" href="/index.html">
+                    <i class="bi bi-house-door-fill"></i>
+                    <span class="name">Inicio</span>
+                </a>
+            </li>
+
+            <li>
+                <a class="linha" href="/assets/paginas-segundarias/notificacao.html">
+                    <i class="bi bi-bell"></i>
+                    <span class="name">Notificação</span>
+                </a>
+            </li>
+
+            <li>
+                <a class="linha" href="/assets/paginas-segundarias/fenda.html">
+                    <i class="bi bi-stars"></i>
+                    <span class="name">Fendas</span>
+                </a>
+            </li>
+
+            <li>
+                <a class="linha" href="/assets/paginas-segundarias/minhas-galaxias.html">
+                    <i class="bi bi-music-note-list"></i>
+                    <span class="name">Galaxia</span>
+                </a>
+            </li>
+            <hr>
+
+            <div class="grupo-inscricoes">
+
+                <a href="/assets/paginas-segundarias/inscricoes.html" class="label-inscritos">
+                    Inscrições
+                </a>
+
+                <div class="label-list" id="listaInscricoesMenu">
+
+                    <a href="/assets/paginas-segundarias/canal.html" class="item-inscrito">
+                        <img src="/assets/img/avatar1.jpg" alt="">
+                        <span>Canal Astraelion</span>
+                    </a>
+
+                    <a href="/assets/paginas-segundarias/canal.html" class="item-inscrito">
+                        <img src="/assets/img/avatar2.jpg" alt="">
+                        <span>Cosmos Channel</span>
+                    </a>
+
+                    <a href="/assets/paginas-segundarias/canal.html" class="item-inscrito">
+                        <img src="/assets/img/avatar3.jpg" alt="">
+                        <span>Universo X</span>
+                    </a>
+
+                    <a href="/assets/paginas-segundarias/canal.html" class="item-inscrito">
+                        <img src="/assets/img/avatar4.jpg" alt="">
+                        <span>Dev Space</span>
+                    </a>
+
+                    <a href="/assets/paginas-segundarias/canal.html" class="item-inscrito">
+                        <img src="/assets/img/avatar5.jpg" alt="">
+                        <span>Beyond Worlds</span>
+                    </a>
+
+                    <a href="/assets/paginas-segundarias/canal.html" class="item-inscrito">
+                        <img src="/assets/img/avatar6.jpg" alt="">
+                        <span>AstroLab</span>
+                    </a>
+
+                    <a href="/assets/paginas-segundarias/canal.html" class="item-inscrito">
+                        <img src="/assets/img/avatar1.jpg" alt="">
+                        <span>Canal Astraelion oficial</span>
+                    </a>
+
+                    <a href="/assets/paginas-segundarias/canal.html" class="item-inscrito">
+                        <img src="/assets/img/avatar2.jpg" alt="">
+                        <span>Cosmos Channel Studios</span>
+                    </a>
+
+                    <a href="/assets/paginas-segundarias/canal.html" class="item-inscrito">
+                        <img src="/assets/img/avatar3.jpg" alt="">
+                        <span>Universo A</span>
+                    </a>
+
+                    <a href="/assets/paginas-segundarias/canal.html" class="item-inscrito">
+                        <img src="/assets/img/avatar4.jpg" alt="">
+                        <span>Space</span>
+                    </a>
+
+                    <a href="/assets/paginas-segundarias/canal.html" class="item-inscrito">
+                        <img src="/assets/img/avatar5.jpg" alt="">
+                        <span>Worlds arquive</span>
+                    </a>
+
+                    <a href="/assets/paginas-segundarias/canal.html" class="item-inscrito">
+                        <img src="/assets/img/avatar6.jpg" alt="">
+                        <span>Lab star</span>
+                    </a>
+
+
+
+
+
+                    <!-- Adicione os demais canais seguindo este padrão -->
+
+                </div>
+
+                <button type="button" class="btn-ver-inscricoes" id="btnVerInscricoes">
+                    <i class="bi bi-chevron-down"></i>
+                    <span>Ver mais</span>
+                </button>
+
+            </div>
+
+            <hr>
+
+            <li>
+                <a class="linha" href="/assets/paginas-segundarias/historico.html">
+                    <i class="bi bi-clock-history"></i>
+                    <span class="name">Historico</span>
+                </a>
+            </li>
+
+            <li>
+                <a class="linha" href="/assets/paginas-segundarias/configuracoes.html">
+                    <i class="bi bi-gear-fill"></i>
+                    <span class="name">Configurações</span>
+                </a>
+            </li>
+        </div>
+    </aside>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main class="watch-container">
+        <section class="video-section">
+            <div class="player">
+                <video id="videoPlayer" autoplay>
+                    <source src="/assets/img/teste.mp4" type="video/mp4">
+                </video>
+
+                <!-- TAG AO VIVO FLUTUANTE SOBRE O PLAYER -->
+                <div class="badge-live-player">
+                    <span class="ponto-live"></span> AO VIVO
+                </div>
+
+                <div class="indicador-carregamento" id="indicadorCarregamento">
+                    <i class="bi bi-arrow-repeat"></i>
+                    <span>Sintonizando frequência...</span>
+                </div>
+
+                <!-- CONTROLES COM BOTÃO IR PARA O AO VIVO -->
+                <div class="player-controles">
+                    <button type="button" class="controle-video btn-play" id="btnPlay" aria-label="Reproduzir">
+                        <i class="bi bi-play-fill"></i>
+                    </button>
+
+                    <button type="button" class="btn-ir-ao-vivo ativo" id="btnSincroniaLive">
+                        <span class="ponto-sincronia"></span> AO VIVO
+                    </button>
+
+                    <div class="controle-volume">
+                        <button type="button" class="controle-video btn-volume" id="btnVolume"><i
+                                class="bi bi-volume-up-fill"></i></button>
+                        <input type="range" id="barraVolume" min="0" max="1" step="0.01" value="1">
+                    </div>
+
+                    <div style="flex:1;"></div>
+
+                    <button type="button" class="controle-video btn-config" id="btnConfiguracoes"><i
+                            class="bi bi-gear-fill"></i></button>
+                    <button type="button" class="controle-video btn-fullscreen" id="btnTelaCheia"><i
+                            class="bi bi-fullscreen"></i></button>
+                </div>
+            </div>
+
+            <!-- INFORMAÇÕES DA LIVE -->
+            <div class="video-info">
+                <div class="titulo-container">
+                    <h1 class="titulo-video">[LIVE] Lançamento da Nova Galáxia Astraelion e Análise de Fendas</h1>
+                    <button class="btn-titulo" type="button">Mostrar mais</button>
+                </div>
+
+                <div class="video-actions">
+                    <div class="canal">
+                        <a href="/assets/paginas-segundarias/canal.html"><img src="/assets/img/avatar1.jpg"
+                                alt="Canal Astraelion"></a>
+                        <div>
+                            <a href="/assets/paginas-segundarias/canal.html">
+                                <h3 class="nome-canal">Canal Oficial Universo Astraelion</h3>
+                            </a>
+                            <span>1.420 espectadores ao vivo</span>
+                        </div>
+                        <button class="btn-inscrever">Embarcar</button>
+                    </div>
+
+                    <div class="acoes">
+                        <button><i class="bi bi-hand-thumbs-up"></i> 3,5 mil</button>
+                        <button><i class="bi bi-share"></i> Compartilhar</button>
+                        <button><i class="bi bi-stars"></i> Super Eco</button>
+                    </div>
+                </div>
+
+                <div class="descricao">
+                    <strong>Transmitindo agora • Início há 45 minutos</strong>
+                    <p class="descricao-texto">Transmissão oficial de desenvolvimento e exploração do ecossistema
+                        Astraelion.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CHAT AO VIVO DE ECOS -->
+        <aside class="chat-live-container">
+            <div class="chat-cabecalho">
+                <h3>Chat de Ecos ao Vivo</h3>
+                <i class="bi bi-three-dots-vertical"></i>
+            </div>
+
+            <div class="chat-mensagens" id="chatMensagens">
+                <div class="mensagem-item">
+                    <img src="/assets/img/avatar2.jpg" alt="User">
+                    <div>
+                        <strong>Cosmos Explorer:</strong>
+                        <span>Essa live tá sensacional! 🚀</span>
+                    </div>
+                </div>
+
+                <div class="mensagem-item super-eco">
+                    <img src="/assets/img/avatar3.jpg" alt="User">
+                    <div>
+                        <strong>Dev Space (Super Eco R$ 10,00):</strong>
+                        <span>Manda salve pra guilda de Astraelion!</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="chat-rodape">
+                <input type="text" placeholder="Emitir eco no chat..." id="inputChatLive">
+                <button type="button" id="btnEnviarEco"><i class="bi bi-send-fill"></i></button>
+            </div>
+        </aside>
+    </main>
+
+    <script src="/assets/scripsts/watch.js"></script>
+    <script src="/assets/scripts/mini-player-global.js"></script>
+    <script src="/assets/scripsts/user-painel.js"></script>
+    <script src="/assets/scripsts/notificacao-global.js"></script>
+    <script src="/assets/scripsts/creator.js"></script>cript>
+</body>
+
+</html>

@@ -1,4 +1,4 @@
-/*Backgroud seletor*/
+/*Background seletor*/
 
 var MenuItem = document.querySelectorAll('aside a');
 
@@ -38,6 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (mainContent) mainContent.classList.toggle('recolhido');
     });
 });
+
 const videos = [
     {
         titulo: "Explorando um novo universo",
@@ -45,7 +46,6 @@ const videos = [
         views: "12 mil",
         duracao: "12:34"
     },
-
     {
         titulo: "A história por trás das estrelas",
         canal: "Cosmos Channel",
@@ -53,7 +53,6 @@ const videos = [
         duracao: "08:21"
     }
 ];
-
 
 const menuFlutuante = document.getElementById('menu-flutuante');
 let botaoAtivo = null;
@@ -76,15 +75,15 @@ document.addEventListener('click', function(event) {
         const larguraMenu = 210; 
         const alturaMenu = 150;  
         
-        let topPos = rect.bottom + 4; 
+        let topPos = rect.bottom + 2; 
         if (topPos + alturaMenu > window.innerHeight) {
-            topPos = rect.top - alturaMenu - 4;
+            topPos = rect.top - alturaMenu - 2;
         }
 
         // Alinhamento inteligente pela direita do botão (evita que vá para fora à esquerda)
         let leftPos = rect.right - larguraMenu;
 
-        // Se a posição calculada ficar negativa (muito colado na esquerda), alinha pela esquerda do botão
+        // Se a posição calculada ficar negativa, alinha pela esquerda do botão
         if (leftPos < 10) {
             leftPos = rect.left;
         }
@@ -100,12 +99,20 @@ document.addEventListener('click', function(event) {
         menuFlutuante.style.display = 'block';
 
     } else {
-        if (!menuFlutuante.contains(event.target)) {
+        if (menuFlutuante && !menuFlutuante.contains(event.target)) {
             menuFlutuante.style.display = 'none';
             botaoAtivo = null;
         }
     }
 });
+
+// --- FECHAR POPOVER AUTOMATICAMENTE AO ROLAR A PÁGINA ---
+window.addEventListener('scroll', () => {
+    if (menuFlutuante && menuFlutuante.style.display === 'block') {
+        menuFlutuante.style.display = 'none';
+        botaoAtivo = null;
+    }
+}, { passive: true });
 
 
 /* ========================================
@@ -138,7 +145,6 @@ if (pesquisa && inputPesquisa && btnBuscar && btnFecharPesquisa) {
             return;
         }
 
-        // Ação de pesquisa será conectada ao sistema de busca existente.
         if (inputPesquisa.value.trim()) {
             inputPesquisa.dispatchEvent(
                 new KeyboardEvent('keydown', {
@@ -200,10 +206,8 @@ document.addEventListener("DOMContentLoaded", () => {
         const expandido = grupo.classList.contains("expandido");
         const temMaisCanais = canais.length > LIMITE_INICIAL;
 
-        // O botão só existe quando há mais de 10 canais.
         botao.hidden = !temMaisCanais;
 
-        // Atualiza o texto e o estado acessível do botão.
         const texto = botao.querySelector("span");
 
         if (texto) {
@@ -213,15 +217,14 @@ document.addEventListener("DOMContentLoaded", () => {
         botao.setAttribute("aria-expanded", String(expandido));
 
         canais.forEach((canal, indice) => {
-    canal.hidden = !expandido && indice >= LIMITE_INICIAL;
-});
+            canal.hidden = !expandido && indice >= LIMITE_INICIAL;
+        });
 
-lista.classList.toggle("lista-expandida", expandido);
+        lista.classList.toggle("lista-expandida", expandido);
 
-// Ao expandir, a lista começa do início.
-if (expandido) {
-    lista.scrollTop = 0;
-}
+        if (expandido) {
+            lista.scrollTop = 0;
+        }
     }
 
     botao.addEventListener("click", () => {
@@ -231,5 +234,3 @@ if (expandido) {
 
     atualizarLista();
 });
-
-

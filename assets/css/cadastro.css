@@ -5,104 +5,173 @@
 }
 
 body {
-    background-image: url('../img/login.png');
+    background-color: #05040c;
+    background-image: 
+        radial-gradient(ellipse at 50% 100%, rgba(138, 77, 255, 0.4) 0%, rgba(19, 10, 36, 0.65) 45%, #05040c 85%),
+        linear-gradient(220deg, #05040c 0%, #151027 50%, #090912 100%);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow-x: hidden;
+    position: relative;
+    padding: 20px;
+}
+
+/* Camada de estrelas no fundo da página */
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-image: 
+        radial-gradient(circle, #ffffff 1.5px, transparent 1.5px),
+        radial-gradient(circle, #b06eff 2px, transparent 2px),
+        radial-gradient(circle, #60a5fa 1px, transparent 1px);
+    background-size: 180px 180px, 240px 240px, 120px 120px;
+    background-position: 0 0, 60px 80px, 30px 40px;
+    opacity: 0.35;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Efeito de Fundo: Forja Estelar com transição suave e contínua nos Keyframes */
+body::before {
+    content: "";
+    position: fixed;
+    bottom: -80px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 950px;
+    height: 480px;
+    background: radial-gradient(ellipse, rgba(186, 120, 255, 0.38) 0%, rgba(138, 77, 255, 0.16) 45%, transparent 75%);
+    border-radius: 50% 50% 0 0;
+    animation: pulsarForja 7s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    z-index: 0;
+    pointer-events: none;
+}
+
+@keyframes pulsarForja {
+    0%, 100% {
+        opacity: 0.5;
+        transform: translateX(-50%) scale(0.95);
+        filter: blur(25px);
+        box-shadow: 0 -25px 90px rgba(138, 77, 255, 0.3);
+    }
+    50% {
+        opacity: 0.95;
+        transform: translateX(-50%) scale(1.05);
+        filter: blur(14px);
+        box-shadow: 0 -45px 140px rgba(186, 120, 255, 0.55);
+    }
 }
 
 section {
-    /* Paleta de Cores Idêntica ao Fundo do Botão (Roxo e Azul Cósmico Profundo) */
-    background: #110324;
-    background-image: linear-gradient(135deg, #180533 0%, #0d021f 50%, #1c023a 100%);
+    position: relative;
+    z-index: 2;
+    
+    /* Efeito de Vidro Cósmico com transição fluida */
+    background: linear-gradient(
+        to bottom, 
+        rgba(24, 8, 51, 0.88) 0%, 
+        rgba(17, 3, 36, 0.68) 60%, 
+        rgba(15, 3, 33, 0.42) 100%
+    );
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
     
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-right: 50px;
-    padding-left: 50px;
-    margin: 50px;
-    width: 500px;
-    height: 800px;
-    justify-self: center;
-    border-radius: 50px;
+    justify-content: center;
+    padding: 40px 35px;
+    margin: auto;
+    width: 100%;
+    max-width: 440px;
+    min-height: 750px;
+    height: auto;
+    border-radius: 40px;
     
-    /* Borda sutil idêntica à do botão */
-    border: 1.5px solid rgba(147, 51, 234, 0.45);
+    border: 1.5px solid rgba(168, 85, 247, 0.5);
+    animation: pulsar-escudo 6s cubic-bezier(0.4, 0, 0.6, 1) infinite;
     
-    /* Ativação da animação de pulsação suave combinada com as novas cores */
-    animation: pulsar-escudo 5s ease-in-out infinite alternate;
-    
-    overflow: visible; 
     color: #ffffff;
 }
 
-/* ==========================================================
-   ANIMAÇÃO DE PULSAÇÃO DA SEÇÃO PRINCIPAL (CORES DO BOTÃO)
-============================================================ */
+/* Keyframes do Card com transição suave integrando a luz inferior */
 @keyframes pulsar-escudo {
-    0% {
+    0%, 100% {
         border-color: rgba(147, 51, 234, 0.45);
-        /* Brilho suave imitando o descanso do portal */
         box-shadow: 
-            0 4px 24px rgba(0, 0, 0, 0.65),
-            inset 0 0 15px rgba(168, 85, 247, 0.15),
-            0 0 20px rgba(139, 92, 246, 0.15);
+            0 20px 50px rgba(0, 0, 0, 0.65),
+            inset 0 -20px 30px rgba(168, 85, 247, 0.12),
+            inset 0 0 15px rgba(168, 85, 247, 0.1);
     }
-    100% {
-        border-color: rgba(168, 85, 247, 0.75);
-        /* Brilho neon expandido com os subtons de Roxo e Azul Estelar do botão */
+    50% {
+        border-color: rgba(186, 110, 255, 0.85);
         box-shadow: 
-            0 8px 32px rgba(0, 0, 0, 0.8),
-            inset 0 0 25px rgba(168, 85, 247, 0.35),
-            0 0 40px rgba(139, 92, 246, 0.4),
-            0 0 20px rgba(59, 130, 246, 0.2); /* Sutil reflexo azul estelar */
+            0 30px 70px rgba(0, 0, 0, 0.8),
+            inset 0 -40px 50px rgba(186, 110, 255, 0.35),
+            0 0 45px rgba(139, 92, 246, 0.45),
+            0 0 20px rgba(59, 130, 246, 0.25);
     }
 }
 
-
-
 .slogan img {
-    width: 160px;
-    height: 160px;
+    width: 130px;
+    height: 130px;
     display: block;
-    margin: 0 auto 15px auto;
+    margin: 0 auto 12px auto;
+}
+
+h1 {
+    font-family: "DynaPuff", system-ui;
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 4px;
+}
+
+h2 {
+    font-family: "Audiowide", sans-serif;
+    font-weight: 200;
+    text-align: center;
+    font-size: 12px;
+    margin-bottom: 20px;
 }
 
 form {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 14px;
     width: 100%;
-    /* O formulário se adapta ao limite */
-    max-width: 300px;
-    /* Limita a largura máxima em 300px */
-    margin-top: 15px;
+    max-width: 340px;
+    align-items: center;
 }
 
 input {
     width: 100%;
-    padding: 12px 16px; /* Aumentado ligeiramente para melhor ergonomia */
-    border-radius: 15px;
-    border: 1.5px solid rgba(176, 110, 255, 0.3);
-    background: rgba(15, 6, 36, 0.6); /* Fundo escuro translúcido combinando com o botão */
+    padding: 12px 16px;
+    border-radius: 14px;
+    border: 1.5px solid rgba(176, 110, 255, 0.35);
+    background: rgba(15, 6, 36, 0.45);
+    backdrop-filter: blur(6px);
     color: #ffffff;
     font-family: inherit;
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
-/* Efeito de brilho quando o usuário está digitando */
 input:focus {
     outline: none;
-    border-color: rgba(176, 110, 255, 0.8);
-    background: rgba(15, 6, 36, 0.8);
+    border-color: rgba(176, 110, 255, 0.85);
+    background: rgba(15, 6, 36, 0.85);
     box-shadow: 
-        0 0 15px rgba(176, 110, 255, 0.3),
-        inset 0 0 8px rgba(176, 110, 255, 0.1);
+        0 0 15px rgba(176, 110, 255, 0.35),
+        inset 0 0 8px rgba(176, 110, 255, 0.15);
 }
 
-/* Garante que o preenchimento automático do navegador não quebre o fundo */
 input:-webkit-autofill,
 input:-webkit-autofill:hover, 
 input:-webkit-autofill:focus {
@@ -111,54 +180,46 @@ input:-webkit-autofill:focus {
     transition: background-color 5000s ease-in-out 0s;
 }
 
-form button {
-    border-radius: 15px;
-    outline: none;
-}
-
-/* Container de Alternativas */
 .alternatives {
     display: flex;
     gap: 10px;
     justify-content: center;
     width: 100%;
-    max-width: 300px;
-    margin-bottom: 20px;
+    max-width: 340px;
+    margin-bottom: 15px;
+    margin-top: 5px;
 }
 
-/* Botões Sociais */
 .alternatives button {
     flex: 1;
-    height: 42px;
+    height: 40px;
     background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(176, 110, 255, 0.2);
+    border: 1px solid rgba(176, 110, 255, 0.22);
     border-radius: 12px;
     color: rgba(255, 255, 255, 0.85);
     font-family: inherit;
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 500;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 8px;
-    backdrop-filter: blur(4px); /* Efeito de vidro jateado */
+    backdrop-filter: blur(4px);
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
-/* Ícones dentro dos botões sociais */
 .alternatives button i {
-    font-size: 16px;
+    font-size: 15px;
     color: #c084fc;
     transition: color 0.3s ease;
 }
 
-/* Comportamento de Hover nos Botões Sociais */
 .alternatives button:hover {
-    background: rgba(176, 110, 255, 0.1);
-    border-color: rgba(176, 110, 255, 0.6);
+    background: rgba(176, 110, 255, 0.15);
+    border-color: rgba(176, 110, 255, 0.65);
     color: #ffffff;
-    box-shadow: 0 4px 15px rgba(138, 77, 255, 0.15);
+    box-shadow: 0 4px 15px rgba(138, 77, 255, 0.2);
     transform: translateY(-1px);
 }
 
@@ -166,48 +227,30 @@ form button {
     color: #ffffff;
 }
 
-.alternatives button:active {
-    transform: scale(0.97);
-}
-
-/* Ajuste fino na linha divisória (HR) */
 hr {
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin-top: 15px;
+    margin-bottom: 15px;
     width: 100%;
-    max-width: 300px;
+    max-width: 340px;
     border: none;
     height: 1px;
-    background: linear-gradient(to right, transparent, rgba(176, 110, 255, 0.4), transparent);
+    background: linear-gradient(to right, transparent, rgba(176, 110, 255, 0.45), transparent);
 }
 
-
 section a {
-    color: #c084fc; /* Lilás brilhante visível no fundo escuro */
+    color: #c084fc;
     text-decoration: none;
     font-weight: 500;
-    font-size: 14px;
-    letter-spacing: 0.3px;
+    font-size: 13px;
     transition: all 0.3s ease;
     text-align: end;
+    width: 100%;
+    max-width: 340px;
 }
 
 section a:hover {
     color: #ffffff;
     text-shadow: 0 0 8px rgba(176, 110, 255, 0.6);
-    text-decoration: none; /* Remove o sublinhado para manter o visual limpo */
-}
-
-h1 {
-    font-family: "DynaPuff", system-ui;
-    text-align: center;
-}
-
-h2 {
-    font-family: "Audiowide", sans-serif;
-    font-weight: 200;
-    font-style: normal;
-    text-align: center;
 }
 
 span {
@@ -217,59 +260,46 @@ span {
 h4 {
     font-weight: 400;
     color: rgba(255, 255, 255, 0.7);
-    font-size: 14px;
+    font-size: 13px;
     margin-top: 5px;
+    text-align: center;
 }
 
 h4 a {
     margin-left: 5px;
     font-weight: 600;
+    width: auto;
 }
 
-/* ==========================================================
-   BOTÃO PORTAL DO UNIVERSO (CORREÇÃO DE RENDERIZAÇÃO)
-============================================================ */
-
+/* Botão Principal */
 .btn-primary {
     position: relative;
-    width: 100%; /* Ocupa os 300px do seu formulário */
-    height: 54px;
-    
-    /* Força o fundo escuro e profundo idêntico ao da foto */
+    width: 100%;
+    max-width: 340px;
+    height: 50px;
     background: #110324 !important; 
     background-image: linear-gradient(135deg, #180533 0%, #0d021f 50%, #1c023a 100%) !important;
-    
-    /* Borda sutil */
     border: 1.5px solid rgba(147, 51, 234, 0.45) !important;
-    border-radius: 15px;
+    border-radius: 14px;
     cursor: pointer;
-    
-    /* Alinhamento dos textos e espaçamento interno */
     display: flex !important;
     align-items: center;
     justify-content: center;
-    padding: 0 40px; /* Garante espaço para a seta na direita */
-    
-    box-shadow: 
-        inset 0 0 15px rgba(168, 85, 247, 0.2),
-        0 4px 20px rgba(0, 0, 0, 0.5);
-        
+    padding: 0 35px;
+    box-shadow: inset 0 0 15px rgba(168, 85, 247, 0.2), 0 4px 20px rgba(0, 0, 0, 0.5);
     transition: all 0.4s ease;
 }
 
-/* O Anel de Luz Elíptico Interno (Garante o brilho horizontal da foto) */
 .portal-ring {
     position: absolute;
     top: 50%;
     left: 10px;
     right: 10px;
     height: 200%;
-    transform: translateY(-50%) scaleY(0.08); /* Achata o brilho horizontalmente */
+    transform: translateY(-50%) scaleY(0.08);
     border-radius: 50%;
     background: transparent;
-    box-shadow: 
-        0 0 20px rgba(168, 85, 247, 0.65),
-        inset 0 0 15px rgba(59, 130, 246, 0.5);
+    box-shadow: 0 0 20px rgba(168, 85, 247, 0.65), inset 0 0 15px rgba(59, 130, 246, 0.5);
     filter: blur(1px);
     opacity: 0.85;
     pointer-events: none;
@@ -277,44 +307,32 @@ h4 a {
     transition: all 0.5s ease;
 }
 
-/* Ponto de Luz Azul Intenso (Lens Flare na Direita) */
 .btn-primary::before {
     content: '';
     position: absolute;
-    right: 45px; /* Alinhado logo antes da seta */
+    right: 40px;
     top: 50%;
     transform: translateY(-50%);
     width: 6px;
     height: 6px;
     background: #60a5fa;
     border-radius: 50%;
-    box-shadow: 
-        0 0 15px #3b82f6, 
-        0 0 30px #3b82f6, 
-        0 0 8px #fff;
+    box-shadow: 0 0 15px #3b82f6, 0 0 30px #3b82f6, 0 0 8px #fff;
     opacity: 0.95;
     z-index: 2;
 }
 
-/* Aura Circular de Estrelas Externas (Aparece apenas no hover) */
 .space-stars {
     position: absolute;
-    top: -80px;
-    left: -80px;
-    right: -80px;
-    bottom: -80px;
-    
+    top: -80px; left: -80px; right: -80px; bottom: -80px;
     background-image: 
         radial-gradient(circle, #ffffff 2px, transparent 2px),
         radial-gradient(circle, #c084fc 3.5px, transparent 3.5px),
         radial-gradient(circle, #60a5fa 2.5px, transparent 2.5px) !important;
     background-size: 60px 60px, 90px 90px, 75px 75px;
     background-position: 0 0, 30px 40px, 45px 15px;
-    
-    /* Corta os cantos em formato esférico */
     -webkit-mask-image: radial-gradient(circle, rgba(0,0,0,1) 25%, rgba(0,0,0,0) 65%);
     mask-image: radial-gradient(circle, rgba(0,0,0,1) 25%, rgba(0,0,0,0) 65%);
-    
     opacity: 0;
     mix-blend-mode: screen;
     transform: scale(0.7);
@@ -323,62 +341,41 @@ h4 a {
     z-index: 0;
 }
 
-/* Estilização Central do Texto */
 .btn-text {
     font-family: inherit;
     color: #ffffff !important;
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 500;
-    letter-spacing: 0.5px;
     z-index: 3;
-    margin: 0 auto; /* Centraliza o texto perfeitamente */
-    transition: transform 0.3s ease;
+    margin: 0 auto;
 }
 
-/* Posicionamento Isolado da Seta na Direita */
 .btn-arrow {
     position: absolute;
-    right: 25px;
+    right: 22px;
     font-family: system-ui, sans-serif;
     color: rgba(168, 85, 247, 0.9) !important;
-    font-size: 18px;
-    font-weight: 300;
+    font-size: 16px;
     z-index: 3;
     transition: all 0.3s ease;
 }
 
-/* ==========================================
-   COMPORTAMENTO AO PASSAR O MOUSE (HOVER) 
-============================================ */
-
 .btn-primary:hover {
     border-color: rgba(168, 85, 247, 0.9) !important;
     transform: translateY(-2px);
-    box-shadow: 
-        inset 0 0 25px rgba(168, 85, 247, 0.5),
-        0 10px 35px rgba(0, 0, 0, 0.6),
-        0 0 30px rgba(147, 51, 234, 0.5),
-        0 0 15px rgba(59, 130, 246, 0.3);
+    box-shadow: inset 0 0 25px rgba(168, 85, 247, 0.5), 0 10px 35px rgba(0, 0, 0, 0.6), 0 0 30px rgba(147, 51, 234, 0.5);
 }
 
-/* Ativa as estrelas flutuantes */
 .btn-primary:hover .space-stars {
     opacity: 1;
     transform: scale(1.15);
     animation: orbitar-estrelas 16s linear infinite;
 }
 
-/* Expande a elipse de energia interna */
 .btn-primary:hover .portal-ring {
     opacity: 1;
-    box-shadow: 
-        0 0 35px rgba(168, 85, 247, 1),
-        inset 0 0 25px rgba(59, 130, 246, 0.8);
+    box-shadow: 0 0 35px rgba(168, 85, 247, 1), inset 0 0 25px rgba(59, 130, 246, 0.8);
     transform: translateY(-50%) scaleY(0.12) scaleX(1.02);
-}
-
-.btn-primary:hover .btn-text {
-    transform: translateX(-2px);
 }
 
 .btn-primary:hover .btn-arrow {
@@ -387,196 +384,163 @@ h4 a {
     transform: translateX(3px);
 }
 
-.btn-primary:active {
-    transform: scale(0.98) translateY(0);
-}
-
-/* Movimento de órbita galáctica */
 @keyframes orbitar-estrelas {
-    0% {
-        background-position: 0 0, 30px 40px, 45px 15px;
-    }
-    100% {
-        background-position: 60px -60px, 120px -50px, 105px -75px;
-    }
+    0% { background-position: 0 0, 30px 40px, 45px 15px; }
+    100% { background-position: 60px -60px, 120px -50px, 105px -75px; }
 }
 
-
-/* ============================= */
-/* MODAL - CADASTRO */
-/* ============================= */
-
+/* Modais */
 .modal-cadastro {
     position: fixed;
     inset: 0;
-
     display: flex;
     align-items: center;
     justify-content: center;
-
     background-color: rgba(5, 4, 12, .78);
-
     backdrop-filter: blur(5px);
-
     z-index: 3000;
-
     opacity: 0;
     visibility: hidden;
-
-    transition:
-        opacity .25s ease,
-        visibility .25s ease;
+    transition: opacity .25s ease, visibility .25s ease;
 }
 
-.modal-cadastro.aberto {
-    opacity: 1;
-    visibility: visible;
-}
-
-
-/* CAIXA */
+.modal-cadastro.aberto { opacity: 1; visibility: visible; }
 
 .caixa-modal-cadastro {
     width: 100%;
     max-width: 400px;
-
     padding: 30px;
-
     background-color: #130A24;
-
     border: 1px solid rgba(138, 77, 255, .35);
-
     border-radius: 18px;
-
-    box-shadow:
-        0 20px 60px rgba(0, 0, 0, .55),
-        0 0 35px rgba(138, 77, 255, .12);
-
+    box-shadow: 0 20px 60px rgba(0, 0, 0, .55), 0 0 35px rgba(138, 77, 255, .12);
     text-align: center;
-
-    transform:
-        translateY(-10px)
-        scale(.97);
-
-    transition:
-        transform .25s ease;
+    transform: translateY(-10px) scale(.97);
+    transition: transform .25s ease;
 }
 
-.modal-cadastro.aberto
-.caixa-modal-cadastro {
-
-    transform:
-        translateY(0)
-        scale(1);
-}
-
-
-/* ÍCONE */
+.modal-cadastro.aberto .caixa-modal-cadastro { transform: translateY(0) scale(1); }
 
 .icone-modal-cadastro {
-    width: 55px;
-    height: 55px;
-
-    margin:
-        0 auto 18px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
+    width: 55px; height: 55px;
+    margin: 0 auto 18px;
+    display: flex; align-items: center; justify-content: center;
     border-radius: 50%;
-
-    background-color:
-        rgba(138, 77, 255, .10);
-
-    border:
-        1px solid
-        rgba(138, 77, 255, .25);
-
-    color: #B06EFF;
-
-    font-size: 22px;
-
-    box-shadow:
-        0 0 20px
-        rgba(138, 77, 255, .15);
+    background-color: rgba(138, 77, 255, .10);
+    border: 1px solid rgba(138, 77, 255, .25);
+    color: #B06EFF; font-size: 22px;
+    box-shadow: 0 0 20px rgba(138, 77, 255, .15);
 }
 
-
-/* TÍTULO */
-
-.caixa-modal-cadastro h2 {
-
-    margin-bottom: 10px;
-
-    color: #ffffff;
-
-    font-size: 18px;
-
-    font-weight: 600;
-}
-
-
-/* MENSAGEM */
-
-.caixa-modal-cadastro p {
-
-    max-width: 310px;
-
-    margin: 0 auto;
-
-    color: #81798F;
-
-    font-size: 11px;
-
-    line-height: 1.6;
-}
-
-
-/* BOTÃO */
+.caixa-modal-cadastro h2 { margin-bottom: 10px; color: #ffffff; font-size: 18px; font-weight: 600; }
+.caixa-modal-cadastro p { max-width: 310px; margin: 0 auto; color: #81798F; font-size: 11px; line-height: 1.6; }
 
 .acao-modal-cadastro {
-
-    margin-top: 25px;
-
-    padding:
-        10px 25px;
-
-    border:
-        1px solid #8A4DFF;
-
-    border-radius: 20px;
-
-    background-color:
-        #8A4DFF;
-
-    color: #ffffff;
-
-    font-family: inherit;
-
-    font-size: 10px;
-
-    cursor: pointer;
-
-    transition:
-        background-color .2s ease,
-        border-color .2s ease,
-        transform .2s ease,
-        box-shadow .2s ease;
+    margin-top: 25px; padding: 10px 25px;
+    border: 1px solid #8A4DFF; border-radius: 20px;
+    background-color: #8A4DFF; color: #ffffff;
+    font-family: inherit; font-size: 10px; cursor: pointer;
+    transition: all .2s ease;
+}
+.acao-modal-cadastro:hover {
+    background-color: #B06EFF; border-color: #B06EFF;
+    transform: translateY(-1px);
+    box-shadow: 0 5px 20px rgba(138, 77, 255, .25);
 }
 
-.acao-modal-cadastro:hover {
+/* ==========================================================
+   DESIGN RESPONSIVO (MOBILE TELA CHEIA)
+============================================================ */
 
-    background-color:
-        #B06EFF;
+@media (max-width: 480px) {
+    body {
+        padding: 0;
+        background-color: #110324; /* Fundo sólido integrado em telas pequenas */
+    }
 
-    border-color:
-        #B06EFF;
+    body::before,
+    body::after {
+        display: none; /* Desativa os efeitos pesados de fundo para focar no formulário */
+    }
 
-    transform:
-        translateY(-1px);
+    section {
+        width: 100vw;
+        height: 100vh;
+        max-width: 100%;
+        min-height: 100vh;
+        border-radius: 0;
+        border: none;
+        padding: 30px 24px;
+        margin: 0;
+        background: linear-gradient(
+            to bottom, 
+            rgba(24, 8, 51, 0.95) 0%, 
+            rgba(17, 3, 36, 0.98) 100%
+        );
+        box-shadow: none;
+        animation: none; /* Remove a animação de pulsação para evitar travamentos em mobile */
+        justify-content: flex-start; /* Alinha o conteúdo ao topo para caber bem em teclados virtuais */
+        overflow-y: auto;
+    }
 
-    box-shadow:
-        0 5px 20px
-        rgba(138, 77, 255, .25);
+    .slogan img {
+        width: 110px;
+        height: 110px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    h1 {
+        font-size: 22px;
+    }
+
+    h2 {
+        font-size: 11px;
+        margin-bottom: 24px;
+    }
+
+    form {
+        max-width: 100%;
+        gap: 14px;
+    }
+
+    input {
+        padding: 14px 16px;
+        font-size: 15px;
+    }
+
+    .alternatives {
+        max-width: 100%;
+        gap: 10px;
+    }
+
+    .alternatives button {
+        height: 44px;
+        font-size: 13px;
+    }
+
+    hr {
+        max-width: 100%;
+        margin: 18px 0;
+    }
+
+    section a {
+        max-width: 100%;
+        font-size: 13px;
+    }
+
+    .btn-primary {
+        max-width: 100%;
+        height: 52px;
+        padding: 0 35px;
+    }
+
+    .btn-text {
+        font-size: 15px;
+    }
+
+    .caixa-modal-cadastro {
+        max-width: 90%;
+        padding: 24px;
+    }
 }

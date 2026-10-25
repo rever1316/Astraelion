@@ -1,307 +1,236 @@
-
-var MenuItem = document.querySelectorAll('aside a');
-
-function selectLink(){
-    MenuItem.forEach((item) =>
-        item.classList.remove('active')
-    );
-    this.classList.add('active');
-}
-
-MenuItem.forEach((item) =>
-    item.addEventListener('click', selectLink)
-);
-
-// Configuração do tamanho padrão ao carregar a página
-const INICIAR_RECOLHIDO = false; 
-
 document.addEventListener("DOMContentLoaded", () => {
-    // 1. Seletor corrigido para bater com <button class="btn-menu">
+    // 1. Menu Lateral e Navegação
+    var MenuItem = document.querySelectorAll('aside a');
+    function selectLink() {
+        MenuItem.forEach((item) => item.classList.remove('active'));
+        this.classList.add('active');
+    }
+    MenuItem.forEach((item) => item.addEventListener('click', selectLink));
+
     const btnExpandir = document.querySelector('.btn-menu');
     const aside = document.querySelector('aside');
-    
-    // 2. Tenta pegar a tag <main> ou a div .fendas-container
     const mainContent = document.querySelector('main') || document.querySelector('.fendas-container');
 
-    if (!btnExpandir || !aside) return;
-
-    // Define o estado inicial com base na configuração
-    if (INICIAR_RECOLHIDO) {
-        aside.classList.add('recolhido');
-        if (mainContent) mainContent.classList.add('recolhido');
-    }
-
-    // Evento de clique no botão do menu
-    btnExpandir.addEventListener('click', () => {
-        aside.classList.toggle('recolhido');
-        if (mainContent) mainContent.classList.toggle('recolhido');
-    });
-});
-
-
-
-const categorias = document.querySelectorAll('.categoria');
-const trilhoAbas = document.querySelector('.abas-trilho');
-
-categorias.forEach((categoria) => {
-
-    categoria.addEventListener('click', () => {
-
-        // Remove o active de todas as abas
-        categorias.forEach((item) => {
-            item.classList.remove('active');
+    if (btnExpandir && aside) {
+        btnExpandir.addEventListener('click', () => {
+            aside.classList.toggle('recolhido');
+            if (mainContent) mainContent.classList.toggle('recolhido');
         });
-
-        // Ativa a aba clicada
-        categoria.classList.add('active');
-
-        // Descobre qual aba foi clicada
-        const aba = Number(categoria.dataset.aba);
-
-        // Move o conteúdo
-        trilhoAbas.style.transform =
-            `translateX(-${aba * 25}%)`;
-
-    });
-
-});
-
-const videos = document.querySelectorAll('.card-missao');
-const btnVerMais = document.getElementById('btnVerMais');
-
-const limiteInicial = 20;
-const quantidadePorClique = 20;
-
-let videosVisiveis = limiteInicial;
-
-
-// Esconde os vídeos depois dos 20 primeiros
-
-videos.forEach((video, index) => {
-
-    if (index >= limiteInicial) {
-        video.style.display = 'none';
     }
 
-});
+    // 2. Elementos do Modal de Personalização do Canal
+    const modalCanal = document.getElementById("modalPersonalizarCanal");
+    const btnPersonalizar = document.getElementById("btnPersonalizarCanal");
+    const btnFecharModal = document.getElementById("btnFecharModalCanal");
+    const btnCancelarModal = document.getElementById("btnCancelarEdicaoCanal");
+    const formCanal = document.getElementById("formPersonalizarCanal");
 
+    // Painel Avançado
+    const btnAbrirAvancado = document.getElementById("btnAbrirAvancado");
+    const painelAvancado = document.getElementById("painelAvancado");
 
-// Se não tiver mais de 20 vídeos,
-// o botão não precisa aparecer.
+    // Inputs
+    const inputCapaArquivo = document.getElementById("inputCapaArquivo");
+    const inputAvatarArquivo = document.getElementById("inputAvatarArquivo");
+    const inputCorDestaque = document.getElementById("inputCorDestaque");
 
-if (videos.length <= limiteInicial) {
+    // Elementos visuais na tela do canal
+    const elNome = document.querySelector(".dados-canal h1");
+    const elUsuario = document.querySelector(".usuario-canal");
+    const elDescricao = document.querySelector(".descricao-canal p");
+    const elCapa = document.querySelector(".capa-canal img");
+    const elAvatar = document.querySelector(".avatar-canal");
 
-    btnVerMais.style.display = 'none';
+    const STORAGE_KEY = "astraelion_canal_criador";
 
-}
+    let novaCapaBase64 = "";
+    let novoAvatarBase64 = "";
 
+    // Carregar dados salvos no LocalStorage
+    function carregarDadosCanal() {
+        const dadosSalvos = JSON.parse(localStorage.getItem(STORAGE_KEY));
+        if (!dadosSalvos) return;
 
-btnVerMais.addEventListener('click', () => {
-
-    const novoLimite =
-        videosVisiveis + quantidadePorClique;
-
-
-    videos.forEach((video, index) => {
-
-        if (
-            index >= videosVisiveis &&
-            index < novoLimite
-        ) {
-
-            video.style.display = 'block';
-
+        if (elNome && dadosSalvos.nome) elNome.textContent = dadosSalvos.nome;
+        if (elUsuario && dadosSalvos.usuario) elUsuario.textContent = dadosSalvos.usuario;
+        if (elDescricao && dadosSalvos.descricao) elDescricao.textContent = dadosSalvos.descricao;
+        
+        if (elCapa && dadosSalvos.capa) {
+            elCapa.src = dadosSalvos.capa;
+            novaCapaBase64 = dadosSalvos.capa;
+        }
+        if (elAvatar && dadosSalvos.avatar) {
+            elAvatar.src = dadosSalvos.avatar;
+            novoAvatarBase64 = dadosSalvos.avatar;
         }
 
-    });
-
-
-    videosVisiveis = novoLimite;
-
-
-    // Acabaram os vídeos
-
-    if (videosVisiveis >= videos.length) {
-
-        btnVerMais.style.display = 'none';
-
-    }
-
-});
-
-const fendas = document.querySelectorAll('.card-fenda');
-const btnVerMaisFendas = document.querySelector('.btn-ver-mais-fendas');
-
-const fendasPorLinha = 6;
-const linhasIniciais = 2;
-const quantidadeInicial = fendasPorLinha * linhasIniciais;
-
-const linhasPorClique = 2;
-const quantidadePorCliqueFendas = fendasPorLinha * linhasPorClique;
-
-let fendasVisiveis = quantidadeInicial;
-
-
-// Esconde as Fendas depois das duas primeiras linhas
-fendas.forEach((fenda, index) => {
-    if (index >= quantidadeInicial) {
-        fenda.style.display = 'none';
-    }
-});
-
-
-// Se tiver 12 ou menos, não mostra o botão
-if (fendas.length <= quantidadeInicial) {
-    btnVerMaisFendas.style.display = 'none';
-}
-
-
-// Ver mais
-btnVerMaisFendas.addEventListener('click', () => {
-
-    const novoLimite = fendasVisiveis + quantidadePorCliqueFendas;
-
-    fendas.forEach((fenda, index) => {
-
-        if (
-            index >= fendasVisiveis &&
-            index < novoLimite
-        ) {
-            fenda.style.display = 'block';
+        if (inputCorDestaque && dadosSalvos.corDestaque) {
+            inputCorDestaque.value = dadosSalvos.corDestaque;
+            document.documentElement.style.setProperty('--cor-roxo-principal', dadosSalvos.corDestaque);
         }
+    }
 
+    // Conversor de imagem local para Base64
+    function lerArquivoComoBase64(input, callback) {
+        const file = input.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = (e) => callback(e.target.result);
+            reader.readAsDataURL(file);
+        } else {
+            callback(null);
+        }
+    }
+
+    if (inputCapaArquivo) {
+        inputCapaArquivo.addEventListener("change", () => {
+            lerArquivoComoBase64(inputCapaArquivo, (base64) => {
+                if (base64) novaCapaBase64 = base64;
+            });
+        });
+    }
+
+    if (inputAvatarArquivo) {
+        inputAvatarArquivo.addEventListener("change", () => {
+            lerArquivoComoBase64(inputAvatarArquivo, (base64) => {
+                if (base64) novoAvatarBase64 = base64;
+            });
+        });
+    }
+
+    // Abrir/Fechar Modal
+    if (btnPersonalizar && modalCanal) {
+        btnPersonalizar.addEventListener("click", () => {
+            const inputNome = document.getElementById("inputNomeCanal");
+            const inputUsuario = document.getElementById("inputUsuarioCanal");
+            const inputDescricao = document.getElementById("inputDescricaoCanal");
+
+            if (inputNome) inputNome.value = elNome ? elNome.textContent.trim() : "";
+            if (inputUsuario) inputUsuario.value = elUsuario ? elUsuario.textContent.trim() : "";
+            if (inputDescricao) inputDescricao.value = elDescricao ? elDescricao.textContent.trim() : "";
+
+            modalCanal.classList.add("ativo");
+        });
+    }
+
+    function fecharModal() {
+        if (modalCanal) modalCanal.classList.remove("ativo");
+        if (painelAvancado) painelAvancado.hidden = true;
+    }
+
+    if (btnFecharModal) btnFecharModal.addEventListener("click", fecharModal);
+    if (btnCancelarModal) btnCancelarModal.addEventListener("click", fecharModal);
+
+    window.addEventListener("click", (e) => {
+        if (e.target === modalCanal) fecharModal();
     });
 
-    fendasVisiveis = novoLimite;
-
-
-    // Esconde o botão quando não houver mais Fendas
-    if (fendasVisiveis >= fendas.length) {
-        btnVerMaisFendas.style.display = 'none';
+    // Alternar Painel Avançado
+    if (btnAbrirAvancado && painelAvancado) {
+        btnAbrirAvancado.addEventListener("click", () => {
+            painelAvancado.hidden = !painelAvancado.hidden;
+        });
     }
 
+    // Submeter formulário de edição do canal
+    if (formCanal) {
+        formCanal.addEventListener("submit", (e) => {
+            e.preventDefault();
+
+            const dadosAtuais = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
+
+            const dadosCanal = {
+                nome: document.getElementById("inputNomeCanal")?.value.trim() || "",
+                usuario: document.getElementById("inputUsuarioCanal")?.value.trim() || "",
+                descricao: document.getElementById("inputDescricaoCanal")?.value.trim() || "",
+                capa: novaCapaBase64 || dadosAtuais.capa || "",
+                avatar: novoAvatarBase64 || dadosAtuais.avatar || "",
+                corDestaque: inputCorDestaque ? inputCorDestaque.value : "#8A4DFF"
+            };
+
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(dadosCanal));
+
+            carregarDadosCanal();
+            fecharModal();
+        });
+    }
+
+    // Inicializar carregamento dos dados do canal
+    carregarDadosCanal();
+
+    // 3. Sistema de Abas do Canal
+    const categorias = document.querySelectorAll('.categoria');
+    const trilhoAbas = document.querySelector('.abas-trilho');
+
+    categorias.forEach((categoria) => {
+        categoria.addEventListener('click', () => {
+            categorias.forEach((item) => item.classList.remove('active'));
+            categoria.classList.add('active');
+            const aba = Number(categoria.dataset.aba);
+            if (trilhoAbas) {
+                trilhoAbas.style.transform = `translateX(-${aba * 25}%)`;
+            }
+        });
+    });
 });
 
-/* ========================================
-   PESQUISA EXPANSÍVEL — CELULARES
-======================================== */
-
-const pesquisa = document.querySelector('.pesquisa');
-const inputPesquisa = document.querySelector('#inputPesquisa');
-const btnBuscar = document.querySelector('.pesquisa .buscar');
-const btnFecharPesquisa = document.querySelector('.fechar-pesquisa');
-
-if (pesquisa && inputPesquisa && btnBuscar && btnFecharPesquisa) {
-
-    function abrirPesquisa() {
-        if (window.innerWidth > 768) return;
-
-        pesquisa.classList.add('ativa');
-        inputPesquisa.focus();
-    }
-
-    function fecharPesquisa() {
-        pesquisa.classList.remove('ativa');
-        inputPesquisa.value = '';
-        inputPesquisa.blur();
-    }
-
-    btnBuscar.addEventListener('click', () => {
-        if (window.innerWidth <= 768 && !pesquisa.classList.contains('ativa')) {
-            abrirPesquisa();
+// Conversor e redimensionador de imagem local para Base64 otimizado (Evita QuotaExceededError)
+    function lerArquivoComRedimensionamento(input, callback) {
+        const file = input.files[0];
+        if (!file) {
+            callback(null);
             return;
         }
 
-        // Ação de pesquisa será conectada ao sistema de busca existente.
-        if (inputPesquisa.value.trim()) {
-            inputPesquisa.dispatchEvent(
-                new KeyboardEvent('keydown', {
-                    key: 'Enter',
-                    bubbles: true
-                })
-            );
-        }
-    });
+        const reader = new FileReader();
+        reader.onload = (e) => {
+            const img = new Image();
+            img.onload = () => {
+                const canvas = document.createElement('canvas');
+                const MAX_WIDTH = 800;
+                const MAX_HEIGHT = 800;
+                let width = img.width;
+                let height = img.height;
 
-    btnFecharPesquisa.addEventListener('click', fecharPesquisa);
+                if (width > height) {
+                    if (width > MAX_WIDTH) {
+                        height *= MAX_WIDTH / width;
+                        width = MAX_WIDTH;
+                    }
+                } else {
+                    if (height > MAX_HEIGHT) {
+                        width *= MAX_HEIGHT / height;
+                        height = MAX_HEIGHT;
+                    }
+                }
 
-    inputPesquisa.addEventListener('keydown', (event) => {
-        if (event.key === 'Escape') {
-            fecharPesquisa();
-        }
-    });
+                canvas.width = width;
+                canvas.height = height;
 
-    window.addEventListener('resize', () => {
-        if (window.innerWidth > 768) {
-            pesquisa.classList.remove('ativa');
-        }
-    });
-}
+                const ctx = canvas.getContext('2d');
+                ctx.drawImage(img, 0, 0, width, height);
 
+                // Converte para JPEG comprimido a 70% de qualidade
+                const dataUrl = canvas.toDataURL('image/jpeg', 0.7);
+                callback(dataUrl);
+            };
+            img.src = e.target.result;
+        };
+        reader.readAsDataURL(file);
+    }
 
-document.addEventListener("DOMContentLoaded", () => {
-    const grupo = document.querySelector(".grupo-inscricoes");
-    const lista = document.querySelector("#listaInscricoesMenu");
-    const botao = document.querySelector("#btnVerInscricoes");
-
-    if (!grupo || !lista || !botao) return;
-
-    const LIMITE_INICIAL = 10;
-
-    // Organiza os canais alfabeticamente.
-    function ordenarCanais() {
-        const canais = [
-            ...lista.querySelectorAll(".item-inscrito")
-        ];
-
-        canais.sort((a, b) => {
-            const nomeA = a.querySelector("span")?.textContent.trim() || "";
-            const nomeB = b.querySelector("span")?.textContent.trim() || "";
-
-            return nomeA.localeCompare(nomeB, "pt-BR", {
-                sensitivity: "base"
+    if (inputCapaArquivo) {
+        inputCapaArquivo.addEventListener("change", () => {
+            lerArquivoComRedimensionamento(inputCapaArquivo, (base64) => {
+                if (base64) novaCapaBase64 = base64;
             });
         });
-
-        canais.forEach(canal => lista.appendChild(canal));
-
-        return canais;
     }
 
-    const canais = ordenarCanais();
-
-    function atualizarLista() {
-        const expandido = grupo.classList.contains("expandido");
-        const temMaisCanais = canais.length > LIMITE_INICIAL;
-
-        // O botão só existe quando há mais de 10 canais.
-        botao.hidden = !temMaisCanais;
-
-        // Atualiza o texto e o estado acessível do botão.
-        const texto = botao.querySelector("span");
-
-        if (texto) {
-            texto.textContent = expandido ? "Ver menos" : "Ver mais";
-        }
-
-        botao.setAttribute("aria-expanded", String(expandido));
-
-        canais.forEach((canal, indice) => {
-    canal.hidden = !expandido && indice >= LIMITE_INICIAL;
-});
-
-lista.classList.toggle("lista-expandida", expandido);
-
-// Ao expandir, a lista começa do início.
-if (expandido) {
-    lista.scrollTop = 0;
-}
+    if (inputAvatarArquivo) {
+        inputAvatarArquivo.addEventListener("change", () => {
+            lerArquivoComRedimensionamento(inputAvatarArquivo, (base64) => {
+                if (base64) novoAvatarBase64 = base64;
+            });
+        });
     }
-
-    botao.addEventListener("click", () => {
-        grupo.classList.toggle("expandido");
-        atualizarLista();
-    });
-
-    atualizarLista();
-});

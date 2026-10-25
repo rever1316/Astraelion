@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#090912">
+  <title>Astraelion — Propagar Frequência</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Aldrich&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="/assets/css/publicar-video.css">
+  <link rel="stylesheet" href="/assets/css/notificacao-global.css">
+  <link rel="stylesheet" href="/assets/css/user-painel.css">
+</head>
+
+<body>
+
+  <header>
+    <nav class="nav-container">
+
+      <div class="nav-esquerda">
+        <a href="/index.html" class="logo-link">
+          <img src="/assets/img/logo.ico" alt="Astraelion Logo">
+          <span>Astraelion</span>
+        </a>
+      </div>
+
+      <div class="nav-perfil">
+
+        <a href="#" class="btn-user btn-notificacao" title="Ecos & Notificações">
+          <i class="bi bi-bell"></i>
+        </a>
+
+        <a href="#" class="btn-user-painel" title="Nível de Órbita / Perfil">
+          <i class="bi bi-person-circle"></i>
+        </a>
+      </div>
+
+    </nav>
+  </header>
+
+  <main class="publicar-layout">
+    <div class="pagina-cabecalho">
+      <div>
+        <span class="sobretitulo"><i class="bi bi-stars"></i> CENTRAL DE TRANSMISSÃO ASTRAL</span>
+        <h1>Propagar Frequência</h1>
+        <p>Sintonize e compartilhe sua próxima transmissão com o universo Astraelion.</p>
+      </div>
+      <span class="status" id="statusRascunho"><i class="bi bi-cloud-check"></i> Eco registrado na órbita local</span>
+    </div>
+
+    <form id="formPublicar">
+      <!-- ETAPA 01 -->
+      <section class="painel">
+        <div class="painel-titulo">
+          <span class="etapa">01</span>
+          <div>
+            <h2>Núcleo da Transmissão</h2>
+            <p>Selecione a frequência visual ou arquivo de mídia que deseja propagar.</p>
+          </div>
+        </div>
+        <input type="file" id="arquivoVideo" accept="video/*" hidden>
+        <div class="zona-upload" id="zonaUpload" role="button" tabindex="0"
+          aria-label="Selecionar arquivo de frequência">
+          <div class="upload-icone"><i class="bi bi-cloud-arrow-up"></i></div>
+          <h3>Arraste sua frequência para esta fenda</h3>
+          <p>ou clique para sintonizar um arquivo do seu dispositivo</p>
+          <small>Formatos e frequências suportados pelo seu navegador</small>
+          <button class="botao secundario" id="btnSelecionarVideo" type="button">
+            <i class="bi bi-folder2-open"></i> Sintonizar Arquivo
+          </button>
+        </div>
+        <div id="arquivoSelecionado" hidden>
+          <div class="video-wrap">
+            <video id="videoPreview" controls playsinline></video>
+            <span class="selo-preview">Prévia da Frequência</span>
+          </div>
+          <div class="arquivo-info">
+            <i class="bi bi-file-earmark-play arquivo-icone"></i>
+            <div class="arquivo-texto">
+              <strong id="nomeArquivo"></strong>
+              <small id="detalhesArquivo"></small>
+            </div>
+            <button type="button" class="botao-icone" id="btnTrocarVideo" title="Ressintonizar arquivo">
+              <i class="bi bi-arrow-repeat"></i>
+            </button>
+            <button type="button" class="botao-icone perigo" id="btnRemoverVideo" title="Dissipar frequência">
+              <i class="bi bi-trash3"></i>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ETAPA 02 & LATERAL -->
+      <div class="colunas">
+        <section class="painel">
+          <div class="painel-titulo">
+            <span class="etapa">02</span>
+            <div>
+              <h2>Coordenadas & Metadados</h2>
+              <p>Configure a assinatura estelar para que outros exploradores encontrem seu sinal.</p>
+            </div>
+          </div>
+
+          <div class="campo">
+            <div class="campo-label">
+              <label for="tituloVideo">Título da Frequência <b>*</b></label>
+              <small id="contadorTitulo">0 / 100</small>
+            </div>
+            <input id="tituloVideo" maxlength="100" placeholder="Nomeie sua transmissão no cosmos..." required>
+          </div>
+
+          <div class="campo">
+            <div class="campo-label">
+              <label for="descricaoVideo">Diário de Bordo (Descrição)</label>
+              <small id="contadorDescricao">0 / 5000</small>
+            </div>
+            <textarea id="descricaoVideo" maxlength="5000" rows="6"
+              placeholder="Descreva os registros ou a história desta transmissão..."></textarea>
+          </div>
+
+          <div class="campo">
+            <label for="categoriaVideo">Constelação (Categoria)</label>
+            <select id="categoriaVideo">
+              <option value="">Escolha uma constelação</option>
+              <option>Cine-Galáxias & Animações</option>
+              <option>Universos Jogáveis</option>
+              <option>Ecos & Ondas Sonoras</option>
+              <option>Transmissões Ao Vivo</option>
+              <option>Ciência & Tecnologias Astrais</option>
+              <option>Saber & Conhecimento</option>
+              <option>Entretenimento Astral</option>
+              <option>Fendas & Anomalias</option>
+              <option>Outros Domínios</option>
+            </select>
+          </div>
+
+          <div class="campo">
+            <label for="tagsVideo">Raios de Busca (Tags)</label>
+            <input id="tagsVideo" placeholder="Ex.: astraelion, fenda, aventura, sintonia">
+            <small>Separe os raios de busca por vírgulas.</small>
+          </div>
+
+          <div class="campo">
+            <label>Holograma de Capa <span class="opcional">OPCIONAL</span></label>
+            <input type="file" id="miniaturaVideo" accept="image/*" hidden>
+            <div class="miniatura-area">
+              <div id="miniaturaPreview" class="miniatura-preview">
+                <i class="bi bi-image"></i>
+                <span>Holograma de prévia</span>
+              </div>
+              <div>
+                <p>Escolha uma projeção para ilustrar sua frequência nos cards do cosmos.</p>
+                <button type="button" class="botao secundario" id="btnSelecionarMiniatura">
+                  <i class="bi bi-image"></i> Projetar Imagem
+                </button>
+                <button type="button" class="link-remover" id="btnRemoverMiniatura" hidden>Desativar Holograma</button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <div class="coluna-lateral">
+          <section class="painel">
+            <div class="painel-titulo">
+              <span class="etapa">03</span>
+              <div>
+                <h2 style="font-size: 15px;">Esfera de Alcance</h2>
+                <p>Defina a extensão do sinal no tecido estelar.</p>
+              </div>
+            </div>
+            <div class="opcoes-visibilidade">
+              <label class="opcao">
+                <input type="radio" name="visibilidade" value="publico" checked>
+                <i class="bi bi-globe2"></i>
+                <span>
+                  <strong>Universal</strong>
+                  <small>Sinal livre. Todos os navegantes do cosmos podem captar.</small>
+                </span>
+              </label>
+
+              <label class="opcao">
+                <input type="radio" name="visibilidade" value="nao-listado">
+                <i class="bi bi-link-45deg"></i>
+                <span>
+                  <strong>Coordenada Secreta</strong>
+                  <small>Acessível apenas por atalhos e portais diretos.</small>
+                </span>
+              </label>
+
+              <label class="opcao">
+                <input type="radio" name="visibilidade" value="privado">
+                <i class="bi bi-lock"></i>
+                <span>
+                  <strong>Singularidade</strong>
+                  <small>Sinal isolado. Visível apenas no seu centro de controle.</small>
+                </span>
+              </label>
+            </div>
+          </section>
+
+          <section class="painel dica">
+            <i class="bi bi-lightbulb"></i>
+            <h3>Instrução Astral</h3>
+            <p>Um nome marcante e um holograma de capa nítido ajudam sua frequência a ressoar com mais intensidade no
+              universo.</p>
+          </section>
+
+          <p class="aviso">
+            <i class="bi bi-info-circle"></i> Esta transmissão está operando em simulação de órbita local. Nenhum sinal
+            será enviado a servidores externos.
+          </p>
+        </div>
+      </div>
+
+      <!-- BARRA DE PUBLICAÇÃO -->
+      <div class="barra-publicacao">
+        <span>
+          <i class="bi bi-shield-check"></i> Verifique as coordenadas antes de propagar o sinal.
+        </span>
+        <div>
+          <button type="button" class="botao secundario" id="btnLimpar">Resetar Sinal</button>
+          <button type="submit" class="botao principal">
+            <i class="bi bi-broadcast"></i> Propagar para o Cosmos
+          </button>
+        </div>
+      </div>
+
+      <p id="mensagemFormulario" class="mensagem" role="status" aria-live="polite"></p>
+    </form>
+  </main>
+
+  <!-- MODAL DE CONFIRMAÇÃO ASTRAL PERSONALIZADA -->
+  <div class="modal-overlay" id="modalConfirmacao" hidden>
+    <div class="modal-caixa">
+      <div class="modal-icone"><i class="bi bi-exclamation-triangle"></i></div>
+      <div class="modal-conteudo">
+        <h3>Dissipar Transmissão</h3>
+        <p>Deseja dissipar a frequência atual e resetar todas as coordenadas?</p>
+      </div>
+      <div class="modal-acoes">
+        <button type="button" class="botao secundario" id="modalBtnCancelar">Manter Sinal</button>
+        <button type="button" class="botao perigo" id="modalBtnConfirmar"><i class="bi bi-trash3"></i> Sim,
+          Dissipar</button>
+      </div>
+    </div>
+  </div>
+</body>
+
+<script src="/assets/scripsts/publicar-video.js"></script>
+<script src="/assets/scripsts/user-painel.js"></script>
+<script src="/assets/scripsts/notificacao-global.js"></script>
+
+</html>

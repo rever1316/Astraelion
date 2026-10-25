@@ -1617,3 +1617,62 @@ if (expandido) {
 
     atualizarLista();
 });
+
+// =========================================================
+// LEITURA DO TEMPO DO MINI PLAYER E GESTO DE MINIMIZAR
+// =========================================================
+
+window.addEventListener("DOMContentLoaded", () => {
+  const videoElement = document.querySelector("#videoPlayer");
+  const playerElement = document.querySelector(".player");
+
+  if (!videoElement) return;
+
+  // 1. Aplicação imediata do tempo salvo pela URL (?t=)
+  const urlParams = new URLSearchParams(window.location.search);
+  const tempoSalvo = urlParams.get("t");
+
+  if (tempoSalvo) {
+    const tempoFloat = parseFloat(tempoSalvo);
+    
+    // Define o tempo imediatamente e também força caso o vídeo ainda esteja a carregar os metadados
+    videoElement.currentTime = tempoFloat;
+    
+    videoElement.addEventListener("loadedmetadata", () => {
+      videoElement.currentTime = tempoFloat;
+    }, { once: true });
+
+    // Força novamente após um breve instante para garantir que o autoplay não sobrescreve
+    setTimeout(() => {
+      videoElement.currentTime = tempoFloat;
+    }, 200);
+  }
+
+  // 2. Gesto de puxar para baixo no player para minimizar (Mobile)
+  if (!playerElement) return;
+
+  let inicioToqueY = 0;
+
+  playerElement.addEventListener("touchstart", (e) => {
+    if (window.innerWidth > 768) return;
+    inicioToqueY = e.touches[0].clientY;
+  }, { passive: true });
+
+  playerElement.addEventListener("touchend", (e) => {
+    if (window.innerWidth > 768) return;
+    const fimToqueY = e.changedTouches[0].clientY;
+    const diferencaY = fimToqueY - inicioToqueY;
+
+    // Se puxou para baixo com força no telemóvel
+    if (diferencaY > 60) {
+      const estadoVideo = {
+        srcVideo: videoElement.currentSrc || videoElement.src,
+        tempoAtual: videoElement.currentTime,
+        estaReproduzindo: !videoElement.paused
+      };
+
+      localStorage.setItem("astraelion_mini_player", JSON.stringify(estadoVideo));
+      window.location.href = "/index.html";
+    }
+  });
+});

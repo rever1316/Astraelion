@@ -78,14 +78,13 @@ filtrosNotificacao.forEach((filtro) => {
 const btnMarcarTodas =
     document.querySelector('.marcar-todas');
 
-
-btnMarcarTodas.addEventListener('click', () => {
-
-    notificacoes.forEach((notificacao) => {
-        notificacao.classList.remove('nao-lida');
+if (btnMarcarTodas) {
+    btnMarcarTodas.addEventListener('click', () => {
+        notificacoes.forEach((notificacao) => {
+            notificacao.classList.remove('nao-lida');
+        });
     });
-
-});
+}
 
 const menusNotificacao =
     document.querySelectorAll('.menu-notificacao');
@@ -171,61 +170,45 @@ document.addEventListener('click', () => {
 });
 
 
-/* ========================================
-   PESQUISA EXPANSÍVEL — CELULARES
-======================================== */
+document.querySelectorAll("header .pesquisa").forEach((pesquisa) => {
+    const campo = pesquisa.querySelector('input[type="search"]');
+    const botaoBuscar = pesquisa.querySelector(".buscar");
+    const botaoFechar = pesquisa.querySelector(".fechar-pesquisa");
 
-const pesquisa = document.querySelector('.pesquisa');
-const inputPesquisa = document.querySelector('#inputPesquisa');
-const btnBuscar = document.querySelector('.pesquisa .buscar');
-const btnFecharPesquisa = document.querySelector('.fechar-pesquisa');
+    if (!campo || !botaoBuscar || !botaoFechar) return;
 
-if (pesquisa && inputPesquisa && btnBuscar && btnFecharPesquisa) {
-
-    function abrirPesquisa() {
-        if (window.innerWidth > 768) return;
-
-        pesquisa.classList.add('ativa');
-        inputPesquisa.focus();
-    }
-
-    function fecharPesquisa() {
-        pesquisa.classList.remove('ativa');
-        inputPesquisa.value = '';
-        inputPesquisa.blur();
-    }
-
-    btnBuscar.addEventListener('click', () => {
-        if (window.innerWidth <= 768 && !pesquisa.classList.contains('ativa')) {
-            abrirPesquisa();
+    botaoBuscar.addEventListener("click", () => {
+        if (window.innerWidth > 768) {
+            if (campo.value.trim()) {
+                pesquisa.closest("form")?.requestSubmit();
+            } else {
+                campo.focus();
+            }
             return;
         }
 
-        // Ação de pesquisa será conectada ao sistema de busca existente.
-        if (inputPesquisa.value.trim()) {
-            inputPesquisa.dispatchEvent(
-                new KeyboardEvent('keydown', {
-                    key: 'Enter',
-                    bubbles: true
-                })
-            );
+        if (!pesquisa.classList.contains("ativa")) {
+            pesquisa.classList.add("ativa");
+            campo.focus();
+        } else if (campo.value.trim()) {
+            pesquisa.closest("form")?.requestSubmit();
+        } else {
+            campo.focus();
         }
     });
 
-    btnFecharPesquisa.addEventListener('click', fecharPesquisa);
-
-    inputPesquisa.addEventListener('keydown', (event) => {
-        if (event.key === 'Escape') {
-            fecharPesquisa();
-        }
+    botaoFechar.addEventListener("click", () => {
+        pesquisa.classList.remove("ativa");
+        campo.value = "";
     });
 
-    window.addEventListener('resize', () => {
-        if (window.innerWidth > 768) {
-            pesquisa.classList.remove('ativa');
+    campo.addEventListener("keydown", (evento) => {
+        if (evento.key === "Escape") {
+            pesquisa.classList.remove("ativa");
+            campo.blur();
         }
     });
-}
+});
 
 
 document.addEventListener("DOMContentLoaded", () => {

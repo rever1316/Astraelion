@@ -12,14 +12,13 @@
     <link rel="shortcut icon" href="/assets/img/logo.ico" type="image/ico">
 </head>
 
-
 <body>
 
+    <!-- CABEÇALHO / HEADER -->
     <header>
         <nav class="nav-container">
-
             <div class="nav-esquerda">
-                <button class="btn-menu">
+                <button class="btn-menu" aria-label="Menu lateral">
                     <i class="bi bi-list"></i>
                 </button>
                 <a href="/index.html" class="logo-link">
@@ -30,503 +29,344 @@
 
             <div class="pesquisa">
                 <input type="search" placeholder="Explorar...">
-                <button class="buscar">
+                <button class="buscar" aria-label="Pesquisar">
                     <i class="bi bi-search"></i>
                 </button>
             </div>
 
             <div class="nav-perfil">
-                <a href="#" class="btn-user">
+                <a href="#" class="btn-user" title="Upload">
                     <i class="bi bi-box-arrow-in-up"></i>
                 </a>
-
-                <a href="#" class="btn-user btn-notificacao">
+                <a href="#" class="btn-user btn-notificacao" title="Notificações">
                     <i class="bi bi-bell"></i>
                 </a>
-
-                <a href="#" class="btn-user-painel">
+                <a href="#" class="btn-user-painel" title="Perfil">
                     <i class="bi bi-person-circle"></i>
                 </a>
             </div>
-
         </nav>
     </header>
 
-        <nav class="menu-mobile">
-
-        <a href="/index.html" class="item-menu-mobile active">
-            <i class="bi bi-house-door-fill"></i>
-            <span>Início</span>
-        </a>
-
-        <a href="/assets/paginas-segundarias/inscricoes.html" class="item-menu-mobile">
-            <i>&#xF5EC;</i>
-            <span>Inscrições</span>
-        </a>
-
-
-        <a href="#" class="item-menu-mobile item-postar-mobile">
-            <i class="bi bi-plus-lg"></i>
-            <span>Postar</span>
-        </a>
-
-        <a class="item-menu-mobile" href="/assets/paginas-segundarias/fenda.html">
-            <i class="bi bi-stars"></i>
-            <span class="name">Fendas</span>
-        </a>
-
-        <a href="#" class="item-menu-mobile">
-            <i class="bi bi-person-circle"></i>
-            <span>Perfil</span>
-        </a>
-
-    </nav>
-
-    <!-- MENU DE NAVEGAÇÃO LATERAL - MVL -->
-
-<aside class="menu-lateral">
+    <!-- MENU DE NAVEGAÇÃO LATERAL (MVL) -->
+    <aside class="menu-lateral">
         <div class="lis">
-            <li>
-                <a class="linha active" href="/index.html">
-                    <i class="bi bi-house-door-fill"></i>
-                    <span class="name">Inicio</span>
-                </a>
-            </li>
-
-            <li>
-                <a class="linha" href="/assets/paginas-segundarias/notificacao.html">
-                    <i class="bi bi-bell"></i>
-                    <span class="name">Notificação</span>
-                </a>
-            </li>
-
-            <li>
-                <a class="linha" href="/assets/paginas-segundarias/fenda.html">
-                    <i class="bi bi-stars"></i>
-                    <span class="name">Fendas</span>
-                </a>
-            </li>
-
-            <li>
-                <a class="linha" href="/assets/paginas-segundarias/minhas-galaxias.html">
-                    <i class="bi bi-music-note-list"></i>
-                    <span class="name">Galaxia</span>
-                </a>
-            </li>
+            <ul>
+                <li>
+                    <a class="linha active" href="/index.html">
+                        <i class="bi bi-house-door-fill"></i>
+                        <span class="name">Inicio</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="linha" href="/assets/paginas-segundarias/notificacao.html">
+                        <i class="bi bi-bell"></i>
+                        <span class="name">Notificação</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="linha" href="/assets/paginas-segundarias/fenda.html">
+                        <i class="bi bi-stars"></i>
+                        <span class="name">Fendas</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="linha" href="/assets/paginas-segundarias/minhas-galaxias.html">
+                        <i class="bi bi-music-note-list"></i>
+                        <span class="name">Galaxia</span>
+                    </a>
+                </li>
+            </ul>
             <hr>
 
             <div class="grupo-inscricoes">
-
                 <a href="/assets/paginas-segundarias/inscricoes.html" class="label-inscritos">
                     Inscrições
                 </a>
 
                 <div class="label-list" id="listaInscricoesMenu">
-
                     <a href="/assets/paginas-segundarias/canal.html" class="item-inscrito">
                         <img src="/assets/img/avatar1.jpg" alt="">
                         <span>Canal Astraelion</span>
                     </a>
-
                     <a href="/assets/paginas-segundarias/canal.html" class="item-inscrito">
                         <img src="/assets/img/avatar2.jpg" alt="">
                         <span>Cosmos Channel</span>
                     </a>
-
                     <a href="/assets/paginas-segundarias/canal.html" class="item-inscrito">
                         <img src="/assets/img/avatar3.jpg" alt="">
                         <span>Universo X</span>
                     </a>
-
                     <a href="/assets/paginas-segundarias/canal.html" class="item-inscrito">
                         <img src="/assets/img/avatar4.jpg" alt="">
                         <span>Dev Space</span>
                     </a>
-
                     <a href="/assets/paginas-segundarias/canal.html" class="item-inscrito">
                         <img src="/assets/img/avatar5.jpg" alt="">
                         <span>Beyond Worlds</span>
                     </a>
-
                     <a href="/assets/paginas-segundarias/canal.html" class="item-inscrito">
                         <img src="/assets/img/avatar6.jpg" alt="">
                         <span>AstroLab</span>
                     </a>
-
                     <a href="/assets/paginas-segundarias/canal.html" class="item-inscrito">
                         <img src="/assets/img/avatar1.jpg" alt="">
                         <span>Canal Astraelion oficial</span>
                     </a>
-
                     <a href="/assets/paginas-segundarias/canal.html" class="item-inscrito">
                         <img src="/assets/img/avatar2.jpg" alt="">
                         <span>Cosmos Channel Studios</span>
                     </a>
-
                     <a href="/assets/paginas-segundarias/canal.html" class="item-inscrito">
                         <img src="/assets/img/avatar3.jpg" alt="">
                         <span>Universo A</span>
                     </a>
-
                     <a href="/assets/paginas-segundarias/canal.html" class="item-inscrito">
                         <img src="/assets/img/avatar4.jpg" alt="">
                         <span>Space</span>
                     </a>
-
                     <a href="/assets/paginas-segundarias/canal.html" class="item-inscrito">
                         <img src="/assets/img/avatar5.jpg" alt="">
                         <span>Worlds arquive</span>
                     </a>
-
                     <a href="/assets/paginas-segundarias/canal.html" class="item-inscrito">
                         <img src="/assets/img/avatar6.jpg" alt="">
                         <span>Lab star</span>
                     </a>
-
-
-
-
-
-                    <!-- Adicione os demais canais seguindo este padrão -->
-
                 </div>
 
                 <button type="button" class="btn-ver-inscricoes" id="btnVerInscricoes">
                     <i class="bi bi-chevron-down"></i>
                     <span>Ver mais</span>
                 </button>
-
             </div>
-
             <hr>
 
-            <li>
-                <a class="linha" href="/assets/paginas-segundarias/historico.html">
-                    <i class="bi bi-clock-history"></i>
-                    <span class="name">Historico</span>
-                </a>
-            </li>
-
-            <li>
-                <a class="linha" href="/assets/paginas-segundarias/configuracoes.html">
-                    <i class="bi bi-gear-fill"></i>
-                    <span class="name">Configurações</span>
-                </a>
-            </li>
+            <ul>
+                <li>
+                    <a class="linha" href="/assets/paginas-segundarias/historico.html">
+                        <i class="bi bi-clock-history"></i>
+                        <span class="name">Historico</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="linha" href="/assets/paginas-segundarias/configuracoes.html">
+                        <i class="bi bi-gear-fill"></i>
+                        <span class="name">Configurações</span>
+                    </a>
+                </li>
+            </ul>
         </div>
     </aside>
 
+    <!-- CONTEÚDO PRINCIPAL -->
     <main class="galaxia-container">
 
+        <!-- CAPA DA GALÁXIA -->
         <section class="hero-galaxia">
-
             <div class="capa-principal-galaxia">
-
                 <img src="../img/thumb1.jpg" alt="Explorando Astraelion">
-
             </div>
-
         </section>
 
+        <!-- INFORMAÇÕES E AÇÕES -->
         <section class="informacoes-galaxia">
-
             <div class="identidade-galaxia">
-
-                <span class="tipo-galaxia">
-                    ✦ GALÁXIA
-                </span>
-
-                <h1>
-                    Explorando Astraelion
-                </h1>
+                <span class="tipo-galaxia">✦ GALÁXIA</span>
+                <h1>Explorando Astraelion</h1>
 
                 <div class="dados-galaxia">
-
                     <img src="../img/avatar1.jpg" alt="Canal Astraelion">
-
-                    <span>
-                        Canal Astraelion
-                    </span>
-
-                    <span class="separador">
-                        •
-                    </span>
-
-                    <span>
-                        12 vídeos
-                    </span>
-
+                    <span>Canal Astraelion</span>
+                    <span class="separador">•</span>
+                    <span>12 vídeos</span>
                 </div>
-
             </div>
-
 
             <div class="acoes-galaxia">
-
                 <button class="btn-reproduzir">
-
                     <i class="bi bi-play-fill"></i>
-
                     Reproduzir tudo
-
                 </button>
 
-
-                <button class="btn-compartilhar">
-
+                <button class="btn-compartilhar" title="Compartilhar">
                     <i class="bi bi-share"></i>
-
                 </button>
 
-            </div>
+                <!-- BOTÃO DE OPÇÕES + BOX POPOVER -->
+                <div class="container-menu-opcoes">
+                    <button class="btn-opcoes-galaxia btn-opcoes-topo" type="button" aria-label="Opções da galáxia" title="Opções">
+                        <i class="bi bi-three-dots-vertical"></i>
+                    </button>
 
+                    <div class="menu-opcoes-popover" id="menuOpcoesPopover" hidden>
+                        <ul>
+                            <li id="opcaoMenuEditar">
+                                <i class="bi bi-pencil-square"></i>
+                                <span>Editar galáxia</span>
+                            </li>
+                            <li id="opcaoMenuAdicionar">
+                                <i class="bi bi-plus-circle"></i>
+                                <span>Adicionar vídeos</span>
+                            </li>
+                            <li class="opcao-perigo">
+                                <i class="bi bi-trash"></i>
+                                <span>Excluir galáxia</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
 
             <div class="descricao-galaxia">
-
                 <p>
-                    Descobertas, mistérios e lugares
-                    encontrados durante nossas expedições
-                    pelo universo de Astraelion.
+                    Descobertas, mistérios e lugares encontrados durante nossas expedições pelo universo de Astraelion.
                 </p>
-
             </div>
-
         </section>
 
+        <!-- LISTA DE VÍDEOS -->
         <section class="videos-galaxia">
-
-
             <div class="titulo-videos-galaxia">
-
-                <h2>
-                    ✦ Vídeos desta Galáxia
-                </h2>
-
+                <h2>✦ Vídeos desta Galáxia</h2>
             </div>
 
             <!-- VÍDEO 01 -->
-
             <article class="video-galaxia">
-
-                <span class="numero-video">
-                    01
-                </span>
-
-
+                <span class="numero-video">01</span>
                 <a href="../paginas-segundarias/watch.html" class="thumbnail-video-galaxia">
-
                     <img src="../img/thumb1.jpg" alt="Vídeo da Galáxia">
-
-                    <span class="duracao-video">
-                        12:45
-                    </span>
-
+                    <span class="duracao-video">12:45</span>
                 </a>
-
-
                 <div class="info-video-galaxia">
-
                     <a href="../paginas-segundarias/watch.html">
-
-                        <h3>
-                            Explorando um novo universo e descobrindo os mistérios de Astraelion
-                        </h3>
-
+                        <h3>Explorando um novo universo e descobrindo os mistérios de Astraelion</h3>
                     </a>
-
-                    <span>
-                        12 mil visualizações · há 2 dias
-                    </span>
-
-                    <p>
-                        Uma jornada por novos mundos,
-                        histórias e descobertas além das estrelas.
-                    </p>
-
+                    <span>12 mil visualizações · há 2 dias</span>
+                    <p>Uma jornada por novos mundos, histórias e descobertas além das estrelas.</p>
                 </div>
-
-
-                <button class="menu-video-galaxia">
-
+                <button class="menu-video-galaxia" aria-label="Opções do vídeo">
                     <i class="bi bi-three-dots-vertical"></i>
-
                 </button>
-
             </article>
-
-
 
             <!-- VÍDEO 02 -->
-
             <article class="video-galaxia">
-
-                <span class="numero-video">
-                    02
-                </span>
-
-
+                <span class="numero-video">02</span>
                 <a href="../paginas-segundarias/watch.html" class="thumbnail-video-galaxia">
-
                     <img src="../img/thumb2.jpg" alt="Vídeo da Galáxia">
-
-                    <span class="duracao-video">
-                        08:32
-                    </span>
-
+                    <span class="duracao-video">08:32</span>
                 </a>
-
-
                 <div class="info-video-galaxia">
-
                     <a href="../paginas-segundarias/watch.html">
-
-                        <h3>
-                            Uma nova descoberta além das estrelas
-                        </h3>
-
+                        <h3>Uma nova descoberta além das estrelas</h3>
                     </a>
-
-                    <span>
-                        8,4 mil visualizações · há 5 dias
-                    </span>
-
-                    <p>
-                        Encontramos algo inesperado
-                        durante nossa última expedição.
-                    </p>
-
+                    <span>8,4 mil visualizações · há 5 dias</span>
+                    <p>Encontramos algo inesperado durante nossa última expedição.</p>
                 </div>
-
-
-                <button class="menu-video-galaxia">
-
+                <button class="menu-video-galaxia" aria-label="Opções do vídeo">
                     <i class="bi bi-three-dots-vertical"></i>
-
                 </button>
-
             </article>
-
-
 
             <!-- VÍDEO 03 -->
-
             <article class="video-galaxia">
-
-                <span class="numero-video">
-                    03
-                </span>
-
-
+                <span class="numero-video">03</span>
                 <a href="../paginas-segundarias/watch.html" class="thumbnail-video-galaxia">
-
                     <img src="../img/thumb3.jpg" alt="Vídeo da Galáxia">
-
-                    <span class="duracao-video">
-                        15:21
-                    </span>
-
+                    <span class="duracao-video">15:21</span>
                 </a>
-
-
                 <div class="info-video-galaxia">
-
                     <a href="../paginas-segundarias/watch.html">
-
-                        <h3>
-                            O lugar que não deveria existir
-                        </h3>
-
+                        <h3>O lugar que não deveria existir</h3>
                     </a>
-
-                    <span>
-                        5,7 mil visualizações · há 1 semana
-                    </span>
-
-                    <p>
-                        Uma região misteriosa encontrada
-                        durante nossa exploração.
-                    </p>
-
+                    <span>5,7 mil visualizações · há 1 semana</span>
+                    <p>Uma região misteriosa encontrada durante nossa exploração.</p>
                 </div>
-
-
-                <button class="menu-video-galaxia">
-
+                <button class="menu-video-galaxia" aria-label="Opções do vídeo">
                     <i class="bi bi-three-dots-vertical"></i>
-
                 </button>
-
             </article>
 
-
-
             <!-- VÍDEO 04 -->
-
             <article class="video-galaxia">
-
-                <span class="numero-video">
-                    04
-                </span>
-
-
+                <span class="numero-video">04</span>
                 <a href="../paginas-segundarias/watch.html" class="thumbnail-video-galaxia">
-
                     <img src="../img/thumb4.jpg" alt="Vídeo da Galáxia">
-
-                    <span class="duracao-video">
-                        10:14
-                    </span>
-
+                    <span class="duracao-video">10:14</span>
                 </a>
-
-
                 <div class="info-video-galaxia">
-
                     <a href="../paginas-segundarias/watch.html">
-
-                        <h3>
-                            Encontrando os primeiros sinais de vida
-                        </h3>
-
+                        <h3>Encontrando os primeiros sinais de vida</h3>
                     </a>
-
-                    <span>
-                        4,2 mil visualizações · há 1 semana
-                    </span>
-
-                    <p>
-                        Uma descoberta que mudou completamente
-                        nossa missão.
-                    </p>
-
+                    <span>4,2 mil visualizações · há 1 semana</span>
+                    <p>Uma descoberta que mudou completamente nossa missão.</p>
                 </div>
-
-
-                <button class="menu-video-galaxia">
-
+                <button class="menu-video-galaxia" aria-label="Opções do vídeo">
                     <i class="bi bi-three-dots-vertical"></i>
-
                 </button>
-
             </article>
 
             <div class="controle-galaxia">
-
                 <button class="btn-ver-mais-galaxia" id="btnVerMaisGalaxia">
-
                     Ver mais
-
                     <i class="bi bi-chevron-down"></i>
-
                 </button>
-
             </div>
         </section>
     </main>
-</body>
 
-<script src="/assets/scripsts/galaxia.js"></script>
-<script src="/assets/scripsts/notificacao-global.js"></script>
-<script src="/assets/scripsts/user-painel.js"></script>
+    <!-- MODAIS (ORGANIZADOS FORA DO CONTEÚDO PRINCIPAL, ANTES DO BODY) -->
+
+    <!-- Modal Editar Galáxia -->
+    <div class="modal-galaxia" id="modalEditarPlaylist">
+        <div class="modal-conteudo">
+            <div class="modal-cabecalho">
+                <h3>Editar Galáxia</h3>
+                <button type="button" class="btn-fechar-modal" id="btnFecharModalEditar">&times;</button>
+            </div>
+            <form id="formEditarPlaylist">
+                <div class="campo-grupo">
+                    <label for="editarNomePlaylist">Nome</label>
+                    <input type="text" id="editarNomePlaylist" required>
+                </div>
+                <div class="campo-grupo">
+                    <label for="editarDescricaoPlaylist">Descrição</label>
+                    <textarea id="editarDescricaoPlaylist" rows="4"></textarea>
+                </div>
+                <div class="modal-acoes">
+                    <button type="button" class="btn-cancelar" id="btnCancelarModalEditar">Cancelar</button>
+                    <button type="submit" class="btn-salvar">Salvar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal Adicionar Vídeos -->
+    <div class="modal-galaxia" id="modalAdicionarVideos">
+        <div class="modal-conteudo">
+            <div class="modal-cabecalho">
+                <h3>Adicionar Vídeos à Galáxia</h3>
+                <button type="button" class="btn-fechar-modal" id="btnFecharModalAdicionar">&times;</button>
+            </div>
+            <div class="modal-corpo">
+                <p>Insira o link de um vídeo para incluir nesta Galáxia:</p>
+                <div class="campo-grupo" style="margin-top: 15px;">
+                    <input type="url" placeholder="URL do vídeo (ex: https://astraelion.com/watch?v=...)">
+                </div>
+            </div>
+            <div class="modal-acoes">
+                <button type="button" class="btn-salvar" id="btnConcluirAdicao">Concluir</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script src="/assets/scripsts/galaxia.js"></script>
+    <script src="/assets/scripsts/user-painel.js"></script>
+    <script src="/assets/scripsts/notificacao-global.js"></script>
+    <script src="/assets/scripsts/creator.js"></script>
+    <script src="/assets/scripsts/mini-player-global.js"></script>
+</body>
 
 </html>

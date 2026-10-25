@@ -492,3 +492,41 @@ if (expandido) {
 
     atualizarLista();
 });
+
+/* =========================================================
+   GERENCIAMENTO DE VÍDEOS NO SCROLL (FENDAS)
+========================================================= */
+document.addEventListener("DOMContentLoaded", () => {
+    const videosFenda = document.querySelectorAll('.video-fenda');
+
+    if (videosFenda.length === 0) return;
+
+    const observerOptions = {
+        root: document.querySelector('.fendas-feed'),
+        rootMargin: '0px',
+        threshold: 0.6 // Dispara quando pelo menos 60% do vídeo estiver visível na tela
+    };
+
+    const videoObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            const video = entry.target;
+
+            if (entry.isIntersecting) {
+                // O vídeo entrou na tela: reinicia e reproduz
+                video.currentTime = 0;
+                video.play().catch(error => {
+                    // Trata políticas de autoplay do navegador se necessário
+                    console.log("Autoplay bloqueado pelo navegador:", error);
+                });
+            } else {
+                // O vídeo saiu da tela: pausa e reseta para o início
+                video.pause();
+                video.currentTime = 0;
+            }
+        });
+    }, observerOptions);
+
+    videosFenda.forEach(video => {
+        videoObserver.observe(video);
+    });
+});

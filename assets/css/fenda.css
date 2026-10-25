@@ -1,70 +1,11 @@
+
+@import url('vars.css');
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: "Aldrich", sans-serif;
-}
-
-/* ========================================
-   ASTRAELION — SISTEMA DE CORES
-   Tema padrão: Universo Noturno
-======================================== */
-
-:root {
-    /* 1. FUNDOS GERAIS */
-    --cor-fundo-pagina: #090912;
-    --cor-fundo-cabecalho: #130A24;
-    --cor-fundo-menu-lateral: #130A24;
-    --cor-fundo-cartao: #151027;
-
-    /* 2. TEXTOS */
-    --cor-texto-principal: #FFFFFF;
-    --cor-texto-destaque: #FCFCFC;
-    --cor-texto-secundario: #B8B8C8;
-    --cor-texto-suave: #81798F;
-    --cor-texto-invertido: #090912;
-
-    /* 3. IDENTIDADE ROXA */
-    --cor-roxo-principal: #8A4DFF;
-    --cor-roxo-claro: #B06EFF;
-    --cor-roxo-escuro: #32205F;
-    --cor-roxo-hover: #602F9C;
-
-    /* 4. SUPERFÍCIES E INTERAÇÕES */
-    --cor-fundo-hover: #32205F;
-    --cor-fundo-hover-suave: rgba(138, 77, 255, 0.12);
-    --cor-fundo-destaque: rgba(138, 77, 255, 0.10);
-    --cor-fundo-destaque-hover: rgba(138, 77, 255, 0.18);
-
-    /* 5. BORDAS E DIVISORES */
-    --cor-borda-padrao: rgba(138, 77, 255, 0.25);
-    --cor-borda-destaque: rgba(138, 77, 255, 0.60);
-    --cor-borda-buscar: rgba(134, 70, 253, 0.25);
-    --cor-divisor: #1D1136;
-
-    /* 6. EFEITOS */
-    --cor-sombra: rgba(0, 0, 0, 0.35);
-    --cor-sombra-forte: rgba(0, 0, 0, 0.40);
-
-    /* 7. GRADIENTES DA IDENTIDADE */
-    --gradiente-logo: linear-gradient(135deg,
-            var(--cor-texto-destaque) 0%,
-            var(--cor-roxo-claro) 100%);
-
-    --gradiente-divisor: linear-gradient(to right,
-            transparent 0%,
-            var(--cor-divisor) 20%,
-            var(--cor-divisor) 80%,
-            transparent 100%);
-
-    /* 8. CORES DE STATUS */
-    --cor-status-video: #55B8FF;
-    --cor-status-live: #FF4568;
-    --cor-status-fenda: #B06EFF;
-
-    /* 9. ROLAGEM */
-    --cor-scroll-trilho: var(--cor-fundo-cabecalho);
-    --cor-scroll-indicador: var(--cor-roxo-principal);
 }
 
 html,

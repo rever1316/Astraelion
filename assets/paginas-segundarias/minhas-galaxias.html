@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,8 +14,9 @@
         rel="stylesheet">
     <title>Astralion - Minhas Galaxias</title>
 </head>
+
 <body>
-     <header>
+    <header>
         <nav class="nav-container">
 
             <div class="nav-esquerda">
@@ -58,15 +60,15 @@
         </nav>
     </header>
 
-        <nav class="menu-mobile">
+    <nav class="menu-mobile">
 
-        <a href="/index.html" class="item-menu-mobile active">
+        <a href="/index.html" class="item-menu-mobile">
             <i class="bi bi-house-door-fill"></i>
             <span>Início</span>
         </a>
 
         <a href="/assets/paginas-segundarias/inscricoes.html" class="item-menu-mobile">
-            <i>&#xF5EC;</i>
+            <i class="bi bi-menu-up"></i>
             <span>Inscrições</span>
         </a>
 
@@ -88,9 +90,10 @@
 
     </nav>
 
+
     <!-- MENU DE NAVEGAÇÃO LATERAL - MVL -->
 
-<aside class="menu-lateral">
+    <aside class="menu-lateral">
         <div class="lis">
             <li>
                 <a class="linha" href="/index.html">
@@ -255,205 +258,309 @@
     </nav>
 
 
-<!-- CONTEÚDO PRINCIPAL — MINHAS GALÁXIAS -->
-<main class="conteudo-galaxias">
+    <!-- CONTEÚDO PRINCIPAL — MINHAS GALÁXIAS -->
+    <main class="conteudo-galaxias">
 
-    <section class="cabecalho-galaxias">
-        <div class="galaxias-titulo">
-            <span class="galaxias-icone">
+        <section class="cabecalho-galaxias">
+            <div class="galaxias-titulo">
+                <span class="galaxias-icone">
+                    <i class="bi bi-stars"></i>
+                </span>
+
+                <div>
+                    <h1>Minhas Galáxias</h1>
+                    <p>Suas playlists, seus universos e suas descobertas.</p>
+                </div>
+            </div>
+
+            <button class="btn-criar-galaxia" type="button">
+                <i class="bi bi-plus-lg"></i>
+                <span>Criar Galáxia</span>
+            </button>
+        </section>
+
+        <!-- PESQUISA E FILTROS -->
+        <section class="controles-galaxias">
+
+            <div class="pesquisa-galaxias">
+                <i class="bi bi-search"></i>
+                <input type="search" id="pesquisaGalaxias" placeholder="Buscar nas minhas galáxias...">
+            </div>
+
+            <div class="filtros-galaxias">
+                <button class="filtro-galaxia active" data-filtro="todas">
+                    Todas
+                </button>
+
+                <button class="filtro-galaxia" data-filtro="criadas">
+                    <i class="bi bi-person"></i>
+                    Criadas por mim
+                </button>
+
+                <button class="filtro-galaxia" data-filtro="salvas">
+                    <i class="bi bi-bookmark"></i>
+                    Salvas
+                </button>
+
+                <button class="filtro-galaxia" data-filtro="privadas">
+                    <i class="bi bi-lock"></i>
+                    Privadas
+                </button>
+            </div>
+
+        </section>
+
+        <!-- LISTA DE PLAYLISTS -->
+        <section class="secao-minhas-galaxias">
+
+            <div class="titulo-secao-galaxias">
+                <div>
+                    <h2>Seus universos</h2>
+                    <p>Continue de onde você parou.</p>
+                </div>
+
+                <span id="contadorGalaxias">3 galáxias</span>
+            </div>
+
+            <div class="grade-galaxias" id="gradeGalaxias">
+
+                <!-- GALÁXIA CRIADA -->
+                <article class="card-galaxia" id="galaxia_1" data-tipo="criadas" data-titulo="Minha jornada pelo cosmos">
+
+                    <a href="/assets/paginas-segundarias/galaxias.html" class="capa-galaxia">
+                        <img src="/assets/img/gl2.jpg" alt="Minha jornada pelo cosmos">
+                        <span class="quantidade-videos">
+                            <i class="bi bi-play-fill"></i> 12 vídeos
+                        </span>
+                    </a>
+
+                    <div class="informacoes-galaxia">
+                        <div class="detalhes-galaxia">
+                            <h3>
+                                <a href="/assets/paginas-segundarias/galaxias.html">
+                                    Minha jornada pelo cosmos
+                                </a>
+                            </h3>
+                            <p>Criada por você</p>
+                            <span class="status-galaxia">
+                                <i class="bi bi-globe2"></i> Pública
+                            </span>
+                        </div>
+
+                        <!-- Botão de Opções de 3 Pontos -->
+                        <div class="container-menu-opcoes" style="position: relative;">
+                            <button class="btn-opcoes-galaxia" type="button" aria-label="Opções da galáxia">
+                                <i class="bi bi-three-dots-vertical"></i>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- GALÁXIA SALVA -->
+                <article class="card-galaxia" id="galaxia_2" data-tipo="salvas" data-titulo="As fronteiras do universo">
+
+                    <a href="/assets/paginas-segundarias/galaxias.html" class="capa-galaxia">
+                        <img src="/assets/img/fenda1.jpg" alt="As fronteiras do universo">
+                        <span class="quantidade-videos">
+                            <i class="bi bi-play-fill"></i> 8 vídeos
+                        </span>
+                    </a>
+
+                    <div class="informacoes-galaxia">
+                        <div class="detalhes-galaxia">
+                            <h3>
+                                <a href="/assets/paginas-segundarias/galaxias.html">
+                                    As fronteiras do universo
+                                </a>
+                            </h3>
+                            <p>Hey-Star</p>
+                            <span class="status-galaxia salva">
+                                <i class="bi bi-bookmark-fill"></i> Salva
+                            </span>
+                        </div>
+
+                        <div class="container-menu-opcoes" style="position: relative;">
+                            <button class="btn-opcoes-galaxia" type="button" aria-label="Opções da galáxia">
+                                <i class="bi bi-three-dots-vertical"></i>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- GALÁXIA PRIVADA -->
+                <article class="card-galaxia" id="galaxia_3" data-tipo="privadas" data-titulo="Projetos secretos">
+
+                    <a href="/assets/paginas-segundarias/galaxias.html" class="capa-galaxia">
+                        <img src="/assets/img/gl2.jpg" alt="Projetos secretos">
+                        <span class="quantidade-videos">
+                            <i class="bi bi-play-fill"></i> 5 vídeos
+                        </span>
+                    </a>
+
+                    <div class="informacoes-galaxia">
+                        <div class="detalhes-galaxia">
+                            <h3>
+                                <a href="/assets/paginas-segundarias/galaxias.html">
+                                    Projetos secretos
+                                </a>
+                            </h3>
+                            <p>Criada por você</p>
+                            <span class="status-galaxia privada">
+                                <i class="bi bi-lock-fill"></i> Privada
+                            </span>
+                        </div>
+
+                        <div class="container-menu-opcoes" style="position: relative;">
+                            <button class="btn-opcoes-galaxia" type="button" aria-label="Opções da galáxia">
+                                <i class="bi bi-three-dots-vertical"></i>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+
+            <div class="galaxias-vazio" id="galaxiasVazio" hidden>
                 <i class="bi bi-stars"></i>
-            </span>
-
-            <div>
-                <h1>Minhas Galáxias</h1>
-                <p>Suas playlists, seus universos e suas descobertas.</p>
+                <h3>Nenhuma galáxia encontrada</h3>
+                <p>Tente outra pesquisa ou selecione um filtro diferente.</p>
             </div>
-        </div>
 
-        <button class="btn-criar-galaxia" type="button">
-            <i class="bi bi-plus-lg"></i>
-            <span>Criar Galáxia</span>
+        </section>
+
+    </main>
+
+    <!-- MODAL DE CRIAR PLAYLIST / GALÁXIA -->
+    <div class="modal-playlist-overlay" id="modalCriarPlaylist">
+        <div class="modal-playlist-card">
+            <div class="modal-playlist-cabecalho">
+                <h3>Criar Nova Galáxia (Playlist)</h3>
+                <button type="button" class="btn-fechar-modal" id="btnFecharModalPlaylist">&times;</button>
+            </div>
+
+            <form id="formCriarPlaylist" class="modal-playlist-corpo">
+                <div class="campo-grupo">
+                    <label for="nomePlaylist">Nome da Galáxia</label>
+                    <input type="text" id="nomePlaylist" placeholder="Ex: Minhas Músicas Favoritas" required maxlength="50">
+                </div>
+
+                <div class="campo-grupo">
+                    <label for="descricaoPlaylist">Descrição (opcional)</label>
+                    <textarea id="descricaoPlaylist" placeholder="Descreva o tema desta coleção..." rows="3"></textarea>
+                </div>
+
+                <div class="campo-grupo">
+                    <label for="visibilidadePlaylist">Visibilidade</label>
+                    <select id="visibilidadePlaylist">
+                        <option value="publica">Pública (Todos podem explorar)</option>
+                        <option value="privada">Privada (Apenas você)</option>
+                    </select>
+                </div>
+
+                <div class="modal-playlist-rodape">
+                    <button type="button" class="btn-cancelar" id="btnCancelarModalPlaylist">Cancelar</button>
+                    <button type="submit" class="btn-comentar">Criar Galáxia</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- MODAL DE EDITAR PLAYLIST / GALÁXIA -->
+    <div class="modal-playlist-overlay" id="modalEditarPlaylist">
+        <div class="modal-playlist-card">
+            <div class="modal-playlist-cabecalho">
+                <h3>Editar Galáxia</h3>
+                <button type="button" class="btn-fechar-modal" id="btnFecharModalEditar">&times;</button>
+            </div>
+
+            <form id="formEditarPlaylist" class="modal-playlist-corpo">
+                <input type="hidden" id="editarPlaylistId">
+                <div class="campo-grupo">
+                    <label for="editarNomePlaylist">Nome da Galáxia</label>
+                    <input type="text" id="editarNomePlaylist" required maxlength="50">
+                </div>
+
+                <div class="campo-grupo">
+                    <label for="editarDescricaoPlaylist">Descrição</label>
+                    <textarea id="editarDescricaoPlaylist" rows="3"></textarea>
+                </div>
+
+                <div class="campo-grupo">
+                    <label for="editarVisibilidadePlaylist">Visibilidade</label>
+                    <select id="editarVisibilidadePlaylist">
+                        <option value="publica">Pública</option>
+                        <option value="privada">Privada</option>
+                    </select>
+                </div>
+
+                <div class="modal-playlist-rodape">
+                    <button type="button" class="btn-cancelar" id="btnCancelarModalEditar">Cancelar</button>
+                    <button type="submit" class="btn-comentar">Salvar Alterações</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- POPOVER ÚNICO DE OPÇÕES (3 PONTOS) REUTILIZÁVEL -->
+    <div class="menu-opcoes-popover" id="menuOpcoesPopover" hidden>
+        <button type="button" id="opcaoMenuEditar">
+            <i class="bi bi-pencil"></i> Editar Galáxia
         </button>
-    </section>
+        <button type="button" id="opcaoMenuAdicionar">
+            <i class="bi bi-plus-circle"></i> Adicionar Vídeos
+        </button>
+    </div>
 
-    <!-- PESQUISA E FILTROS -->
-    <section class="controles-galaxias">
-
-        <div class="pesquisa-galaxias">
-            <i class="bi bi-search"></i>
-            <input
-                type="search"
-                id="pesquisaGalaxias"
-                placeholder="Buscar nas minhas galáxias..."
-            >
-        </div>
-
-        <div class="filtros-galaxias">
-            <button class="filtro-galaxia active" data-filtro="todas">
-                Todas
-            </button>
-
-            <button class="filtro-galaxia" data-filtro="criadas">
-                <i class="bi bi-person"></i>
-                Criadas por mim
-            </button>
-
-            <button class="filtro-galaxia" data-filtro="salvas">
-                <i class="bi bi-bookmark"></i>
-                Salvas
-            </button>
-
-            <button class="filtro-galaxia" data-filtro="privadas">
-                <i class="bi bi-lock"></i>
-                Privadas
-            </button>
-        </div>
-
-    </section>
-
-    <!-- LISTA DE PLAYLISTS -->
-    <section class="secao-minhas-galaxias">
-
-        <div class="titulo-secao-galaxias">
-            <div>
-                <h2>Seus universos</h2>
-                <p>Continue de onde você parou.</p>
+    <!-- MODAL / BOX PARA ADICIONAR VÍDEOS APRIMORADO -->
+    <div class="modal-playlist-overlay" id="modalAdicionarVideos">
+        <div class="modal-playlist-card modal-grande-galaxias">
+            <div class="modal-playlist-cabecalho">
+                <h3>Adicionar Vídeos à Galáxia</h3>
+                <button type="button" class="btn-fechar-modal" id="btnFecharModalAdicionar">&times;</button>
             </div>
 
-            <span id="contadorGalaxias">6 galáxias</span>
-        </div>
+            <!-- CAMPO DE PESQUISA POR TÍTULO OU LINK -->
+            <div class="pesquisa-adicionar-videos">
+                <i class="bi bi-search"></i>
+                <input type="search" id="inputPesquisaVideoModal" placeholder="Pesquisar por título ou colar link do vídeo...">
+            </div>
 
-        <div class="grade-galaxias" id="gradeGalaxias">
+            <div class="abas-adicionar-videos">
+                <button type="button" class="aba-btn ativa" data-aba="meusVideos">Meus Vídeos</button>
+                <button type="button" class="aba-btn" data-aba="geralVideos">Vídeos Públicos</button>
+            </div>
 
-            <!-- GALÁXIA CRIADA -->
-            <article class="card-galaxia"
-                data-tipo="criadas"
-                data-titulo="Minha jornada pelo cosmos">
-
-                <a href="/assets/paginas-segundarias/galaxias.html"
-                   class="capa-galaxia">
-
-                    <img src="/assets/img/gl2.mp4"
-                         alt="Minha jornada pelo cosmos">
-
-                    <span class="quantidade-videos">
-                        <i class="bi bi-play-fill"></i> 12 vídeos
-                    </span>
-                </a>
-
-                <div class="informacoes-galaxia">
-                    <div class="detalhes-galaxia">
-                        <h3>
-                            <a href="/assets/paginas-segundarias/galaxias.html">
-                                Minha jornada pelo cosmos
-                            </a>
-                        </h3>
-
-                        <p>Criada por você</p>
-                        <span class="status-galaxia">
-                            <i class="bi bi-globe2"></i> Pública
-                        </span>
+            <div class="conteudo-abas">
+                <!-- Lista de vídeos do próprio usuário -->
+                <div class="painel-aba ativa" id="painelMeusVideos">
+                    <div class="grade-secao-videos" id="listaMeusVideosContainer">
+                        <p class="vazio-texto">Carregando seus vídeos...</p>
                     </div>
-
-                    <button class="btn-opcoes-galaxia"
-                            type="button"
-                            aria-label="Opções da galáxia">
-                        <i class="bi bi-three-dots-vertical"></i>
-                    </button>
                 </div>
-            </article>
 
-            <!-- GALÁXIA SALVA -->
-            <article class="card-galaxia"
-                data-tipo="salvas"
-                data-titulo="As fronteiras do universo">
-
-                <a href="/assets/paginas-segundarias/galaxias.html"
-                   class="capa-galaxia">
-
-                    <img src="/assets/img/fenda1.jpg"
-                         alt="As fronteiras do universo">
-
-                    <span class="quantidade-videos">
-                        <i class="bi bi-play-fill"></i> 8 vídeos
-                    </span>
-                </a>
-
-                <div class="informacoes-galaxia">
-                    <div class="detalhes-galaxia">
-                        <h3>
-                            <a href="/assets/paginas-segundarias/galaxias.html">
-                                As fronteiras do universo
-                            </a>
-                        </h3>
-
-                        <p>Hey-Star</p>
-                        <span class="status-galaxia salva">
-                            <i class="bi bi-bookmark-fill"></i> Salva
-                        </span>
+                <!-- Lista de vídeos gerais públicos -->
+                <div class="painel-aba" id="painelGeralVideos">
+                    <div class="grade-secao-videos" id="listaGeralVideosContainer">
+                        <p class="vazio-texto">Carregando vídeos públicos...</p>
                     </div>
-
-                    <button class="btn-opcoes-galaxia"
-                            type="button"
-                            aria-label="Opções da galáxia">
-                        <i class="bi bi-three-dots-vertical"></i>
-                    </button>
                 </div>
-            </article>
+            </div>
 
-            <!-- GALÁXIA PRIVADA -->
-            <article class="card-galaxia"
-                data-tipo="privadas"
-                data-titulo="Projetos secretos">
-
-                <a href="/assets/paginas-segundarias/galaxias.html"
-                   class="capa-galaxia">
-
-                    <img src="/assets/img/gl2.jpg"
-                         alt="Projetos secretos">
-
-                    <span class="quantidade-videos">
-                        <i class="bi bi-play-fill"></i> 5 vídeos
-                    </span>
-                </a>
-
-                <div class="informacoes-galaxia">
-                    <div class="detalhes-galaxia">
-                        <h3>
-                            <a href="/assets/paginas-segundarias/galaxias.html">
-                                Projetos secretos
-                            </a>
-                        </h3>
-
-                        <p>Criada por você</p>
-                        <span class="status-galaxia privada">
-                            <i class="bi bi-lock-fill"></i> Privada
-                        </span>
-                    </div>
-
-                    <button class="btn-opcoes-galaxia"
-                            type="button"
-                            aria-label="Opções da galáxia">
-                        <i class="bi bi-three-dots-vertical"></i>
-                    </button>
-                </div>
-            </article>
-
+            <div class="modal-playlist-rodape">
+                <button type="button" class="btn-cancelar" id="btnConcluirAdicao">Concluir</button>
+            </div>
         </div>
+    </div>
+        
 
-        <div class="galaxias-vazio" id="galaxiasVazio" hidden>
-            <i class="bi bi-stars"></i>
-            <h3>Nenhuma galáxia encontrada</h3>
-            <p>Tente outra pesquisa ou selecione um filtro diferente.</p>
-        </div>
-
-    </section>
-
-</main>
-
+    </main>
 
 </body>
-</html>
+
 <script src="/assets/scripsts/minhas-galaxias.js"></script>
 <script src="/assets/scripsts/user-painel.js"></script>
 <script src="/assets/scripsts/notificacao-global.js"></script>
+<script src="/assets/scripsts/creator.js"></script>
+<script src="/assets/scripsts/mini-player-global.js"></script>
+
+</html>

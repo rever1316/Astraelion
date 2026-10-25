@@ -1,70 +1,10 @@
+@import url('vars.css');
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: "Aldrich", sans-serif;
-}
-
-/* ========================================
-   ASTRAELION — SISTEMA DE CORES
-   Tema padrão: Universo Noturno
-======================================== */
-
-:root {
-    /* 1. FUNDOS GERAIS */
-    --cor-fundo-pagina: #090912;
-    --cor-fundo-cabecalho: #130A24;
-    --cor-fundo-menu-lateral: #130A24;
-    --cor-fundo-cartao: #151027;
-
-    /* 2. TEXTOS */
-    --cor-texto-principal: #FFFFFF;
-    --cor-texto-destaque: #FCFCFC;
-    --cor-texto-secundario: #B8B8C8;
-    --cor-texto-suave: #81798F;
-    --cor-texto-invertido: #090912;
-
-    /* 3. IDENTIDADE ROXA */
-    --cor-roxo-principal: #8A4DFF;
-    --cor-roxo-claro: #B06EFF;
-    --cor-roxo-escuro: #32205F;
-    --cor-roxo-hover: #602F9C;
-
-    /* 4. SUPERFÍCIES E INTERAÇÕES */
-    --cor-fundo-hover: #32205F;
-    --cor-fundo-hover-suave: rgba(138, 77, 255, 0.12);
-    --cor-fundo-destaque: rgba(138, 77, 255, 0.10);
-    --cor-fundo-destaque-hover: rgba(138, 77, 255, 0.18);
-
-    /* 5. BORDAS E DIVISORES */
-    --cor-borda-padrao: rgba(138, 77, 255, 0.25);
-    --cor-borda-destaque: rgba(138, 77, 255, 0.60);
-    --cor-borda-buscar: rgba(134, 70, 253, 0.25);
-    --cor-divisor: #1D1136;
-
-    /* 6. EFEITOS */
-    --cor-sombra: rgba(0, 0, 0, 0.35);
-    --cor-sombra-forte: rgba(0, 0, 0, 0.40);
-
-    /* 7. GRADIENTES DA IDENTIDADE */
-    --gradiente-logo: linear-gradient(135deg,
-            var(--cor-texto-destaque) 0%,
-            var(--cor-roxo-claro) 100%);
-
-    --gradiente-divisor: linear-gradient(to right,
-            transparent 0%,
-            var(--cor-divisor) 20%,
-            var(--cor-divisor) 80%,
-            transparent 100%);
-
-    /* 8. CORES DE STATUS */
-    --cor-status-video: #55B8FF;
-    --cor-status-live: #FF4568;
-    --cor-status-fenda: #B06EFF;
-
-    /* 9. ROLAGEM */
-    --cor-scroll-trilho: var(--cor-fundo-cabecalho);
-    --cor-scroll-indicador: var(--cor-roxo-principal);
 }
 
 html,
@@ -294,11 +234,6 @@ header .buscar:hover {
 
 /* ========================================
    ASTRAELION — MENU LATERAL COMPARTILHADO
-   Arquivo: /assets/css/menu-lateral.css
-======================================== */
-
-/* ========================================
-   ESTRUTURA PRINCIPAL
 ======================================== */
 
 aside.menu-lateral {
@@ -306,19 +241,14 @@ aside.menu-lateral {
     top: 60px;
     left: 0;
     z-index: 900;
-
     display: block;
     width: 250px;
     height: calc(100vh - 60px);
-
     overflow-x: hidden;
     overflow-y: auto;
-
     background-color: var(--cor-fundo-menu-lateral);
     border-right: 2px solid var(--cor-roxo-principal);
-
     scrollbar-width: none;
-
     transition: width 0.3s ease-in-out;
 }
 
@@ -326,62 +256,41 @@ aside.menu-lateral::-webkit-scrollbar {
     display: none;
 }
 
-/* ========================================
-   LINKS PRINCIPAIS E ÍCONES
-======================================== */
-
 aside.menu-lateral a {
     display: flex;
     align-items: center;
-
     width: calc(100% - 30px);
     min-width: 0;
     min-height: 45px;
-
     margin: 0 auto 5px;
     padding: 10px 15px;
     gap: 15px;
-
     color: var(--cor-texto-secundario);
     text-decoration: none;
-
     border-left: 3px solid transparent;
     border-radius: 12px;
-
-    transition:
-        background-color 0.2s ease,
-        color 0.2s ease,
-        border-color 0.2s ease;
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 }
 
 aside.menu-lateral a i {
     display: block;
     flex-shrink: 0;
-
     min-width: 24px;
-
     color: var(--cor-texto-principal);
     font-size: 22px;
     text-align: center;
-
     transition: color 0.2s ease;
 }
 
 aside.menu-lateral a span {
     flex: 1;
     min-width: 0;
-
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
-
     color: var(--cor-texto-destaque);
     font-size: 15px;
 }
-
-/* ========================================
-   HOVER E PÁGINA ATIVA
-======================================== */
 
 aside.menu-lateral a:hover,
 aside.menu-lateral .linha:hover {
@@ -407,42 +316,28 @@ aside.menu-lateral .linha.active i {
     color: var(--cor-roxo-claro);
 }
 
-/* ========================================
-   DIVISORES E TÍTULOS DE GRUPO
-======================================== */
-
 aside.menu-lateral hr {
     display: block;
-
     width: calc(100% - 36px);
     height: 1px;
-
     margin: 12px auto;
     border: none;
-
     background: var(--gradiente-divisor);
     opacity: 1;
 }
 
 aside.menu-lateral .label-inscritos {
     display: block;
-
     padding: 8px 20px;
     margin-top: 8px;
-
     color: var(--cor-texto-secundario);
     font-size: 12px;
     text-transform: uppercase;
 }
 
-/* ========================================
-   GRUPO DE INSCRIÇÕES
-======================================== */
-
 .menu-lateral .grupo-inscricoes {
     display: flex;
     flex-direction: column;
-
     width: 100%;
     min-width: 0;
     margin-top: 12px;
@@ -453,39 +348,28 @@ aside.menu-lateral .label-inscritos {
     min-width: 0;
 }
 
-/* Canais inscritos */
-
 .menu-lateral .grupo-inscricoes .item-inscrito {
     display: flex;
     align-items: center;
-
     width: calc(100% - 30px);
     min-width: 0;
     min-height: 40px;
-
     margin: 0 auto;
     padding: 6px 15px;
     gap: 15px;
-
     color: var(--cor-texto-secundario);
     text-decoration: none;
-
     border-left: none;
     border-radius: 10px;
-
-    transition:
-        background-color 0.2s ease,
-        color 0.2s ease;
+    transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .menu-lateral .grupo-inscricoes .item-inscrito img {
     display: block;
     flex-shrink: 0;
-
     width: 28px;
     height: 28px;
     min-width: 28px;
-
     object-fit: cover;
     border-radius: 50%;
 }
@@ -494,7 +378,6 @@ aside.menu-lateral .label-inscritos {
     display: block;
     flex: 1;
     min-width: 0;
-
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
@@ -509,83 +392,58 @@ aside.menu-lateral .label-inscritos {
     color: var(--cor-roxo-claro);
 }
 
-/* Evita bordas laterais nos avatares */
-
 .menu-lateral .grupo-inscricoes .item-inscrito.active {
     border-left: none;
 }
-
-/* Ocultação controlada pelo JavaScript */
 
 .menu-lateral .grupo-inscricoes .item-inscrito[hidden],
 .menu-lateral .grupo-inscricoes .btn-ver-inscricoes[hidden] {
     display: none !important;
 }
 
-/* Lista expandida */
-
 .menu-lateral .grupo-inscricoes .label-list.lista-expandida {
     height: 432px;
     max-height: 432px;
-
     overflow-x: hidden;
     overflow-y: auto;
     overscroll-behavior: contain;
-
     scrollbar-width: thin;
-    scrollbar-color:
-        var(--cor-roxo-principal)
-        var(--cor-fundo-cabecalho);
+    scrollbar-color: var(--cor-roxo-principal) var(--cor-fundo-cabecalho);
 }
 
-.menu-lateral .grupo-inscricoes
-.label-list.lista-expandida::-webkit-scrollbar {
+.menu-lateral .grupo-inscricoes .label-list.lista-expandida::-webkit-scrollbar {
     width: 6px;
 }
 
-.menu-lateral .grupo-inscricoes
-.label-list.lista-expandida::-webkit-scrollbar-thumb {
+.menu-lateral .grupo-inscricoes .label-list.lista-expandida::-webkit-scrollbar-thumb {
     background: var(--cor-roxo-principal);
     border-radius: 10px;
 }
-
-/* ========================================
-   BOTÃO VER MAIS / VER MENOS
-======================================== */
 
 aside.menu-lateral .grupo-inscricoes .btn-ver-inscricoes {
     display: flex;
     align-items: center;
     justify-content: flex-start;
-
     width: calc(100% - 30px);
     min-height: 40px;
     margin: 5px auto 10px;
     padding: 8px 15px;
     gap: 12px;
-
     color: var(--cor-texto-secundario);
     font-family: "Aldrich", sans-serif;
     font-size: 12px;
-
     background: transparent;
     border: none;
     border-radius: 10px;
-
     cursor: pointer;
-
-    transition:
-        background-color 0.2s ease,
-        color 0.2s ease;
+    transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 aside.menu-lateral .btn-ver-inscricoes i {
     flex-shrink: 0;
     min-width: 24px;
-
     font-size: 15px;
     text-align: center;
-
     transition: transform 0.25s ease;
 }
 
@@ -594,20 +452,13 @@ aside.menu-lateral .btn-ver-inscricoes:hover {
     background-color: var(--cor-fundo-hover-suave);
 }
 
-aside.menu-lateral .grupo-inscricoes.expandido
-.btn-ver-inscricoes i {
+aside.menu-lateral .grupo-inscricoes.expandido .btn-ver-inscricoes i {
     transform: rotate(180deg);
 }
-
-/* ========================================
-   MENU RECOLHIDO
-======================================== */
 
 aside.menu-lateral.recolhido {
     width: 85px;
 }
-
-/* Oculta textos, títulos e divisores */
 
 aside.menu-lateral.recolhido span,
 aside.menu-lateral.recolhido .name,
@@ -617,15 +468,11 @@ aside.menu-lateral.recolhido hr {
     display: none !important;
 }
 
-/* Centraliza os links e ícones */
-
 aside.menu-lateral.recolhido a {
     justify-content: center;
-
     width: 50px;
     height: 50px;
     min-height: 50px;
-
     margin: 0 auto 5px;
     padding: 0;
     gap: 0;
@@ -636,25 +483,14 @@ aside.menu-lateral.recolhido a.active {
     border-left-color: transparent;
 }
 
-/* Mantém os avatares centralizados */
-
-aside.menu-lateral.recolhido
-.grupo-inscricoes .item-inscrito {
+aside.menu-lateral.recolhido .grupo-inscricoes .item-inscrito {
     justify-content: center;
-
     width: 50px;
     height: 42px;
     min-height: 42px;
-
     margin: 0 auto;
     padding: 0;
 }
-
-/* ========================================
-   RESPONSIVIDADE GLOBAL DO MENU
-======================================== */
-
-/* Tablets e celulares */
 
 @media (max-width: 1280px) {
     aside.menu-lateral {
@@ -665,8 +501,6 @@ aside.menu-lateral.recolhido
         display: none !important;
     }
 }
-
-/* Desktop */
 
 @media (min-width: 1281px) {
     aside.menu-lateral {
@@ -679,105 +513,85 @@ aside.menu-lateral.recolhido
 }
 
 
-/* =========================================================
-   MAIN — PÁGINA DE BUSCA
-   ========================================================= */
+/* ========================================================= */
+/* MAIN — PÁGINA DE BUSCA                                    */
+/* ========================================================= */
 
-
-/* Estado Normal (Menu Expandido - 250px) */
 .busca-container {
     width: calc(100% - 250px);
     margin-left: 250px;
     padding: 85px 45px 50px;
     min-height: 100vh;
     box-sizing: border-box;
-    /* Transição suave focada na margem e na largura */
     transition: margin-left 0.3s ease-in-out, width 0.3s ease-in-out;
 }
 
-/* Estado Recolhido (Menu Fechado - 85px) */
 .busca-container.recolhido {
     width: calc(100% - 85px);
     margin-left: 85px;
 }
 
 
-/* =========================================================
-   CABEÇALHO DA BUSCA
-   ========================================================= */
+/* ========================================================= */
+/* CABEÇALHO DA BUSCA                                        */
+/* ========================================================= */
 
 .cabecalho-busca {
     width: 100%;
     max-width: 1200px;
-
     margin: 0 auto 30px;
 }
 
 .cabecalho-busca h1 {
-    color: #ffffff;
-
+    color: var(--cor-texto-principal);
     font-size: 22px;
     font-weight: 600;
-
     margin-bottom: 25px;
 }
 
 .cabecalho-busca h1 span {
-    color: #B06EFF;
+    color: var(--cor-roxo-claro);
 }
 
 
-/* =========================================================
-   FILTROS
-   ========================================================= */
+/* ========================================================= */
+/* FILTROS                                                   */
+/* ========================================================= */
 
 .filtros-busca {
     display: flex;
     align-items: center;
-
     gap: 10px;
-
-    border-bottom: 1px solid rgba(138, 77, 255, .2);
-
+    border-bottom: 1px solid var(--cor-borda-busca);
     padding-bottom: 15px;
 }
 
 .filtro {
     padding: 9px 18px;
-
-    background-color: #151027;
-
-    border: 1px solid rgba(138, 77, 255, .2);
+    background-color: var(--cor-fundo-card);
+    border: 1px solid var(--cor-borda-busca);
     border-radius: 20px;
-
-    color: #81798F;
-
+    color: var(--cor-texto-secundario);
     font-size: 10px;
-
     cursor: pointer;
-
-    transition:
-        background-color .2s ease,
-        color .2s ease,
-        border-color .2s ease;
+    transition: background-color .2s ease, color .2s ease, border-color .2s ease;
 }
 
 .filtro:hover {
-    background-color: #32205F;
-    color: #ffffff;
+    background-color: var(--cor-fundo-hover-suave);
+    color: var(--cor-texto-principal);
 }
 
 .filtro.active {
-    background-color: #8A4DFF;
-    border-color: #8A4DFF;
-
-    color: #ffffff;
+    background-color: var(--cor-roxo-principal);
+    border-color: var(--cor-roxo-principal);
+    color: var(--cor-texto-principal);
 }
 
 
-/* =========================================================
-   RESULTADOS (CONTAINER PRINCIPAL)
-   ========================================================= */
+/* ========================================================= */
+/* RESULTADOS (CONTAINER PRINCIPAL)                          */
+/* ========================================================= */
 
 .resultados-busca {
     width: 100%;
@@ -788,7 +602,6 @@ aside.menu-lateral.recolhido
     gap: 15px;
 }
 
-/* Estilo padrão de linha para vídeos e canais fora da grade de fendas */
 .resultado-video {
     display: grid;
     grid-template-columns: 280px minmax(0, 1fr) 40px;
@@ -801,15 +614,13 @@ aside.menu-lateral.recolhido
 }
 
 .resultado-video:hover {
-    background-color: #151027;
+    background-color: var(--cor-fundo-card);
 }
 
-/* Especificamente para o card de canal (já que o avatar é redondo e menor na largura) */
 .resultado-canal-card {
     grid-template-columns: 150px minmax(0, 1fr) 40px !important;
 }
 
-/* Força o container principal a aceitar o grid de 3 colunas se a classe estiver presente */
 .resultados-busca.grade-fendas {
     display: grid !important;
     grid-template-columns: repeat(3, 1fr) !important;
@@ -817,7 +628,6 @@ aside.menu-lateral.recolhido
     align-items: start !important;
 }
 
-/* BLINTAGEM: Garante que vídeos, canais e galáxias NUNCA sofram alteração de layout por causa da grade */
 .resultados-busca.grade-fendas > .resultado-video:not(.item-grade-fenda),
 .resultados-busca.grade-fendas > .resultado-galaxia {
     grid-column: 1 / -1 !important;
@@ -827,7 +637,7 @@ aside.menu-lateral.recolhido
     align-items: center !important;
     width: 100% !important;
 }
-/* Estilo base para o card de Galáxia fora da grade */
+
 .resultado-galaxia {
     display: grid;
     grid-template-columns: 280px minmax(0, 1fr) 40px;
@@ -840,7 +650,7 @@ aside.menu-lateral.recolhido
 }
 
 .resultado-galaxia:hover {
-    background-color: #151027;
+    background-color: var(--cor-fundo-card);
 }
 
 .thumb-resultado-galaxia {
@@ -863,26 +673,28 @@ aside.menu-lateral.recolhido
 }
 
 .info-resultado-galaxia h2 {
-    color: #ffffff;
+    color: var(--cor-texto-principal);
     font-size: 18px;
     font-weight: 600;
     margin-bottom: 6px;
 }
 
 .info-resultado-galaxia p {
-    color: #B8B8C8;
+    color: var(--cor-texto-secundario);
     font-size: 12px;
     margin-bottom: 6px;
 }
 
 .info-resultado-galaxia span {
-    color: #81798F;
+    color: var(--cor-texto-auxiliar);
     font-size: 10px;
 }
 
-/* =========================================================
-   ESTILO EXCLUSIVO DOS CARDS DE FENDA (DENTRO DA GRADE)
-   ========================================================= */
+
+/* ========================================================= */
+/* CARDS DE FENDA                                            */
+/* ========================================================= */
+
 .resultados-busca .item-grade-fenda {
     display: flex !important;
     flex-direction: column !important;
@@ -898,10 +710,9 @@ aside.menu-lateral.recolhido
 }
 
 .resultados-busca .item-grade-fenda:hover {
-    background-color: #151027 !important;
+    background-color: var(--cor-fundo-card) !important;
 }
 
-/* Thumbnail vertical exata da fenda */
 .resultados-busca .item-grade-fenda .thumb-resultado {
     width: 100% !important;
     max-width: 210px !important;
@@ -933,9 +744,11 @@ aside.menu-lateral.recolhido
     justify-content: flex-end !important;
     padding-top: 5px !important;
 }
-/* =========================================================
-   AVATAR DE CANAL
-   ========================================================= */
+
+
+/* ========================================================= */
+/* AVATAR DE CANAL & THUMBNAILS                              */
+/* ========================================================= */
 
 .avatar-resultado-canal {
     width: 150px;
@@ -950,12 +763,6 @@ aside.menu-lateral.recolhido
     object-fit: cover;
 }
 
-
-/* =========================================================
-   THUMBNAILS (MINIATURAS)
-   ========================================================= */
-
-/* Thumb padrão (horizontal) */
 .thumb-resultado {
     width: 280px;
     height: 158px;
@@ -971,7 +778,6 @@ aside.menu-lateral.recolhido
     object-fit: cover;
 }
 
-/* Thumb específica da Fenda (Vertical 9/16 que se ajusta à grade) */
 .resultado-fenda .thumb-resultado {
     width: 100% !important;
     height: auto !important;
@@ -989,25 +795,20 @@ aside.menu-lateral.recolhido
 }
 
 
-/* =========================================================
-   DURAÇÃO DO VÍDEO
-   ========================================================= */
+/* ========================================================= */
+/* DURAÇÃO E INFORMAÇÕES                                     */
+/* ========================================================= */
 
 .duracao-resultado {
     position: absolute;
     right: 8px;
     bottom: 8px;
     padding: 4px 6px;
-    background-color: rgba(0, 0, 0, .85);
+    background-color: var(--cor-fundo-overlay);
     border-radius: 4px;
-    color: #ffffff;
+    color: var(--cor-texto-principal);
     font-size: 9px;
 }
-
-
-/* =========================================================
-   INFORMAÇÕES DO VÍDEO E FENDA
-   ========================================================= */
 
 .info-resultado-video {
     min-width: 0;
@@ -1015,7 +816,7 @@ aside.menu-lateral.recolhido
 }
 
 .info-resultado-video h2 {
-    color: #ffffff;
+    color: var(--cor-texto-principal);
     font-size: 18px;
     font-weight: 600;
     margin-bottom: 10px;
@@ -1026,18 +827,17 @@ aside.menu-lateral.recolhido
     display: flex;
     align-items: center;
     gap: 8px;
-    color: #B8B8C8;
+    color: var(--cor-texto-secundario);
     font-size: 11px;
     margin-bottom: 8px;
 }
 
 .meta-resultado-video {
-    color: #81798F;
+    color: var(--cor-texto-auxiliar);
     font-size: 10px;
     margin-top: 6px;
 }
 
-/* Ajustes de tipografia e espaçamento específicos para fendas */
 .resultado-fenda .info-resultado-video {
     padding: 10px 5px 0;
     width: 100%;
@@ -1059,9 +859,9 @@ aside.menu-lateral.recolhido
 }
 
 
-/* =========================================================
-   MENU DO RESULTADO E BOTÃO DE OPÇÕES
-   ========================================================= */
+/* ========================================================= */
+/* MENU DE OPÇÕES E DROPDOWN                                 */
+/* ========================================================= */
 
 .menu-resultado {
     display: flex;
@@ -1078,29 +878,24 @@ aside.menu-lateral.recolhido
     background: transparent;
     border: none;
     border-radius: 50%;
-    color: #B8B8C8;
+    color: var(--cor-texto-secundario);
     font-size: 18px;
     cursor: pointer;
     transition: background-color .2s ease, color .2s ease;
 }
 
 .btn-menu-resultado:hover {
-    background-color: #32205F;
-    color: #ffffff;
+    background-color: var(--cor-fundo-hover-suave);
+    color: var(--cor-texto-principal);
 }
-
-
-/* =========================================================
-   MENU FLUTUANTE (DROPDOWN)
-   ========================================================= */
 
 .dropdown-opcoes {
     width: 210px;
-    background-color: #151027;
-    border: 1px solid rgba(138, 77, 255, .35);
+    background-color: var(--cor-fundo-card);
+    border: 1px solid var(--cor-borda-dropdown);
     border-radius: 10px;
     padding: 6px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, .45);
+    box-shadow: 0 10px 30px var(--cor-sombra-dropdown);
     overflow: hidden;
 }
 
@@ -1113,7 +908,7 @@ aside.menu-lateral.recolhido
     background: transparent;
     border: none;
     border-radius: 6px;
-    color: #B8B8C8;
+    color: var(--cor-texto-secundario);
     font-size: 10px;
     text-align: left;
     cursor: pointer;
@@ -1121,17 +916,17 @@ aside.menu-lateral.recolhido
 }
 
 .dropdown-opcoes button:hover {
-    background-color: #32205F;
-    color: #ffffff;
+    background-color: var(--cor-fundo-hover-suave);
+    color: var(--cor-texto-principal);
 }
 
 .dropdown-opcoes button i {
     font-size: 14px;
 }
 
-/* =========================================================
-   SCROLLBAR
-   ========================================================= */
+/* ========================================================= */
+/* SCROLLBAR                                                 */
+/* ========================================================= */
 
 aside::-webkit-scrollbar,
 .label-list::-webkit-scrollbar {
@@ -1145,8 +940,404 @@ aside::-webkit-scrollbar-track,
 
 aside::-webkit-scrollbar-thumb,
 .label-list::-webkit-scrollbar-thumb {
-    background-color: #32205F;
+    background-color: var(--cor-roxo-escuro);
     border-radius: 10px;
 }
 
 
+/* ========================================================= */
+/* RESPONSIVIDADE — BUSCA ASTRAELION                          */
+/* ========================================================= */
+
+/* Evita que grids e textos ultrapassem os containers */
+.busca-container,
+.cabecalho-busca,
+.resultados-busca,
+.resultado-video,
+.resultado-galaxia,
+.info-resultado-video,
+.info-resultado-galaxia {
+    min-width: 0;
+}
+
+.resultado-video,
+.resultado-galaxia {
+    overflow-wrap: anywhere;
+}
+
+.resultado-video img,
+.resultado-galaxia img {
+    max-width: 100%;
+}
+
+/* ========================================================= */
+/* NOTEBOOKS E TELAS INTERMEDIÁRIAS                           */
+/* ========================================================= */
+
+@media (min-width: 1281px) and (max-width: 1450px) {
+    .busca-container {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+
+    .resultado-video,
+    .resultado-galaxia {
+        grid-template-columns: minmax(200px, 260px) minmax(0, 1fr) 35px;
+        gap: 16px;
+    }
+
+    .thumb-resultado,
+    .thumb-resultado-galaxia {
+        width: 100%;
+    }
+
+    .avatar-resultado-canal {
+        width: 125px;
+        height: 125px;
+    }
+
+    header .pesquisa input {
+        width: clamp(180px, 25vw, 300px);
+    }
+}
+
+/* ========================================================= */
+/* TABLETS E DISPOSITIVOS ATÉ 1280PX                          */
+/* O menu lateral fica oculto nesta faixa                    */
+/* ========================================================= */
+
+@media (max-width: 1280px) {
+    .busca-container,
+    .busca-container.recolhido {
+        width: 100% !important;
+        margin-left: 0 !important;
+        padding: 85px 28px 35px;
+    }
+
+    .resultado-video,
+    .resultado-galaxia {
+        grid-template-columns: minmax(200px, 260px) minmax(0, 1fr) 35px;
+        gap: 16px;
+    }
+
+    .thumb-resultado,
+    .thumb-resultado-galaxia {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .resultados-busca.grade-fendas {
+        grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+        gap: 18px !important;
+    }
+
+    .resultados-busca.grade-fendas > .resultado-video:not(.item-grade-fenda),
+    .resultados-busca.grade-fendas > .resultado-galaxia {
+        grid-template-columns: minmax(200px, 260px) minmax(0, 1fr) 35px !important;
+    }
+
+    header .pesquisa input {
+        width: clamp(160px, 24vw, 280px);
+    }
+}
+
+/* ========================================================= */
+/* TABLETS MENORES                                           */
+/* ========================================================= */
+
+@media (max-width: 900px) {
+    .busca-container,
+    .busca-container.recolhido {
+        padding: 80px 20px 35px;
+    }
+
+    .resultado-video,
+    .resultado-galaxia {
+        grid-template-columns: minmax(170px, 220px) minmax(0, 1fr) 35px;
+        gap: 14px;
+        padding: 12px;
+    }
+
+    .resultados-busca.grade-fendas {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 16px !important;
+    }
+
+    .resultados-busca.grade-fendas > .resultado-video:not(.item-grade-fenda),
+    .resultados-busca.grade-fendas > .resultado-galaxia {
+        grid-template-columns: minmax(170px, 220px) minmax(0, 1fr) 35px !important;
+    }
+
+    .avatar-resultado-canal {
+        width: 110px;
+        height: 110px;
+    }
+
+    .resultado-canal-card {
+        grid-template-columns: 110px minmax(0, 1fr) 35px !important;
+    }
+
+    .info-resultado-video h2,
+    .info-resultado-galaxia h2 {
+        font-size: 15px;
+    }
+
+    header .pesquisa input {
+        width: 190px;
+    }
+}
+
+/* ========================================================= */
+/* CELULARES                                                 */
+/* ========================================================= */
+
+@media (max-width: 600px) {
+    header .nav-container {
+        padding: 0 10px;
+        gap: 6px;
+    }
+
+    header .nav-esquerda {
+        gap: 7px;
+        flex-shrink: 0;
+    }
+
+    header .nav-container img {
+        width: 30px;
+        height: 30px;
+    }
+
+    header .logo-link {
+        gap: 6px;
+    }
+
+    header .logo-link span {
+        font-size: 16px;
+    }
+
+    .nav-perfil {
+        gap: 2px;
+        flex-shrink: 0;
+    }
+
+    .nav-perfil a {
+        width: 32px;
+        height: 34px;
+    }
+
+    .nav-perfil a i {
+        font-size: 18px;
+    }
+
+    /* A busca permanece dentro do cabeçalho sem alargar a página */
+    header .pesquisa {
+        min-width: 0;
+        flex: 1;
+        justify-content: flex-end;
+    }
+
+    header .pesquisa input {
+        width: 100%;
+        min-width: 0;
+        height: 34px;
+        padding: 8px;
+        font-size: 11px;
+    }
+
+    header .buscar {
+        flex-shrink: 0;
+        height: 34px;
+        padding: 0 9px;
+    }
+
+    .busca-container,
+    .busca-container.recolhido {
+        width: 100% !important;
+        margin-left: 0 !important;
+        padding: 78px 12px 85px !important;
+    }
+
+    .cabecalho-busca {
+        margin-bottom: 20px;
+    }
+
+    .cabecalho-busca h1 {
+        font-size: 19px;
+        margin-bottom: 18px;
+        overflow-wrap: anywhere;
+    }
+
+    /* Filtros podem deslizar horizontalmente */
+    .filtros-busca {
+        display: flex;
+        gap: 8px;
+        overflow-x: auto;
+        overflow-y: hidden;
+        white-space: nowrap;
+        padding-bottom: 10px;
+        scrollbar-width: none;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .filtros-busca::-webkit-scrollbar {
+        display: none;
+    }
+
+    .filtro {
+        flex: 0 0 auto;
+        padding: 9px 13px;
+    }
+
+    .resultados-busca {
+        margin-top: 18px;
+        gap: 12px;
+    }
+
+    /* Vídeos e galáxias em uma coluna */
+    .resultados-busca > .resultado-video,
+    .resultados-busca > .resultado-galaxia,
+    .resultados-busca.grade-fendas > .resultado-video:not(.item-grade-fenda),
+    .resultados-busca.grade-fendas > .resultado-galaxia {
+        display: grid !important;
+        grid-template-columns: minmax(0, 1fr) 35px !important;
+        gap: 10px !important;
+        width: 100% !important;
+        padding: 10px !important;
+    }
+
+    /* Miniatura ocupa a largura toda */
+    .resultado-video > .thumb-resultado,
+    .resultado-galaxia > .thumb-resultado-galaxia {
+        grid-column: 1 / -1;
+        width: 100% !important;
+        max-width: none;
+        height: auto;
+        aspect-ratio: 16 / 9;
+    }
+
+    .resultado-video > .info-resultado-video,
+    .resultado-galaxia > .info-resultado-galaxia {
+        grid-column: 1;
+        min-width: 0;
+        padding: 2px 0;
+    }
+
+    .resultado-video > .menu-resultado,
+    .resultado-galaxia > .menu-resultado {
+        grid-column: 2;
+        grid-row: 2;
+        justify-content: center;
+        align-items: flex-start;
+    }
+
+    .info-resultado-video h2,
+    .info-resultado-galaxia h2 {
+        font-size: 14px;
+        line-height: 1.45;
+        margin-bottom: 7px;
+    }
+
+    .canal-resultado-video {
+        flex-wrap: wrap;
+        font-size: 10px;
+    }
+
+    .meta-resultado-video,
+    .info-resultado-galaxia span {
+        font-size: 9px;
+        line-height: 1.5;
+    }
+
+    .avatar-resultado-canal {
+        width: 82px;
+        height: 82px;
+    }
+
+    .resultado-canal-card {
+        grid-template-columns: 82px minmax(0, 1fr) 32px !important;
+        gap: 10px;
+    }
+
+    /* Fendas: duas colunas em celulares maiores */
+    .resultados-busca.grade-fendas {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 10px !important;
+    }
+
+    .resultados-busca.grade-fendas > .item-grade-fenda {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+        min-width: 0;
+        padding: 7px !important;
+    }
+
+    .resultados-busca .item-grade-fenda .thumb-resultado {
+        width: 100% !important;
+        max-width: none !important;
+        height: auto !important;
+        aspect-ratio: 9 / 16 !important;
+        margin: 0 auto 8px !important;
+    }
+
+    .resultados-busca .item-grade-fenda .info-resultado-video,
+    .resultados-busca .item-grade-fenda .menu-resultado {
+        width: 100% !important;
+        max-width: none !important;
+    }
+
+    .resultados-busca .item-grade-fenda .info-resultado-video {
+        padding: 4px 2px 0 !important;
+    }
+
+    .resultados-busca .item-grade-fenda .info-resultado-video h2 {
+        font-size: 12px;
+    }
+
+    .resultados-busca .item-grade-fenda .canal-resultado-video {
+        font-size: 9px;
+    }
+
+    .resultados-busca .item-grade-fenda .meta-resultado-video {
+        font-size: 8px;
+    }
+
+    .btn-menu-resultado {
+        width: 32px;
+        height: 32px;
+    }
+}
+
+/* ========================================================= */
+/* CELULARES ESTREITOS                                       */
+/* ========================================================= */
+
+@media (max-width: 380px) {
+    header .logo-link span {
+        display: none;
+    }
+
+    header .pesquisa input {
+        font-size: 10px;
+        padding: 6px;
+    }
+
+    .busca-container,
+    .busca-container.recolhido {
+        padding-left: 8px !important;
+        padding-right: 8px !important;
+    }
+
+    .resultados-busca.grade-fendas {
+        gap: 7px !important;
+    }
+
+    .resultados-busca.grade-fendas > .item-grade-fenda {
+        padding: 5px !important;
+    }
+
+    .resultado-video > .menu-resultado,
+    .resultado-galaxia > .menu-resultado {
+        width: 30px;
+    }
+}

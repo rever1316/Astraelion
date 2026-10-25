@@ -1,0 +1,162 @@
+
+/* ==========================================
+   ASTRAELION — SISTEMA GLOBAL DE CORES
+   Tema: Universo Noturno
+========================================== */
+
+:root {
+
+    /* ==========================================
+       1. FUNDOS GERAIS
+    ========================================== */
+
+    --cor-fundo-pagina: #090912;
+    --cor-fundo-cabecalho: #130A24;
+    --cor-fundo-menu-lateral: #130A24;
+    --cor-fundo-cartao: #151027;
+
+    /* Compatibilidade com nomes alternativos */
+    --cor-fundo-card: var(--cor-fundo-cartao);
+
+
+    /* ==========================================
+       2. TEXTOS
+    ========================================== */
+
+    --cor-texto-principal: #FFFFFF;
+    --cor-texto-destaque: #FCFCFC;
+    --cor-texto-secundario: #B8B8C8;
+    --cor-texto-suave: #81798F;
+    --cor-texto-invertido: #090912;
+    --cor-texto-auxiliar: var(--cor-texto-suave);
+
+    /* Cores auxiliares */
+    --cor-branco: #FFFFFF;
+    --cor-azure: azure;
+
+
+    /* ==========================================
+       3. IDENTIDADE VISUAL — ROXO
+    ========================================== */
+
+    --cor-roxo-principal: #8A4DFF;
+    --cor-roxo-claro: #B06EFF;
+    --cor-roxo-escuro: #32205F;
+    --cor-roxo-hover: #602F9C;
+
+    /* Interações */
+    --cor-fundo-hover: var(--cor-roxo-escuro);
+    --cor-fundo-hover-suave: rgba(138, 77, 255, 0.12);
+    --cor-fundo-destaque: rgba(138, 77, 255, 0.10);
+    --cor-fundo-destaque-hover: rgba(138, 77, 255, 0.18);
+    --cor-roxo-hover-transparente: rgba(96, 47, 156, 0.45);
+
+
+    /* ==========================================
+       4. BORDAS E DIVISORES
+    ========================================== */
+
+    --cor-borda-padrao: rgba(138, 77, 255, 0.25);
+    --cor-borda-destaque: rgba(138, 77, 255, 0.60);
+    --cor-borda-buscar: rgba(134, 70, 253, 0.25);
+    --cor-divisor: #1D1136;
+
+    /* Bordas auxiliares */
+    --cor-borda-suave: rgba(255, 255, 255, 0.10);
+    --cor-borda-miniatura: rgba(255, 255, 255, 0.12);
+    --cor-borda-item: rgba(138, 77, 255, 0.20);
+    --cor-borda-item-hover: rgba(176, 110, 255, 0.50);
+
+    /* Compatibilidade com componentes */
+    --cor-borda-dropdown: var(--cor-borda-padrao);
+
+
+    /* ==========================================
+       5. SOMBRAS E SOBREPOSIÇÕES
+    ========================================== */
+
+    --cor-sombra: rgba(0, 0, 0, 0.35);
+    --cor-sombra-forte: rgba(0, 0, 0, 0.40);
+    --cor-sombra-menu: rgba(0, 0, 0, 0.35);
+    --cor-sombra-modal: rgba(0, 0, 0, 0.60);
+
+    --cor-fundo-overlay: rgba(9, 9, 18, 0.90);
+    --cor-fundo-overlay-modal: rgba(0, 0, 0, 0.75);
+    --cor-fundo-menu-flutuante: rgba(19, 10, 36, 0.98);
+    --cor-fundo-miniatura: rgba(9, 9, 18, 0.88);
+
+    /* Sombras e campos específicos */
+    --cor-fundo-campo: rgba(0, 0, 0, 0.30);
+    --cor-fundo-pesquisa-modal: rgba(0, 0, 0, 0.40);
+    --cor-brilho-roxo-suave: rgba(138, 77, 255, 0.15);
+    --cor-brilho-roxo: rgba(138, 77, 255, 0.20);
+
+    /* Compatibilidade com componentes */
+    --cor-sombra-dropdown: var(--cor-sombra-forte);
+
+
+    /* ==========================================
+       6. GRADIENTES
+    ========================================== */
+
+    /* Logo e identidade */
+    --gradiente-logo: linear-gradient(
+        135deg,
+        var(--cor-texto-destaque) 0%,
+        var(--cor-roxo-claro) 100%
+    );
+
+    /* Divisores */
+    --gradiente-divisor: linear-gradient(
+        to right,
+        transparent 0%,
+        var(--cor-divisor) 20%,
+        var(--cor-divisor) 80%,
+        transparent 100%
+    );
+
+    /* Painéis */
+    --gradiente-painel: linear-gradient(
+        135deg,
+        var(--cor-fundo-cartao) 0%,
+        var(--cor-fundo-cabecalho) 100%
+    );
+
+    /* Botões */
+    --gradiente-botao-roxo: linear-gradient(
+        135deg,
+        var(--cor-roxo-principal),
+        var(--cor-roxo-hover)
+    );
+
+
+    /* ==========================================
+       7. CORES DE STATUS
+    ========================================== */
+
+    --cor-status-video: #55B8FF;
+    --cor-status-live: #FF4568;
+    --cor-status-fenda: var(--cor-roxo-claro);
+
+    --cor-status-sucesso: #22C55E;
+    --cor-status-perigo: #FF718A;
+    --cor-status-privado: #D6A6FF;
+
+
+    /* ==========================================
+       8. ROLAGEM
+    ========================================== */
+
+    --cor-scroll-trilho: var(--cor-fundo-cabecalho);
+    --cor-scroll-indicador: var(--cor-roxo-principal);
+
+
+    /* ==========================================
+       9. MINHAS GALÁXIAS
+    ========================================== */
+
+    /* Fundos específicos */
+    --cor-fundo-capa-galaxia: var(--cor-fundo-cartao);
+    --cor-fundo-item-video: var(--cor-fundo-cartao);
+
+}

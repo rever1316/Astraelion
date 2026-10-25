@@ -1,70 +1,10 @@
+@import url('vars.css');
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: "Aldrich", sans-serif;
-}
-
-/* ========================================
-   ASTRAELION — SISTEMA DE CORES
-   Tema padrão: Universo Noturno
-======================================== */
-
-:root {
-    /* 1. FUNDOS GERAIS */
-    --cor-fundo-pagina: #090912;
-    --cor-fundo-cabecalho: #130A24;
-    --cor-fundo-menu-lateral: #130A24;
-    --cor-fundo-cartao: #151027;
-
-    /* 2. TEXTOS */
-    --cor-texto-principal: #FFFFFF;
-    --cor-texto-destaque: #FCFCFC;
-    --cor-texto-secundario: #B8B8C8;
-    --cor-texto-suave: #81798F;
-    --cor-texto-invertido: #090912;
-
-    /* 3. IDENTIDADE ROXA */
-    --cor-roxo-principal: #8A4DFF;
-    --cor-roxo-claro: #B06EFF;
-    --cor-roxo-escuro: #32205F;
-    --cor-roxo-hover: #602F9C;
-
-    /* 4. SUPERFÍCIES E INTERAÇÕES */
-    --cor-fundo-hover: #32205F;
-    --cor-fundo-hover-suave: rgba(138, 77, 255, 0.12);
-    --cor-fundo-destaque: rgba(138, 77, 255, 0.10);
-    --cor-fundo-destaque-hover: rgba(138, 77, 255, 0.18);
-
-    /* 5. BORDAS E DIVISORES */
-    --cor-borda-padrao: rgba(138, 77, 255, 0.25);
-    --cor-borda-destaque: rgba(138, 77, 255, 0.60);
-    --cor-borda-buscar: rgba(134, 70, 253, 0.25);
-    --cor-divisor: #1D1136;
-
-    /* 6. EFEITOS */
-    --cor-sombra: rgba(0, 0, 0, 0.35);
-    --cor-sombra-forte: rgba(0, 0, 0, 0.40);
-
-    /* 7. GRADIENTES DA IDENTIDADE */
-    --gradiente-logo: linear-gradient(135deg,
-            var(--cor-texto-destaque) 0%,
-            var(--cor-roxo-claro) 100%);
-
-    --gradiente-divisor: linear-gradient(to right,
-            transparent 0%,
-            var(--cor-divisor) 20%,
-            var(--cor-divisor) 80%,
-            transparent 100%);
-
-    /* 8. CORES DE STATUS */
-    --cor-status-video: #55B8FF;
-    --cor-status-live: #FF4568;
-    --cor-status-fenda: #B06EFF;
-
-    /* 9. ROLAGEM */
-    --cor-scroll-trilho: var(--cor-fundo-cabecalho);
-    --cor-scroll-indicador: var(--cor-roxo-principal);
 }
 
 html,
@@ -116,7 +56,7 @@ body {
 /* Firefox */
 html {
     scrollbar-width: thin;
-    scrollbar-color: var(--cor-roxo-principal) var(--cor-fundo-pagina);
+    scrollbar-color: var(--cor-scroll-indicador) var(--cor-scroll-trilho);
 }
 
 /* Chrome, Edge e outros navegadores WebKit */
@@ -125,7 +65,7 @@ html::-webkit-scrollbar {
 }
 
 html::-webkit-scrollbar-track {
-    background: var(--cor-fundo-pagina);
+    background: var(--cor-scroll-trilho);
 }
 
 html::-webkit-scrollbar-thumb {
@@ -679,16 +619,13 @@ aside.menu-lateral.recolhido .grupo-inscricoes .item-inscrito {
 /* ========================================== */
 main.watch-container {
     margin-left: 250px;
-    /* Compensa exatamente a largura do aside */
     margin-top: 2px;
-    /* Compensa a altura do header */
     width: calc(100% - 250px);
     min-height: calc(100vh - 65px);
     position: relative;
     transition: all 0.3s ease-in-out;
 }
 
-/* Quando o menu lateral recolher, o main da página de watch se expande */
 main.watch-container.recolhido {
     margin-left: 85px;
     width: calc(100% - 85px);
@@ -723,10 +660,10 @@ main.watch-container.recolhido {
 
     background: #000;
 
-    border: 1px solid rgba(138, 77, 255, .25);
+    border: 1px solid var(--cor-borda-padrao);
 
     box-shadow:
-        0 18px 45px rgba(0, 0, 0, .45),
+        0 18px 45px var(--cor-sombra-forte),
         0 0 35px rgba(138, 77, 255, .08);
 }
 
@@ -776,7 +713,7 @@ main.watch-container.recolhido {
     border-radius: 50%;
 
     background: transparent;
-    color: #fff;
+    color: var(--cor-texto-principal);
 
     font-size: 18px;
 
@@ -789,8 +726,8 @@ main.watch-container.recolhido {
 }
 
 .controle-video:hover {
-    background: rgba(138, 77, 255, .25);
-    color: #B06EFF;
+    background: var(--cor-fundo-destaque-hover);
+    color: var(--cor-roxo-claro);
     transform: scale(1.05);
 }
 
@@ -835,7 +772,7 @@ main.watch-container.recolhido {
     height: 12px;
     margin-top: -4px;
     border-radius: 50%;
-    background: #8A4DFF;
+    background: var(--cor-roxo-principal);
     border: none;
 }
 
@@ -843,7 +780,7 @@ main.watch-container.recolhido {
     width: 12px;
     height: 12px;
     border-radius: 50%;
-    background: #8A4DFF;
+    background: var(--cor-roxo-principal);
     border: none;
 }
 
@@ -947,7 +884,7 @@ main.watch-container.recolhido {
     border: none;
     border-radius: 50%;
 
-    background: #8A4DFF;
+    background: var(--cor-roxo-principal);
 
     box-shadow:
         0 0 8px rgba(138, 77, 255, .7);
@@ -966,7 +903,7 @@ main.watch-container.recolhido {
     border: none;
     border-radius: 50%;
 
-    background: #8A4DFF;
+    background: var(--cor-roxo-principal);
 
     box-shadow:
         0 0 8px rgba(138, 77, 255, .7);
@@ -987,7 +924,7 @@ main.watch-container.recolhido {
     flex-direction: column;
     align-items: center;
     gap: 8px;
-    color: #fff;
+    color: var(--cor-texto-principal);
     font-size: 12px;
     opacity: 0;
     visibility: hidden;
@@ -1005,7 +942,7 @@ main.watch-container.recolhido {
 
 .indicador-carregamento i {
     font-size: 28px;
-    color: #B06EFF;
+    color: var(--cor-roxo-claro);
     animation: girarCarregamento 1s linear infinite;
 }
 
@@ -1027,7 +964,7 @@ main.watch-container.recolhido {
 .tempo-video {
     flex-shrink: 0;
     min-width: 85px;
-    color: #fff;
+    color: var(--cor-texto-principal);
     font-family: "Aldrich", sans-serif;
     font-size: 12px;
     white-space: nowrap;
@@ -1046,10 +983,10 @@ main.watch-container.recolhido {
     width: 240px;
     padding: 8px;
     background: rgba(19, 10, 36, .97);
-    border: 1px solid rgba(138, 77, 255, .35);
+    border: 1px solid var(--cor-borda-destaque);
     border-radius: 12px;
     box-shadow:
-        0 15px 40px rgba(0, 0, 0, .55),
+        0 15px 40px var(--cor-sombra-forte),
         0 0 25px rgba(138, 77, 255, .12);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
@@ -1077,7 +1014,7 @@ main.watch-container.recolhido {
 
 .config-header {
     padding: 10px 12px 12px;
-    color: #fff;
+    color: var(--cor-texto-principal);
     font-size: 14px;
     border-bottom: 1px solid rgba(255, 255, 255, .08);
 }
@@ -1094,7 +1031,7 @@ main.watch-container.recolhido {
     border: none;
     border-radius: 8px;
     background: transparent;
-    color: #fff;
+    color: var(--cor-texto-principal);
     font-family: "Aldrich", sans-serif;
     font-size: 12px;
     text-align: left;
@@ -1106,7 +1043,7 @@ main.watch-container.recolhido {
 
 .config-opcao:hover {
     background: rgba(138, 77, 255, .16);
-    color: #B06EFF;
+    color: var(--cor-roxo-claro);
 }
 
 .config-opcao span:last-child {
@@ -1114,7 +1051,7 @@ main.watch-container.recolhido {
     align-items: center;
     gap: 8px;
 
-    color: #B8B8C8;
+    color: var(--cor-texto-secundario);
 }
 
 
@@ -1141,13 +1078,13 @@ main.watch-container.recolhido {
 
 .player-placeholder i {
     font-size: 70px;
-    color: #8A4DFF;
+    color: var(--cor-roxo-principal);
     cursor: pointer;
     transition: .3s;
 }
 
 .player-placeholder i:hover {
-    color: #B06EFF;
+    color: var(--cor-roxo-claro);
     transform: scale(1.1);
 }
 
@@ -1229,9 +1166,9 @@ main.watch-container.recolhido {
     gap: 10px;
     padding: 12px 18px;
     background: rgba(0, 0, 0, .65);
-    border: 1px solid rgba(138, 77, 255, .35);
+    border: 1px solid var(--cor-borda-destaque);
     border-radius: 30px;
-    color: #fff;
+    color: var(--cor-texto-principal);
     font-size: 14px;
     opacity: 0;
     visibility: hidden;
@@ -1251,7 +1188,7 @@ main.watch-container.recolhido {
 
 .indicador-acao i {
     font-size: 24px;
-    color: #B06EFF;
+    color: var(--cor-roxo-claro);
 }
 
 /* =========================================================
@@ -1265,10 +1202,10 @@ main.watch-container.recolhido {
     width: 240px;
     padding: 8px;
     background: rgba(19, 10, 36, .97);
-    border: 1px solid rgba(138, 77, 255, .35);
+    border: 1px solid var(--cor-borda-destaque);
     border-radius: 12px;
     box-shadow:
-        0 15px 40px rgba(0, 0, 0, .55),
+        0 15px 40px var(--cor-sombra-forte),
         0 0 25px rgba(138, 77, 255, .12);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
@@ -1301,13 +1238,13 @@ main.watch-container.recolhido {
     border: none;
     border-radius: 50%;
     background: transparent;
-    color: #fff;
+    color: var(--cor-texto-principal);
     cursor: pointer;
 }
 
 .btn-voltar-config:hover {
     background: rgba(138, 77, 255, .2);
-    color: #B06EFF;
+    color: var(--cor-roxo-claro);
 }
 
 /* =========================
@@ -1322,7 +1259,7 @@ main.watch-container.recolhido {
 
 .video-info h1 {
     margin: 0 0 20px;
-    color: #ffffff;
+    color: var(--cor-texto-principal);
     font-size: 24px;
     font-weight: 600;
     line-height: 1.3;
@@ -1336,7 +1273,7 @@ main.watch-container.recolhido {
 
 .titulo-video {
     margin: 0;
-    color: #ffffff;
+    color: var(--cor-texto-principal);
     font-size: 24px;
     font-weight: 600;
     line-height: 1.3;
@@ -1357,7 +1294,7 @@ main.watch-container.recolhido {
     padding: 0;
     border: none;
     background: transparent;
-    color: #B06EFF;
+    color: var(--cor-roxo-claro);
     font-family: inherit;
     font-size: 13px;
     font-weight: bold;
@@ -1365,7 +1302,7 @@ main.watch-container.recolhido {
 }
 
 .btn-titulo:hover {
-    color: #ffffff;
+    color: var(--cor-texto-principal);
 }
 
 
@@ -1397,19 +1334,19 @@ main.watch-container.recolhido {
 .canal h3 {
     margin: 0;
     text-decoration: none;
-    color: #ffffff;
+    color: var(--cor-texto-principal);
     font-size: 15px;
 }
 
 .nome-canal {
     max-width: 180px;
     margin: 0;
-    color: #ffffff;
+    color: var(--cor-texto-principal);
     font-size: 15px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-        text-decoration: none;
+    text-decoration: none;
     list-style: none;
 }
 
@@ -1418,7 +1355,7 @@ main.watch-container.recolhido {
 
     margin-top: 4px;
 
-    color: #81798f;
+    color: var(--cor-texto-suave);
 
     font-size: 12px;
 }
@@ -1431,9 +1368,9 @@ main.watch-container.recolhido {
     border: none;
     border-radius: 20px;
 
-    background-color: #8A4DFF;
+    background-color: var(--cor-roxo-principal);
 
-    color: #ffffff;
+    color: var(--cor-texto-principal);
 
     font-size: 14px;
 
@@ -1443,7 +1380,7 @@ main.watch-container.recolhido {
 }
 
 .btn-inscrever:hover {
-    background-color: #B06EFF;
+    background-color: var(--cor-roxo-claro);
 }
 
 
@@ -1464,16 +1401,16 @@ main.watch-container.recolhido {
 
     border-radius: 20px;
 
-    background-color: #151027;
+    background-color: var(--cor-fundo-cartao);
 
-    color: #ffffff;
+    color: var(--cor-texto-principal);
 
     cursor: pointer;
 }
 
 .acoes button:hover {
 
-    background-color: #32205F;
+    background-color: var(--cor-roxo-escuro);
 }
 
 
@@ -1488,7 +1425,7 @@ main.watch-container.recolhido {
     margin-top: 20px;
     padding: 18px;
 
-    background-color: #151027;
+    background-color: var(--cor-fundo-cartao);
 
     border-radius: 12px;
 
@@ -1500,7 +1437,7 @@ main.watch-container.recolhido {
 
     margin-bottom: 10px;
 
-    color: #ffffff;
+    color: var(--cor-texto-principal);
 
     font-size: 13px;
 }
@@ -1508,13 +1445,12 @@ main.watch-container.recolhido {
 .descricao-texto {
     margin: 0;
 
-    color: #B8B8C8;
+    color: var(--cor-texto-secundario);
 
     font-size: 14px;
 
     line-height: 1.5;
 
-    /* Limita inicialmente a quantidade de linhas */
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 3;
@@ -1543,7 +1479,7 @@ main.watch-container.recolhido {
 
     background: transparent;
 
-    color: #B06EFF;
+    color: var(--cor-roxo-claro);
 
     font-family: inherit;
 
@@ -1554,7 +1490,7 @@ main.watch-container.recolhido {
 }
 
 .btn-descricao:hover {
-    color: #ffffff;
+    color: var(--cor-texto-principal);
 }
 
 
@@ -1572,13 +1508,13 @@ main.watch-container.recolhido {
 .comentarios h2 {
     margin: 0 0 25px;
 
-    color: #ffffff;
+    color: var(--cor-texto-principal);
 
     font-size: 20px;
 }
 
 .quantidade-comentarios {
-    color: #81798F;
+    color: var(--cor-texto-suave);
 
     font-size: 14px;
 }
@@ -1620,11 +1556,11 @@ main.watch-container.recolhido {
     background: transparent;
 
     border: none;
-    border-bottom: 1px solid #3A3150;
+    border-bottom: 1px solid var(--cor-borda-padrao);
 
     outline: none;
 
-    color: #ffffff;
+    color: var(--cor-texto-principal);
 
     font-family: inherit;
 
@@ -1634,11 +1570,11 @@ main.watch-container.recolhido {
 }
 
 .campo-comentario textarea:focus {
-    border-bottom-color: #8A4DFF;
+    border-bottom-color: var(--cor-roxo-principal);
 }
 
 .campo-comentario textarea::placeholder {
-    color: #81798F;
+    color: var(--cor-texto-suave);
 }
 
 .acoes-comentario {
@@ -1663,7 +1599,7 @@ main.watch-container.recolhido {
 
     background: transparent;
 
-    color: #B8B8C8;
+    color: var(--cor-texto-secundario);
 
     font-family: inherit;
 
@@ -1675,8 +1611,8 @@ main.watch-container.recolhido {
 }
 
 .btn-cancelar:hover {
-    background-color: #32205F;
-    color: #ffffff;
+    background-color: var(--cor-roxo-escuro);
+    color: var(--cor-texto-principal);
 }
 
 .btn-comentar {
@@ -1685,9 +1621,9 @@ main.watch-container.recolhido {
     border: none;
     border-radius: 20px;
 
-    background-color: #8A4DFF;
+    background-color: var(--cor-roxo-principal);
 
-    color: #ffffff;
+    color: var(--cor-texto-principal);
 
     font-family: inherit;
 
@@ -1699,7 +1635,7 @@ main.watch-container.recolhido {
 }
 
 .btn-comentar:hover {
-    background-color: #B06EFF;
+    background-color: var(--cor-roxo-claro);
 }
 
 .comentario {
@@ -1734,13 +1670,13 @@ main.watch-container.recolhido {
 }
 
 .comentario-cabecalho strong {
-    color: #ffffff;
+    color: var(--cor-texto-principal);
 
     font-size: 13px;
 }
 
 .comentario-cabecalho span {
-    color: #81798F;
+    color: var(--cor-texto-suave);
 
     font-size: 11px;
 }
@@ -1748,7 +1684,7 @@ main.watch-container.recolhido {
 .comentario-conteudo p {
     margin: 7px 0 8px;
 
-    color: #B8B8C8;
+    color: var(--cor-texto-secundario);
 
     font-size: 13px;
 
@@ -1769,7 +1705,7 @@ main.watch-container.recolhido {
 
     background: transparent;
 
-    color: #B8B8C8;
+    color: var(--cor-texto-secundario);
 
     font-family: inherit;
 
@@ -1781,9 +1717,9 @@ main.watch-container.recolhido {
 }
 
 .comentario-conteudo .acoes-comentario button:hover {
-    background-color: #32205F;
+    background-color: var(--cor-roxo-escuro);
 
-    color: #B06EFF;
+    color: var(--cor-roxo-claro);
 }
 
 .texto-comentario {
@@ -1811,7 +1747,7 @@ main.watch-container.recolhido {
     border: none;
     background: transparent;
 
-    color: #B06EFF;
+    color: var(--cor-roxo-claro);
 
     font-family: inherit;
     font-size: 11px;
@@ -1821,7 +1757,7 @@ main.watch-container.recolhido {
 }
 
 .btn-mostrar-comentario:hover {
-    color: #ffffff;
+    color: var(--cor-texto-principal);
 }
 
 /* =========================
@@ -1860,7 +1796,7 @@ main.watch-container.recolhido {
 
     font-size: 11px;
 
-    color: #B8B8C8;
+    color: var(--cor-texto-secundario);
 }
 
 .video-recomendado span {
@@ -1871,7 +1807,7 @@ main.watch-container.recolhido {
 
     font-size: 10px;
 
-    color: #81798f;
+    color: var(--cor-texto-suave);
 }
 
 /* ========================================== */
@@ -1879,17 +1815,14 @@ main.watch-container.recolhido {
 /* ========================================== */
 @media (max-width: 768px) {
 
-    /* 2. Reseta a margem esquerda do container principal e do header */
     main.watch-container {
         margin-top: 0 !important;
         margin-left: 0 !important;
         width: 100% !important;
         padding: 60px 0 30px 0 !important;
-        /* Padding lateral zerado (0) */
         display: block !important;
     }
 
-    /* 3. Ajusta o header para ocupar toda a largura sem margens */
     header {
         display: none;
     }
@@ -1906,14 +1839,12 @@ main.watch-container.recolhido {
         width: 100% !important;
         height: 100% !important;
         object-fit: cover;
-        /* Faz o vídeo preencher todo o espaço sem barras pretas */
     }
 
     .menu-lateral {
         display: none !important;
     }
 
-    /* 5. Informações do vídeo e canal empilhados e organizados */
     .video-info {
         max-width: 100% !important;
         padding: 0 4px;
@@ -1928,18 +1859,15 @@ main.watch-container.recolhido {
     .acoes {
         width: 100%;
         overflow-x: auto;
-        /* Permite arrastar os botões de like/compartilhar horizontalmente */
         padding-bottom: 5px;
     }
 
-    /* 6. Descrição e Comentários adaptados à largura da tela */
     .descricao,
     .comentarios {
         max-width: 100% !important;
         border-radius: 8px;
     }
 
-    /* 7. Recomendações (Próximos vídeos) vão para o fluxo normal abaixo dos comentários */
     .recomendacoes {
         width: 100% !important;
         margin-top: 30px;
@@ -1947,50 +1875,38 @@ main.watch-container.recolhido {
 
     .video-recomendado img {
         width: 140px;
-        /* Miniaturas menores para telas de celular */
         height: 80px;
     }
 
-    /* Dá um respiro de margem à direita para o botão "Embarcar" não colar na borda */
     .btn-inscrever {
         padding: 8px 14px !important;
         font-size: 13px !important;
         margin-right: 4px !important;
-        /* Desgruda da lateral direita da tela */
     }
 
-    /* Afasta o bloco de ações/canal um pouco mais para baixo (espaço leve) */
     .video-actions {
         margin-top: 12px !important;
-        /* Cria o respiro pedido */
     }
 
-    /* Altera o layout do vídeo recomendado para coluna (thumb em cima, texto embaixo) */
     .video-recomendado {
         display: flex !important;
         flex-direction: column !important;
-        /* Empilha os itens verticalmente */
         gap: 8px !important;
         margin-bottom: 24px !important;
     }
 
-    /* Faz a miniatura ocupar 100% da largura da tela com a proporção correta de vídeo */
     .video-recomendado img {
         width: 100% !important;
         height: auto !important;
         aspect-ratio: 16 / 9 !important;
-        /* Mantém o formato padrão de vídeo */
         object-fit: cover !important;
         border-radius: 12px !important;
-        /* Deixa as bordas arredondadas igual ao YouTube */
     }
 
-    /* Ajusta o espaçamento do bloco de texto abaixo da thumb */
     .video-recomendado div {
         padding: 0 4px;
     }
 
-    /* Melhora o tamanho do título e espaçamento dos textos */
     .video-recomendado h3 {
         font-size: 14px !important;
         line-height: 1.4 !important;
@@ -2000,4 +1916,56 @@ main.watch-container.recolhido {
     .video-recomendado span {
         font-size: 12px !important;
     }
+}
+
+@media (max-width: 768px) {
+    .player {
+        position: sticky !important;
+        top: 0 !important;
+        z-index: 100 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        border-radius: 0 !important;
+        margin: 0 !important;
+        transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .player.minimizado {
+        position: fixed !important;
+        top: auto !important;
+        bottom: 75px !important;
+        right: 16px !important;
+        width: 160px !important;
+        aspect-ratio: 16 / 9 !important;
+        height: auto !important;
+        z-index: 9999 !important;
+        border-radius: 12px !important;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.7), 0 0 15px rgba(138, 77, 255, 0.4);
+        border: 1px solid var(--cor-borda-destaque);
+        animation: miniPlayerPop 0.25s ease-out;
+    }
+
+    .player.minimizado .player-controles,
+    .player.minimizado .indicador-carregamento,
+    .player.minimizado .indicador-acao {
+        display: none !important;
+    }
+
+    .player.minimizado::after {
+        content: "⛶";
+        position: absolute;
+        top: 4px;
+        right: 6px;
+        color: var(--cor-texto-principal);
+        font-size: 12px;
+        background: rgba(0, 0, 0, 0.6);
+        padding: 2px 6px;
+        border-radius: 4px;
+        pointer-events: none;
+    }
+}
+
+@keyframes miniPlayerPop {
+    from { transform: scale(0.6); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
 }

@@ -1,241 +1,163 @@
-
-
-
-const episodiosGalaxia =
-    document.querySelectorAll('.video-galaxia');
-
-const btnVerMaisGalaxia =
-    document.getElementById('btnVerMaisGalaxia');
-
-const limiteInicialGalaxia = 20;
-
-const quantidadePorCliqueGalaxia = 20;
-
-let episodiosVisiveis = limiteInicialGalaxia;
-
-
-// Esconde os episódios depois dos 20 primeiros
-
-episodiosGalaxia.forEach((episodio, index) => {
-
-    if (index >= limiteInicialGalaxia) {
-
-        episodio.style.display = 'none';
-
-    }
-
-});
-
-
-// Se tiver 20 ou menos,
-// não precisa mostrar o botão.
-
-if (episodiosGalaxia.length <= limiteInicialGalaxia) {
-
-    btnVerMaisGalaxia.style.display = 'none';
-
-}
-
-
-// Ver mais
-
-btnVerMaisGalaxia.addEventListener('click', () => {
-
-    const novoLimite =
-        episodiosVisiveis +
-        quantidadePorCliqueGalaxia;
-
-
-    episodiosGalaxia.forEach((episodio, index) => {
-
-        if (
-            index >= episodiosVisiveis &&
-            index < novoLimite
-        ) {
-
-            episodio.style.display = 'grid';
-
-        }
-
-    });
-
-
-    episodiosVisiveis = novoLimite;
-
-
-    // Acabaram os episódios
-
-    if (
-        episodiosVisiveis >=
-        episodiosGalaxia.length
-    ) {
-
-        btnVerMaisGalaxia.style.display = 'none';
-
-    }
-
-});
-
-var MenuItem = document.querySelectorAll('aside a');
-
-function selectLink(){
-    MenuItem.forEach((item) =>
-        item.classList.remove('active')
-    );
-    this.classList.add('active');
-}
-
-MenuItem.forEach((item) =>
-    item.addEventListener('click', selectLink)
-);
-
-// Configuração do tamanho padrão ao carregar a página
-const INICIAR_RECOLHIDO = false; 
-
 document.addEventListener("DOMContentLoaded", () => {
-    // 1. Seletor corrigido para bater com <button class="btn-menu">
-    const btnExpandir = document.querySelector('.btn-menu');
-    const aside = document.querySelector('aside');
-    
-    // 2. Tenta pegar a tag <main> ou a div .fendas-container
-    const mainContent = document.querySelector('main') || document.querySelector('.fendas-container');
 
-    if (!btnExpandir || !aside) return;
+    /* =========================================================
+       1. MENU LATERAL (TOGGLE / RECOLHER)
+    ========================================================= */
+    const btnMenu = document.querySelector('.btn-menu');
+    const asideMenu = document.querySelector('aside.menu-lateral');
+    const galaxiaContainer = document.querySelector('.galaxia-container');
 
-    // Define o estado inicial com base na configuração
-    if (INICIAR_RECOLHIDO) {
-        aside.classList.add('recolhido');
-        if (mainContent) mainContent.classList.add('recolhido');
+    if (btnMenu && asideMenu) {
+        btnMenu.addEventListener('click', () => {
+            asideMenu.classList.toggle('recolhido');
+            if (galaxiaContainer) {
+                galaxiaContainer.classList.toggle('recolhido');
+            }
+        });
     }
 
-    // Evento de clique no botão do menu
-    btnExpandir.addEventListener('click', () => {
-        aside.classList.toggle('recolhido');
-        if (mainContent) mainContent.classList.toggle('recolhido');
-    });
-});
+    /* =========================================================
+       2. BOX DE OPÇÕES DOS 3 PONTOS (POPOVER GALÁXIA)
+    ========================================================= */
+    const btnOpcoesTopo = document.querySelector('.btn-opcoes-topo');
+    const menuOpcoesPopover = document.getElementById('menuOpcoesPopover');
 
-
-/* ========================================
-   PESQUISA EXPANSÍVEL — CELULARES
-======================================== */
-
-const pesquisa = document.querySelector('.pesquisa');
-const inputPesquisa = document.querySelector('#inputPesquisa');
-const btnBuscar = document.querySelector('.pesquisa .buscar');
-const btnFecharPesquisa = document.querySelector('.fechar-pesquisa');
-
-if (pesquisa && inputPesquisa && btnBuscar && btnFecharPesquisa) {
-
-    function abrirPesquisa() {
-        if (window.innerWidth > 768) return;
-
-        pesquisa.classList.add('ativa');
-        inputPesquisa.focus();
-    }
-
-    function fecharPesquisa() {
-        pesquisa.classList.remove('ativa');
-        inputPesquisa.value = '';
-        inputPesquisa.blur();
-    }
-
-    btnBuscar.addEventListener('click', () => {
-        if (window.innerWidth <= 768 && !pesquisa.classList.contains('ativa')) {
-            abrirPesquisa();
-            return;
-        }
-
-        // Ação de pesquisa será conectada ao sistema de busca existente.
-        if (inputPesquisa.value.trim()) {
-            inputPesquisa.dispatchEvent(
-                new KeyboardEvent('keydown', {
-                    key: 'Enter',
-                    bubbles: true
-                })
-            );
-        }
-    });
-
-    btnFecharPesquisa.addEventListener('click', fecharPesquisa);
-
-    inputPesquisa.addEventListener('keydown', (event) => {
-        if (event.key === 'Escape') {
-            fecharPesquisa();
-        }
-    });
-
-    window.addEventListener('resize', () => {
-        if (window.innerWidth > 768) {
-            pesquisa.classList.remove('ativa');
-        }
-    });
-}
-
-
-document.addEventListener("DOMContentLoaded", () => {
-    const grupo = document.querySelector(".grupo-inscricoes");
-    const lista = document.querySelector("#listaInscricoesMenu");
-    const botao = document.querySelector("#btnVerInscricoes");
-
-    if (!grupo || !lista || !botao) return;
-
-    const LIMITE_INICIAL = 10;
-
-    // Organiza os canais alfabeticamente.
-    function ordenarCanais() {
-        const canais = [
-            ...lista.querySelectorAll(".item-inscrito")
-        ];
-
-        canais.sort((a, b) => {
-            const nomeA = a.querySelector("span")?.textContent.trim() || "";
-            const nomeB = b.querySelector("span")?.textContent.trim() || "";
-
-            return nomeA.localeCompare(nomeB, "pt-BR", {
-                sensitivity: "base"
-            });
+    if (btnOpcoesTopo && menuOpcoesPopover) {
+        // Clique no botão de 3 pontos para abrir/fechar o box
+        btnOpcoesTopo.addEventListener('click', (e) => {
+            e.stopPropagation();
+            menuOpcoesPopover.hidden = !menuOpcoesPopover.hidden;
         });
 
-        canais.forEach(canal => lista.appendChild(canal));
-
-        return canais;
+        // Clique fora do menu fecha o box
+        window.addEventListener('click', (e) => {
+            if (!menuOpcoesPopover.contains(e.target) && !btnOpcoesTopo.contains(e.target)) {
+                menuOpcoesPopover.hidden = true;
+            }
+        });
     }
 
-    const canais = ordenarCanais();
+    /* =========================================================
+       3. MODAIS (EDITAR E ADICIONAR VÍDEOS)
+    ========================================================= */
+    const modalEditar = document.getElementById('modalEditarPlaylist');
+    const modalAdicionar = document.getElementById('modalAdicionarVideos');
 
-    function atualizarLista() {
-        const expandido = grupo.classList.contains("expandido");
-        const temMaisCanais = canais.length > LIMITE_INICIAL;
+    const opcaoEditar = document.getElementById('opcaoMenuEditar');
+    const opcaoAdicionar = document.getElementById('opcaoMenuAdicionar');
 
-        // O botão só existe quando há mais de 10 canais.
-        botao.hidden = !temMaisCanais;
+    const btnFecharEditar = document.getElementById('btnFecharModalEditar');
+    const btnCancelarEditar = document.getElementById('btnCancelarModalEditar');
 
-        // Atualiza o texto e o estado acessível do botão.
-        const texto = botao.querySelector("span");
+    const btnFecharAdicionar = document.getElementById('btnFecharModalAdicionar');
+    const btnConcluirAdicao = document.getElementById('btnConcluirAdicao');
 
-        if (texto) {
-            texto.textContent = expandido ? "Ver menos" : "Ver mais";
+    const formEditar = document.getElementById('formEditarPlaylist');
+
+    // --- ABRIR MODAL EDITAR ---
+    if (opcaoEditar && modalEditar) {
+        opcaoEditar.addEventListener('click', () => {
+            if (menuOpcoesPopover) menuOpcoesPopover.hidden = true;
+
+            // Preenche os campos do modal com os dados atuais da página
+            const tituloAtual = document.querySelector('.identidade-galaxia h1')?.textContent.trim() || '';
+            const descAtual = document.querySelector('.descricao-galaxia p')?.textContent.trim() || '';
+
+            const inputNome = document.getElementById('editarNomePlaylist');
+            const inputDesc = document.getElementById('editarDescricaoPlaylist');
+
+            if (inputNome) inputNome.value = tituloAtual;
+            if (inputDesc) inputDesc.value = descAtual;
+
+            modalEditar.classList.add('ativo');
+        });
+    }
+
+    // --- ABRIR MODAL ADICIONAR VÍDEOS ---
+    if (opcaoAdicionar && modalAdicionar) {
+        opcaoAdicionar.addEventListener('click', () => {
+            if (menuOpcoesPopover) menuOpcoesPopover.hidden = true;
+            modalAdicionar.classList.add('ativo');
+        });
+    }
+
+    // --- FECHAR MODAIS (BOTÕES) ---
+    function fecharModais() {
+        if (modalEditar) modalEditar.classList.remove('ativo');
+        if (modalAdicionar) modalAdicionar.classList.remove('ativo');
+    }
+
+    if (btnFecharEditar) btnFecharEditar.addEventListener('click', fecharModais);
+    if (btnCancelarEditar) btnCancelarEditar.addEventListener('click', fecharModais);
+    if (btnFecharAdicionar) btnFecharAdicionar.addEventListener('click', fecharModais);
+    if (btnConcluirAdicao) btnConcluirAdicao.addEventListener('click', fecharModais);
+
+    // --- FECHAR MODAL CLICANDO NO FUNDO (FORA) ---
+    window.addEventListener('click', (e) => {
+        if (e.target === modalEditar || e.target === modalAdicionar) {
+            fecharModais();
         }
-
-        botao.setAttribute("aria-expanded", String(expandido));
-
-        canais.forEach((canal, indice) => {
-    canal.hidden = !expandido && indice >= LIMITE_INICIAL;
-});
-
-lista.classList.toggle("lista-expandida", expandido);
-
-// Ao expandir, a lista começa do início.
-if (expandido) {
-    lista.scrollTop = 0;
-}
-    }
-
-    botao.addEventListener("click", () => {
-        grupo.classList.toggle("expandido");
-        atualizarLista();
     });
 
-    atualizarLista();
+    // --- SALVAR ALTERAÇÕES DA GALÁXIA ---
+    if (formEditar) {
+        formEditar.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const novoNome = document.getElementById('editarNomePlaylist')?.value.trim();
+            const novaDesc = document.getElementById('editarDescricaoPlaylist')?.value.trim();
+
+            if (novoNome) {
+                const h1 = document.querySelector('.identidade-galaxia h1');
+                const p = document.querySelector('.descricao-galaxia p');
+
+                if (h1) h1.textContent = novoNome;
+                if (p) p.textContent = novaDesc;
+
+                fecharModais();
+            }
+        });
+    }
+
+    /* =========================================================
+       4. BOTÃO "VER MAIS" DA LISTA DE VÍDEOS
+    ========================================================= */
+    const episodiosGalaxia = document.querySelectorAll('.video-galaxia');
+    const btnVerMaisGalaxia = document.getElementById('btnVerMaisGalaxia');
+
+    const limiteInicial = 10;
+    const quantidadePorClique = 10;
+    let visiveis = limiteInicial;
+
+    if (episodiosGalaxia.length > 0) {
+        // Esconde os vídeos além do limite inicial
+        episodiosGalaxia.forEach((ep, index) => {
+            if (index >= limiteInicial) {
+                ep.style.display = 'none';
+            }
+        });
+
+        // Oculta o botão se a lista for menor ou igual ao limite
+        if (episodiosGalaxia.length <= limiteInicial && btnVerMaisGalaxia) {
+            btnVerMaisGalaxia.style.display = 'none';
+        }
+
+        if (btnVerMaisGalaxia) {
+            btnVerMaisGalaxia.addEventListener('click', () => {
+                const proximoLimite = visiveis + quantidadePorClique;
+
+                episodiosGalaxia.forEach((ep, index) => {
+                    if (index >= visiveis && index < proximoLimite) {
+                        ep.style.display = window.innerWidth <= 768 ? 'block' : 'grid';
+                    }
+                });
+
+                visiveis = proximoLimite;
+
+                if (visiveis >= episodiosGalaxia.length) {
+                    btnVerMaisGalaxia.style.display = 'none';
+                }
+            });
+        }
+    }
 });

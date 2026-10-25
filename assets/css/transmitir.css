@@ -1,0 +1,613 @@
+/* ========================================== */
+/* ASTRAELION — TELA DE TRANSMISSÃO AO VIVO   */
+/* ========================================== */
+@import url('vars.css');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Aldrich", sans-serif;
+}
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+    overflow-x: clip;
+    overflow-y: auto;
+    background-color: var(--cor-fundo-pagina);
+    color: var(--cor-texto-principal);
+}
+
+/* Fundo cósmico com estrelas */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 0;
+    background: radial-gradient(circle at 15% 20%, rgba(138, 77, 255, 0.12) 0%, transparent 45%),
+        radial-gradient(circle at 85% 80%, rgba(176, 110, 255, 0.1) 0%, transparent 50%);
+}
+
+header,
+.live-layout,
+.modal-overlay {
+    position: relative;
+    z-index: 1;
+}
+
+header {
+    background-color: var(--cor-fundo-cabecalho);
+    border-bottom: 2px solid var(--cor-borda-padrao);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 10px 20px;
+    backdrop-filter: blur(10px);
+}
+
+header .nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header .nav-esquerda {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+header .btn-menu {
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    background: transparent;
+    border-radius: 8px;
+    color: #FFF;
+    font-size: 20px;
+}
+
+header .btn-menu:hover {
+    background-color: var(--cor-fundo-hover);
+}
+
+header .logo-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+}
+
+header .logo-link img {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+}
+
+header .logo-link span {
+    background: var(--gradiente-logo);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 20px;
+}
+
+.status-live-badge {
+    font-size: 11px;
+    color: var(--cor-status-sucesso, #A8E6C1);
+    background: rgba(168, 230, 193, 0.1);
+    border: 1px solid rgba(168, 230, 193, 0.3);
+    padding: 6px 12px;
+    border-radius: 20px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.status-live-badge i {
+    font-size: 8px;
+    animation: pulsarBadge 1.5s infinite;
+}
+
+@keyframes pulsarBadge {
+    0% {
+        opacity: 0.3;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0.3;
+    }
+}
+
+.nav-perfil {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.btn-user-painel {
+    color: var(--cor-texto-secundario);
+    font-size: 22px;
+    text-decoration: none;
+}
+
+.btn-user-painel:hover {
+    color: #FFF;
+}
+
+/* Layout da Página */
+.live-layout {
+    width: min(1300px, calc(100% - 40px));
+    margin: 0 auto;
+    padding: 100px 0 40px;
+}
+
+.pagina-cabecalho {
+    margin-bottom: 24px;
+    border-bottom: 1px solid var(--cor-divisor);
+    padding-bottom: 15px;
+}
+
+.sobretitulo {
+    color: var(--cor-roxo-claro);
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 6px;
+}
+
+.pagina-cabecalho h1 {
+    font-size: 28px;
+    font-weight: 400;
+    color: var(--cor-texto-destaque);
+}
+
+.pagina-cabecalho p {
+    color: var(--cor-texto-secundario);
+    font-size: 13px;
+    margin-top: 4px;
+}
+
+/* ========================================== */
+/* CORREÇÃO DA GRELHA DA LIVE                 */
+/* ========================================== */
+.live-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.55fr) minmax(280px, 0.85fr);
+    gap: 24px;
+    align-items: start;
+}
+
+.coluna-principal,
+.coluna-lateral {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.painel {
+    padding: 24px;
+    border: 1px solid var(--cor-borda-padrao);
+    border-radius: 18px;
+    background: var(--gradiente-painel);
+    box-shadow: 0 10px 30px var(--cor-sombra);
+}
+
+.painel-titulo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.etapa {
+    display: grid;
+    place-items: center;
+    flex: 0 0 38px;
+    height: 38px;
+    color: var(--cor-roxo-claro);
+    border: 1px solid rgba(176, 110, 255, 0.3);
+    border-radius: 12px;
+    background: rgba(138, 77, 255, 0.15);
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.painel h2 {
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--cor-texto-destaque);
+}
+
+.painel-titulo p {
+    font-size: 11px;
+    color: var(--cor-texto-suave);
+    margin-top: 2px;
+}
+
+/* Preview da Live */
+.video-preview-box {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16/9;
+    background: #000;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--cor-borda-padrao);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.video-preview-box video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.overlay-gravador-tag {
+    position: absolute;
+    bottom: 12px;
+    left: 12px;
+    background: rgba(9, 9, 18, 0.8);
+    border: 1px solid rgba(176, 110, 255, 0.3);
+    padding: 5px 10px;
+    border-radius: 8px;
+    font-size: 10px;
+    color: var(--cor-roxo-claro);
+    backdrop-filter: blur(5px);
+}
+
+.live-badge-ao-vivo {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: rgba(255, 69, 104, 0.9);
+    color: #FFF;
+    padding: 5px 10px;
+    border-radius: 8px;
+    font-size: 10px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.controles-live {
+    display: flex;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+/* Chat e Botão de Overlay (Estilo Discord) */
+.chat-topo {
+    justify-content: space-between;
+}
+
+.botao-icone-overlay {
+    position: relative;
+    background: rgba(138, 77, 255, 0.15);
+    border: 1px solid rgba(176, 110, 255, 0.3);
+    color: var(--cor-roxo-claro);
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    transition: 0.2s;
+}
+
+.botao-icone-overlay:hover {
+    background: rgba(138, 77, 255, 0.3);
+    color: #FFF;
+    border-color: var(--cor-roxo-claro);
+}
+
+.icone-engrenagem {
+    position: absolute;
+    bottom: 4px;
+    right: 4px;
+    font-size: 10px;
+}
+
+.chat-mensagens-container {
+    height: 260px;
+    background: rgba(9, 9, 18, 0.5);
+    border: 1px solid rgba(176, 110, 255, 0.15);
+    border-radius: 12px;
+    padding: 12px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 12px;
+}
+
+.mensagem-chat {
+    line-height: 1.4;
+    color: var(--cor-texto-secundario);
+}
+
+.mensagem-chat strong {
+    color: var(--cor-roxo-claro);
+    font-weight: 500;
+}
+
+.chat-input-area {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.chat-input-area input {
+    flex: 1;
+    height: 40px;
+    background: rgba(9, 9, 18, 0.6);
+    border: 1px solid rgba(176, 110, 255, 0.2);
+    border-radius: 10px;
+    padding: 0 12px;
+    color: #FFF;
+    font-size: 12px;
+    outline: none;
+}
+
+.chat-input-area input:focus {
+    border-color: var(--cor-roxo-principal);
+}
+
+/* Estilos para campos de sincronização / cópia */
+.grupo-copia {
+    display: flex;
+    gap: 8px;
+}
+
+.grupo-copia input {
+    flex: 1;
+    height: 42px;
+    background: rgba(9, 9, 18, 0.6);
+    border: 1px solid rgba(176, 110, 255, 0.2);
+    border-radius: 10px;
+    padding: 0 12px;
+    color: var(--cor-texto-principal);
+    font-size: 12px;
+    outline: none;
+}
+
+.grupo-copia button {
+    height: 42px;
+    padding: 0 14px;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 16px;
+}
+
+.campo label {
+    font-size: 12px;
+    color: var(--cor-texto-secundario);
+}
+
+.campo-label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.campo-label b, .campo b {
+    color: var(--cor-roxo-claro);
+}
+
+.campo-label small, .campo small {
+    color: var(--cor-texto-suave);
+    font-size: 10px;
+}
+
+.campo select, .campo textarea {
+    width: 100%;
+    color: var(--cor-texto-principal);
+    border: 1px solid rgba(176, 110, 255, 0.2);
+    border-radius: 10px;
+    outline: none;
+    background: rgba(9, 9, 18, 0.6);
+    padding: 10px 12px;
+    font-size: 12px;
+}
+.campo select { height: 42px; color-scheme: dark; }
+.campo textarea { resize: vertical; line-height: 1.5; }
+
+/* ======================================================== */
+/* MODAL ESTILO DISCORD (POP-UP DE SELEÇÃO DE TELA)          */
+/* ======================================================== */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background: rgba(9, 9, 18, 0.85);
+    backdrop-filter: blur(10px);
+    padding: 20px;
+}
+
+.modal-overlay:not([hidden]) {
+    display: flex;
+}
+
+.modal-caixa-discord {
+    width: min(650px, 100%);
+    background: #151027;
+    border: 1px solid var(--cor-borda-destaque);
+    border-radius: 20px;
+    padding: 28px;
+    box-shadow: 0 20px 50px var(--cor-sombra-forte);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.modal-discord-topo h3 {
+    font-size: 18px;
+    font-weight: 400;
+    color: #FFF;
+    margin-bottom: 4px;
+}
+
+.modal-discord-topo p {
+    font-size: 12px;
+    color: var(--cor-texto-suave);
+}
+
+.seletor-opcoes-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+}
+
+.card-opcao-fonte {
+    background: rgba(9, 9, 18, 0.5);
+    border: 1px solid rgba(176, 110, 255, 0.2);
+    border-radius: 12px;
+    padding: 16px 12px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+    transition: 0.2s;
+}
+
+.card-opcao-fonte:hover {
+    border-color: rgba(176, 110, 255, 0.5);
+    background: rgba(138, 77, 255, 0.08);
+}
+
+.card-opcao-fonte.selecionado {
+    border-color: var(--cor-roxo-principal);
+    background: rgba(138, 77, 255, 0.18);
+    box-shadow: 0 0 15px rgba(138, 77, 255, 0.2);
+}
+
+.card-icone-topo {
+    font-size: 24px;
+    color: var(--cor-roxo-claro);
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: rgba(138, 77, 255, 0.15);
+    display: grid;
+    place-items: center;
+}
+
+.card-texto strong {
+    display: block;
+    font-size: 12px;
+    color: #FFF;
+    margin-bottom: 4px;
+}
+
+.card-texto small {
+    font-size: 10px;
+    color: var(--cor-texto-suave);
+    line-height: 1.3;
+}
+
+/* Previews ilustrativos parecidos com o Discord */
+.discord-previews-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+}
+
+.preview-mini-janela {
+    background: #090912;
+    border: 1px solid rgba(176, 110, 255, 0.15);
+    border-radius: 10px;
+    aspect-ratio: 16/9;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    color: var(--cor-texto-suave);
+    font-size: 10px;
+    padding: 10px;
+    text-align: center;
+}
+
+.preview-mini-janela i {
+    font-size: 20px;
+    color: var(--cor-roxo-claro);
+}
+
+.modal-discord-acoes {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 10px;
+}
+
+/* Botões Globais auxiliares */
+.botao {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 42px;
+    padding: 0 18px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 500;
+    transition: 0.2s;
+}
+
+.secundario {
+    color: var(--cor-texto-secundario);
+    border: 1px solid var(--cor-borda-padrao);
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.secundario:hover {
+    border-color: var(--cor-roxo-claro);
+    background: rgba(138, 77, 255, 0.1);
+    color: #FFF;
+}
+
+.principal {
+    color: #FFF;
+    border: 1px solid transparent;
+    background: linear-gradient(110deg, #7540E8, #9D5BFF);
+    box-shadow: 0 6px 20px rgba(138, 77, 255, 0.3);
+}
+
+@media(max-width: 900px) {
+    .live-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .seletor-opcoes-grid,
+    .discord-previews-container {
+        grid-template-columns: 1fr;
+    }
+}
