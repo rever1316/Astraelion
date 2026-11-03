@@ -21,38 +21,50 @@ document.addEventListener('DOMContentLoaded', () => {
         <!-- CABEÇALHO -->
         <!-- ================================= -->
         <div class="cabecalho-painel-usuario">
-            <img
-                src="/assets/img/logo.ico"
-                alt="Avatar do canal"
-                class="avatar-painel-usuario"
-            >
-            <div class="info-painel-usuario">
-                <strong class="nome-painel-usuario">
-                    Astraelion Explorers
-                </strong>
-                <span class="arroba-painel-usuario">
-                    @astraelionexplorers
-                </span>
-                <span class="status-painel-usuario">
-                    Conta conectada
-                </span>
-            </div>
-        </div>
+    <img
+        src="/assets/img/logo.ico"
+        alt="Avatar da conta"
+        class="avatar-painel-usuario"
+    >
+
+    <div class="info-painel-usuario">
+        <strong class="nome-painel-usuario">
+            Visitante
+        </strong>
+
+        <span class="arroba-painel-usuario">
+            Entre na sua conta
+        </span>
+
+        <span class="status-painel-usuario">
+            Não conectado
+        </span>
+    </div>
+</div>
 
         <!-- ================================= -->
         <!-- LISTA PRINCIPAL -->
         <!-- ================================= -->
         <div class="lista-painel-usuario">
 
-            <!-- MEU PERFIL -->
-            <a href="/assets/paginas-segundarias/canal.html" class="item-painel-usuario">
-                <i class="bi bi-person-circle icone-item-usuario"></i>
-                <div class="info-item-usuario">
-                    <strong>Meu perfil</strong>
-                    <span>Acessar seu canal</span>
-                </div>
-                <i class="bi bi-chevron-right seta-item-usuario"></i>
-            </a>
+            <!-- PERFIL / CRIAR CANAL -->
+<a
+    href="#"
+    class="item-painel-usuario"
+    id="btnPerfilCanal"
+>
+
+    <i class="bi bi-person-circle icone-item-usuario"></i>
+
+    <div class="info-item-usuario">
+        <strong id="tituloPerfilCanal">Criar canal</strong>
+        <span id="descricaoPerfilCanal">
+            Tenha seu próprio espaço no Astraelion
+        </span>
+    </div>
+
+    <i class="bi bi-chevron-right seta-item-usuario"></i>
+</a>
 
             <!-- CONTA -->
             <a href="/assets/paginas-segundarias/configuracoes.html" class="item-painel-usuario">
@@ -105,14 +117,97 @@ document.addEventListener('DOMContentLoaded', () => {
         <!-- RODAPÉ -->
         <!-- ================================= -->
         <div class="rodape-painel-usuario">
-            <button class="btn-conta-usuario" id="btnContaUsuario" type="button">
-                <i class="bi bi-box-arrow-right"></i>
-                <span>Sair</span>
-            </button>
-        </div>
+    <button
+        class="btn-conta-usuario"
+        id="btnContaUsuario"
+        type="button"
+    >
+        <i class="bi bi-box-arrow-in-right" id="iconeContaUsuario"></i>
+        <span id="textoContaUsuario">Entrar</span>
+    </button>
+</div>
     `;
 
     document.body.appendChild(painel);
+
+    /* ========================================= */
+    /* MODAL DE CRIAÇÃO DE CANAL                 */
+    /* ========================================= */
+
+    const modalCriarCanal = document.createElement('div');
+    modalCriarCanal.classList.add('modal-criar-canal');
+    modalCriarCanal.id = 'modalCriarCanal';
+    modalCriarCanal.hidden = true;
+    modalCriarCanal.innerHTML = `
+    <div class="conteudo-modal-canal">
+
+        <div class="cabecalho-modal-canal">
+            <div>
+                <h2>Criar seu canal</h2>
+                <p>Crie seu próprio espaço no Astraelion.</p>
+            </div>
+
+            <button
+                type="button"
+                class="fechar-modal-canal"
+                id="fecharModalCanal"
+                aria-label="Fechar"
+            >
+                <i class="bi bi-x-lg"></i>
+            </button>
+        </div>
+
+        <form id="formCriarCanal">
+
+            <div class="campo-modal-canal">
+                <label for="nomeCanal">Nome do canal</label>
+                <input
+                    type="text"
+                    id="nomeCanal"
+                    name="nome"
+                    placeholder="Como seu canal será chamado?"
+                    maxlength="150"
+                    required
+                >
+            </div>
+
+            <div class="campo-modal-canal">
+                <label for="arrobaCanal">Identificador do canal</label>
+                <div class="campo-arroba-canal">
+                    <span>@</span>
+                    <input
+                        type="text"
+                        id="arrobaCanal"
+                        name="arroba"
+                        placeholder="seucanal"
+                        minlength="3"
+                        maxlength="50"
+                        required
+                    >
+                </div>
+                <small>Use letras, números, pontos ou underline.</small>
+            </div>
+
+            <div class="campo-modal-canal">
+                <label for="descricaoCanal">Descrição</label>
+                <textarea
+                    id="descricaoCanal"
+                    name="descricao"
+                    placeholder="Conte um pouco sobre seu canal..."
+                    maxlength="1000"
+                    rows="4"
+                ></textarea>
+            </div>
+
+            <button type="submit" class="btn-criar-canal">
+                Criar canal
+            </button>
+
+        </form>
+    </div>
+`;
+
+    document.body.appendChild(modalCriarCanal);
 
     /* ========================================= */
     /* PAINEL DE ATALHOS DE TECLADO              */
@@ -249,15 +344,288 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     /* ========================================= */
-    /* SAIR                                      */
+    /* SESSÃO E ESTADO DA CONTA                  */
     /* ========================================= */
 
-    const btnConta = painel.querySelector('#btnContaUsuario');
-    if (btnConta) {
-        btnConta.addEventListener('click', () => {
-            console.log('Encerrar sessão');
-        });
+    const avatarUsuario = painel.querySelector('.avatar-painel-usuario');
+    const nomeUsuario = painel.querySelector('.nome-painel-usuario');
+    const arrobaUsuario = painel.querySelector('.arroba-painel-usuario');
+    const statusUsuario = painel.querySelector('.status-painel-usuario');
+
+    const btnPerfilCanal = painel.querySelector('#btnPerfilCanal');
+
+    /* ========================================= */
+    /* CONTROLE DO MODAL DE CRIAÇÃO DE CANAL     */
+    /* ========================================= */
+
+    const fecharModalCanal = modalCriarCanal.querySelector(
+        '#fecharModalCanal'
+    );
+
+    function abrirModalCriarCanal() {
+    painel.classList.remove('aberto');
+
+    modalCriarCanal.hidden = false;
+    modalCriarCanal.classList.add('aberto');
+
+    document.body.classList.add('modal-canal-aberto');
+}
+
+    function fecharModalCriarCanal() {
+    modalCriarCanal.classList.remove('aberto');
+    modalCriarCanal.hidden = true;
+
+    document.body.classList.remove('modal-canal-aberto');
+}
+
+    
+btnPerfilCanal.addEventListener('click', async (evento) => {
+    evento.preventDefault();
+    evento.stopPropagation();
+
+    // Confirma a sessão e verifica se já existe um canal.
+    const usuario = await window.verificarSessao();
+
+    if (!usuario) {
+        return;
     }
+
+    // Se já possui canal, permite acessar o perfil.
+    if (usuario.canal) {
+        window.location.href =
+            '/assets/paginas-segundarias/canal-criador-perfil.html';
+        return;
+    }
+
+    // Se não possui canal, abre o modal.
+    abrirModalCriarCanal();
+});
+
+
+    fecharModalCanal.addEventListener('click', fecharModalCriarCanal);
+
+    modalCriarCanal.addEventListener('click', (evento) => {
+        if (evento.target === modalCriarCanal) {
+            fecharModalCriarCanal();
+        }
+    });
+
+    /* ========================================= */
+    /* CRIAÇÃO DO CANAL — INTEGRAÇÃO COM API     */
+    /* ========================================= */
+
+    const formCriarCanal = modalCriarCanal.querySelector('#formCriarCanal');
+
+    formCriarCanal.addEventListener('submit', async (evento) => {
+        evento.preventDefault();
+
+        const nome = formCriarCanal.querySelector('#nomeCanal').value.trim();
+        const arroba = formCriarCanal.querySelector('#arrobaCanal').value.trim();
+        const descricao = formCriarCanal.querySelector('#descricaoCanal').value.trim();
+
+        const botaoEnviar = formCriarCanal.querySelector('.btn-criar-canal');
+
+        if (!window.usuarioLogado) {
+            alert('Sua sessão não foi identificada. Entre novamente na sua conta.');
+            return;
+        }
+
+        botaoEnviar.disabled = true;
+        botaoEnviar.textContent = 'Criando canal...';
+
+        try {
+            const resposta = await fetch('https://localhost:7229/api/canais', {
+                method: 'POST',
+                credentials: 'include',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    nome: nome,
+                    arroba: arroba,
+                    descricao: descricao
+                })
+            });
+
+            const dados = await resposta.json();
+
+            if (!resposta.ok) {
+                throw new Error(
+                    dados.mensagem || 'Não foi possível criar o canal.'
+                );
+            }
+
+            alert('Canal criado com sucesso!');
+
+            fecharModalCriarCanal();
+
+            // Atualiza os dados da sessão e do canal.
+            await atualizarPainelUsuario();
+
+            formCriarCanal.reset();
+
+        } catch (erro) {
+            console.error('Erro ao criar canal:', erro);
+            alert(erro.message);
+
+        } finally {
+            botaoEnviar.disabled = false;
+            botaoEnviar.textContent = 'Criar canal';
+        }
+    });
+
+    const tituloPerfilCanal = painel.querySelector('#tituloPerfilCanal');
+    const descricaoPerfilCanal = painel.querySelector('#descricaoPerfilCanal');
+
+    const btnConta = painel.querySelector('#btnContaUsuario');
+    const textoConta = painel.querySelector('#textoContaUsuario');
+    const iconeConta = painel.querySelector('#iconeContaUsuario');
+
+    // Item de gerenciamento da conta.
+    const itemConta = painel.querySelector(
+        'a[href="/assets/paginas-segundarias/configuracoes.html"]'
+    );
+
+    
+// Atualiza o painel conforme a sessão.
+async function atualizarPainelUsuario() {
+
+    let usuario = null;
+
+    try {
+        usuario = await window.verificarSessao();
+    } catch (erro) {
+        console.error('Erro ao consultar usuário:', erro);
+    }
+
+    // ESTADO: VISITANTE
+    if (!usuario) {
+
+        atualizarFotoNavegacao(null);
+
+        avatarUsuario.src = '/assets/img/logo.ico';
+        avatarUsuario.alt = 'Visitante';
+
+        nomeUsuario.textContent = 'Visitante';
+        arrobaUsuario.textContent = 'Entre na sua conta';
+        statusUsuario.textContent = 'Não conectado';
+
+        btnPerfilCanal.style.display = 'none';
+
+        if (itemConta) {
+            itemConta.style.display = 'none';
+        }
+
+        textoConta.textContent = 'Entrar';
+        iconeConta.className = 'bi bi-box-arrow-in-right';
+
+        return;
+    }
+
+    // ESTADO: USUÁRIO CONECTADO
+    atualizarFotoNavegacao(usuario);
+
+    const temCanal = !!usuario.canal;
+
+    // Define a identidade exibida no painel
+    const fotoPerfil = usuario.canal?.foto || usuario.foto;
+    const nomePerfil = usuario.canal?.nome || usuario.nome;
+
+    avatarUsuario.src = normalizarUrlImagem(fotoPerfil);
+    avatarUsuario.alt = `Foto de ${nomePerfil || 'Usuário'}`;
+
+    nomeUsuario.textContent = nomePerfil || 'Usuário';
+
+    // Define o identificador exibido
+    if (temCanal && usuario.canal.arroba) {
+
+        const arroba = usuario.canal.arroba;
+
+        arrobaUsuario.textContent = arroba.startsWith('@')
+            ? arroba
+            : `@${arroba}`;
+
+    } else {
+
+        const arroba = (usuario.nome || 'usuario')
+            .normalize('NFD')
+            .replace(/[\u0300-\u036f]/g, '')
+            .toLowerCase()
+            .replace(/[^a-z0-9]/g, '');
+
+        arrobaUsuario.textContent = `@${arroba}`;
+    }
+
+    // Define o status
+    statusUsuario.textContent = temCanal
+        ? 'Canal conectado'
+        : 'Conta conectada';
+
+    // Define o destino e o conteúdo do botão de perfil
+    btnPerfilCanal.href = temCanal
+    ? '/assets/paginas-segundarias/canal-criador-perfil.html'
+    : '/assets/paginas-segundarias/criar-canal.html';
+
+    tituloPerfilCanal.textContent = temCanal
+        ? 'Meu perfil'
+        : 'Criar canal';
+
+    descricaoPerfilCanal.textContent = temCanal
+        ? 'Acesse seu canal no Astraelion'
+        : 'Tenha seu próprio espaço no Astraelion';
+
+    btnPerfilCanal.style.display = 'flex';
+
+    // Opção de conta
+    if (itemConta) {
+        itemConta.style.display = 'flex';
+    }
+
+    textoConta.textContent = 'Sair';
+    iconeConta.className = 'bi bi-box-arrow-right';
+}
+
+    // Verifica a sessão e configura o botão de conta.
+    atualizarPainelUsuario();
+
+    // Ação do botão Entrar / Sair.
+    btnConta.addEventListener('click', async () => {
+
+        const usuario = window.usuarioLogado;
+
+        // VISITANTE: encaminha para o login.
+        if (!usuario) {
+            window.location.href =
+                './assets/paginas-segundarias/login.html';
+
+            return;
+        }
+
+        // USUÁRIO CONECTADO: encerra a sessão.
+        try {
+            const resposta = await fetch(
+                'https://localhost:7229/api/auth/logout',
+                {
+                    method: 'POST',
+                    credentials: 'include'
+                }
+            );
+
+            if (!resposta.ok) {
+                throw new Error('Não foi possível encerrar a sessão.');
+            }
+
+            window.usuarioLogado = null;
+
+            await atualizarPainelUsuario();
+
+            window.location.href = '/index.html';
+
+        } catch (erro) {
+            console.error('Erro ao sair da conta:', erro);
+            alert('Não foi possível encerrar sua sessão. Tente novamente.');
+        }
+    });
 
     /* ========================================= */
     /* ATALHOS DE TECLADO GLOBAIS                */
@@ -283,7 +651,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (evento.altKey && tecla === 's') { evento.preventDefault(); navegar('/assets/paginas-segundarias/seach.html'); }
         if (evento.altKey && tecla === 'g') { evento.preventDefault(); navegar('/assets/paginas-segundarias/galaxias.html'); }
         if (evento.altKey && tecla === 'n') { evento.preventDefault(); navegar('/assets/paginas-segundarias/notificacao.html'); }
-        if (evento.altKey && tecla === 'c') { evento.preventDefault(); navegar('/assets/paginas-segundarias/canal.html'); }
+        if (evento.altKey && tecla === 'c') { evento.preventDefault(); navegar('/assets/paginas-segundarias/canal-criador-perfil.html'); }
 
         if (tecla === 'escape') {
             fecharPainelAtalhos();
@@ -296,3 +664,59 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+
+const API_BASE = 'https://localhost:7229';
+
+function normalizarUrlImagem(caminho) {
+    if (!caminho) {
+        return '/assets/img/logo.ico';
+    }
+
+    // Se já for uma URL absoluta, mantém o endereço.
+    if (caminho.startsWith('http://') || caminho.startsWith('https://')) {
+        return caminho;
+    }
+
+    // Se for um caminho da API, adiciona o endereço do servidor.
+    return `${API_BASE}${caminho.startsWith('/') ? '' : '/'}${caminho}`;
+}
+
+function atualizarFotoNavegacao(usuario) {
+    const botoesPerfil = document.querySelectorAll(
+        '.btn-user-painel, .item-perfil-mobile'
+    );
+
+    botoesPerfil.forEach(botao => {
+        let imagem = botao.querySelector('.foto-nav-usuario');
+        let icone = botao.querySelector('i');
+
+        // Visitante: volta ao ícone padrão
+        if (!usuario) {
+            if (imagem) imagem.remove();
+
+            if (icone) {
+                icone.style.display = '';
+            }
+
+            return;
+        }
+
+        // Foto do canal tem prioridade; sem canal, usa a conta Google
+        const foto = usuario.canal?.foto || usuario.foto;
+
+        if (!foto) return;
+
+        if (!imagem) {
+            imagem = document.createElement('img');
+            imagem.className = 'foto-nav-usuario';
+            imagem.alt = 'Perfil';
+            botao.appendChild(imagem);
+        }
+
+        imagem.src = normalizarUrlImagem(foto);
+
+        if (icone) {
+            icone.style.display = 'none';
+        }
+    });
+}

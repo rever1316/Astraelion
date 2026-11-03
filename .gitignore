@@ -1,2 +1,79 @@
 teste.mp4
 parte42.mp4
+Novo Documento de Texto.txt
+launchSettings.json
+appsettings.json
+Astraelion.Api.csproj
+Astraelion.Api.http
+Program.cs
+backup-canal cards
+Models
+Migrations
+Astraelion.Api
+
+# ==========================================
+# VISUAL STUDIO / VS CODE
+# ==========================================
+
+.vs/
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+
+# ==========================================
+# .NET / ASP.NET CORE
+# ==========================================
+
+**/bin/
+**/obj/
+**/out/
+**/publish/
+
+# Arquivos temporários
+*.user
+*.suo
+*.cache
+*.tmp
+
+# Logs
+*.log
+
+# ==========================================
+# CONFIGURAÇÕES E SEGREDOS
+# ==========================================
+
+.env
+.env.*
+!.env.example
+
+**/appsettings.Development.json
+**/appsettings.Local.json
+
+# Certificados e chaves privadas
+*.pfx
+*.p12
+*.key
+*.pem
+
+# ==========================================
+# BANCO DE DADOS
+# ==========================================
+
+*.db
+*.sqlite
+*.sqlite3
+
+# ==========================================
+# DEPENDÊNCIAS FRONTEND
+# ==========================================
+
+node_modules/
+bower_components/
+
+# ==========================================
+# SISTEMA OPERACIONAL
+# ==========================================
+
+.DS_Store
+Thumbs.db
+desktop.ini

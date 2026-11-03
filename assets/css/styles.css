@@ -141,6 +141,22 @@ header .logo-link {
     text-decoration: none;
 }
 
+.foto-nav-usuario {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+}
+
+.item-perfil-mobile {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+}
+
 header .nav-container img {
     width: 35px;
     height: 35px;

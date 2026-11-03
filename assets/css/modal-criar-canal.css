@@ -1,0 +1,183 @@
+/* ========================================= */
+/* MODAL DE CRIAÇÃO DE CANAL                 */
+/* ========================================= */
+
+.modal-criar-canal {
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+
+    display: none;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(6px);
+}
+
+.modal-criar-canal.aberto {
+    display: flex;
+}
+
+.conteudo-modal-canal {
+    width: 100%;
+    max-width: 520px;
+    max-height: 90vh;
+    overflow-y: auto;
+
+    padding: 28px;
+    border: 1px solid #32205F;
+    border-radius: 16px;
+
+    background: #130A24;
+    color: #B8B8C8;
+
+    box-shadow: 0 15px 60px rgba(0, 0, 0, 0.6);
+}
+
+.cabecalho-modal-canal {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 15px;
+
+    margin-bottom: 28px;
+}
+
+.cabecalho-modal-canal h2 {
+    color: #FFFFFF;
+    font-size: 22px;
+    margin-bottom: 8px;
+}
+
+.cabecalho-modal-canal p {
+    color: #81798F;
+    font-size: 13px;
+}
+
+.fechar-modal-canal {
+    width: 36px;
+    height: 36px;
+    flex-shrink: 0;
+
+    border: none;
+    border-radius: 50%;
+
+    background: #32205F;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
+.campo-modal-canal {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+
+    margin-bottom: 20px;
+}
+
+.campo-modal-canal label {
+    color: #FFFFFF;
+    font-size: 13px;
+}
+
+.campo-modal-canal input,
+.campo-modal-canal textarea {
+    width: 100%;
+    padding: 13px;
+
+    border: 1px solid #32205F;
+    border-radius: 8px;
+    outline: none;
+
+    background: #090912;
+    color: #FFFFFF;
+
+    font-family: inherit;
+    font-size: 13px;
+}
+
+.campo-modal-canal input:focus,
+.campo-modal-canal textarea:focus {
+    border-color: #8A4DFF;
+}
+
+.campo-modal-canal textarea {
+    resize: vertical;
+}
+
+.campo-modal-canal small {
+    color: #81798F;
+    font-size: 11px;
+}
+
+.campo-arroba-canal {
+    display: flex;
+    align-items: center;
+
+    padding-left: 13px;
+    border: 1px solid #32205F;
+    border-radius: 8px;
+    background: #090912;
+}
+
+.campo-arroba-canal span {
+    color: #B06EFF;
+}
+
+.campo-arroba-canal input {
+    border: none;
+    background: transparent;
+}
+
+.campo-arroba-canal:focus-within {
+    border-color: #8A4DFF;
+}
+
+.btn-criar-canal {
+    width: 100%;
+    padding: 14px;
+
+    border: none;
+    border-radius: 8px;
+
+    background: #8A4DFF;
+    color: #FFFFFF;
+
+    font-family: inherit;
+    font-weight: bold;
+    cursor: pointer;
+
+    transition: background 0.2s;
+}
+
+.btn-criar-canal:hover {
+    background: #B06EFF;
+}
+
+/* Bloqueia a rolagem da página ao abrir o modal */
+
+body.modal-canal-aberto {
+    overflow: hidden;
+}
+
+/* ========================================= */
+/* RESPONSIVIDADE                            */
+/* ========================================= */
+
+@media (max-width: 600px) {
+    .modal-criar-canal {
+        padding: 12px;
+    }
+
+    .conteudo-modal-canal {
+        max-height: 92dvh;
+        padding: 22px 18px;
+        border-radius: 12px;
+    }
+
+    .cabecalho-modal-canal h2 {
+        font-size: 19px;
+    }
+}

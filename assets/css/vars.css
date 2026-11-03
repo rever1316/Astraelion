@@ -14,6 +14,7 @@
     --cor-fundo-cabecalho: #130A24;
     --cor-fundo-menu-lateral: #130A24;
     --cor-fundo-cartao: #151027;
+    --cor-fundo-barra-mobile: #130A24;
 
     /* Compatibilidade com nomes alternativos */
     --cor-fundo-card: var(--cor-fundo-cartao);
